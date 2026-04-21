@@ -1,0 +1,130 @@
+[
+  {
+    "name": "彭建华",
+    "month_target_amount": 2878119.61,
+    "month_target_count": 12673.0,
+    "finished_amount": 863435.88,
+    "finished_count": 3802.0,
+    "stores": []
+  },
+  {
+    "name": "杨青青",
+    "month_target_amount": 402239.9,
+    "month_target_count": 2390887.0,
+    "finished_amount": 120671.97,
+    "finished_count": 717266.0,
+    "stores": []
+  },
+  {
+    "name": "彭菊华",
+    "month_target_amount": 2091135.8,
+    "month_target_count": 5446.0,
+    "finished_amount": 627340.74,
+    "finished_count": 1634.0,
+    "stores": []
+  },
+  {
+    "name": "张金伟",
+    "month_target_amount": 1534321.21,
+    "month_target_count": 4999.0,
+    "finished_amount": 460296.36,
+    "finished_count": 1500.0,
+    "stores": []
+  },
+  {
+    "name": "周斌",
+    "month_target_amount": 2007665.48,
+    "month_target_count": 6975.0,
+    "finished_amount": 602299.64,
+    "finished_count": 2093.0,
+    "stores": []
+  },
+  {
+    "name": "熊雄",
+    "month_target_amount": 1494320.1,
+    "month_target_count": 5517.0,
+    "finished_amount": 448296.03,
+    "finished_count": 1655.0,
+    "stores": []
+  },
+  {
+    "name": "王纯",
+    "month_target_amount": 681147.83,
+    "month_target_count": 2093.0,
+    "finished_amount": 204344.35,
+    "finished_count": 628.0,
+    "stores": []
+  },
+  {
+    "name": "陆美英",
+    "month_target_amount": 579119.32,
+    "month_target_count": 1744.0,
+    "finished_amount": 173735.8,
+    "finished_count": 523.0,
+    "stores": []
+  },
+  {
+    "name": "张纯英",
+    "month_target_amount": 2261112.49,
+    "month_target_count": 9609.0,
+    "finished_amount": 678333.75,
+    "finished_count": 2883.0,
+    "stores": []
+  },
+  {
+    "name": "张文胜",
+    "month_target_amount": 2746247.07,
+    "month_target_count": 11042.0,
+    "finished_amount": 823874.12,
+    "finished_count": 3313.0,
+    "stores": []
+  },
+  {
+    "name": "尹建林",
+    "month_target_amount": 2345812.1,
+    "month_target_count": 11650.0,
+    "finished_amount": 703743.63,
+    "finished_count": 3495.0,
+    "stores": []
+  },
+  {
+    "name": "陈龙",
+    "month_target_amount": 2060039.98,
+    "month_target_count": 8488.0,
+    "finished_amount": 618012.0,
+    "finished_count": 2546.0,
+    "stores": []
+  },
+  {
+    "name": "蔡磊",
+    "month_target_amount": 1976715.46,
+    "month_target_count": 8231.0,
+    "finished_amount": 593014.64,
+    "finished_count": 2469.0,
+    "stores": []
+  },
+  {
+    "name": "胡珍",
+    "month_target_amount": 1840716.87,
+    "month_target_count": 7065.0,
+    "finished_amount": 552215.06,
+    "finished_count": 2120.0,
+    "stores": []
+  },
+  {
+    "name": "江廉政",
+    "month_target_amount": 1869223.81,
+    "month_target_count": 7095.0,
+    "finished_amount": 560767.14,
+    "finished_count": 2128.0,
+    "stores": []
+  },
+  {
+    "name": "总计",
+    "month_target_amount": 26767937.04,
+    "month_target_count": 2493515.0,
+    "finished_amount": 8030381.11,
+    "finished_count": 748054.0,
+    "stores": []
+  }
+]
