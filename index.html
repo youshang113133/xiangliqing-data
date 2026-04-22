@@ -175,7 +175,7 @@ async function fetchCloudData() {
       var cloudData = await response.json();
       // 更新全局数据变量
       console.log('数据获取成功:', Object.keys(cloudData));
-    if (cloudData.productsData) productsData = cloudData.productsData;
+      if (cloudData.productsData) productsData = cloudData.productsData;
       if (cloudData.customersData) customersData = cloudData.customersData;
       // 已改用customersData（4247个客户），不再使用allCustomers（267个）
       if (cloudData.dailyReportData) dailyReportData = cloudData.dailyReportData;
