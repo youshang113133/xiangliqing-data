@@ -101,6 +101,14 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px}
 .task-recommend-tag{padding:2px 6px;border-radius:4px;font-size:10px;font-weight:500}
 
 </style>
+
+<script>
+// 页面加载时自动获取云端数据
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('页面加载完成，开始获取云端数据...');
+  fetchCloudData();
+});
+</script>
 </head>
 <body>
 
@@ -243,7 +251,7 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px}
 
 // ===== 双模式数据加载系统 =====
 var DATA_URL = "data_v202604221821.json"; // 请替换为实际云端地址
-var dataSource = 'embedded'; // 'embedded' 或 'cloud'
+var dataSource = 'cloud'; // 'embedded' 或 'cloud'
 var dataUpdateTime = '2026-04-21 23:59:59';
 
 // 尝试从云端获取数据
