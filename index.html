@@ -258,7 +258,20 @@ async function fetchCloudData() {
       if (cloudData.customersData) customersData = cloudData.customersData;
       // 已改用customersData（4247个客户），不再使用allCustomers（267个）
       if (cloudData.dailyReportData) dailyReportData = cloudData.dailyReportData;
-      if (cloudData.salesProgressData) salesProgressData = cloudData.salesProgressData;
+      if (cloudData.salesProgressData) {
+      // 转换字段名以匹配页面代码
+      salesProgressData = cloudData.salesProgressData.map(function(item) {
+        return {
+          '区域': item.region || '长株潭业务部',
+          '业务经理': item.name,
+          '月销售额': item.sales,
+          '月度目标': item.target,
+          '完成进度': item.progress + '%',
+          '月累计毛利率': item.margin,
+          '月累计达标': item.progress >= 100 ? '✅' : ''
+        };
+      });
+    }
       if (cloudData.channelTypeMap) channelTypeMap = cloudData.channelTypeMap;
       
       dataSource = 'cloud';
