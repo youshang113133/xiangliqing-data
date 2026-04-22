@@ -453,6 +453,12 @@ function renderReport() {
     var todayStr = now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日';
     document.getElementById('rptDate').textContent = todayStr + ' ' + ['周日','周一','周二','周三','周四','周五','周六'][now.getDay()];
 
+    // 检查数据是否已加载
+    if (!data || !progress || progress.length === 0) {
+        document.getElementById('rptContent').innerHTML = '<div class="loading">正在加载数据...</div>';
+        return;
+    }
+
     var h = '';
 
     // ===== 1. 核心经营指标 =====
