@@ -1078,7 +1078,10 @@ document.getElementById('md').classList.remove('on');
 }
 
 // ===== 初始化 =====
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+    // 先从云端加载数据
+    await fetchCloudData();
+    
     allCustomers = customersData;
     filteredCustomers = customersData;
     
