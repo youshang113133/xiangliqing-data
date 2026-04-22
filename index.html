@@ -164,6 +164,7 @@ var dataUpdateTime = '2026-04-22 17:36:06';
 
 // 尝试从云端获取数据
 async function fetchCloudData() {
+  console.log('fetchCloudData开始, URL:', DATA_URL);
   try {
     var response = await fetch(DATA_URL, {
       method: 'GET',
@@ -173,7 +174,8 @@ async function fetchCloudData() {
     if (response.ok) {
       var cloudData = await response.json();
       // 更新全局数据变量
-      if (cloudData.productsData) productsData = cloudData.productsData;
+      console.log('数据获取成功:', Object.keys(cloudData));
+    if (cloudData.productsData) productsData = cloudData.productsData;
       if (cloudData.customersData) customersData = cloudData.customersData;
       // 已改用customersData（4247个客户），不再使用allCustomers（267个）
       if (cloudData.dailyReportData) dailyReportData = cloudData.dailyReportData;
@@ -281,6 +283,8 @@ var salesProgressData = [];
 
 // ===== 日报页 =====
 function renderReport() {
+    try {
+    console.log('renderReport开始, dailyReportData:', JSON.stringify(dailyReportData).substring(0,200));
     var data = dailyReportData;
     var progress = salesProgressData;
     var now = new Date();
@@ -404,6 +408,11 @@ function renderReport() {
     h += '</div>';
 
     document.getElementById('rptContent').innerHTML = h;
+    console.log('renderReport完成, h长度:', h.length);
+    } catch(e) {
+        console.error('renderReport错误:', e);
+        document.getElementById('rptContent').innerHTML = '<div style="padding:20px;color:red">日报渲染错误: ' + e.message + '</div>';
+    }
 }
 
 function fmtAmt(amt) {
