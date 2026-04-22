@@ -168,19 +168,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 <!-- 任务跟进页 -->
-
-      <div class="stat-item">
-        <div class="stat-num" id="taskFinishedAmount">--</div>
-        <div class="stat-lbl">已完成(万)</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" id="taskProgress">--</div>
-        <div class="stat-lbl">金额完成率</div>
-      </div>
-    </div>
-    
-
-  </div>
   
   <!-- TOP10客户表格 -->
   <div class="card" id="taskTop10Card" style="display:none">
@@ -228,6 +215,8 @@ var salesProgressData = [];
 var productsData = [];
 var customersData = [];
 var recsData = {};
+var productPortraitData = {};
+var productSalesmen = {};
 var channelTypeMap = {};
 ; // 请替换为实际云端地址
 var dataSource = 'cloud'; // 'embedded' 或 'cloud'
@@ -1454,19 +1443,6 @@ function renderTaskManager() {
     var progress = managerSalesData ? managerSalesData['完成进度'] : '--';
     
     document.getElementById('taskTargetAmount').textContent = targetAmount;
-    document.getElementById('taskFinishedAmount').textContent = finishedAmount;
-    document.getElementById('taskProgress').textContent = progress;
-    
-    // 根据完成进度设置颜色
-    var progressNum = parseFloat(progress.replace('%', '')) || 0;
-    var progressEl = document.getElementById('taskProgress');
-    if (progressNum >= 50) {
-        progressEl.style.color = '#137333'; // 绿色
-    } else if (progressNum >= 30) {
-        progressEl.style.color = '#e37400'; // 橙色
-    } else {
-        progressEl.style.color = '#c5221f'; // 红色
-    }
     
     // 渲染TOP10客户表格
     renderTaskTop10Customers(managerName);
