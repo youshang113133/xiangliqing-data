@@ -106,7 +106,12 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px}
 // 页面加载时自动获取云端数据
 document.addEventListener('DOMContentLoaded', function() {
   console.log('页面加载完成，开始获取云端数据...');
-  fetchCloudData();
+  // 先显示加载中状态
+  document.getElementById('rptDate').textContent = '数据加载中...';
+  // 获取云端数据
+  fetchCloudData().then(() => {
+    console.log('数据加载完成，刷新页面');
+  });
 });
 </script>
 </head>
@@ -226,7 +231,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 
 // ===== 双模式数据加载系统 =====
-var DATA_URL = "data_v202604221821.json"; // 请替换为实际云端地址
+var DATA_URL = "data_v202604221821.json"
+
+// 全局数据变量初始化（等待云端加载）
+var dailyReportData = null;
+var salesProgressData = [];
+var productsData = [];
+var customersData = [];
+var channelTypeMap = {};
+; // 请替换为实际云端地址
 var dataSource = 'cloud'; // 'embedded' 或 'cloud'
 var dataUpdateTime = '2026-04-21 23:59:59';
 
