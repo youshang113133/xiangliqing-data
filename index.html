@@ -104,14 +104,17 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px}
 
 <script>
 // 页面加载时自动获取云端数据
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
   console.log('页面加载完成，开始获取云端数据...');
-  // 先显示加载中状态
   document.getElementById('rptDate').textContent = '数据加载中...';
-  // 获取云端数据
-  fetchCloudData().then(() => {
+  try {
+    await fetchCloudData();
     console.log('数据加载完成，刷新页面');
-  });
+  } catch(e) {
+    console.log('数据加载失败:', e);
+    // 即使失败也尝试渲染
+    if (dailyReportData) renderReport();
+  }
 });
 </script>
 </head>
