@@ -249,7 +249,7 @@ var dataUpdateTime = '2026-04-21 23:59:59';
 // 尝试从云端获取数据
 async function fetchCloudData() {
   try {
-    var response = await fetch(DATA_URL, {
+    var response = await fetch(DATA_URL + "?t=" + Date.now(), {
       method: 'GET',
       headers: {'Accept': 'application/json'},
       signal: AbortSignal.timeout(30000)
