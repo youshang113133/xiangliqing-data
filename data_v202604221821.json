@@ -204,12 +204,12 @@
       },
       {
         "name": "江廉政",
-        "sales": 372633.8,
+        "sales": 391421.1,
         "profit": 25687.58,
-        "margin": 0.0689,
+        "margin": 0.0656,
         "orders": 194,
         "target": 917000.0,
-        "progress": 40.5
+        "progress": 42.55
       },
       {
         "name": "陈龙",
@@ -406,12 +406,12 @@
     },
     {
       "name": "江廉政",
-      "sales": 372633.8,
+      "sales": 391421.1,
       "profit": 25687.58,
-      "margin": 0.0689,
+      "margin": 0.0656,
       "orders": 194,
       "target": 920000,
-      "progress": 40.5,
+      "progress": 42.55,
       "region": "省内业务部"
     },
     {
