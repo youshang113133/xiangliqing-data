@@ -160,31 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 <!-- 任务跟进页 -->
-<div id="pgTask" class="pg">
-  <div class="pg-hd">
-    <h1>📋 任务跟进</h1>
-    <p id="taskStat">业务员任务完成情况</p>
-  </div>
-  
-  <!-- 业务员选择 -->
-  <div class="card">
-    <div class="card-tit">选择业务经理</div>
-    <select id="taskManagerSelect" onchange="renderTaskManager()">
-      <option value="">请选择</option>
-      <option value="彭建华">彭建华</option><option value="杨青青">杨青青</option><option value="彭菊华">彭菊华</option><option value="张金伟">张金伟</option><option value="周斌">周斌</option><option value="熊雄">熊雄</option><option value="王纯">王纯</option><option value="陆美英">陆美英</option><option value="张纯英">张纯英</option><option value="张文胜">张文胜</option><option value="江廉政">江廉政</option><option value="尹建林">尹建林</option><option value="陈龙">陈龙</option><option value="蔡磊">蔡磊</option><option value="胡珍">胡珍</option>
-    </select>
-  </div>
-  
-  <!-- 本月任务概览 -->
-  <div class="card" id="taskOverview" style="display:none">
-    <div class="card-tit">本月任务概览</div>
-    
-    <!-- 第一行：金额相关 -->
-    <div class="stat-row">
-      <div class="stat-item">
-        <div class="stat-num" id="taskTargetAmount">--</div>
-        <div class="stat-lbl">目标金额(万)</div>
-      </div>
+
       <div class="stat-item">
         <div class="stat-num" id="taskFinishedAmount">--</div>
         <div class="stat-lbl">已完成(万)</div>
@@ -237,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="navReport" class="on" onclick="switchTab('Report')">日报</div>
 <div id="navProduct" onclick="switchTab('Product')">产品</div>
 <div id="navCustomer" onclick="switchTab('Customer')">客户</div>
-<div id="navTask" onclick="switchTab('Task')">任务</div>
+
 </div>
 
 <!-- 刷新按钮 -->
