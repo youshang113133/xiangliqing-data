@@ -288,7 +288,8 @@ async function fetchCloudData() {
     }
       if (cloudData.salesProgressData) {
       // 转换字段名以匹配页面代码
-      salesProgressData = cloudData.salesProgressData.map(function(item) {
+      // 先转换个人数据
+      var tempProgress = cloudData.salesProgressData.map(function(item) {
         return {
           '区域': item.region || '长株潭业务部',
           '业务经理': item.name,
@@ -299,6 +300,42 @@ async function fetchCloudData() {
           '月累计达标': item.progress >= 100 ? '✅' : ''
         };
       });
+      
+      // 按区域分组计算小计
+      var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
+      var companyTotal = 0;
+      regions.forEach(function(region) {
+        var regionItems = tempProgress.filter(function(p) { return p['区域'] === region; });
+        if (regionItems.length > 0) {
+          var subSales = regionItems.reduce(function(sum, p) { return sum + (p['月销售额'] || 0); }, 0);
+          var subTarget = regionItems.reduce(function(sum, p) { return sum + (p['月度目标'] || 0); }, 0);
+          var subMargin = regionItems.reduce(function(sum, p) { return sum + (p['月累计毛利率'] || 0) * (p['月销售额'] || 0); }, 0) / (subSales || 1);
+          var subProgress = subTarget > 0 ? (subSales / subTarget * 100).toFixed(1) : 0;
+          companyTotal += subSales;
+          tempProgress.push({
+            '区域': region,
+            '业务经理': '小计',
+            '月销售额': subSales,
+            '月度目标': subTarget,
+            '完成进度': subProgress + '%',
+            '月累计毛利率': subMargin,
+            '月累计达标': subProgress >= 100 ? '✅' : ''
+          });
+        }
+      });
+      
+      // 添加公司合计
+      tempProgress.push({
+        '区域': '公司合计',
+        '业务经理': '公司合计',
+        '月销售额': companyTotal,
+        '月度目标': 17500000,
+        '完成进度': (companyTotal / 17500000 * 100).toFixed(1) + '%',
+        '月累计毛利率': 0.1089,
+        '月累计达标': ''
+      });
+      
+      salesProgressData = tempProgress;
     }
       if (cloudData.channelTypeMap) channelTypeMap = cloudData.channelTypeMap;
       
