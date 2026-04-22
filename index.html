@@ -179,21 +179,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       </div>
     </div>
     
-    <!-- 第二行：件数相关 -->
-    <div class="stat-row">
-      <div class="stat-item">
-        <div class="stat-num" id="taskTargetPieces">--</div>
-        <div class="stat-lbl">件数目标</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" id="taskFinishedPieces">--</div>
-        <div class="stat-lbl">件数完成</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num" id="taskPiecesProgress">--</div>
-        <div class="stat-lbl">件数完成率</div>
-      </div>
-    </div>
+
   </div>
   
   <!-- TOP10客户表格 -->
@@ -241,6 +227,7 @@ var dailyReportData = null;
 var salesProgressData = [];
 var productsData = [];
 var customersData = [];
+var recsData = {};
 var channelTypeMap = {};
 ; // 请替换为实际云端地址
 var dataSource = 'cloud'; // 'embedded' 或 'cloud'
@@ -259,6 +246,7 @@ async function fetchCloudData() {
       // 更新全局数据变量
       if (cloudData.productsData) productsData = cloudData.productsData;
       if (cloudData.customersData) customersData = cloudData.customersData;
+      if (cloudData.recsData) recsData = cloudData.recsData;
       // 已改用customersData（4247个客户），不再使用allCustomers（267个）
       if (cloudData.dailyReportData) {
       dailyReportData = cloudData.dailyReportData;
@@ -653,7 +641,7 @@ function renderProduct() {
     h += '<div class="prd-grid">';
     
     filtered.forEach(function(p, i) {
-        var realIdx = productsData.indexOf(p);
+        var realIdx = productsData.findIndex(function(item) { return item.code === p.code; });
         var profitColor = p.profit >= 15 ? '#137333' : (p.profit >= 10 ? '#1a73e8' : '#e53935');
         var rank = i + 1;
         
@@ -1468,12 +1456,6 @@ function renderTaskManager() {
     document.getElementById('taskTargetAmount').textContent = targetAmount;
     document.getElementById('taskFinishedAmount').textContent = finishedAmount;
     document.getElementById('taskProgress').textContent = progress;
-    
-    // 更新件数目标和件数完成
-    var targetPieces = taskTargetsData[managerName] || 0;
-    var finishedPieces = managerSalesData ? (managerSalesData['月销售件数'] || 0) : 0;
-    document.getElementById('taskTargetPieces').textContent = targetPieces.toLocaleString();
-    document.getElementById('taskFinishedPieces').textContent = finishedPieces.toLocaleString();
     
     // 根据完成进度设置颜色
     var progressNum = parseFloat(progress.replace('%', '')) || 0;
