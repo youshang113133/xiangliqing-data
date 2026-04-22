@@ -257,7 +257,32 @@ async function fetchCloudData() {
       if (cloudData.productsData) productsData = cloudData.productsData;
       if (cloudData.customersData) customersData = cloudData.customersData;
       // 已改用customersData（4247个客户），不再使用allCustomers（267个）
-      if (cloudData.dailyReportData) dailyReportData = cloudData.dailyReportData;
+      if (cloudData.dailyReportData) {
+      dailyReportData = cloudData.dailyReportData;
+      // 补充缺失字段
+      if (!dailyReportData['核心经营指标']['亏损订单数']) {
+        dailyReportData['核心经营指标']['亏损订单数'] = {'当日': 0, '月累计': 0, '预警': ''};
+      }
+      if (!dailyReportData['核心经营指标']['亏损金额']) {
+        dailyReportData['核心经营指标']['亏损金额'] = {'当日': 0, '月累计': 0};
+      }
+      if (!dailyReportData['核心经营指标']['成本']) {
+        dailyReportData['核心经营指标']['成本'] = {
+          '当日': dailyReportData['核心经营指标']['销售额']['当日'] - dailyReportData['核心经营指标']['毛利额']['当日'],
+          '月累计': dailyReportData['核心经营指标']['销售额']['月累计'] - dailyReportData['核心经营指标']['毛利额']['月累计']
+        };
+      }
+      // 补充达标字段
+      if (!dailyReportData['核心经营指标']['毛利率']['当日达标']) {
+        dailyReportData['核心经营指标']['毛利率']['当日达标'] = dailyReportData['核心经营指标']['毛利率']['当日'] >= 0.13;
+      }
+      if (!dailyReportData['核心经营指标']['毛利率']['月累计达标']) {
+        dailyReportData['核心经营指标']['毛利率']['月累计达标'] = dailyReportData['核心经营指标']['毛利率']['月累计'] >= 0.13;
+      }
+      if (!dailyReportData['核心经营指标']['销售额']['目标完成率']) {
+        dailyReportData['核心经营指标']['销售额']['目标完成率'] = dailyReportData['核心经营指标']['销售额']['月累计'] / 17500000; // 假设月目标1750万
+      }
+    }
       if (cloudData.salesProgressData) {
       // 转换字段名以匹配页面代码
       salesProgressData = cloudData.salesProgressData.map(function(item) {
