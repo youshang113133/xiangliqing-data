@@ -1,0 +1,473 @@
+{
+  "updateTime": "2026-04-22 17:23:30",
+  "dailyReportData": {
+    "date": "2026-04-21",
+    "month": "2026-04",
+    "核心经营指标": {
+      "销售额": {
+        "当日": 348369.85,
+        "月累计": 7214738.76
+      },
+      "成本": {
+        "当日": 0,
+        "月累计": 0
+      },
+      "毛利额": {
+        "当日": 46810.24,
+        "月累计": 785650.79
+      },
+      "毛利率": {
+        "当日": 0.1344,
+        "月累计": 0.1089
+      },
+      "订单数": {
+        "当日": 305,
+        "月累计": 6416
+      }
+    },
+    "毛利区间": {
+      "当日": [
+        {
+          "name": "高利",
+          "value": 85745.5
+        },
+        {
+          "name": "中高利",
+          "value": 108585.6
+        },
+        {
+          "name": "基准",
+          "value": 97499.75
+        },
+        {
+          "name": "低利",
+          "value": 18022.5
+        },
+        {
+          "name": "微利",
+          "value": 19951.5
+        },
+        {
+          "name": "亏损",
+          "value": 14051.0
+        },
+        {
+          "name": "未知",
+          "value": 4514.0
+        }
+      ],
+      "月累计": [
+        {
+          "name": "高利",
+          "value": 1478570.64
+        },
+        {
+          "name": "中高利",
+          "value": 1849042.05
+        },
+        {
+          "name": "基准",
+          "value": 1714839.51
+        },
+        {
+          "name": "低利",
+          "value": 602118.86
+        },
+        {
+          "name": "微利",
+          "value": 935585.23
+        },
+        {
+          "name": "亏损",
+          "value": 462941.01
+        },
+        {
+          "name": "未知",
+          "value": 171641.46
+        }
+      ]
+    },
+    "销售进度": [
+      {
+        "name": "张文胜",
+        "sales": 736720.5,
+        "profit": 85901.6,
+        "margin": 0.1166,
+        "orders": 363,
+        "target": 1300000.0,
+        "progress": 56.7
+      },
+      {
+        "name": "彭建华",
+        "sales": 682206.29,
+        "profit": 83407.88,
+        "margin": 0.1223,
+        "orders": 1071,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "杨青青",
+        "sales": 592772.24,
+        "profit": 63189.28,
+        "margin": 0.1066,
+        "orders": 1496,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "彭菊华",
+        "sales": 531880.81,
+        "profit": 58084.31,
+        "margin": 0.1092,
+        "orders": 531,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "胡珍",
+        "sales": 493971.51,
+        "profit": 59329.09,
+        "margin": 0.1201,
+        "orders": 325,
+        "target": 850000.0,
+        "progress": 58.1
+      },
+      {
+        "name": "蔡磊",
+        "sales": 444107.0,
+        "profit": 40020.82,
+        "margin": 0.0901,
+        "orders": 201,
+        "target": 792793.65,
+        "progress": 56.0
+      },
+      {
+        "name": "尹建林",
+        "sales": 431291.75,
+        "profit": 47794.79,
+        "margin": 0.1108,
+        "orders": 274,
+        "target": 798752.93,
+        "progress": 54.0
+      },
+      {
+        "name": "宋扬杰",
+        "sales": 416479.0,
+        "profit": 61981.23,
+        "margin": 0.1488,
+        "orders": 145,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "张纯英",
+        "sales": 408834.03,
+        "profit": 46739.41,
+        "margin": 0.1143,
+        "orders": 256,
+        "target": 1300000.0,
+        "progress": 31.4
+      },
+      {
+        "name": "周斌",
+        "sales": 401871.99,
+        "profit": 30105.62,
+        "margin": 0.0749,
+        "orders": 297,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "江廉政",
+        "sales": 372633.8,
+        "profit": 25687.58,
+        "margin": 0.0689,
+        "orders": 194,
+        "target": 917000.0,
+        "progress": 40.6
+      },
+      {
+        "name": "陈龙",
+        "sales": 341208.05,
+        "profit": 39311.77,
+        "margin": 0.1152,
+        "orders": 205,
+        "target": 950289.43,
+        "progress": 35.9
+      },
+      {
+        "name": "张金伟",
+        "sales": 303039.2,
+        "profit": 21429.72,
+        "margin": 0.0707,
+        "orders": 272,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "陆美英",
+        "sales": 240417.44,
+        "profit": 19775.9,
+        "margin": 0.0823,
+        "orders": 168,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "罗策",
+        "sales": 207916.0,
+        "profit": 27230.9,
+        "margin": 0.131,
+        "orders": 83,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "熊雄",
+        "sales": 199256.5,
+        "profit": 23692.58,
+        "margin": 0.1189,
+        "orders": 203,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "刘文",
+        "sales": 149735.9,
+        "profit": 21730.12,
+        "margin": 0.1451,
+        "orders": 89,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "李志强",
+        "sales": 126618.95,
+        "profit": 13207.1,
+        "margin": 0.1043,
+        "orders": 98,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "王纯",
+        "sales": 95075.8,
+        "profit": 10981.75,
+        "margin": 0.1155,
+        "orders": 118,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "袁正军",
+        "sales": 29902.0,
+        "profit": 5282.21,
+        "margin": 0.1767,
+        "orders": 22,
+        "target": 0,
+        "progress": 0
+      },
+      {
+        "name": "郁进军",
+        "sales": 8800.0,
+        "profit": 767.12,
+        "margin": 0.0872,
+        "orders": 5,
+        "target": 0,
+        "progress": 0
+      }
+    ]
+  },
+  "salesProgressData": [
+    {
+      "name": "张文胜",
+      "sales": 736720.5,
+      "profit": 85901.6,
+      "margin": 0.1166,
+      "orders": 363,
+      "target": 1300000.0,
+      "progress": 56.7
+    },
+    {
+      "name": "彭建华",
+      "sales": 682206.29,
+      "profit": 83407.88,
+      "margin": 0.1223,
+      "orders": 1071,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "杨青青",
+      "sales": 592772.24,
+      "profit": 63189.28,
+      "margin": 0.1066,
+      "orders": 1496,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "彭菊华",
+      "sales": 531880.81,
+      "profit": 58084.31,
+      "margin": 0.1092,
+      "orders": 531,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "胡珍",
+      "sales": 493971.51,
+      "profit": 59329.09,
+      "margin": 0.1201,
+      "orders": 325,
+      "target": 850000.0,
+      "progress": 58.1
+    },
+    {
+      "name": "蔡磊",
+      "sales": 444107.0,
+      "profit": 40020.82,
+      "margin": 0.0901,
+      "orders": 201,
+      "target": 792793.65,
+      "progress": 56.0
+    },
+    {
+      "name": "尹建林",
+      "sales": 431291.75,
+      "profit": 47794.79,
+      "margin": 0.1108,
+      "orders": 274,
+      "target": 798752.93,
+      "progress": 54.0
+    },
+    {
+      "name": "宋扬杰",
+      "sales": 416479.0,
+      "profit": 61981.23,
+      "margin": 0.1488,
+      "orders": 145,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "张纯英",
+      "sales": 408834.03,
+      "profit": 46739.41,
+      "margin": 0.1143,
+      "orders": 256,
+      "target": 1300000.0,
+      "progress": 31.4
+    },
+    {
+      "name": "周斌",
+      "sales": 401871.99,
+      "profit": 30105.62,
+      "margin": 0.0749,
+      "orders": 297,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "江廉政",
+      "sales": 372633.8,
+      "profit": 25687.58,
+      "margin": 0.0689,
+      "orders": 194,
+      "target": 917000.0,
+      "progress": 40.6
+    },
+    {
+      "name": "陈龙",
+      "sales": 341208.05,
+      "profit": 39311.77,
+      "margin": 0.1152,
+      "orders": 205,
+      "target": 950289.43,
+      "progress": 35.9
+    },
+    {
+      "name": "张金伟",
+      "sales": 303039.2,
+      "profit": 21429.72,
+      "margin": 0.0707,
+      "orders": 272,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "陆美英",
+      "sales": 240417.44,
+      "profit": 19775.9,
+      "margin": 0.0823,
+      "orders": 168,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "罗策",
+      "sales": 207916.0,
+      "profit": 27230.9,
+      "margin": 0.131,
+      "orders": 83,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "熊雄",
+      "sales": 199256.5,
+      "profit": 23692.58,
+      "margin": 0.1189,
+      "orders": 203,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "刘文",
+      "sales": 149735.9,
+      "profit": 21730.12,
+      "margin": 0.1451,
+      "orders": 89,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "李志强",
+      "sales": 126618.95,
+      "profit": 13207.1,
+      "margin": 0.1043,
+      "orders": 98,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "王纯",
+      "sales": 95075.8,
+      "profit": 10981.75,
+      "margin": 0.1155,
+      "orders": 118,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "袁正军",
+      "sales": 29902.0,
+      "profit": 5282.21,
+      "margin": 0.1767,
+      "orders": 22,
+      "target": 0,
+      "progress": 0
+    },
+    {
+      "name": "郁进军",
+      "sales": 8800.0,
+      "profit": 767.12,
+      "margin": 0.0872,
+      "orders": 5,
+      "target": 0,
+      "progress": 0
+    }
+  ]
+}
