@@ -241,9 +241,11 @@ function renderReport() {
   if (salesProgressData && salesProgressData.length > 0) {
     html += '<div class="card"><div class="card-tit">🎯 区域销售进度</div>';
     salesProgressData.forEach(function(item) {
-      var progress = item['完成进度'] || 0;
+      // 处理完成进度（可能是字符串"21.31%"或数字）
+      var progressStr = item['完成进度'] || '0%';
+      var progress = parseFloat(progressStr.toString().replace('%', '')) || 0;
       var color = progress >= 100 ? '#137333' : progress >= 80 ? '#e37400' : '#c5221f';
-      html += '<div class="row"><span>' + (item['区域'] || '未知') + '</span><span style="color:' + color + '">' + progress.toFixed(1) + '%</span></div>';
+      html += '<div class="row"><span>' + (item['区域'] || '未知') + '</span><span style="color:' + color + '">' + progressStr + '</span></div>';
       html += '<div class="progress-bar"><div class="progress-fill" style="width:' + Math.min(progress, 100) + '%;background:' + color + '"></div></div>';
     });
     html += '</div>';
