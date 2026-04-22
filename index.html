@@ -140,7 +140,14 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px}
 <div id="navCustomer" onclick="switchTab('Customer')">客户</div>
 </div>
 
+
 <!-- 刷新按钮 -->
+<div style="position:fixed;top:10px;right:12px;z-index:101;">
+  <button onclick="manualRefreshData()" style="background:#fff;border:1px solid #ddd;border-radius:20px;padding:8px 14px;font-size:12px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.15);display:flex;align-items:center;gap:4px;">
+    🔄 刷新
+  </button>
+</div>
+
 <div style="position:fixed;top:60px;right:12px;z-index:99;">
   <button onclick="manualRefreshData()" style="background:#fff;border:1px solid #ddd;border-radius:20px;padding:6px 12px;font-size:11px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
     🔄 刷新数据
