@@ -833,8 +833,8 @@ function showProductDetail(idx) {
     h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin-bottom:14px">';
     h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📦 价格与库存</div>';
     h += '<div class="row"><span class="lb">一批价格</span><span class="vl vl-r">¥' + (p.batchPrice > 0 ? p.batchPrice.toFixed(2) : '-') + '</span></div>';
-    h += '<div class="row"><span class="lb">二批价</span><span class="vl">' + (portrait['供货价(元/包)'] ? '¥' + parseFloat(portrait['供货价(元/包)']).toFixed(2) + '/包' : '-') + '</span></div>';
-    h += '<div class="row"><span class="lb">零售价</span><span class="vl">' + (portrait['建议零售价(元/包)'] ? '¥' + parseFloat(portrait['建议零售价(元/包)']).toFixed(2) + '/包' : '-') + '</span></div>';
+    h += '<div class="row"><span class="lb">二批价</span><span class="vl">' + (portrait['二批价(元/包)'] ? '¥' + parseFloat(portrait['二批价(元/包)']).toFixed(2) + '/包' : '-') + '</span></div>';
+    h += '<div class="row"><span class="lb">零售价</span><span class="vl">' + (portrait['零售价(元/包)'] ? '¥' + parseFloat(portrait['零售价(元/包)']).toFixed(2) + '/包' : '-') + '</span></div>';
     // 计算库存件数（大于1取整，小于1保留小数）
     var specCount = getSpecCount(p.spec);
     var stockDisplay = '-';
