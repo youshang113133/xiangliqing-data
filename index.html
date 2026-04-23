@@ -799,13 +799,13 @@ function showProductDetail(idx) {
     
 
     // 产品图片显示
-    if (p.imageFront || p.imageBack) {
+    if (portrait.imageFront || portrait.imageBack) {
         h += '<div style="display:flex;gap:10px;margin-bottom:14px">';
-        if (p.imageFront) {
-            h += '<div style="flex:1;text-align:center"><img src="' + p.imageFront + '" style="max-width:100%;max-height:150px;border-radius:8px"><div style="font-size:10px;color:#888;margin-top:4px">正面</div></div>';
+        if (portrait.imageFront) {
+            h += '<div style="flex:1;text-align:center"><img src="' + portrait.imageFront + '" style="max-width:100%;max-height:150px;border-radius:8px"><div style="font-size:10px;color:#888;margin-top:4px">正面</div></div>';
         }
-        if (p.imageBack) {
-            h += '<div style="flex:1;text-align:center"><img src="' + p.imageBack + '" style="max-width:100%;max-height:150px;border-radius:8px"><div style="font-size:10px;color:#888;margin-top:4px">反面</div></div>';
+        if (portrait.imageBack) {
+            h += '<div style="flex:1;text-align:center"><img src="' + portrait.imageBack + '" style="max-width:100%;max-height:150px;border-radius:8px"><div style="font-size:10px;color:#888;margin-top:4px">反面</div></div>';
         }
         h += '</div>';
     }
