@@ -207,7 +207,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 <script>
 
 // ===== 双模式数据加载系统 =====
-var DATA_URL = "data_v202604240800.json"
+var DATA_URL = "data_core.json"
+var RECS_URL = "data_recs.json"
 
 // 全局数据变量初始化（等待云端加载）
 var dailyReportData = null;
@@ -218,6 +219,26 @@ var recsData = {};
 var productPortraitData = {};
 var productSalesmen = {};
 var channelTypeMap = {};
+var recsDataLoaded = false;
+
+// 异步加载推荐数据
+async function fetchRecsData() {
+  try {
+    var response = await fetch(RECS_URL + "?t=" + Date.now(), {
+      method: 'GET',
+      headers: {'Accept': 'application/json'},
+      signal: AbortSignal.timeout(120000)
+    });
+    if (response.ok) {
+      var recsDataRes = await response.json();
+      recsData = recsDataRes.recsData || {};
+      recsDataLoaded = true;
+      console.log('推荐数据加载完成');
+    }
+  } catch(e) {
+    console.log('推荐数据加载失败:', e);
+  }
+}
 ; // 请替换为实际云端地址
 var dataSource = 'cloud'; // 'embedded' 或 'cloud'
 var dataUpdateTime = "2026-04-24 08:10:00"; '2026-04-24 08:00:00';
@@ -225,6 +246,7 @@ var dataUpdateTime = "2026-04-24 08:10:00"; '2026-04-24 08:00:00';
 // 尝试从云端获取数据
 async function fetchCloudData() {
   try {
+    // 先加载核心数据
     var response = await fetch(DATA_URL + "?t=" + Date.now(), {
       method: 'GET',
       headers: {'Accept': 'application/json'},
@@ -232,6 +254,8 @@ async function fetchCloudData() {
     });
     if (response.ok) {
       var cloudData = await response.json();
+      // 异步加载推荐数据（不阻塞页面渲染）
+      fetchRecsData();
       // 更新全局数据变量
       if (cloudData.productsData) productsData = cloudData.productsData;
       if (cloudData.customersData) customersData = cloudData.customersData;
