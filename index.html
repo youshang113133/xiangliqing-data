@@ -228,7 +228,7 @@ async function fetchCloudData() {
     var response = await fetch(DATA_URL + "?t=" + Date.now(), {
       method: 'GET',
       headers: {'Accept': 'application/json'},
-      signal: AbortSignal.timeout(30000)
+      signal: AbortSignal.timeout(60000)
     });
     if (response.ok) {
       var cloudData = await response.json();
