@@ -306,7 +306,6 @@ async function fetchCloudData() {
       
       // 按区域分组计算小计
       var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
-      var companyTotal = 0;
       regions.forEach(function(region) {
         var regionItems = tempProgress.filter(function(p) { return p['区域'] === region; });
         if (regionItems.length > 0) {
@@ -314,7 +313,6 @@ async function fetchCloudData() {
           var subTarget = regionItems.reduce(function(sum, p) { return sum + (p['月度目标'] || 0); }, 0);
           var subMargin = regionItems.reduce(function(sum, p) { return sum + (p['月累计毛利率'] || 0) * (p['月销售额'] || 0); }, 0) / (subSales || 1);
           var subProgress = subTarget > 0 ? (subSales / subTarget * 100).toFixed(1) : 0;
-          companyTotal += subSales;
           tempProgress.push({
             '区域': region,
             '业务经理': '小计',
@@ -327,14 +325,16 @@ async function fetchCloudData() {
         }
       });
       
-      // 添加公司合计
+      // 【修复1】公司合计改用dailyReportData中的月累计销售额，确保与月累计数据一致
+      var companyTotal = dailyReportData['核心经营指标']['销售额']['月累计'];
+      var companyMargin = dailyReportData['核心经营指标']['毛利率']['月累计'];
       tempProgress.push({
         '区域': '公司合计',
         '业务经理': '公司合计',
         '月销售额': companyTotal,
         '月度目标': 17500000,
         '完成进度': (companyTotal / 17500000 * 100).toFixed(1) + '%',
-        '月累计毛利率': 0.1089,
+        '月累计毛利率': companyMargin,
         '月累计达标': ''
       });
       
@@ -690,30 +690,28 @@ function renderProduct() {
         h += '<div style="font-size:12px;font-weight:700;color:#e53935">¥' + (p.batchPrice > 0 ? p.batchPrice.toFixed(1) : '-') + '</div>';
         h += '</div>';
         
-        // 库存（计算件数）
+        // 【修复2】二批价
         h += '<div style="background:#f8f9fa;padding:6px;border-radius:6px;text-align:center">';
-        h += '<div style="font-size:8px;color:#888">库存</div>';
-        var specCount = getSpecCount(p.spec);
-        var stockDisplay = '-';
-        if (p.stock > 0) {
-            var stockPieces = p.stock / specCount;
-            // 大于1的取整，小于1的保留2位小数
-            var piecesDisplay = stockPieces >= 1 ? Math.floor(stockPieces) : stockPieces.toFixed(2);
-            stockDisplay = piecesDisplay;
-        }
-        h += '<div style="font-size:12px;font-weight:700;color:#666">' + stockDisplay + '</div>';
+        h += '<div style="font-size:8px;color:#888">二批价</div>';
+        h += '<div style="font-size:12px;font-weight:700;color:#e37400">¥' + (p.supplyPrice > 0 ? p.supplyPrice.toFixed(1) : '-') + '</div>';
         h += '</div>';
         
         // 毛利率
         h += '<div style="background:#f8f9fa;padding:6px;border-radius:6px;text-align:center">';
         h += '<div style="font-size:8px;color:#888">毛利率</div>';
-        h += '<div style="font-size:12px;font-weight:700;color:' + profitColor + '">' + p.profit.toFixed(1) + '%</div>';
+        // 【修复3】处理毛利率为0或undefined的情况，优先从portrait获取毛利率数据
+        var profitRate = p.profit;
+        if ((!profitRate || profitRate === 0) && portrait['毛利率(%)']) {
+            profitRate = parseFloat(portrait['毛利率(%)']);
+        }
+        var displayProfit = (typeof profitRate === 'number' && profitRate > 0) ? profitRate.toFixed(1) : '0.0';
+        h += '<div style="font-size:12px;font-weight:700;color:' + profitColor + '">' + displayProfit + '%</div>';
         h += '</div>';
         
-        // 售卖家数
+        // 【修复2】零售价
         h += '<div style="background:#f8f9fa;padding:6px;border-radius:6px;text-align:center">';
-        h += '<div style="font-size:8px;color:#888">采购家数</div>';
-        h += '<div style="font-size:12px;font-weight:700;color:#1a73e8">' + (p.sellerCount > 0 ? p.sellerCount : '-') + '</div>';
+        h += '<div style="font-size:8px;color:#888">零售价</div>';
+        h += '<div style="font-size:12px;font-weight:700;color:#137333">¥' + (p.retailPrice > 0 ? p.retailPrice.toFixed(1) : '-') + '</div>';
         h += '</div>';
         
         h += '</div></div>';
@@ -1135,9 +1133,18 @@ else if(cChannel === '沉默') cChannelColor = '#888';
 else if(cChannel === '连锁') cChannelColor = '#7b1fa2';
 else if(cChannel === '团膳') cChannelColor = '#137333';
 else if(cChannel === '电商') cChannelColor = '#c5221f';
+// 【修复4】获取客户分层信息
+var cLevel = c.level || c.ABCD客户分层 || '-';
+var levelColor = '#666';
+var levelBgColor = '#f0f0f0';
+if(cLevel === 'A' || cLevel === 'A类') { levelColor = '#137333'; levelBgColor = '#e6f4ea'; }
+else if(cLevel === 'B' || cLevel === 'B类') { levelColor = '#1a73e8'; levelBgColor = '#e8f0fe'; }
+else if(cLevel === 'C' || cLevel === 'C类') { levelColor = '#e37400'; levelBgColor = '#fef7e0'; }
+else if(cLevel === 'D' || cLevel === 'D类') { levelColor = '#c5221f'; levelBgColor = '#fce8e6'; }
 h+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">';
 h+='<span class="it-nm" style="flex:1">'+c.name+'</span>';
-h+='<span style="font-size:10px;padding:2px 6px;border-radius:8px;background:'+cChannelColor+'22;color:'+cChannelColor+';font-weight:500">'+cChannel+'</span>';
+h+='<span style="font-size:10px;padding:2px 6px;border-radius:8px;background:'+levelBgColor+';color:'+levelColor+';font-weight:500">'+cLevel+'</span>';
+h+='<span style="font-size:10px;padding:2px 6px;border-radius:8px;background:'+cChannelColor+'22;color:'+cChannelColor+';font-weight:500;margin-left:4px">'+cChannel+'</span>';
 h+='</div>';
 h+='<div class="it-info">';
 h+='<span>'+(c.salesman||c.主要对接业务员||'-')+'</span>';
