@@ -227,7 +227,7 @@ async function fetchRecsData() {
     var response = await fetch(RECS_URL + "?t=" + Date.now(), {
       method: 'GET',
       headers: {'Accept': 'application/json'},
-      signal: AbortSignal.timeout(120000)
+      signal: AbortSignal.timeout(300000)
     });
     if (response.ok) {
       var recsDataRes = await response.json();
