@@ -741,10 +741,11 @@ function renderProduct() {
         h += '<div style="font-size:12px;font-weight:700;color:' + profitColor + '">' + displayProfit + '%</div>';
         h += '</div>';
         
-        // 【修复2】零售价
+        // 【修复】库存
         h += '<div style="background:#f8f9fa;padding:6px;border-radius:6px;text-align:center">';
-        h += '<div style="font-size:8px;color:#888">零售价</div>';
-        h += '<div style="font-size:12px;font-weight:700;color:#137333">¥' + (p.retailPrice > 0 ? p.retailPrice.toFixed(1) : '-') + '</div>';
+        h += '<div style="font-size:8px;color:#888">库存</div>';
+        var stockDisplay = p.stock > 0 ? p.stock.toLocaleString() : '-';
+        h += '<div style="font-size:12px;font-weight:700;color:#137333">' + stockDisplay + '</div>';
         h += '</div>';
         
         h += '</div></div>';
