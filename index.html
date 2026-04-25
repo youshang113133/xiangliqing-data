@@ -163,6 +163,13 @@ document.addEventListener('DOMContentLoaded', async function() {
   <option value="low">低毛利&lt;10%</option>
 </select>
 </div>
+<div class="fl">
+<select id="cType" onchange="resetCustomerPage()">
+  <option value="">全部类型</option>
+  <option value="餐饮商超">餐饮商超</option>
+  <option value="流通电商">流通电商</option>
+</select>
+</div>
 <div id="custContent"></div>
 </div>
 
@@ -1070,6 +1077,7 @@ var lv=document.getElementById('cLevel').value;
 var sl=document.getElementById('cSales').value;
 var nd=document.getElementById('cNextDate').value;
 var pf=document.getElementById('cProfitRange').value;
+var ct=document.getElementById('cType').value;
 var today=new Date();today.setHours(0,0,0,0);
 var weekEnd=new Date(today);weekEnd.setDate(weekEnd.getDate()+(7-today.getDay()));
 var monthEnd=new Date(today.getFullYear(),today.getMonth()+1,0);
@@ -1091,6 +1099,7 @@ if(pf==='high'&&(c.profitRate||0)<15)return false;
 if(pf==='mid'&&((c.profitRate||0)<10||(c.profitRate||0)>=15))return false;
 if(pf==='low'&&(c.profitRate||0)>=10)return false;
 }
+if(ct&&c.type!==ct)return false;
 return true;
 });
 currentPage=1;
