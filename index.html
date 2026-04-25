@@ -1430,7 +1430,37 @@ function showSalesmanAdvice(name) {
     h += '<div style="font-size:14px;font-weight:600;color:#333;margin-bottom:8px">📋 销售建议</div>';
     h += '<div style="font-size:13px;color:#666;line-height:1.8">' + data['建议'] + '</div>';
     h += '</div>';
-    h += '<div style="text-align:center;color:#999;font-size:12px">点击其他地方关闭</div>';
+    
+    // 添加毛利区间分布
+    var marginData = salesmanMarginRange[name];
+    if (marginData) {
+        h += '<div style="margin-top:16px">';
+        h += '<div style="font-size:14px;font-weight:600;color:#333;margin-bottom:12px">📊 毛利区间分布（当日）</div>';
+        h += '<table style="width:100%;font-size:12px;border-collapse:collapse">';
+        h += '<tr style="background:#e8f0fe">';
+        h += '<th style="padding:8px 4px;text-align:left;border:1px solid #ddd">区间</th>';
+        h += '<th style="padding:8px 4px;text-align:right;border:1px solid #ddd">销售额</th>';
+        h += '<th style="padding:8px 4px;text-align:right;border:1px solid #ddd">占比</th>';
+        h += '<th style="padding:8px 4px;text-align:right;border:1px solid #ddd">目标</th>';
+        h += '<th style="padding:8px 4px;text-align:center;border:1px solid #ddd">状态</th>';
+        h += '</tr>';
+        
+        for (var i = 0; i < marginData['当日'].length; i++) {
+            var item = marginData['当日'][i];
+            var bgColor = i % 2 === 0 ? '#f9f9f9' : '#fff';
+            h += '<tr style="background:' + bgColor + '">';
+            h += '<td style="padding:8px 4px;border:1px solid #ddd">' + item['区间'] + '</td>';
+            h += '<td style="padding:8px 4px;text-align:right;border:1px solid #ddd">' + fmtAmt(item['销售额']) + '</td>';
+            h += '<td style="padding:8px 4px;text-align:right;border:1px solid #ddd">' + (item['占比'] * 100).toFixed(1) + '%</td>';
+            h += '<td style="padding:8px 4px;text-align:right;border:1px solid #ddd">' + (item['目标占比'] * 100).toFixed(0) + '%</td>';
+            h += '<td style="padding:8px 4px;text-align:center;border:1px solid #ddd">' + item['预警'] + '</td>';
+            h += '</tr>';
+        }
+        h += '</table>';
+        h += '</div>';
+    }
+    
+    h += '<div style="text-align:center;color:#999;font-size:12px;margin-top:16px">点击其他地方关闭</div>';
     h += '</div>';
     document.getElementById('mdBd').innerHTML = h;
     document.getElementById('md').classList.add('on');
