@@ -217,6 +217,7 @@ var productsData = [];
 var customersData = [];
 var recsData = {};
 var productPortraitData = {};
+var salesmanMarginRange = {};
 var productSalesmen = {};
 var channelTypeMap = {};
 var recsDataLoaded = false;
@@ -312,6 +313,9 @@ async function fetchCloudData() {
         dailyReportData['核心经营指标']['销售额']['目标完成率'] = dailyReportData['核心经营指标']['销售额']['月累计'] / 17500000; // 假设月目标1750万
       }
     }
+      // 加载业务员毛利区间数据
+      if (cloudData.salesmanMarginRange) salesmanMarginRange = cloudData.salesmanMarginRange;
+      
       if (cloudData.salesProgressData) {
       // 转换字段名以匹配页面代码
       // 先转换个人数据
