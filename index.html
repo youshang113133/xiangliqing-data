@@ -713,10 +713,10 @@ function renderProduct() {
         h += '<div style="font-size:12px;font-weight:700;color:#e53935">¥' + (p.batchPrice > 0 ? p.batchPrice.toFixed(1) : '-') + '</div>';
         h += '</div>';
         
-        // 【修复2】二批价
+        // 售卖家数
         h += '<div style="background:#f8f9fa;padding:6px;border-radius:6px;text-align:center">';
-        h += '<div style="font-size:8px;color:#888">二批价</div>';
-        h += '<div style="font-size:12px;font-weight:700;color:#e37400">¥' + (p.supplyPrice > 0 ? p.supplyPrice.toFixed(1) : '-') + '</div>';
+        h += '<div style="font-size:8px;color:#888">售卖家数</div>';
+        h += '<div style="font-size:12px;font-weight:700;color:#e37400">' + (p.sellerCount || 0) + '家</div>';
         h += '</div>';
         
         // 毛利率
