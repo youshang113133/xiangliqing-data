@@ -699,11 +699,8 @@ function renderProduct() {
         // 毛利率
         h += '<div style="background:#f8f9fa;padding:6px;border-radius:6px;text-align:center">';
         h += '<div style="font-size:8px;color:#888">毛利率</div>';
-        // 【修复3】处理毛利率为0或undefined的情况，优先从portrait获取毛利率数据
+        // 处理毛利率显示
         var profitRate = p.profit;
-        if ((!profitRate || profitRate === 0) && portrait['毛利率(%)']) {
-            profitRate = parseFloat(portrait['毛利率(%)']);
-        }
         var displayProfit = (typeof profitRate === 'number' && profitRate > 0) ? profitRate.toFixed(1) : '0.0';
         h += '<div style="font-size:12px;font-weight:700;color:' + profitColor + '">' + displayProfit + '%</div>';
         h += '</div>';
