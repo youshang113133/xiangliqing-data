@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 <!-- 日报页 -->
 <div id="pgReport" class="pg on">
-<div class="pg-hd"><h1>📊 湘里情智营·客户决策</h1><p id="rptDate"></p><div id="dataStatusBar" style="font-size:10px;color:#fff;opacity:0.8;margin-top:4px;padding:4px 0;"></div></div>
+<div class="pg-hd" style="position:relative"><h1>📊 湘里情智营·客户决策</h1><p id="rptDate"></p><div id="dataStatusBar" style="font-size:10px;color:#fff;opacity:0.8;margin-top:4px;padding:4px 0;"></div><button onclick="forceRefresh()" style="position:absolute;top:10px;right:10px;padding:6px 12px;background:#fff;color:#1a73e8;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer">🔄 刷新</button></div>
 <div id="rptContent"></div>
 </div>
 
@@ -242,6 +242,29 @@ async function fetchRecsData() {
 ; // 请替换为实际云端地址
 var dataSource = 'cloud'; // 'embedded' 或 'cloud'
 var dataUpdateTime = "2026-04-24 08:10:00"; '2026-04-24 08:00:00';
+
+// 强制刷新数据
+async function forceRefresh() {
+  var btn = event.target;
+  btn.textContent = '刷新中...';
+  btn.disabled = true;
+  
+  try {
+    // 清除CDN缓存
+    await fetch('https://purge.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/data_core.json');
+    await fetch('https://purge.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/data_recs.json');
+    await fetch('https://purge.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/index.html');
+    
+    // 延迟后重新加载页面
+    setTimeout(function() {
+      location.href = location.pathname + '?t=' + Date.now();
+    }, 1000);
+  } catch(e) {
+    alert('刷新失败，请手动刷新页面');
+    btn.textContent = '🔄 刷新';
+    btn.disabled = false;
+  }
+}
 
 // 尝试从云端获取数据
 async function fetchCloudData() {
