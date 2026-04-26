@@ -214,9 +214,9 @@ document.addEventListener('DOMContentLoaded', async function() {
 <script>
 
 // ===== 双模式数据加载系统 =====
-// 使用@main加载最新版本，配合时间戳避免缓存
-var DATA_URL = "https://cdn.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/data_core.json?t=" + Date.now()
-var RECS_URL = "https://cdn.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/data_recs.json?t=" + Date.now()
+// 直接使用GitHub Pages原始地址，避免CDN缓存问题
+var DATA_URL = "./data_core.json"
+var RECS_URL = "./data_recs.json"
 
 // 全局数据变量初始化（等待云端加载）
 var dailyReportData = null;
