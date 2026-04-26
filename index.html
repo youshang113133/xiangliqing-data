@@ -233,7 +233,7 @@ var recsDataLoaded = false;
 // 异步加载推荐数据
 async function fetchRecsData() {
   try {
-    var response = await fetch(RECS_URL + "?t=" + Date.now(), {
+    var response = await fetch(RECS_URL, {
       method: 'GET',
       headers: {'Accept': 'application/json'},
       signal: AbortSignal.timeout(300000)
@@ -278,8 +278,8 @@ async function forceRefresh() {
 // 尝试从云端获取数据
 async function fetchCloudData() {
   try {
-    // 先加载核心数据
-    var response = await fetch(DATA_URL + "?t=" + Date.now(), {
+    // 先加载核心数据（DATA_URL已包含时间戳）
+    var response = await fetch(DATA_URL, {
       method: 'GET',
       headers: {'Accept': 'application/json'},
       signal: AbortSignal.timeout(180000)
