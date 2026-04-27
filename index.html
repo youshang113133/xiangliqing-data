@@ -1335,13 +1335,26 @@ recs.forEach(function(r, idx){
 // 支持两种格式：数组和对象
 var name, type, profit, price, sellerCount, reason, script;
 if (Array.isArray(r)) {
+    // 新格式: [name, profit, price, sellerCount] (精简版)
+    // 旧格式: [name, type, profit, price, sellerCount, reason, script]
     name = r[0] || '';
-    type = r[1] || '';
-    profit = r[2] || 0;
-    price = r[3] || 0;
-    sellerCount = r[4] || 0;
-    reason = r[5] || '';
-    script = r[6] || '';
+    if (r.length >= 7) {
+        // 旧格式
+        type = r[1] || '';
+        profit = r[2] || 0;
+        price = r[3] || 0;
+        sellerCount = r[4] || 0;
+        reason = r[5] || '';
+        script = r[6] || '';
+    } else {
+        // 新格式
+        type = '推荐产品';
+        profit = r[1] || 0;
+        price = r[2] || 0;
+        sellerCount = r[3] || 0;
+        reason = '热门产品，' + sellerCount + '家客户购买';
+        script = '';
+    }
 } else {
     name = r.name || '';
     type = r.type || '';

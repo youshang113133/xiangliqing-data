@@ -431,21 +431,21 @@ function renderReport() {
 
     var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
     regions.forEach(function(region) {
-        var regionData = progress.filter(function(p) { return p['区域'] === region; });
+        var regionData = progress.filter(function(p) { return p['region'] === region; });
         if (regionData.length === 0) return;
         
-        var subtotal = regionData.find(function(p) { return p['业务经理'] === '小计'; });
+        var subtotal = regionData.find(function(p) { return p['name'] === '小计'; });
         if (subtotal) {
-            var subProgressVal = subtotal['完成进度'];
+            var subProgressVal = subtotal['progress'];
             var subProgress = (typeof subProgressVal === 'string' ? parseFloat(subProgressVal.replace('%','')) : subProgressVal).toFixed(1);
-            var subMargin = subtotal['月累计毛利率'];
+            var subMargin = subtotal['margin'];
             var subMarginVal = (typeof subMargin === 'number' ? subMargin * 100 : parseFloat(subMargin));
             var subColor = subMarginVal >= 13 ? '#137333' : '#e53935';
             h += '<div style="background:#e8f0fe;padding:10px;margin-bottom:10px;border-radius:8px">';
             h += '<div style="display:flex;justify-content:space-between;align-items:center">';
             h += '<span style="font-weight:600;color:#1a73e8">' + region + '</span>';
             h += '<span style="font-size:12px">';
-            h += '' + fmtAmt(subtotal['月销售额']) + ' | 进度 <b style="color:#1a73e8">' + subProgress + '%</b> | 毛利 <b style="color:' + subColor + '">' + subMarginVal.toFixed(1) + '%</b>';
+            h += '' + fmtAmt(subtotal['sales']) + ' | 进度 <b style="color:#1a73e8">' + subProgress + '%</b> | 毛利 <b style="color:' + subColor + '">' + subMarginVal.toFixed(1) + '%</b>';
             h += '</span></div>';
             h += '<div style="margin-top:6px;height:8px;background:#fff;border-radius:4px;overflow:hidden">';
             h += '<div style="height:100%;width:' + Math.min(subProgress, 100) + '%;background:linear-gradient(90deg,#1a73e8,#0d47a1);border-radius:4px"></div>';
@@ -453,18 +453,18 @@ function renderReport() {
             h += '</div>';
         }
 
-        regionData.filter(function(p) { return p['业务经理'] !== '小计' && p['业务经理'] !== '公司合计'; }).forEach(function(p) {
-            var pProgressVal = p['完成进度'];
+        regionData.filter(function(p) { return p['name'] !== '小计' && p['name'] !== '公司合计'; }).forEach(function(p) {
+            var pProgressVal = p['progress'];
             var pProgress = typeof pProgressVal === 'string' ? parseFloat(pProgressVal.replace('%','')) : pProgressVal;
-            var pMargin = p['月累计毛利率'];
+            var pMargin = p['margin'];
             var pMarginVal = typeof pMargin === 'number' ? pMargin * 100 : parseFloat(pMargin);
             var pColor = pMarginVal >= 13 ? '#137333' : '#e53935';
-            var isWang = p['月累计达标'] === '✅';
+            var isWang = p['achieved'] === '✅';
             
             h += '<div style="padding:8px 0;border-bottom:1px solid #f0f0f0">';
             h += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">';
-            h += '<span style="font-weight:500;font-size:12px;cursor:pointer;color:#1a73e8" onclick="showSalesmanAdvice(\'' + p['业务经理'] + '\')">' + p['业务经理'] + '</span>';
-            h += '<span style="font-size:11px">' + fmtAmt(p['月销售额']) + ' / ' + fmtAmt(p['月度目标']) + ' ' + p['月累计达标'] + '</span></div>';
+            h += '<span style="font-weight:500;font-size:12px;cursor:pointer;color:#1a73e8" onclick="showSalesmanAdvice(\'' + p['name'] + '\')">' + p['name'] + '</span>';
+            h += '<span style="font-size:11px">' + fmtAmt(p['sales']) + ' / ' + fmtAmt(p['target']) + ' ' + p['achieved'] + '</span></div>';
             h += '<div style="height:6px;background:#e0e0e0;border-radius:3px;overflow:hidden">';
             h += '<div style="height:100%;width:' + Math.min(pProgress, 100) + '%;background:' + (isWang ? '#137333' : '#f57c00') + ';border-radius:3px"></div>';
             h += '</div>';
@@ -473,7 +473,7 @@ function renderReport() {
         });
     });
 
-    var total = progress.find(function(p) { return p['业务经理'] === '公司合计'; });
+    var total = progress.find(function(p) { return p['name'] === '公司合计'; });
     if (total) {
         var tProgressVal = total['完成进度'];
         var tProgress = typeof tProgressVal === 'string' ? parseFloat(tProgressVal.replace('%','')) : tProgressVal;
