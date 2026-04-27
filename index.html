@@ -1671,6 +1671,19 @@ function renderTaskData() {
         supplierHtml += '</tr>';
     });
     
+    // 其他：实际完成超出供应商目标的部分（不计入目标考核）
+    if (amountActual > supplierTotalAmount || countActual > supplierTotalCount) {
+        var otherAmount = Math.max(0, amountActual - supplierTotalAmount);
+        var otherCount = Math.max(0, countActual - supplierTotalCount);
+        supplierHtml += '<tr style="background:#fff3e0;font-style:italic">';
+        supplierHtml += '<td style="padding:6px 4px;border-bottom:1px solid #eee;color:#e37400">📌 其他</td>';
+        supplierHtml += '<td style="padding:6px 4px;text-align:right;border-bottom:1px solid #eee;color:#999">-</td>';
+        supplierHtml += '<td style="padding:6px 4px;text-align:right;border-bottom:1px solid #eee;color:#1a73e8;font-weight:500">' + otherAmount.toFixed(0) + '</td>';
+        supplierHtml += '<td style="padding:6px 4px;text-align:right;border-bottom:1px solid #eee;color:#999">-</td>';
+        supplierHtml += '<td style="padding:6px 4px;text-align:right;border-bottom:1px solid #eee;color:#e37400;font-weight:500">' + otherCount.toFixed(1) + '</td>';
+        supplierHtml += '</tr>';
+    }
+    
     // 合计行
     supplierHtml += '<tr style="background:#e8f0fe;font-weight:600">';
     supplierHtml += '<td style="padding:8px 4px;border-top:2px solid #1a73e8">合计 (' + supplierList.length + '个)</td>';
