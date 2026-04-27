@@ -307,7 +307,9 @@ async function forceRefresh() {
 
 // 尝试从云端获取数据
 async function fetchCloudData() {
+  var rptDateEl = document.getElementById('rptDate');
   try {
+    rptDateEl.textContent = '正在连接数据源...';
     // 先加载核心数据（不使用AbortSignal.timeout，兼容性更好）
     var fetchOptions = {
       method: 'GET',
@@ -317,7 +319,11 @@ async function fetchCloudData() {
     if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) {
       fetchOptions.signal = AbortSignal.timeout(180000);
     }
+    rptDateEl.textContent = '正在下载数据...';
     var response = await fetch(DATA_URL + "?t=" + Date.now(), fetchOptions);
+    if (!response.ok) {
+      throw new Error('HTTP ' + response.status + ': ' + response.statusText);
+    }
     if (response.ok) {
       var cloudData = await response.json();
       // 异步加载推荐数据（不阻塞页面渲染）
@@ -422,7 +428,10 @@ async function fetchCloudData() {
       refreshCurrentPage();
     }
   } catch (e) {
-    console.log('⚠️ 云端数据获取失败，使用本地数据：' + e.message);
+    console.log('⚠️ 云端数据获取失败: ' + e.message);
+    if (rptDateEl) {
+      rptDateEl.textContent = '加载失败: ' + e.message;
+    }
   }
 }
 
