@@ -3,77 +3,77 @@
     {
       "name": "彭建华",
       "amountTarget": 1460655.94,
-      "countTarget": 44596.5
+      "countTarget": 16850.93
     },
     {
       "name": "张文胜",
       "amountTarget": 1344614.94,
-      "countTarget": 33459.73
+      "countTarget": 13805.92
     },
     {
       "name": "杨青青",
       "amountTarget": 1268336.25,
-      "countTarget": 36471.28
+      "countTarget": 13379.81
     },
     {
       "name": "张纯英",
       "amountTarget": 1115778.85,
-      "countTarget": 28326.5
+      "countTarget": 11619.58
     },
     {
       "name": "陈龙",
       "amountTarget": 973770.63,
-      "countTarget": 23982.67
+      "countTarget": 9692.97
     },
     {
       "name": "蔡磊",
       "amountTarget": 955918.17,
-      "countTarget": 24210.13
+      "countTarget": 9798.75
     },
     {
       "name": "尹建林",
       "amountTarget": 954295.22,
-      "countTarget": 17678.81
+      "countTarget": 8723.01
     },
     {
       "name": "周斌",
       "amountTarget": 933196.85,
-      "countTarget": 22956.64
+      "countTarget": 9018.02
     },
     {
       "name": "熊雄",
       "amountTarget": 892623.08,
-      "countTarget": 25446.9
+      "countTarget": 9649.0
     },
     {
       "name": "江廉政",
       "amountTarget": 795246.01,
-      "countTarget": 12914.71
+      "countTarget": 5788.3
     },
     {
       "name": "张金伟",
       "amountTarget": 783073.88,
-      "countTarget": 19262.16
+      "countTarget": 7314.38
     },
     {
       "name": "彭菊华",
       "amountTarget": 886131.27,
-      "countTarget": 17483.32
+      "countTarget": 6710.44
     },
     {
       "name": "胡珍",
       "amountTarget": 835819.79,
-      "countTarget": 17509.29
+      "countTarget": 7582.33
     },
     {
       "name": "陆美英",
       "amountTarget": 324590.21,
-      "countTarget": 12630.94
+      "countTarget": 4416.75
     },
     {
       "name": "王纯",
       "amountTarget": 259672.17,
-      "countTarget": 11452.76
+      "countTarget": 4137.78
     }
   ],
   "suppliers": [
@@ -81,97 +81,97 @@
       "manager": "彭建华",
       "supplier": "乡源（供应商）",
       "amount": 2755.06,
-      "count": 20.29
+      "count": 9.5
     },
     {
       "manager": "彭建华",
       "supplier": "六安鸿泰食品",
       "amount": 17731.92,
-      "count": 56.48
+      "count": 72.54
     },
     {
       "manager": "彭建华",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 4477.71,
-      "count": 28.81
+      "count": 10.22
     },
     {
       "manager": "彭建华",
       "supplier": "千百度,多味多（供应商）",
       "amount": 10066.65,
-      "count": 60.62
+      "count": 67.11
     },
     {
       "manager": "彭建华",
       "supplier": "原点厂家（供货商）",
       "amount": 10554.98,
-      "count": 57.61
+      "count": 142.17
     },
     {
       "manager": "彭建华",
       "supplier": "口口可（供应商）",
       "amount": 14688.24,
-      "count": 113.36
+      "count": 145.83
     },
     {
       "manager": "彭建华",
       "supplier": "合洋水产",
       "amount": 7119.23,
-      "count": 33.35
+      "count": 43.15
     },
     {
       "manager": "彭建华",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 5544.59,
-      "count": 35.3
+      "count": 52.18
     },
     {
       "manager": "彭建华",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 25969.45,
-      "count": 208.31
+      "count": 316.47
     },
     {
       "manager": "彭建华",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 34909.08,
-      "count": 172.03
+      "count": 258.95
     },
     {
       "manager": "彭建华",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 9772.05,
-      "count": 65.49
+      "count": 20.57
     },
     {
       "manager": "彭建华",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 28413.3,
-      "count": 221.13
+      "count": 82.05
     },
     {
       "manager": "彭建华",
       "supplier": "广东恒兴食品",
       "amount": 13987.42,
-      "count": 45.93
+      "count": 40.68
     },
     {
       "manager": "彭建华",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 9749.63,
-      "count": 39.68
+      "count": 24.75
     },
     {
       "manager": "彭建华",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 34521.61,
-      "count": 51.45
+      "count": 46.93
     },
     {
       "manager": "彭建华",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 21543.32,
-      "count": 71.0
+      "count": 78.79
     },
     {
       "manager": "彭建华",
@@ -183,85 +183,85 @@
       "manager": "彭建华",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 8664.29,
-      "count": 53.4
+      "count": 52.07
     },
     {
       "manager": "彭建华",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 687.05,
-      "count": 17.04
+      "count": 3.61
     },
     {
       "manager": "彭建华",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 31977.76,
-      "count": 456.45
+      "count": 470.26
     },
     {
       "manager": "彭建华",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 25072.12,
-      "count": 75.79
+      "count": 82.15
     },
     {
       "manager": "彭建华",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 14265.76,
-      "count": 47.39
+      "count": 39.89
     },
     {
       "manager": "彭建华",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 1311.95,
-      "count": 19.48
+      "count": 7.93
     },
     {
       "manager": "彭建华",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 68042.36,
-      "count": 219.5
+      "count": 244.75
     },
     {
       "manager": "彭建华",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 15948.62,
-      "count": 193.29
+      "count": 197.09
     },
     {
       "manager": "彭建华",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 35168.82,
-      "count": 74.49
+      "count": 67.91
     },
     {
       "manager": "彭建华",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 14022.91,
-      "count": 126.91
+      "count": 139.38
     },
     {
       "manager": "彭建华",
       "supplier": "老铁厂家（供应商）",
       "amount": 128200.69,
-      "count": 689.51
+      "count": 75.55
     },
     {
       "manager": "彭建华",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 6870.62,
-      "count": 67.51
+      "count": 67.72
     },
     {
       "manager": "彭建华",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 119823.61,
-      "count": 773.34
+      "count": 281.95
     },
     {
       "manager": "彭建华",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 2760.15,
-      "count": 27.51
+      "count": 17.79
     },
     {
       "manager": "彭建华",
@@ -273,79 +273,79 @@
       "manager": "彭建华",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 60662.27,
-      "count": 490.7
+      "count": 444.84
     },
     {
       "manager": "彭建华",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 1485.74,
-      "count": 17.04
+      "count": 4.13
     },
     {
       "manager": "彭建华",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 50746.1,
-      "count": 270.95
+      "count": 261.78
     },
     {
       "manager": "彭建华",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 12122.8,
-      "count": 53.64
+      "count": 15.64
     },
     {
       "manager": "彭建华",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 22677.11,
-      "count": 125.45
+      "count": 121.16
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-八爪类",
       "amount": 933.14,
-      "count": 2.0
+      "count": 1.94
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 103555.97,
-      "count": 222.03
+      "count": 179.78
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 5226.37,
-      "count": 11.21
+      "count": 13.51
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4162.56,
-      "count": 8.92
+      "count": 5.11
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-虾滑类",
       "amount": 744.93,
-      "count": 1.6
+      "count": 1.05
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-虾类",
       "amount": 10949.75,
-      "count": 23.48
+      "count": 21.92
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-贝类",
       "amount": 11730.38,
-      "count": 25.15
+      "count": 28.2
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 18325.17,
-      "count": 39.29
+      "count": 49.6
     },
     {
       "manager": "彭建华",
@@ -357,25 +357,25 @@
       "manager": "彭建华",
       "supplier": "湘上厨土豆类",
       "amount": 15693.61,
-      "count": 1483.45
+      "count": 74.6
     },
     {
       "manager": "彭建华",
       "supplier": "湘上厨扇子骨类",
       "amount": 8816.27,
-      "count": 833.37
+      "count": 44.92
     },
     {
       "manager": "彭建华",
       "supplier": "湘上厨河鲜类",
       "amount": 43456.68,
-      "count": 4107.78
+      "count": 18.78
     },
     {
       "manager": "彭建华",
       "supplier": "湘上厨海鲜类",
       "amount": 48530.86,
-      "count": 4587.42
+      "count": 59.06
     },
     {
       "manager": "彭建华",
@@ -393,43 +393,43 @@
       "manager": "彭建华",
       "supplier": "湘上厨牛肉类",
       "amount": 31774.98,
-      "count": 3003.56
+      "count": 42.04
     },
     {
       "manager": "彭建华",
       "supplier": "湘上厨猪副类",
       "amount": 53333.38,
-      "count": 5041.39
+      "count": 119.94
     },
     {
       "manager": "彭建华",
       "supplier": "湘上厨笋类",
       "amount": 18559.4,
-      "count": 1754.34
+      "count": 86.58
     },
     {
       "manager": "彭建华",
       "supplier": "湘上厨羊副类",
       "amount": 4156.7,
-      "count": 392.92
+      "count": 5.54
     },
     {
       "manager": "彭建华",
       "supplier": "湘上厨脆骨类",
       "amount": 4793.09,
-      "count": 453.07
+      "count": 20.15
     },
     {
       "manager": "彭建华",
       "supplier": "湘上厨蔬果类",
       "amount": 46832.52,
-      "count": 4426.89
+      "count": 216.99
     },
     {
       "manager": "彭建华",
       "supplier": "湘上厨调料类",
       "amount": 5728.09,
-      "count": 541.45
+      "count": 0
     },
     {
       "manager": "彭建华",
@@ -441,7 +441,7 @@
       "manager": "彭建华",
       "supplier": "湘上厨面点类",
       "amount": 7790.16,
-      "count": 736.37
+      "count": 40.06
     },
     {
       "manager": "彭建华",
@@ -453,103 +453,103 @@
       "manager": "彭建华",
       "supplier": "湘里情臭桂鱼",
       "amount": 73.56,
-      "count": 6.95
+      "count": 0.05
     },
     {
       "manager": "张文胜",
       "supplier": "乡源（供应商）",
       "amount": 19833.4,
-      "count": 73.52
+      "count": 68.39
     },
     {
       "manager": "张文胜",
       "supplier": "六安鸿泰食品",
       "amount": 86996.42,
-      "count": 249.53
+      "count": 355.9
     },
     {
       "manager": "张文胜",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 14471.35,
-      "count": 71.0
+      "count": 33.04
     },
     {
       "manager": "张文胜",
       "supplier": "千百度,多味多（供应商）",
       "amount": 127.92,
-      "count": 19.8
+      "count": 0.85
     },
     {
       "manager": "张文胜",
       "supplier": "原点厂家（供货商）",
       "amount": 2833.91,
-      "count": 26.45
+      "count": 38.17
     },
     {
       "manager": "张文胜",
       "supplier": "口口可（供应商）",
       "amount": 13799.82,
-      "count": 108.98
+      "count": 137.01
     },
     {
       "manager": "张文胜",
       "supplier": "合洋水产",
       "amount": 6245.87,
-      "count": 32.22
+      "count": 37.85
     },
     {
       "manager": "张文胜",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 4807.96,
-      "count": 33.84
+      "count": 45.25
     },
     {
       "manager": "张文胜",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 26373.83,
-      "count": 213.34
+      "count": 321.4
     },
     {
       "manager": "张文胜",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 2353.91,
-      "count": 24.59
+      "count": 17.46
     },
     {
       "manager": "张文胜",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 11847.55,
-      "count": 78.39
+      "count": 24.94
     },
     {
       "manager": "张文胜",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 21687.88,
-      "count": 172.44
+      "count": 62.63
     },
     {
       "manager": "张文胜",
       "supplier": "广东恒兴食品",
       "amount": 14834.46,
-      "count": 49.26
+      "count": 43.14
     },
     {
       "manager": "张文胜",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 19580.86,
-      "count": 70.84
+      "count": 49.71
     },
     {
       "manager": "张文胜",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 33325.32,
-      "count": 51.04
+      "count": 45.3
     },
     {
       "manager": "张文胜",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 97014.83,
-      "count": 298.79
+      "count": 354.79
     },
     {
       "manager": "张文胜",
@@ -561,85 +561,85 @@
       "manager": "张文胜",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 6390.79,
-      "count": 43.41
+      "count": 38.4
     },
     {
       "manager": "张文胜",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 27138.07,
-      "count": 159.78
+      "count": 142.45
     },
     {
       "manager": "张文胜",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 40688.56,
-      "count": 584.67
+      "count": 598.36
     },
     {
       "manager": "张文胜",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 36247.57,
-      "count": 107.76
+      "count": 118.77
     },
     {
       "manager": "张文胜",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 21746.07,
-      "count": 68.89
+      "count": 60.81
     },
     {
       "manager": "张文胜",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 7741.73,
-      "count": 53.88
+      "count": 46.81
     },
     {
       "manager": "张文胜",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 77425.26,
-      "count": 252.04
+      "count": 278.5
     },
     {
       "manager": "张文胜",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 25985.65,
-      "count": 314.2
+      "count": 321.13
     },
     {
       "manager": "张文胜",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 1639.67,
-      "count": 20.29
+      "count": 3.17
     },
     {
       "manager": "张文胜",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 84362.16,
-      "count": 748.67
+      "count": 838.51
     },
     {
       "manager": "张文胜",
       "supplier": "老铁厂家（供应商）",
       "amount": 23335.28,
-      "count": 130.65
+      "count": 13.75
     },
     {
       "manager": "张文胜",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 4402.46,
-      "count": 47.88
+      "count": 43.4
     },
     {
       "manager": "张文胜",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 97493.4,
-      "count": 633.6
+      "count": 229.41
     },
     {
       "manager": "张文胜",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 180.83,
-      "count": 19.8
+      "count": 1.17
     },
     {
       "manager": "张文胜",
@@ -651,79 +651,79 @@
       "manager": "张文胜",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 13305.15,
-      "count": 113.61
+      "count": 97.57
     },
     {
       "manager": "张文胜",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 52526.94,
-      "count": 147.93
+      "count": 145.91
     },
     {
       "manager": "张文胜",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 7974.23,
-      "count": 50.47
+      "count": 41.14
     },
     {
       "manager": "张文胜",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 686.11,
-      "count": 20.12
+      "count": 0.89
     },
     {
       "manager": "张文胜",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 2578.65,
-      "count": 26.45
+      "count": 13.78
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-八爪类",
       "amount": 828.29,
-      "count": 1.92
+      "count": 1.73
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 91920.22,
-      "count": 212.53
+      "count": 159.58
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 4639.12,
-      "count": 10.73
+      "count": 12.0
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-虾仁类",
       "amount": 3694.84,
-      "count": 8.54
+      "count": 4.54
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-虾滑类",
       "amount": 661.23,
-      "count": 1.53
+      "count": 0.93
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-虾类",
       "amount": 9719.42,
-      "count": 22.47
+      "count": 19.46
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-贝类",
       "amount": 10412.33,
-      "count": 24.07
+      "count": 25.03
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 16266.12,
-      "count": 37.61
+      "count": 44.02
     },
     {
       "manager": "张文胜",
@@ -735,25 +735,25 @@
       "manager": "张文胜",
       "supplier": "湘上厨土豆类",
       "amount": 11189.01,
-      "count": 1066.31
+      "count": 53.19
     },
     {
       "manager": "张文胜",
       "supplier": "湘上厨扇子骨类",
       "amount": 6285.7,
-      "count": 599.03
+      "count": 32.02
     },
     {
       "manager": "张文胜",
       "supplier": "湘上厨河鲜类",
       "amount": 30983.14,
-      "count": 2952.68
+      "count": 13.39
     },
     {
       "manager": "张文胜",
       "supplier": "湘上厨海鲜类",
       "amount": 34600.86,
-      "count": 3297.45
+      "count": 42.11
     },
     {
       "manager": "张文胜",
@@ -771,43 +771,43 @@
       "manager": "张文胜",
       "supplier": "湘上厨牛肉类",
       "amount": 22654.48,
-      "count": 2158.97
+      "count": 29.97
     },
     {
       "manager": "张文胜",
       "supplier": "湘上厨猪副类",
       "amount": 38024.89,
-      "count": 3623.76
+      "count": 85.51
     },
     {
       "manager": "张文胜",
       "supplier": "湘上厨笋类",
       "amount": 13232.22,
-      "count": 1261.03
+      "count": 61.73
     },
     {
       "manager": "张文胜",
       "supplier": "湘上厨羊副类",
       "amount": 2963.58,
-      "count": 282.43
+      "count": 3.95
     },
     {
       "manager": "张文胜",
       "supplier": "湘上厨脆骨类",
       "amount": 3417.31,
-      "count": 325.67
+      "count": 14.37
     },
     {
       "manager": "张文胜",
       "supplier": "湘上厨蔬果类",
       "amount": 33390.0,
-      "count": 3182.06
+      "count": 154.71
     },
     {
       "manager": "张文胜",
       "supplier": "湘上厨调料类",
       "amount": 4083.94,
-      "count": 389.2
+      "count": 0
     },
     {
       "manager": "张文胜",
@@ -819,7 +819,7 @@
       "manager": "张文胜",
       "supplier": "湘上厨面点类",
       "amount": 5554.12,
-      "count": 529.31
+      "count": 28.56
     },
     {
       "manager": "张文胜",
@@ -831,103 +831,103 @@
       "manager": "张文胜",
       "supplier": "湘里情臭桂鱼",
       "amount": 52.45,
-      "count": 5.0
+      "count": 0.04
     },
     {
       "manager": "杨青青",
       "supplier": "乡源（供应商）",
       "amount": 1428.67,
-      "count": 28.16
+      "count": 4.93
     },
     {
       "manager": "杨青青",
       "supplier": "六安鸿泰食品",
       "amount": 21136.44,
-      "count": 71.49
+      "count": 86.47
     },
     {
       "manager": "杨青青",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 13595.81,
-      "count": 71.9
+      "count": 31.04
     },
     {
       "manager": "杨青青",
       "supplier": "千百度,多味多（供应商）",
       "amount": 5611.94,
-      "count": 45.85
+      "count": 37.41
     },
     {
       "manager": "杨青青",
       "supplier": "原点厂家（供货商）",
       "amount": 6516.94,
-      "count": 47.23
+      "count": 87.78
     },
     {
       "manager": "杨青青",
       "supplier": "口口可（供应商）",
       "amount": 4256.86,
-      "count": 47.23
+      "count": 42.26
     },
     {
       "manager": "杨青青",
       "supplier": "合洋水产",
       "amount": 13214.53,
-      "count": 59.64
+      "count": 80.09
     },
     {
       "manager": "杨青青",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 3440.5,
-      "count": 35.38
+      "count": 32.38
     },
     {
       "manager": "杨青青",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 16941.92,
-      "count": 142.98
+      "count": 206.46
     },
     {
       "manager": "杨青青",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 26281.13,
-      "count": 135.92
+      "count": 194.95
     },
     {
       "manager": "杨青青",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 8180.3,
-      "count": 62.56
+      "count": 17.22
     },
     {
       "manager": "杨青青",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 34324.14,
-      "count": 270.79
+      "count": 99.12
     },
     {
       "manager": "杨青青",
       "supplier": "广东恒兴食品",
       "amount": 11216.52,
-      "count": 46.98
+      "count": 32.62
     },
     {
       "manager": "杨青青",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 18512.23,
-      "count": 71.65
+      "count": 47.0
     },
     {
       "manager": "杨青青",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 22365.64,
-      "count": 44.71
+      "count": 30.4
     },
     {
       "manager": "杨青青",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 30055.77,
-      "count": 101.43
+      "count": 109.92
     },
     {
       "manager": "杨青青",
@@ -939,85 +939,85 @@
       "manager": "杨青青",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 4588.45,
-      "count": 41.39
+      "count": 27.57
     },
     {
       "manager": "杨青青",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 5691.36,
-      "count": 47.63
+      "count": 29.87
     },
     {
       "manager": "杨青青",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 22283.0,
-      "count": 323.05
+      "count": 327.69
     },
     {
       "manager": "杨青青",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 40075.33,
-      "count": 122.21
+      "count": 131.31
     },
     {
       "manager": "杨青青",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 51275.63,
-      "count": 153.69
+      "count": 143.38
     },
     {
       "manager": "杨青青",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 7270.94,
-      "count": 57.05
+      "count": 43.97
     },
     {
       "manager": "杨青青",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 35953.62,
-      "count": 123.99
+      "count": 129.32
     },
     {
       "manager": "杨青青",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 13148.62,
-      "count": 165.3
+      "count": 162.49
     },
     {
       "manager": "杨青青",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 46148.87,
-      "count": 101.11
+      "count": 89.11
     },
     {
       "manager": "杨青青",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 14343.43,
-      "count": 135.11
+      "count": 142.56
     },
     {
       "manager": "杨青青",
       "supplier": "老铁厂家（供应商）",
       "amount": 119153.88,
-      "count": 644.31
+      "count": 70.22
     },
     {
       "manager": "杨青青",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 4936.27,
-      "count": 57.86
+      "count": 48.66
     },
     {
       "manager": "杨青青",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 94940.85,
-      "count": 616.64
+      "count": 223.4
     },
     {
       "manager": "杨青青",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 916.58,
-      "count": 28.65
+      "count": 5.91
     },
     {
       "manager": "杨青青",
@@ -1029,79 +1029,79 @@
       "manager": "杨青青",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 14020.6,
-      "count": 122.78
+      "count": 102.81
     },
     {
       "manager": "杨青青",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 1231.92,
-      "count": 27.51
+      "count": 3.42
     },
     {
       "manager": "杨青青",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 14951.67,
-      "count": 89.83
+      "count": 77.13
     },
     {
       "manager": "杨青青",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 11967.28,
-      "count": 59.97
+      "count": 15.44
     },
     {
       "manager": "杨青青",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 131.26,
-      "count": 27.1
+      "count": 0.7
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-八爪类",
       "amount": 1079.41,
-      "count": 2.57
+      "count": 2.25
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 119787.66,
-      "count": 284.67
+      "count": 207.96
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 6045.56,
-      "count": 14.37
+      "count": 15.63
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4815.01,
-      "count": 11.44
+      "count": 5.91
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-虾滑类",
       "amount": 861.7,
-      "count": 2.05
+      "count": 1.21
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-虾类",
       "amount": 12666.05,
-      "count": 30.1
+      "count": 25.36
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-贝类",
       "amount": 13569.04,
-      "count": 32.25
+      "count": 32.62
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 21197.52,
-      "count": 50.37
+      "count": 57.37
     },
     {
       "manager": "杨青青",
@@ -1113,25 +1113,25 @@
       "manager": "杨青青",
       "supplier": "湘上厨土豆类",
       "amount": 12745.64,
-      "count": 1208.15
+      "count": 60.59
     },
     {
       "manager": "杨青青",
       "supplier": "湘上厨扇子骨类",
       "amount": 7160.17,
-      "count": 678.71
+      "count": 36.48
     },
     {
       "manager": "杨青青",
       "supplier": "湘上厨河鲜类",
       "amount": 35293.56,
-      "count": 3345.44
+      "count": 15.25
     },
     {
       "manager": "杨青青",
       "supplier": "湘上厨海鲜类",
       "amount": 39414.58,
-      "count": 3736.07
+      "count": 47.96
     },
     {
       "manager": "杨青青",
@@ -1149,43 +1149,43 @@
       "manager": "杨青青",
       "supplier": "湘上厨牛肉类",
       "amount": 25806.21,
-      "count": 2446.15
+      "count": 34.14
     },
     {
       "manager": "杨青青",
       "supplier": "湘上厨猪副类",
       "amount": 43314.97,
-      "count": 4105.78
+      "count": 97.41
     },
     {
       "manager": "杨青青",
       "supplier": "湘上厨笋类",
       "amount": 15073.11,
-      "count": 1428.76
+      "count": 70.32
     },
     {
       "manager": "杨青青",
       "supplier": "湘上厨羊副类",
       "amount": 3375.88,
-      "count": 320.0
+      "count": 4.5
     },
     {
       "manager": "杨青青",
       "supplier": "湘上厨脆骨类",
       "amount": 3892.73,
-      "count": 368.99
+      "count": 16.36
     },
     {
       "manager": "杨青青",
       "supplier": "湘上厨蔬果类",
       "amount": 38035.26,
-      "count": 3605.33
+      "count": 176.23
     },
     {
       "manager": "杨青青",
       "supplier": "湘上厨调料类",
       "amount": 4652.1,
-      "count": 440.97
+      "count": 0
     },
     {
       "manager": "杨青青",
@@ -1197,7 +1197,7 @@
       "manager": "杨青青",
       "supplier": "湘上厨面点类",
       "amount": 6326.81,
-      "count": 599.71
+      "count": 32.54
     },
     {
       "manager": "杨青青",
@@ -1209,103 +1209,103 @@
       "manager": "杨青青",
       "supplier": "湘里情臭桂鱼",
       "amount": 59.74,
-      "count": 5.66
+      "count": 0.04
     },
     {
       "manager": "张纯英",
       "supplier": "乡源（供应商）",
       "amount": 18327.71,
-      "count": 67.11
+      "count": 63.2
     },
     {
       "manager": "张纯英",
       "supplier": "六安鸿泰食品",
       "amount": 56744.68,
-      "count": 163.76
+      "count": 232.14
     },
     {
       "manager": "张纯英",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 21505.71,
-      "count": 99.32
+      "count": 49.09
     },
     {
       "manager": "张纯英",
       "supplier": "千百度,多味多（供应商）",
       "amount": 396.54,
-      "count": 15.99
+      "count": 2.64
     },
     {
       "manager": "张纯英",
       "supplier": "原点厂家（供货商）",
       "amount": 3259.16,
-      "count": 25.32
+      "count": 43.9
     },
     {
       "manager": "张纯英",
       "supplier": "口口可（供应商）",
       "amount": 12529.52,
-      "count": 97.86
+      "count": 124.4
     },
     {
       "manager": "张纯英",
       "supplier": "合洋水产",
       "amount": 255.54,
-      "count": 15.66
+      "count": 1.55
     },
     {
       "manager": "张纯英",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 6215.98,
-      "count": 37.65
+      "count": 58.5
     },
     {
       "manager": "张纯英",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 4656.47,
-      "count": 43.9
+      "count": 56.74
     },
     {
       "manager": "张纯英",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 550.8,
-      "count": 16.31
+      "count": 4.09
     },
     {
       "manager": "张纯英",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 19406.81,
-      "count": 122.53
+      "count": 40.86
     },
     {
       "manager": "张纯英",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 1497.56,
-      "count": 21.83
+      "count": 4.32
     },
     {
       "manager": "张纯英",
       "supplier": "广东恒兴食品",
       "amount": 12002.9,
-      "count": 40.41
+      "count": 34.91
     },
     {
       "manager": "张纯英",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 13148.25,
-      "count": 49.18
+      "count": 33.38
     },
     {
       "manager": "张纯英",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 15638.44,
-      "count": 28.73
+      "count": 21.26
     },
     {
       "manager": "张纯英",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 50526.15,
-      "count": 157.59
+      "count": 184.78
     },
     {
       "manager": "张纯英",
@@ -1317,85 +1317,85 @@
       "manager": "张纯英",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 23018.25,
-      "count": 128.46
+      "count": 138.32
     },
     {
       "manager": "张纯英",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 25413.2,
-      "count": 148.42
+      "count": 133.4
     },
     {
       "manager": "张纯英",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 37270.24,
-      "count": 535.09
+      "count": 548.09
     },
     {
       "manager": "张纯英",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 30331.39,
-      "count": 89.59
+      "count": 99.39
     },
     {
       "manager": "张纯英",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 5348.39,
-      "count": 24.83
+      "count": 14.96
     },
     {
       "manager": "张纯英",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 717.0,
-      "count": 17.04
+      "count": 4.34
     },
     {
       "manager": "张纯英",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 57507.22,
-      "count": 187.45
+      "count": 206.85
     },
     {
       "manager": "张纯英",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 74185.46,
-      "count": 892.3
+      "count": 916.78
     },
     {
       "manager": "张纯英",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 10775.02,
-      "count": 29.62
+      "count": 20.81
     },
     {
       "manager": "张纯英",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 13452.71,
-      "count": 122.86
+      "count": 133.71
     },
     {
       "manager": "张纯英",
       "supplier": "老铁厂家（供应商）",
       "amount": 1355.52,
-      "count": 18.83
+      "count": 0.8
     },
     {
       "manager": "张纯英",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 12842.86,
-      "count": 119.53
+      "count": 126.59
     },
     {
       "manager": "张纯英",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 117334.67,
-      "count": 762.87
+      "count": 276.09
     },
     {
       "manager": "张纯英",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 11379.49,
-      "count": 79.12
+      "count": 73.33
     },
     {
       "manager": "张纯英",
@@ -1407,79 +1407,79 @@
       "manager": "张纯英",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 11275.02,
-      "count": 95.84
+      "count": 82.68
     },
     {
       "manager": "张纯英",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 4368.4,
-      "count": 22.15
+      "count": 12.13
     },
     {
       "manager": "张纯英",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 9914.0,
-      "count": 58.51
+      "count": 51.14
     },
     {
       "manager": "张纯英",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 21670.64,
-      "count": 88.94
+      "count": 27.96
     },
     {
       "manager": "张纯英",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 2641.44,
-      "count": 23.7
+      "count": 14.11
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-八爪类",
       "amount": 889.46,
-      "count": 1.87
+      "count": 1.85
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 98708.67,
-      "count": 207.78
+      "count": 171.37
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 4981.73,
-      "count": 10.49
+      "count": 12.88
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-虾仁类",
       "amount": 3967.71,
-      "count": 8.35
+      "count": 4.87
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-虾滑类",
       "amount": 710.07,
-      "count": 1.49
+      "count": 1.0
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-虾类",
       "amount": 10437.21,
-      "count": 21.97
+      "count": 20.89
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-贝类",
       "amount": 11181.3,
-      "count": 23.54
+      "count": 26.88
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 17467.4,
-      "count": 36.77
+      "count": 47.28
     },
     {
       "manager": "张纯英",
@@ -1491,25 +1491,25 @@
       "manager": "张纯英",
       "supplier": "湘上厨土豆类",
       "amount": 9395.08,
-      "count": 894.71
+      "count": 44.66
     },
     {
       "manager": "张纯英",
       "supplier": "湘上厨扇子骨类",
       "amount": 5277.92,
-      "count": 502.62
+      "count": 26.89
     },
     {
       "manager": "张纯英",
       "supplier": "湘上厨河鲜类",
       "amount": 26015.63,
-      "count": 2477.51
+      "count": 11.24
     },
     {
       "manager": "张纯英",
       "supplier": "湘上厨海鲜类",
       "amount": 29053.32,
-      "count": 2766.79
+      "count": 35.35
     },
     {
       "manager": "张纯英",
@@ -1527,43 +1527,43 @@
       "manager": "张纯英",
       "supplier": "湘上厨牛肉类",
       "amount": 19022.3,
-      "count": 1811.52
+      "count": 25.17
     },
     {
       "manager": "张纯英",
       "supplier": "湘上厨猪副类",
       "amount": 31928.38,
-      "count": 3040.59
+      "count": 71.8
     },
     {
       "manager": "张纯英",
       "supplier": "湘上厨笋类",
       "amount": 11110.7,
-      "count": 1058.09
+      "count": 51.83
     },
     {
       "manager": "张纯英",
       "supplier": "湘上厨羊副类",
       "amount": 2488.43,
-      "count": 236.98
+      "count": 3.32
     },
     {
       "manager": "张纯英",
       "supplier": "湘上厨脆骨类",
       "amount": 2869.41,
-      "count": 273.26
+      "count": 12.06
     },
     {
       "manager": "张纯英",
       "supplier": "湘上厨蔬果类",
       "amount": 28036.6,
-      "count": 2669.97
+      "count": 129.9
     },
     {
       "manager": "张纯英",
       "supplier": "湘上厨调料类",
       "amount": 3429.16,
-      "count": 326.56
+      "count": 0
     },
     {
       "manager": "张纯英",
@@ -1575,7 +1575,7 @@
       "manager": "张纯英",
       "supplier": "湘上厨面点类",
       "amount": 4663.63,
-      "count": 444.12
+      "count": 23.98
     },
     {
       "manager": "张纯英",
@@ -1587,103 +1587,103 @@
       "manager": "张纯英",
       "supplier": "湘里情臭桂鱼",
       "amount": 44.04,
-      "count": 4.19
+      "count": 0.03
     },
     {
       "manager": "陈龙",
       "supplier": "乡源（供应商）",
       "amount": 58724.02,
-      "count": 201.98
+      "count": 202.5
     },
     {
       "manager": "陈龙",
       "supplier": "六安鸿泰食品",
       "amount": 9508.15,
-      "count": 37.98
+      "count": 38.9
     },
     {
       "manager": "陈龙",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 10715.54,
-      "count": 55.99
+      "count": 24.46
     },
     {
       "manager": "陈龙",
       "supplier": "千百度,多味多（供应商）",
       "amount": 1817.99,
-      "count": 25.32
+      "count": 12.12
     },
     {
       "manager": "陈龙",
       "supplier": "原点厂家（供货商）",
       "amount": 1802.63,
-      "count": 24.91
+      "count": 24.28
     },
     {
       "manager": "陈龙",
       "supplier": "口口可（供应商）",
       "amount": 3688.53,
-      "count": 38.22
+      "count": 36.62
     },
     {
       "manager": "陈龙",
       "supplier": "合洋水产",
       "amount": 7048.49,
-      "count": 35.79
+      "count": 42.72
     },
     {
       "manager": "陈龙",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 7340.79,
-      "count": 46.09
+      "count": 69.08
     },
     {
       "manager": "陈龙",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 22020.69,
-      "count": 179.5
+      "count": 268.35
     },
     {
       "manager": "陈龙",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 2042.58,
-      "count": 25.32
+      "count": 15.15
     },
     {
       "manager": "陈龙",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 799.68,
-      "count": 23.13
+      "count": 1.68
     },
     {
       "manager": "陈龙",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 28976.28,
-      "count": 227.86
+      "count": 83.67
     },
     {
       "manager": "陈龙",
       "supplier": "广东恒兴食品",
       "amount": 22589.68,
-      "count": 70.19
+      "count": 65.7
     },
     {
       "manager": "陈龙",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 21372.84,
-      "count": 76.2
+      "count": 54.26
     },
     {
       "manager": "陈龙",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 18820.52,
-      "count": 35.46
+      "count": 25.58
     },
     {
       "manager": "陈龙",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 28541.06,
-      "count": 93.16
+      "count": 104.38
     },
     {
       "manager": "陈龙",
@@ -1695,85 +1695,85 @@
       "manager": "陈龙",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 18144.45,
-      "count": 104.03
+      "count": 109.03
     },
     {
       "manager": "陈龙",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 34905.35,
-      "count": 203.76
+      "count": 183.22
     },
     {
       "manager": "陈龙",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 25376.06,
-      "count": 365.0
+      "count": 373.18
     },
     {
       "manager": "陈龙",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 53533.36,
-      "count": 155.64
+      "count": 175.41
     },
     {
       "manager": "陈龙",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 13079.0,
-      "count": 47.07
+      "count": 36.57
     },
     {
       "manager": "陈龙",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 6875.84,
-      "count": 49.91
+      "count": 41.58
     },
     {
       "manager": "陈龙",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 24559.84,
-      "count": 85.53
+      "count": 88.34
     },
     {
       "manager": "陈龙",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 14435.94,
-      "count": 177.39
+      "count": 178.4
     },
     {
       "manager": "陈龙",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 24786.68,
-      "count": 57.37
+      "count": 47.86
     },
     {
       "manager": "陈龙",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 24452.62,
-      "count": 219.99
+      "count": 243.04
     },
     {
       "manager": "陈龙",
       "supplier": "老铁厂家（供应商）",
       "amount": 9453.05,
-      "count": 59.4
+      "count": 5.57
     },
     {
       "manager": "陈龙",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 8787.63,
-      "count": 85.61
+      "count": 86.62
     },
     {
       "manager": "陈龙",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 92602.68,
-      "count": 603.09
+      "count": 217.9
     },
     {
       "manager": "陈龙",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 298.56,
-      "count": 22.07
+      "count": 1.92
     },
     {
       "manager": "陈龙",
@@ -1785,79 +1785,79 @@
       "manager": "陈龙",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 12548.18,
-      "count": 107.6
+      "count": 92.02
     },
     {
       "manager": "陈龙",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 757.45,
-      "count": 22.07
+      "count": 2.1
     },
     {
       "manager": "陈龙",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 23751.61,
-      "count": 132.19
+      "count": 122.53
     },
     {
       "manager": "陈龙",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 889.13,
-      "count": 22.48
+      "count": 1.15
     },
     {
       "manager": "陈龙",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 10104.4,
-      "count": 62.48
+      "count": 53.99
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-八爪类",
       "amount": 633.71,
-      "count": 1.68
+      "count": 1.32
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 70326.03,
-      "count": 186.18
+      "count": 122.09
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 3549.28,
-      "count": 9.4
+      "count": 9.18
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-虾仁类",
       "amount": 2826.84,
-      "count": 7.48
+      "count": 3.47
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-虾滑类",
       "amount": 505.89,
-      "count": 1.34
+      "count": 0.71
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-虾类",
       "amount": 7436.1,
-      "count": 19.69
+      "count": 14.89
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-贝类",
       "amount": 7966.24,
-      "count": 21.09
+      "count": 19.15
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 12444.83,
-      "count": 32.95
+      "count": 33.68
     },
     {
       "manager": "陈龙",
@@ -1869,25 +1869,25 @@
       "manager": "陈龙",
       "supplier": "湘上厨土豆类",
       "amount": 7916.97,
-      "count": 755.15
+      "count": 37.63
     },
     {
       "manager": "陈龙",
       "supplier": "湘上厨扇子骨类",
       "amount": 4447.55,
-      "count": 424.22
+      "count": 22.66
     },
     {
       "manager": "陈龙",
       "supplier": "湘上厨河鲜类",
       "amount": 21922.62,
-      "count": 2091.06
+      "count": 9.47
     },
     {
       "manager": "陈龙",
       "supplier": "湘上厨海鲜类",
       "amount": 24482.4,
-      "count": 2335.22
+      "count": 29.79
     },
     {
       "manager": "陈龙",
@@ -1905,43 +1905,43 @@
       "manager": "陈龙",
       "supplier": "湘上厨牛肉类",
       "amount": 16029.55,
-      "count": 1528.95
+      "count": 21.21
     },
     {
       "manager": "陈龙",
       "supplier": "湘上厨猪副类",
       "amount": 26905.13,
-      "count": 2566.3
+      "count": 60.5
     },
     {
       "manager": "陈龙",
       "supplier": "湘上厨笋类",
       "amount": 9362.67,
-      "count": 893.04
+      "count": 43.68
     },
     {
       "manager": "陈龙",
       "supplier": "湘上厨羊副类",
       "amount": 2096.93,
-      "count": 200.01
+      "count": 2.8
     },
     {
       "manager": "陈龙",
       "supplier": "湘上厨脆骨类",
       "amount": 2417.97,
-      "count": 230.63
+      "count": 10.17
     },
     {
       "manager": "陈龙",
       "supplier": "湘上厨蔬果类",
       "amount": 23625.63,
-      "count": 2253.49
+      "count": 109.46
     },
     {
       "manager": "陈龙",
       "supplier": "湘上厨调料类",
       "amount": 2889.66,
-      "count": 275.63
+      "count": 0
     },
     {
       "manager": "陈龙",
@@ -1953,7 +1953,7 @@
       "manager": "陈龙",
       "supplier": "湘上厨面点类",
       "amount": 3929.91,
-      "count": 374.85
+      "count": 20.21
     },
     {
       "manager": "陈龙",
@@ -1965,103 +1965,103 @@
       "manager": "陈龙",
       "supplier": "湘里情臭桂鱼",
       "amount": 37.11,
-      "count": 3.54
+      "count": 0.03
     },
     {
       "manager": "蔡磊",
       "supplier": "乡源（供应商）",
       "amount": 6028.04,
-      "count": 27.59
+      "count": 20.79
     },
     {
       "manager": "蔡磊",
       "supplier": "六安鸿泰食品",
       "amount": 28103.03,
-      "count": 83.34
+      "count": 114.97
     },
     {
       "manager": "蔡磊",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 14711.06,
-      "count": 69.62
+      "count": 33.58
     },
     {
       "manager": "蔡磊",
       "supplier": "千百度,多味多（供应商）",
       "amount": 6428.56,
-      "count": 40.9
+      "count": 42.86
     },
     {
       "manager": "蔡磊",
       "supplier": "原点厂家（供货商）",
       "amount": 1413.13,
-      "count": 17.28
+      "count": 19.03
     },
     {
       "manager": "蔡磊",
       "supplier": "口口可（供应商）",
       "amount": 23796.03,
-      "count": 181.12
+      "count": 236.26
     },
     {
       "manager": "蔡磊",
       "supplier": "合洋水产",
       "amount": 40.95,
-      "count": 13.8
+      "count": 0.25
     },
     {
       "manager": "蔡磊",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 9130.08,
-      "count": 50.07
+      "count": 85.92
     },
     {
       "manager": "蔡磊",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 8429.7,
-      "count": 71.82
+      "count": 102.73
     },
     {
       "manager": "蔡磊",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 9148.16,
-      "count": 50.07
+      "count": 67.86
     },
     {
       "manager": "蔡磊",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 10870.2,
-      "count": 71.0
+      "count": 22.88
     },
     {
       "manager": "蔡磊",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 626.23,
-      "count": 15.9
+      "count": 1.81
     },
     {
       "manager": "蔡磊",
       "supplier": "广东恒兴食品",
       "amount": 5264.75,
-      "count": 23.13
+      "count": 15.31
     },
     {
       "manager": "蔡磊",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 8621.32,
-      "count": 34.57
+      "count": 21.89
     },
     {
       "manager": "蔡磊",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 29095.96,
-      "count": 43.41
+      "count": 39.55
     },
     {
       "manager": "蔡磊",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 32621.45,
-      "count": 102.9
+      "count": 119.3
     },
     {
       "manager": "蔡磊",
@@ -2073,85 +2073,85 @@
       "manager": "蔡磊",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 3780.42,
-      "count": 27.67
+      "count": 22.72
     },
     {
       "manager": "蔡磊",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 23447.23,
-      "count": 137.3
+      "count": 123.08
     },
     {
       "manager": "蔡磊",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 3748.01,
-      "count": 58.26
+      "count": 55.12
     },
     {
       "manager": "蔡磊",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 5633.05,
-      "count": 24.26
+      "count": 18.46
     },
     {
       "manager": "蔡磊",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 17262.22,
-      "count": 54.04
+      "count": 48.27
     },
     {
       "manager": "蔡磊",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 14007.7,
-      "count": 87.4
+      "count": 84.7
     },
     {
       "manager": "蔡磊",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 20273.19,
-      "count": 69.54
+      "count": 72.92
     },
     {
       "manager": "蔡磊",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 76769.33,
-      "count": 922.97
+      "count": 948.71
     },
     {
       "manager": "蔡磊",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 48187.96,
-      "count": 99.24
+      "count": 93.05
     },
     {
       "manager": "蔡磊",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 8966.95,
-      "count": 83.1
+      "count": 89.13
     },
     {
       "manager": "蔡磊",
       "supplier": "老铁厂家（供应商）",
       "amount": 19162.11,
-      "count": 107.2
+      "count": 11.29
     },
     {
       "manager": "蔡磊",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 16110.27,
-      "count": 148.26
+      "count": 158.8
     },
     {
       "manager": "蔡磊",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 108520.76,
-      "count": 705.25
+      "count": 255.35
     },
     {
       "manager": "蔡磊",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 5527.7,
-      "count": 42.28
+      "count": 35.62
     },
     {
       "manager": "蔡磊",
@@ -2163,79 +2163,79 @@
       "manager": "蔡磊",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 14712.94,
-      "count": 122.53
+      "count": 107.89
     },
     {
       "manager": "蔡磊",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 8980.32,
-      "count": 31.4
+      "count": 24.95
     },
     {
       "manager": "蔡磊",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 2695.98,
-      "count": 22.88
+      "count": 13.91
     },
     {
       "manager": "蔡磊",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 8837.79,
-      "count": 40.65
+      "count": 11.4
     },
     {
       "manager": "蔡磊",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 993.23,
-      "count": 16.15
+      "count": 5.31
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-八爪类",
       "amount": 831.71,
-      "count": 1.76
+      "count": 1.73
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 92299.93,
-      "count": 194.82
+      "count": 160.24
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 4658.29,
-      "count": 9.83
+      "count": 12.05
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-虾仁类",
       "amount": 3710.11,
-      "count": 7.83
+      "count": 4.56
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-虾滑类",
       "amount": 663.96,
-      "count": 1.4
+      "count": 0.94
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-虾类",
       "amount": 9759.57,
-      "count": 20.6
+      "count": 19.54
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-贝类",
       "amount": 10455.35,
-      "count": 22.07
+      "count": 25.13
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 16333.31,
-      "count": 34.47
+      "count": 44.21
     },
     {
       "manager": "蔡磊",
@@ -2247,25 +2247,25 @@
       "manager": "蔡磊",
       "supplier": "湘上厨土豆类",
       "amount": 8074.03,
-      "count": 769.16
+      "count": 38.38
     },
     {
       "manager": "蔡磊",
       "supplier": "湘上厨扇子骨类",
       "amount": 4535.78,
-      "count": 432.1
+      "count": 23.11
     },
     {
       "manager": "蔡磊",
       "supplier": "湘上厨河鲜类",
       "amount": 22357.55,
-      "count": 2129.86
+      "count": 9.66
     },
     {
       "manager": "蔡磊",
       "supplier": "湘上厨海鲜类",
       "amount": 24968.11,
-      "count": 2378.56
+      "count": 30.38
     },
     {
       "manager": "蔡磊",
@@ -2283,43 +2283,43 @@
       "manager": "蔡磊",
       "supplier": "湘上厨牛肉类",
       "amount": 16347.56,
-      "count": 1557.33
+      "count": 21.63
     },
     {
       "manager": "蔡磊",
       "supplier": "湘上厨猪副类",
       "amount": 27438.9,
-      "count": 2613.93
+      "count": 61.7
     },
     {
       "manager": "蔡磊",
       "supplier": "湘上厨笋类",
       "amount": 9548.42,
-      "count": 909.62
+      "count": 44.55
     },
     {
       "manager": "蔡磊",
       "supplier": "湘上厨羊副类",
       "amount": 2138.53,
-      "count": 203.72
+      "count": 2.85
     },
     {
       "manager": "蔡磊",
       "supplier": "湘上厨脆骨类",
       "amount": 2465.94,
-      "count": 234.91
+      "count": 10.37
     },
     {
       "manager": "蔡磊",
       "supplier": "湘上厨蔬果类",
       "amount": 24094.35,
-      "count": 2295.32
+      "count": 111.64
     },
     {
       "manager": "蔡磊",
       "supplier": "湘上厨调料类",
       "amount": 2946.98,
-      "count": 280.74
+      "count": 0
     },
     {
       "manager": "蔡磊",
@@ -2331,7 +2331,7 @@
       "manager": "蔡磊",
       "supplier": "湘上厨面点类",
       "amount": 4007.87,
-      "count": 381.81
+      "count": 20.61
     },
     {
       "manager": "蔡磊",
@@ -2343,103 +2343,103 @@
       "manager": "蔡磊",
       "supplier": "湘里情臭桂鱼",
       "amount": 37.85,
-      "count": 3.61
+      "count": 0.03
     },
     {
       "manager": "尹建林",
       "supplier": "乡源（供应商）",
       "amount": 3692.05,
-      "count": 23.37
+      "count": 12.73
     },
     {
       "manager": "尹建林",
       "supplier": "六安鸿泰食品",
       "amount": 26164.67,
-      "count": 79.28
+      "count": 107.04
     },
     {
       "manager": "尹建林",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 3354.52,
-      "count": 24.91
+      "count": 7.66
     },
     {
       "manager": "尹建林",
       "supplier": "千百度,多味多（供应商）",
       "amount": 362.86,
-      "count": 18.01
+      "count": 2.42
     },
     {
       "manager": "尹建林",
       "supplier": "原点厂家（供货商）",
       "amount": 327.58,
-      "count": 17.93
+      "count": 4.41
     },
     {
       "manager": "尹建林",
       "supplier": "口口可（供应商）",
       "amount": 17927.7,
-      "count": 139.65
+      "count": 178.0
     },
     {
       "manager": "尹建林",
       "supplier": "合洋水产",
       "amount": 10118.31,
-      "count": 42.6
+      "count": 61.32
     },
     {
       "manager": "尹建林",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 5537.28,
-      "count": 34.65
+      "count": 52.11
     },
     {
       "manager": "尹建林",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 22858.47,
-      "count": 186.15
+      "count": 278.56
     },
     {
       "manager": "尹建林",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 9231.77,
-      "count": 50.96
+      "count": 68.48
     },
     {
       "manager": "尹建林",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 5914.84,
-      "count": 43.25
+      "count": 12.45
     },
     {
       "manager": "尹建林",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 6573.56,
-      "count": 56.97
+      "count": 18.98
     },
     {
       "manager": "尹建林",
       "supplier": "广东恒兴食品",
       "amount": 29426.56,
-      "count": 87.15
+      "count": 85.58
     },
     {
       "manager": "尹建林",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 13673.65,
-      "count": 50.39
+      "count": 34.71
     },
     {
       "manager": "尹建林",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 58261.56,
-      "count": 80.66
+      "count": 79.2
     },
     {
       "manager": "尹建林",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 68888.53,
-      "count": 214.88
+      "count": 251.93
     },
     {
       "manager": "尹建林",
@@ -2451,85 +2451,85 @@
       "manager": "尹建林",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 4367.5,
-      "count": 31.73
+      "count": 26.25
     },
     {
       "manager": "尹建林",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 20265.93,
-      "count": 120.67
+      "count": 106.38
     },
     {
       "manager": "尹建林",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 81638.23,
-      "count": 1181.43
+      "count": 1200.56
     },
     {
       "manager": "尹建林",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 20689.59,
-      "count": 64.35
+      "count": 67.79
     },
     {
       "manager": "尹建林",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 5084.68,
-      "count": 24.67
+      "count": 14.22
     },
     {
       "manager": "尹建林",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 6665.93,
-      "count": 45.93
+      "count": 40.31
     },
     {
       "manager": "尹建林",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 23653.06,
-      "count": 80.9
+      "count": 85.08
     },
     {
       "manager": "尹建林",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 85417.85,
-      "count": 1037.88
+      "count": 1055.58
     },
     {
       "manager": "尹建林",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 13988.78,
-      "count": 34.81
+      "count": 27.01
     },
     {
       "manager": "尹建林",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 12039.01,
-      "count": 111.17
+      "count": 119.66
     },
     {
       "manager": "尹建林",
       "supplier": "老铁厂家（供应商）",
       "amount": 12966.45,
-      "count": 75.39
+      "count": 7.64
     },
     {
       "manager": "尹建林",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 6163.14,
-      "count": 61.27
+      "count": 60.75
     },
     {
       "manager": "尹建林",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 96233.13,
-      "count": 631.81
+      "count": 226.44
     },
     {
       "manager": "尹建林",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 207.08,
-      "count": 17.85
+      "count": 1.33
     },
     {
       "manager": "尹建林",
@@ -2541,79 +2541,79 @@
       "manager": "尹建林",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 21600.44,
-      "count": 180.31
+      "count": 158.4
     },
     {
       "manager": "尹建林",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 3160.17,
-      "count": 20.45
+      "count": 8.78
     },
     {
       "manager": "尹建林",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 9525.23,
-      "count": 56.64
+      "count": 49.14
     },
     {
       "manager": "尹建林",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 4023.84,
-      "count": 25.48
+      "count": 5.19
     },
     {
       "manager": "尹建林",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 10529.43,
-      "count": 62.56
+      "count": 56.26
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-八爪类",
       "amount": 585.96,
-      "count": 1.43
+      "count": 1.22
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 65026.78,
-      "count": 158.96
+      "count": 112.89
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 3281.84,
-      "count": 8.02
+      "count": 8.49
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-虾仁类",
       "amount": 2613.83,
-      "count": 6.39
+      "count": 3.21
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-虾滑类",
       "amount": 467.77,
-      "count": 1.14
+      "count": 0.66
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-虾类",
       "amount": 6875.77,
-      "count": 16.81
+      "count": 13.77
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-贝类",
       "amount": 7365.96,
-      "count": 18.01
+      "count": 17.71
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 11507.08,
-      "count": 28.13
+      "count": 31.14
     },
     {
       "manager": "尹建林",
@@ -2625,25 +2625,25 @@
       "manager": "尹建林",
       "supplier": "湘上厨土豆类",
       "amount": 4890.33,
-      "count": 470.98
+      "count": 23.25
     },
     {
       "manager": "尹建林",
       "supplier": "湘上厨扇子骨类",
       "amount": 2747.26,
-      "count": 264.58
+      "count": 14.0
     },
     {
       "manager": "尹建林",
       "supplier": "湘上厨河鲜类",
       "amount": 13541.67,
-      "count": 1304.17
+      "count": 5.85
     },
     {
       "manager": "尹建林",
       "supplier": "湘上厨海鲜类",
       "amount": 15122.85,
-      "count": 1456.45
+      "count": 18.4
     },
     {
       "manager": "尹建林",
@@ -2661,43 +2661,43 @@
       "manager": "尹建林",
       "supplier": "湘上厨牛肉类",
       "amount": 9901.5,
-      "count": 953.59
+      "count": 13.1
     },
     {
       "manager": "尹建林",
       "supplier": "湘上厨猪副类",
       "amount": 16619.38,
-      "count": 1600.57
+      "count": 37.37
     },
     {
       "manager": "尹建林",
       "supplier": "湘上厨笋类",
       "amount": 5783.35,
-      "count": 556.98
+      "count": 26.98
     },
     {
       "manager": "尹建林",
       "supplier": "湘上厨羊副类",
       "amount": 1295.28,
-      "count": 124.75
+      "count": 1.73
     },
     {
       "manager": "尹建林",
       "supplier": "湘上厨脆骨类",
       "amount": 1493.59,
-      "count": 143.84
+      "count": 6.28
     },
     {
       "manager": "尹建林",
       "supplier": "湘上厨蔬果类",
       "amount": 14593.63,
-      "count": 1405.48
+      "count": 67.62
     },
     {
       "manager": "尹建林",
       "supplier": "湘上厨调料类",
       "amount": 1784.95,
-      "count": 171.9
+      "count": 0
     },
     {
       "manager": "尹建林",
@@ -2709,7 +2709,7 @@
       "manager": "尹建林",
       "supplier": "湘上厨面点类",
       "amount": 2427.51,
-      "count": 233.79
+      "count": 12.48
     },
     {
       "manager": "尹建林",
@@ -2721,103 +2721,103 @@
       "manager": "尹建林",
       "supplier": "湘里情臭桂鱼",
       "amount": 22.92,
-      "count": 2.21
+      "count": 0.02
     },
     {
       "manager": "周斌",
       "supplier": "乡源（供应商）",
       "amount": 1449.61,
-      "count": 22.4
+      "count": 5.0
     },
     {
       "manager": "周斌",
       "supplier": "六安鸿泰食品",
       "amount": 20938.86,
-      "count": 68.41
+      "count": 85.66
     },
     {
       "manager": "周斌",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 59282.63,
-      "count": 267.54
+      "count": 135.33
     },
     {
       "manager": "周斌",
       "supplier": "千百度,多味多（供应商）",
       "amount": 5235.61,
-      "count": 40.74
+      "count": 34.9
     },
     {
       "manager": "周斌",
       "supplier": "原点厂家（供货商）",
       "amount": 6517.49,
-      "count": 43.5
+      "count": 87.79
     },
     {
       "manager": "周斌",
       "supplier": "口口可（供应商）",
       "amount": 9940.35,
-      "count": 83.26
+      "count": 98.69
     },
     {
       "manager": "周斌",
       "supplier": "合洋水产",
       "amount": 23075.06,
-      "count": 89.26
+      "count": 139.85
     },
     {
       "manager": "周斌",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 5308.57,
-      "count": 37.98
+      "count": 49.96
     },
     {
       "manager": "周斌",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 25518.47,
-      "count": 209.28
+      "count": 310.97
     },
     {
       "manager": "周斌",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 12308.79,
-      "count": 68.98
+      "count": 91.3
     },
     {
       "manager": "周斌",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 1236.15,
-      "count": 24.02
+      "count": 2.6
     },
     {
       "manager": "周斌",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 28089.94,
-      "count": 223.48
+      "count": 81.11
     },
     {
       "manager": "周斌",
       "supplier": "广东恒兴食品",
       "amount": 2800.31,
-      "count": 24.26
+      "count": 8.14
     },
     {
       "manager": "周斌",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 7595.7,
-      "count": 37.0
+      "count": 19.28
     },
     {
       "manager": "周斌",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 21174.24,
-      "count": 39.28
+      "count": 28.78
     },
     {
       "manager": "周斌",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 29455.17,
-      "count": 98.11
+      "count": 107.72
     },
     {
       "manager": "周斌",
@@ -2829,85 +2829,85 @@
       "manager": "周斌",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 5256.49,
-      "count": 40.74
+      "count": 31.59
     },
     {
       "manager": "周斌",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 10079.85,
-      "count": 67.27
+      "count": 52.91
     },
     {
       "manager": "周斌",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 19038.73,
-      "count": 277.52
+      "count": 279.98
     },
     {
       "manager": "周斌",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 23775.31,
-      "count": 75.71
+      "count": 77.9
     },
     {
       "manager": "周斌",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 10155.22,
-      "count": 41.06
+      "count": 28.4
     },
     {
       "manager": "周斌",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 3153.3,
-      "count": 32.3
+      "count": 19.07
     },
     {
       "manager": "周斌",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 16828.93,
-      "count": 63.62
+      "count": 60.53
     },
     {
       "manager": "周斌",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 19298.18,
-      "count": 237.03
+      "count": 238.48
     },
     {
       "manager": "周斌",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 2286.03,
-      "count": 22.32
+      "count": 4.41
     },
     {
       "manager": "周斌",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 13781.44,
-      "count": 129.35
+      "count": 136.98
     },
     {
       "manager": "周斌",
       "supplier": "老铁厂家（供应商）",
       "amount": 34310.84,
-      "count": 192.0
+      "count": 20.22
     },
     {
       "manager": "周斌",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 604.61,
-      "count": 22.96
+      "count": 5.96
     },
     {
       "manager": "周斌",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 128804.39,
-      "count": 838.98
+      "count": 303.08
     },
     {
       "manager": "周斌",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 23.37,
-      "count": 20.77
+      "count": 0.15
     },
     {
       "manager": "周斌",
@@ -2919,79 +2919,79 @@
       "manager": "周斌",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 17229.52,
-      "count": 147.12
+      "count": 126.34
     },
     {
       "manager": "周斌",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 815.86,
-      "count": 21.26
+      "count": 2.27
     },
     {
       "manager": "周斌",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 9191.68,
-      "count": 59.56
+      "count": 47.42
     },
     {
       "manager": "周斌",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 402.44,
-      "count": 20.94
+      "count": 0.52
     },
     {
       "manager": "周斌",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 527.58,
-      "count": 21.42
+      "count": 2.82
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-八爪类",
       "amount": 940.26,
-      "count": 2.19
+      "count": 1.96
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 104346.26,
-      "count": 243.2
+      "count": 181.16
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 5266.25,
-      "count": 12.27
+      "count": 13.62
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4194.32,
-      "count": 9.78
+      "count": 5.15
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-虾滑类",
       "amount": 750.62,
-      "count": 1.75
+      "count": 1.06
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-虾类",
       "amount": 11033.31,
-      "count": 25.72
+      "count": 22.09
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-贝类",
       "amount": 11819.9,
-      "count": 27.55
+      "count": 28.41
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 18465.02,
-      "count": 43.04
+      "count": 49.98
     },
     {
       "manager": "周斌",
@@ -3003,25 +3003,25 @@
       "manager": "周斌",
       "supplier": "湘上厨土豆类",
       "amount": 7516.55,
-      "count": 717.76
+      "count": 35.73
     },
     {
       "manager": "周斌",
       "supplier": "湘上厨扇子骨类",
       "amount": 4222.61,
-      "count": 403.22
+      "count": 21.51
     },
     {
       "manager": "周斌",
       "supplier": "湘上厨河鲜类",
       "amount": 20813.86,
-      "count": 1987.52
+      "count": 8.99
     },
     {
       "manager": "周斌",
       "supplier": "湘上厨海鲜类",
       "amount": 23244.17,
-      "count": 2219.59
+      "count": 28.29
     },
     {
       "manager": "周斌",
@@ -3039,43 +3039,43 @@
       "manager": "周斌",
       "supplier": "湘上厨牛肉类",
       "amount": 15218.83,
-      "count": 1453.25
+      "count": 20.14
     },
     {
       "manager": "周斌",
       "supplier": "湘上厨猪副类",
       "amount": 25544.37,
-      "count": 2439.23
+      "count": 57.44
     },
     {
       "manager": "周斌",
       "supplier": "湘上厨笋类",
       "amount": 8889.14,
-      "count": 848.83
+      "count": 41.47
     },
     {
       "manager": "周斌",
       "supplier": "湘上厨羊副类",
       "amount": 1990.88,
-      "count": 190.11
+      "count": 2.65
     },
     {
       "manager": "周斌",
       "supplier": "湘上厨脆骨类",
       "amount": 2295.68,
-      "count": 219.21
+      "count": 9.65
     },
     {
       "manager": "周斌",
       "supplier": "湘上厨蔬果类",
       "amount": 22430.74,
-      "count": 2141.91
+      "count": 103.93
     },
     {
       "manager": "周斌",
       "supplier": "湘上厨调料类",
       "amount": 2743.51,
-      "count": 261.98
+      "count": 0
     },
     {
       "manager": "周斌",
@@ -3087,7 +3087,7 @@
       "manager": "周斌",
       "supplier": "湘上厨面点类",
       "amount": 3731.15,
-      "count": 356.29
+      "count": 19.19
     },
     {
       "manager": "周斌",
@@ -3099,103 +3099,103 @@
       "manager": "周斌",
       "supplier": "湘里情臭桂鱼",
       "amount": 35.23,
-      "count": 3.36
+      "count": 0.02
     },
     {
       "manager": "熊雄",
       "supplier": "乡源（供应商）",
       "amount": 3111.91,
-      "count": 13.31
+      "count": 10.73
     },
     {
       "manager": "熊雄",
       "supplier": "六安鸿泰食品",
       "amount": 13851.21,
-      "count": 40.25
+      "count": 56.67
     },
     {
       "manager": "熊雄",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 48455.87,
-      "count": 213.74
+      "count": 110.61
     },
     {
       "manager": "熊雄",
       "supplier": "千百度,多味多（供应商）",
       "amount": 9463.11,
-      "count": 52.42
+      "count": 63.09
     },
     {
       "manager": "熊雄",
       "supplier": "原点厂家（供货商）",
       "amount": 8594.15,
-      "count": 42.85
+      "count": 115.76
     },
     {
       "manager": "熊雄",
       "supplier": "口口可（供应商）",
       "amount": 2342.51,
-      "count": 19.64
+      "count": 23.26
     },
     {
       "manager": "熊雄",
       "supplier": "合洋水产",
       "amount": 12123.66,
-      "count": 43.41
+      "count": 73.48
     },
     {
       "manager": "熊雄",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 1750.87,
-      "count": 11.69
+      "count": 16.48
     },
     {
       "manager": "熊雄",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 15993.49,
-      "count": 127.24
+      "count": 194.9
     },
     {
       "manager": "熊雄",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 1201.9,
-      "count": 9.49
+      "count": 8.92
     },
     {
       "manager": "熊雄",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 146.42,
-      "count": 6.33
+      "count": 0.31
     },
     {
       "manager": "熊雄",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 9341.54,
-      "count": 72.63
+      "count": 26.98
     },
     {
       "manager": "熊雄",
       "supplier": "广东恒兴食品",
       "amount": 4833.94,
-      "count": 16.23
+      "count": 14.06
     },
     {
       "manager": "熊雄",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 25518.77,
-      "count": 83.01
+      "count": 64.78
     },
     {
       "manager": "熊雄",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 1270.29,
-      "count": 6.57
+      "count": 1.73
     },
     {
       "manager": "熊雄",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 43160.58,
-      "count": 131.38
+      "count": 157.84
     },
     {
       "manager": "熊雄",
@@ -3207,85 +3207,85 @@
       "manager": "熊雄",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 2046.62,
-      "count": 13.71
+      "count": 12.3
     },
     {
       "manager": "熊雄",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 26108.9,
-      "count": 149.07
+      "count": 137.05
     },
     {
       "manager": "熊雄",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 24933.52,
-      "count": 355.02
+      "count": 366.67
     },
     {
       "manager": "熊雄",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 32821.83,
-      "count": 92.91
+      "count": 107.55
     },
     {
       "manager": "熊雄",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 17483.24,
-      "count": 50.72
+      "count": 48.89
     },
     {
       "manager": "熊雄",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 926.09,
-      "count": 9.33
+      "count": 5.6
     },
     {
       "manager": "熊雄",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 28419.48,
-      "count": 91.53
+      "count": 102.22
     },
     {
       "manager": "熊雄",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 6251.62,
-      "count": 75.95
+      "count": 77.26
     },
     {
       "manager": "熊雄",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 3827.03,
-      "count": 10.87
+      "count": 7.39
     },
     {
       "manager": "熊雄",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 2484.74,
-      "count": 24.1
+      "count": 24.7
     },
     {
       "manager": "熊雄",
       "supplier": "老铁厂家（供应商）",
       "amount": 51552.26,
-      "count": 277.36
+      "count": 30.38
     },
     {
       "manager": "熊雄",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 2297.35,
-      "count": 22.96
+      "count": 22.65
     },
     {
       "manager": "熊雄",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 36622.18,
-      "count": 236.22
+      "count": 86.17
     },
     {
       "manager": "熊雄",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 166.71,
-      "count": 6.41
+      "count": 1.07
     },
     {
       "manager": "熊雄",
@@ -3297,79 +3297,79 @@
       "manager": "熊雄",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 9236.13,
-      "count": 75.87
+      "count": 67.73
     },
     {
       "manager": "熊雄",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 679.47,
-      "count": 6.74
+      "count": 1.89
     },
     {
       "manager": "熊雄",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 4763.17,
-      "count": 27.27
+      "count": 24.57
     },
     {
       "manager": "熊雄",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 12236.3,
-      "count": 48.53
+      "count": 15.79
     },
     {
       "manager": "熊雄",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 2263.95,
-      "count": 15.01
+      "count": 12.1
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-八爪类",
       "amount": 1024.85,
-      "count": 1.85
+      "count": 2.14
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 113732.99,
-      "count": 205.62
+      "count": 197.45
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 5739.99,
-      "count": 10.38
+      "count": 14.84
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4571.63,
-      "count": 8.27
+      "count": 5.61
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-虾滑类",
       "amount": 818.14,
-      "count": 1.48
+      "count": 1.15
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-虾类",
       "amount": 12025.84,
-      "count": 21.74
+      "count": 24.08
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-贝类",
       "amount": 12883.19,
-      "count": 23.29
+      "count": 30.97
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 20126.09,
-      "count": 36.39
+      "count": 54.47
     },
     {
       "manager": "熊雄",
@@ -3381,25 +3381,25 @@
       "manager": "熊雄",
       "supplier": "湘上厨土豆类",
       "amount": 9073.45,
-      "count": 859.25
+      "count": 43.13
     },
     {
       "manager": "熊雄",
       "supplier": "湘上厨扇子骨类",
       "amount": 5097.23,
-      "count": 482.7
+      "count": 25.97
     },
     {
       "manager": "熊雄",
       "supplier": "湘上厨河鲜类",
       "amount": 25125.02,
-      "count": 2379.32
+      "count": 10.86
     },
     {
       "manager": "熊雄",
       "supplier": "湘上厨海鲜类",
       "amount": 28058.72,
-      "count": 2657.13
+      "count": 34.14
     },
     {
       "manager": "熊雄",
@@ -3417,43 +3417,43 @@
       "manager": "熊雄",
       "supplier": "湘上厨牛肉类",
       "amount": 18371.1,
-      "count": 1739.73
+      "count": 24.31
     },
     {
       "manager": "熊雄",
       "supplier": "湘上厨猪副类",
       "amount": 30835.35,
-      "count": 2920.08
+      "count": 69.34
     },
     {
       "manager": "熊雄",
       "supplier": "湘上厨笋类",
       "amount": 10730.34,
-      "count": 1016.15
+      "count": 50.06
     },
     {
       "manager": "熊雄",
       "supplier": "湘上厨羊副类",
       "amount": 2403.24,
-      "count": 227.59
+      "count": 3.2
     },
     {
       "manager": "熊雄",
       "supplier": "湘上厨脆骨类",
       "amount": 2771.18,
-      "count": 262.43
+      "count": 11.65
     },
     {
       "manager": "熊雄",
       "supplier": "湘上厨蔬果类",
       "amount": 27076.8,
-      "count": 2564.15
+      "count": 125.45
     },
     {
       "manager": "熊雄",
       "supplier": "湘上厨调料类",
       "amount": 3311.77,
-      "count": 313.62
+      "count": 0
     },
     {
       "manager": "熊雄",
@@ -3465,7 +3465,7 @@
       "manager": "熊雄",
       "supplier": "湘上厨面点类",
       "amount": 4503.97,
-      "count": 426.52
+      "count": 23.16
     },
     {
       "manager": "熊雄",
@@ -3477,103 +3477,103 @@
       "manager": "熊雄",
       "supplier": "湘里情臭桂鱼",
       "amount": 42.53,
-      "count": 4.03
+      "count": 0.03
     },
     {
       "manager": "江廉政",
       "supplier": "乡源（供应商）",
       "amount": 3050.46,
-      "count": 20.61
+      "count": 10.52
     },
     {
       "manager": "江廉政",
       "supplier": "六安鸿泰食品",
       "amount": 47790.98,
-      "count": 139.49
+      "count": 195.51
     },
     {
       "manager": "江廉政",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 11936.44,
-      "count": 59.32
+      "count": 27.25
     },
     {
       "manager": "江廉政",
       "supplier": "千百度,多味多（供应商）",
       "amount": 401.63,
-      "count": 15.34
+      "count": 2.68
     },
     {
       "manager": "江廉政",
       "supplier": "原点厂家（供货商）",
       "amount": 1038.0,
-      "count": 16.96
+      "count": 13.98
     },
     {
       "manager": "江廉政",
       "supplier": "口口可（供应商）",
       "amount": 6071.03,
-      "count": 52.1
+      "count": 60.28
     },
     {
       "manager": "江廉政",
       "supplier": "合洋水产",
       "amount": 628.79,
-      "count": 15.34
+      "count": 3.81
     },
     {
       "manager": "江廉政",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 5536.98,
-      "count": 35.06
+      "count": 52.11
     },
     {
       "manager": "江廉政",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 30966.16,
-      "count": 251.88
+      "count": 377.36
     },
     {
       "manager": "江廉政",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 696.88,
-      "count": 15.9
+      "count": 5.17
     },
     {
       "manager": "江廉政",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 295.14,
-      "count": 15.09
+      "count": 0.62
     },
     {
       "manager": "江廉政",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 4276.98,
-      "count": 40.98
+      "count": 12.35
     },
     {
       "manager": "江廉政",
       "supplier": "广东恒兴食品",
       "amount": 40427.58,
-      "count": 117.18
+      "count": 117.58
     },
     {
       "manager": "江廉政",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 11410.99,
-      "count": 44.55
+      "count": 28.97
     },
     {
       "manager": "江廉政",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 11301.22,
-      "count": 24.34
+      "count": 15.36
     },
     {
       "manager": "江廉政",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 30961.06,
-      "count": 99.65
+      "count": 113.23
     },
     {
       "manager": "江廉政",
@@ -3585,85 +3585,85 @@
       "manager": "江廉政",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 1454.75,
-      "count": 18.66
+      "count": 8.74
     },
     {
       "manager": "江廉政",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 11125.45,
-      "count": 69.54
+      "count": 58.4
     },
     {
       "manager": "江廉政",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 26104.43,
-      "count": 380.01
+      "count": 383.89
     },
     {
       "manager": "江廉政",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 30814.35,
-      "count": 92.26
+      "count": 100.97
     },
     {
       "manager": "江廉政",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 6347.05,
-      "count": 27.18
+      "count": 17.75
     },
     {
       "manager": "江廉政",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 1188.34,
-      "count": 18.18
+      "count": 7.19
     },
     {
       "manager": "江廉政",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 11368.74,
-      "count": 43.74
+      "count": 40.89
     },
     {
       "manager": "江廉政",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 1833.3,
-      "count": 30.43
+      "count": 22.66
     },
     {
       "manager": "江廉政",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 13308.87,
-      "count": 34.41
+      "count": 25.7
     },
     {
       "manager": "江廉政",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 6815.43,
-      "count": 66.62
+      "count": 67.74
     },
     {
       "manager": "江廉政",
       "supplier": "老铁厂家（供应商）",
       "amount": 1743.42,
-      "count": 19.88
+      "count": 1.03
     },
     {
       "manager": "江廉政",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 3490.71,
-      "count": 39.03
+      "count": 34.41
     },
     {
       "manager": "江廉政",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 195994.21,
-      "count": 1288.38
+      "count": 461.18
     },
     {
       "manager": "江廉政",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 192.61,
-      "count": 15.01
+      "count": 1.24
     },
     {
       "manager": "江廉政",
@@ -3675,79 +3675,79 @@
       "manager": "江廉政",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 9886.33,
-      "count": 85.69
+      "count": 72.5
     },
     {
       "manager": "江廉政",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 504.47,
-      "count": 15.01
+      "count": 1.4
     },
     {
       "manager": "江廉政",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 14607.37,
-      "count": 83.18
+      "count": 75.35
     },
     {
       "manager": "江廉政",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 1667.61,
-      "count": 17.93
+      "count": 2.15
     },
     {
       "manager": "江廉政",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 20824.7,
-      "count": 117.42
+      "count": 111.27
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-八爪类",
       "amount": 625.38,
-      "count": 1.51
+      "count": 1.3
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 69401.37,
-      "count": 167.6
+      "count": 120.49
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 3502.62,
-      "count": 8.46
+      "count": 9.06
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-虾仁类",
       "amount": 2789.67,
-      "count": 6.74
+      "count": 3.43
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-虾滑类",
       "amount": 499.24,
-      "count": 1.21
+      "count": 0.7
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-虾类",
       "amount": 7338.33,
-      "count": 17.72
+      "count": 14.69
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-贝类",
       "amount": 7861.49,
-      "count": 18.99
+      "count": 18.9
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 12281.2,
-      "count": 29.66
+      "count": 33.24
     },
     {
       "manager": "江廉政",
@@ -3759,25 +3759,25 @@
       "manager": "江廉政",
       "supplier": "湘上厨土豆类",
       "amount": 3561.03,
-      "count": 344.0
+      "count": 16.93
     },
     {
       "manager": "江廉政",
       "supplier": "湘上厨扇子骨类",
       "amount": 2000.49,
-      "count": 193.25
+      "count": 10.19
     },
     {
       "manager": "江廉政",
       "supplier": "湘上厨河鲜类",
       "amount": 9860.73,
-      "count": 952.55
+      "count": 4.26
     },
     {
       "manager": "江廉政",
       "supplier": "湘上厨海鲜类",
       "amount": 11012.1,
-      "count": 1063.77
+      "count": 13.4
     },
     {
       "manager": "江廉政",
@@ -3795,43 +3795,43 @@
       "manager": "江廉政",
       "supplier": "湘上厨牛肉类",
       "amount": 7210.04,
-      "count": 696.49
+      "count": 9.54
     },
     {
       "manager": "江廉政",
       "supplier": "湘上厨猪副类",
       "amount": 12101.84,
-      "count": 1169.04
+      "count": 27.21
     },
     {
       "manager": "江廉政",
       "supplier": "湘上厨笋类",
       "amount": 4211.3,
-      "count": 406.81
+      "count": 19.65
     },
     {
       "manager": "江廉政",
       "supplier": "湘上厨羊副类",
       "amount": 943.19,
-      "count": 91.11
+      "count": 1.26
     },
     {
       "manager": "江廉政",
       "supplier": "湘上厨脆骨类",
       "amount": 1087.6,
-      "count": 105.06
+      "count": 4.57
     },
     {
       "manager": "江廉政",
       "supplier": "湘上厨蔬果类",
       "amount": 10626.73,
-      "count": 1026.55
+      "count": 49.24
     },
     {
       "manager": "江廉政",
       "supplier": "湘上厨调料类",
       "amount": 1299.76,
-      "count": 125.56
+      "count": 0
     },
     {
       "manager": "江廉政",
@@ -3843,7 +3843,7 @@
       "manager": "江廉政",
       "supplier": "湘上厨面点类",
       "amount": 1767.66,
-      "count": 170.76
+      "count": 9.09
     },
     {
       "manager": "江廉政",
@@ -3855,103 +3855,103 @@
       "manager": "江廉政",
       "supplier": "湘里情臭桂鱼",
       "amount": 16.69,
-      "count": 1.61
+      "count": 0.01
     },
     {
       "manager": "张金伟",
       "supplier": "乡源（供应商）",
       "amount": 177.35,
-      "count": 12.25
+      "count": 0.61
     },
     {
       "manager": "张金伟",
       "supplier": "六安鸿泰食品",
       "amount": 7604.45,
-      "count": 28.24
+      "count": 31.11
     },
     {
       "manager": "张金伟",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 1969.86,
-      "count": 17.12
+      "count": 4.5
     },
     {
       "manager": "张金伟",
       "supplier": "千百度,多味多（供应商）",
       "amount": 11593.09,
-      "count": 67.76
+      "count": 77.29
     },
     {
       "manager": "张金伟",
       "supplier": "原点厂家（供货商）",
       "amount": 2718.55,
-      "count": 21.02
+      "count": 36.62
     },
     {
       "manager": "张金伟",
       "supplier": "口口可（供应商）",
       "amount": 4117.17,
-      "count": 37.0
+      "count": 40.88
     },
     {
       "manager": "张金伟",
       "supplier": "合洋水产",
       "amount": 607.22,
-      "count": 12.66
+      "count": 3.68
     },
     {
       "manager": "张金伟",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 1017.12,
-      "count": 14.2
+      "count": 9.57
     },
     {
       "manager": "张金伟",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 12047.52,
-      "count": 100.05
+      "count": 146.81
     },
     {
       "manager": "张金伟",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 39064.86,
-      "count": 193.29
+      "count": 289.78
     },
     {
       "manager": "张金伟",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 21.43,
-      "count": 12.17
+      "count": 0.05
     },
     {
       "manager": "张金伟",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 3232.87,
-      "count": 31.49
+      "count": 9.34
     },
     {
       "manager": "张金伟",
       "supplier": "广东恒兴食品",
       "amount": 16103.44,
-      "count": 49.99
+      "count": 46.84
     },
     {
       "manager": "张金伟",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 1570.72,
-      "count": 14.36
+      "count": 3.99
     },
     {
       "manager": "张金伟",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 35130.13,
-      "count": 50.8
+      "count": 47.76
     },
     {
       "manager": "张金伟",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 2050.5,
-      "count": 15.26
+      "count": 7.5
     },
     {
       "manager": "张金伟",
@@ -3963,85 +3963,85 @@
       "manager": "张金伟",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 2139.48,
-      "count": 19.56
+      "count": 12.86
     },
     {
       "manager": "张金伟",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 6186.12,
-      "count": 41.22
+      "count": 32.47
     },
     {
       "manager": "张金伟",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 3551.8,
-      "count": 55.91
+      "count": 52.23
     },
     {
       "manager": "张金伟",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 2386.84,
-      "count": 15.58
+      "count": 7.82
     },
     {
       "manager": "张金伟",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 14178.97,
-      "count": 45.77
+      "count": 39.65
     },
     {
       "manager": "张金伟",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 442.84,
-      "count": 12.98
+      "count": 2.68
     },
     {
       "manager": "张金伟",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 10487.32,
-      "count": 39.6
+      "count": 37.72
     },
     {
       "manager": "张金伟",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 1840.76,
-      "count": 28.89
+      "count": 22.75
     },
     {
       "manager": "张金伟",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 9886.06,
-      "count": 26.7
+      "count": 19.09
     },
     {
       "manager": "张金伟",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 10474.99,
-      "count": 96.65
+      "count": 104.11
     },
     {
       "manager": "张金伟",
       "supplier": "老铁厂家（供应商）",
       "amount": 74802.25,
-      "count": 406.79
+      "count": 44.08
     },
     {
       "manager": "张金伟",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 5864.67,
-      "count": 57.45
+      "count": 57.81
     },
     {
       "manager": "张金伟",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 99403.46,
-      "count": 647.07
+      "count": 233.9
     },
     {
       "manager": "张金伟",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 698.98,
-      "count": 13.96
+      "count": 4.5
     },
     {
       "manager": "张金伟",
@@ -4053,31 +4053,31 @@
       "manager": "张金伟",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 19059.53,
-      "count": 157.67
+      "count": 139.76
     },
     {
       "manager": "张金伟",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 587.65,
-      "count": 12.5
+      "count": 1.63
     },
     {
       "manager": "张金伟",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 47490.39,
-      "count": 256.26
+      "count": 244.99
     },
     {
       "manager": "张金伟",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 450.69,
-      "count": 12.58
+      "count": 0.58
     },
     {
       "manager": "张金伟",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 2010.43,
-      "count": 19.15
+      "count": 10.74
     },
     {
       "manager": "张金伟",
@@ -4089,43 +4089,43 @@
       "manager": "张金伟",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 100660.54,
-      "count": 209.5
+      "count": 174.76
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 5080.24,
-      "count": 10.57
+      "count": 13.14
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4046.17,
-      "count": 8.42
+      "count": 4.97
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-虾滑类",
       "amount": 724.11,
-      "count": 1.51
+      "count": 1.02
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-虾类",
       "amount": 10643.6,
-      "count": 22.15
+      "count": 21.31
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-贝类",
       "amount": 11402.4,
-      "count": 23.73
+      "count": 27.41
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 17812.8,
-      "count": 37.07
+      "count": 48.21
     },
     {
       "manager": "张金伟",
@@ -4137,25 +4137,25 @@
       "manager": "张金伟",
       "supplier": "湘上厨土豆类",
       "amount": 6484.26,
-      "count": 618.36
+      "count": 30.82
     },
     {
       "manager": "张金伟",
       "supplier": "湘上厨扇子骨类",
       "amount": 3642.69,
-      "count": 347.38
+      "count": 18.56
     },
     {
       "manager": "张金伟",
       "supplier": "湘上厨河鲜类",
       "amount": 17955.35,
-      "count": 1712.28
+      "count": 7.76
     },
     {
       "manager": "张金伟",
       "supplier": "湘上厨海鲜类",
       "amount": 20051.89,
-      "count": 1912.22
+      "count": 24.4
     },
     {
       "manager": "张金伟",
@@ -4173,43 +4173,43 @@
       "manager": "张金伟",
       "supplier": "湘上厨牛肉类",
       "amount": 13128.73,
-      "count": 1252.0
+      "count": 17.37
     },
     {
       "manager": "张金伟",
       "supplier": "湘上厨猪副类",
       "amount": 22036.19,
-      "count": 2101.45
+      "count": 49.56
     },
     {
       "manager": "张金伟",
       "supplier": "湘上厨笋类",
       "amount": 7668.34,
-      "count": 731.28
+      "count": 35.77
     },
     {
       "manager": "张金伟",
       "supplier": "湘上厨羊副类",
       "amount": 1717.46,
-      "count": 163.78
+      "count": 2.29
     },
     {
       "manager": "张金伟",
       "supplier": "湘上厨脆骨类",
       "amount": 1980.4,
-      "count": 188.86
+      "count": 8.33
     },
     {
       "manager": "张金伟",
       "supplier": "湘上厨蔬果类",
       "amount": 19350.18,
-      "count": 1845.3
+      "count": 89.65
     },
     {
       "manager": "张金伟",
       "supplier": "湘上厨调料类",
       "amount": 2366.72,
-      "count": 225.7
+      "count": 0
     },
     {
       "manager": "张金伟",
@@ -4221,7 +4221,7 @@
       "manager": "张金伟",
       "supplier": "湘上厨面点类",
       "amount": 3218.72,
-      "count": 306.95
+      "count": 16.55
     },
     {
       "manager": "张金伟",
@@ -4233,103 +4233,103 @@
       "manager": "张金伟",
       "supplier": "湘里情臭桂鱼",
       "amount": 30.39,
-      "count": 2.9
+      "count": 0.02
     },
     {
       "manager": "彭菊华",
       "supplier": "乡源（供应商）",
       "amount": 745.06,
-      "count": 14.69
+      "count": 2.57
     },
     {
       "manager": "彭菊华",
       "supplier": "六安鸿泰食品",
       "amount": 30653.83,
-      "count": 92.35
+      "count": 125.4
     },
     {
       "manager": "彭菊华",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 21711.34,
-      "count": 101.68
+      "count": 49.56
     },
     {
       "manager": "彭菊华",
       "supplier": "千百度,多味多（供应商）",
       "amount": 3552.47,
-      "count": 27.91
+      "count": 23.68
     },
     {
       "manager": "彭菊华",
       "supplier": "原点厂家（供货商）",
       "amount": 2575.25,
-      "count": 21.83
+      "count": 34.69
     },
     {
       "manager": "彭菊华",
       "supplier": "口口可（供应商）",
       "amount": 1976.34,
-      "count": 23.78
+      "count": 19.62
     },
     {
       "manager": "彭菊华",
       "supplier": "合洋水产",
       "amount": 8249.04,
-      "count": 36.44
+      "count": 49.99
     },
     {
       "manager": "彭菊华",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 3351.18,
-      "count": 24.91
+      "count": 31.54
     },
     {
       "manager": "彭菊华",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 18732.8,
-      "count": 154.26
+      "count": 228.28
     },
     {
       "manager": "彭菊华",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 6844.48,
-      "count": 40.57
+      "count": 50.77
     },
     {
       "manager": "彭菊华",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 4923.26,
-      "count": 37.65
+      "count": 10.36
     },
     {
       "manager": "彭菊华",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 6924.7,
-      "count": 59.81
+      "count": 20.0
     },
     {
       "manager": "彭菊华",
       "supplier": "广东恒兴食品",
       "amount": 12010.93,
-      "count": 40.57
+      "count": 34.93
     },
     {
       "manager": "彭菊华",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 3394.17,
-      "count": 20.77
+      "count": 8.62
     },
     {
       "manager": "彭菊华",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 14067.78,
-      "count": 26.94
+      "count": 19.12
     },
     {
       "manager": "彭菊华",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 11207.13,
-      "count": 41.06
+      "count": 40.99
     },
     {
       "manager": "彭菊华",
@@ -4341,85 +4341,85 @@
       "manager": "彭菊华",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 600.38,
-      "count": 15.17
+      "count": 3.61
     },
     {
       "manager": "彭菊华",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 1518.57,
-      "count": 18.91
+      "count": 7.97
     },
     {
       "manager": "彭菊华",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 9646.18,
-      "count": 143.47
+      "count": 141.86
     },
     {
       "manager": "彭菊华",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 22658.56,
-      "count": 70.52
+      "count": 74.24
     },
     {
       "manager": "彭菊华",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 75719.99,
-      "count": 219.99
+      "count": 211.74
     },
     {
       "manager": "彭菊华",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 11029.61,
-      "count": 71.98
+      "count": 66.69
     },
     {
       "manager": "彭菊华",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 21746.08,
-      "count": 75.63
+      "count": 78.22
     },
     {
       "manager": "彭菊华",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 2637.11,
-      "count": 39.03
+      "count": 32.59
     },
     {
       "manager": "彭菊华",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 14973.19,
-      "count": 37.25
+      "count": 28.91
     },
     {
       "manager": "彭菊华",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 11065.13,
-      "count": 103.3
+      "count": 109.98
     },
     {
       "manager": "彭菊华",
       "supplier": "老铁厂家（供应商）",
       "amount": 145762.99,
-      "count": 794.84
+      "count": 85.9
     },
     {
       "manager": "彭菊华",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 665.54,
-      "count": 16.88
+      "count": 6.56
     },
     {
       "manager": "彭菊华",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 64149.48,
-      "count": 420.91
+      "count": 150.95
     },
     {
       "manager": "彭菊华",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 54.24,
-      "count": 14.12
+      "count": 0.35
     },
     {
       "manager": "彭菊华",
@@ -4431,31 +4431,31 @@
       "manager": "彭菊华",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 2921.61,
-      "count": 31.97
+      "count": 21.42
     },
     {
       "manager": "彭菊华",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 3339.41,
-      "count": 18.99
+      "count": 9.28
     },
     {
       "manager": "彭菊华",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 3917.9,
-      "count": 29.05
+      "count": 20.21
     },
     {
       "manager": "彭菊华",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 1777.14,
-      "count": 17.53
+      "count": 2.29
     },
     {
       "manager": "彭菊华",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 1100.01,
-      "count": 16.8
+      "count": 5.88
     },
     {
       "manager": "彭菊华",
@@ -4467,43 +4467,43 @@
       "manager": "彭菊华",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 117959.5,
-      "count": 245.36
+      "count": 204.79
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 5953.3,
-      "count": 12.38
+      "count": 15.39
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4741.52,
-      "count": 9.86
+      "count": 5.82
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-虾滑类",
       "amount": 848.55,
-      "count": 1.76
+      "count": 1.2
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-虾类",
       "amount": 12472.74,
-      "count": 25.94
+      "count": 24.97
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-贝类",
       "amount": 13361.95,
-      "count": 27.79
+      "count": 32.12
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 20874.01,
-      "count": 43.42
+      "count": 56.5
     },
     {
       "manager": "彭菊华",
@@ -4515,25 +4515,25 @@
       "manager": "彭菊华",
       "supplier": "湘上厨土豆类",
       "amount": 5581.71,
-      "count": 536.25
+      "count": 26.53
     },
     {
       "manager": "彭菊华",
       "supplier": "湘上厨扇子骨类",
       "amount": 3135.66,
-      "count": 301.25
+      "count": 15.98
     },
     {
       "manager": "彭菊华",
       "supplier": "湘上厨河鲜类",
       "amount": 15456.15,
-      "count": 1484.91
+      "count": 6.68
     },
     {
       "manager": "彭菊华",
       "supplier": "湘上厨海鲜类",
       "amount": 17260.87,
-      "count": 1658.3
+      "count": 21.0
     },
     {
       "manager": "彭菊华",
@@ -4551,43 +4551,43 @@
       "manager": "彭菊华",
       "supplier": "湘上厨牛肉类",
       "amount": 11301.34,
-      "count": 1085.75
+      "count": 14.95
     },
     {
       "manager": "彭菊华",
       "supplier": "湘上厨猪副类",
       "amount": 18968.97,
-      "count": 1822.4
+      "count": 42.66
     },
     {
       "manager": "彭菊华",
       "supplier": "湘上厨笋类",
       "amount": 6600.98,
-      "count": 634.17
+      "count": 30.8
     },
     {
       "manager": "彭菊华",
       "supplier": "湘上厨羊副类",
       "amount": 1478.4,
-      "count": 142.03
+      "count": 1.97
     },
     {
       "manager": "彭菊华",
       "supplier": "湘上厨脆骨类",
       "amount": 1704.75,
-      "count": 163.78
+      "count": 7.17
     },
     {
       "manager": "彭菊华",
       "supplier": "湘上厨蔬果类",
       "amount": 16656.83,
-      "count": 1600.26
+      "count": 77.18
     },
     {
       "manager": "彭菊华",
       "supplier": "湘上厨调料类",
       "amount": 2037.3,
-      "count": 195.73
+      "count": 0
     },
     {
       "manager": "彭菊华",
@@ -4599,7 +4599,7 @@
       "manager": "彭菊华",
       "supplier": "湘上厨面点类",
       "amount": 2770.71,
-      "count": 266.19
+      "count": 14.25
     },
     {
       "manager": "彭菊华",
@@ -4611,103 +4611,103 @@
       "manager": "彭菊华",
       "supplier": "湘里情臭桂鱼",
       "amount": 26.16,
-      "count": 2.51
+      "count": 0.02
     },
     {
       "manager": "胡珍",
       "supplier": "乡源（供应商）",
       "amount": 8145.81,
-      "count": 35.06
+      "count": 28.09
     },
     {
       "manager": "胡珍",
       "supplier": "六安鸿泰食品",
       "amount": 18087.91,
-      "count": 56.88
+      "count": 74.0
     },
     {
       "manager": "胡珍",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 2312.42,
-      "count": 21.02
+      "count": 5.28
     },
     {
       "manager": "胡珍",
       "supplier": "千百度,多味多（供应商）",
       "amount": 2911.22,
-      "count": 24.99
+      "count": 19.41
     },
     {
       "manager": "胡珍",
       "supplier": "原点厂家（供货商）",
       "amount": 4374.34,
-      "count": 29.7
+      "count": 58.92
     },
     {
       "manager": "胡珍",
       "supplier": "口口可（供应商）",
       "amount": 2056.59,
-      "count": 24.83
+      "count": 20.42
     },
     {
       "manager": "胡珍",
       "supplier": "合洋水产",
       "amount": 5871.54,
-      "count": 29.13
+      "count": 35.59
     },
     {
       "manager": "胡珍",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 5320.56,
-      "count": 33.6
+      "count": 50.07
     },
     {
       "manager": "胡珍",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 17798.4,
-      "count": 144.6
+      "count": 216.89
     },
     {
       "manager": "胡珍",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 6388.56,
-      "count": 38.14
+      "count": 47.39
     },
     {
       "manager": "胡珍",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 814.13,
-      "count": 17.85
+      "count": 1.71
     },
     {
       "manager": "胡珍",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 19995.8,
-      "count": 158.16
+      "count": 57.74
     },
     {
       "manager": "胡珍",
       "supplier": "广东恒兴食品",
       "amount": 17151.45,
-      "count": 53.64
+      "count": 49.88
     },
     {
       "manager": "胡珍",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 12659.29,
-      "count": 46.82
+      "count": 32.14
     },
     {
       "manager": "胡珍",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 18518.33,
-      "count": 31.97
+      "count": 25.17
     },
     {
       "manager": "胡珍",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 27643.89,
-      "count": 88.94
+      "count": 101.1
     },
     {
       "manager": "胡珍",
@@ -4719,85 +4719,85 @@
       "manager": "胡珍",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 1332.58,
-      "count": 18.91
+      "count": 8.01
     },
     {
       "manager": "胡珍",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 13194.82,
-      "count": 80.09
+      "count": 69.26
     },
     {
       "manager": "胡珍",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 17137.63,
-      "count": 247.99
+      "count": 252.02
     },
     {
       "manager": "胡珍",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 38406.59,
-      "count": 112.63
+      "count": 125.84
     },
     {
       "manager": "胡珍",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 12963.91,
-      "count": 42.76
+      "count": 36.25
     },
     {
       "manager": "胡珍",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 4457.02,
-      "count": 34.33
+      "count": 26.95
     },
     {
       "manager": "胡珍",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 22032.88,
-      "count": 75.39
+      "count": 79.25
     },
     {
       "manager": "胡珍",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 42786.05,
-      "count": 517.23
+      "count": 528.75
     },
     {
       "manager": "胡珍",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 7518.03,
-      "count": 24.67
+      "count": 14.52
     },
     {
       "manager": "胡珍",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 19635.2,
-      "count": 177.23
+      "count": 195.16
     },
     {
       "manager": "胡珍",
       "supplier": "老铁厂家（供应商）",
       "amount": 15413.38,
-      "count": 87.96
+      "count": 9.08
     },
     {
       "manager": "胡珍",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 5515.97,
-      "count": 55.42
+      "count": 54.37
     },
     {
       "manager": "胡珍",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 93571.67,
-      "count": 610.8
+      "count": 220.18
     },
     {
       "manager": "胡珍",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 3280.17,
-      "count": 29.86
+      "count": 21.14
     },
     {
       "manager": "胡珍",
@@ -4809,79 +4809,79 @@
       "manager": "胡珍",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 12682.03,
-      "count": 106.95
+      "count": 93.0
     },
     {
       "manager": "胡珍",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 443.44,
-      "count": 16.55
+      "count": 1.23
     },
     {
       "manager": "胡珍",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 17104.55,
-      "count": 95.02
+      "count": 88.24
     },
     {
       "manager": "胡珍",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 1316.18,
-      "count": 17.93
+      "count": 1.7
     },
     {
       "manager": "胡珍",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 65065.31,
-      "count": 355.75
+      "count": 347.65
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-八爪类",
       "amount": 754.25,
-      "count": 1.69
+      "count": 1.57
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 83703.05,
-      "count": 187.04
+      "count": 145.32
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 4224.41,
-      "count": 9.44
+      "count": 10.92
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-虾仁类",
       "amount": 3364.55,
-      "count": 7.52
+      "count": 4.13
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-虾滑类",
       "amount": 602.12,
-      "count": 1.35
+      "count": 0.85
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-虾类",
       "amount": 8850.55,
-      "count": 19.78
+      "count": 17.72
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-贝类",
       "amount": 9481.53,
-      "count": 21.19
+      "count": 22.79
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 14812.02,
-      "count": 33.1
+      "count": 40.09
     },
     {
       "manager": "胡珍",
@@ -4893,25 +4893,25 @@
       "manager": "胡珍",
       "supplier": "湘上厨土豆类",
       "amount": 5425.69,
-      "count": 520.06
+      "count": 25.79
     },
     {
       "manager": "胡珍",
       "supplier": "湘上厨扇子骨类",
       "amount": 3048.01,
-      "count": 292.15
+      "count": 15.53
     },
     {
       "manager": "胡珍",
       "supplier": "湘上厨河鲜类",
       "amount": 15024.11,
-      "count": 1440.07
+      "count": 6.49
     },
     {
       "manager": "胡珍",
       "supplier": "湘上厨海鲜类",
       "amount": 16778.38,
-      "count": 1608.22
+      "count": 20.42
     },
     {
       "manager": "胡珍",
@@ -4929,43 +4929,43 @@
       "manager": "胡珍",
       "supplier": "湘上厨牛肉类",
       "amount": 10985.44,
-      "count": 1052.96
+      "count": 14.53
     },
     {
       "manager": "胡珍",
       "supplier": "湘上厨猪副类",
       "amount": 18438.74,
-      "count": 1767.36
+      "count": 41.47
     },
     {
       "manager": "胡珍",
       "supplier": "湘上厨笋类",
       "amount": 6416.47,
-      "count": 615.02
+      "count": 29.93
     },
     {
       "manager": "胡珍",
       "supplier": "湘上厨羊副类",
       "amount": 1437.08,
-      "count": 137.74
+      "count": 1.92
     },
     {
       "manager": "胡珍",
       "supplier": "湘上厨脆骨类",
       "amount": 1657.09,
-      "count": 158.83
+      "count": 6.97
     },
     {
       "manager": "胡珍",
       "supplier": "湘上厨蔬果类",
       "amount": 16191.22,
-      "count": 1551.94
+      "count": 75.02
     },
     {
       "manager": "胡珍",
       "supplier": "湘上厨调料类",
       "amount": 1980.35,
-      "count": 189.82
+      "count": 0
     },
     {
       "manager": "胡珍",
@@ -4977,7 +4977,7 @@
       "manager": "胡珍",
       "supplier": "湘上厨面点类",
       "amount": 2693.26,
-      "count": 258.15
+      "count": 13.85
     },
     {
       "manager": "胡珍",
@@ -4989,103 +4989,103 @@
       "manager": "胡珍",
       "supplier": "湘里情臭桂鱼",
       "amount": 25.43,
-      "count": 2.44
+      "count": 0.02
     },
     {
       "manager": "陆美英",
       "supplier": "乡源（供应商）",
       "amount": 7.19,
-      "count": 7.3
+      "count": 0.02
     },
     {
       "manager": "陆美英",
       "supplier": "六安鸿泰食品",
       "amount": 10333.1,
-      "count": 31.81
+      "count": 42.27
     },
     {
       "manager": "陆美英",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 128.79,
-      "count": 7.3
+      "count": 0.29
     },
     {
       "manager": "陆美英",
       "supplier": "千百度,多味多（供应商）",
       "amount": 1283.38,
-      "count": 11.6
+      "count": 8.56
     },
     {
       "manager": "陆美英",
       "supplier": "原点厂家（供货商）",
       "amount": 28.48,
-      "count": 7.3
+      "count": 0.38
     },
     {
       "manager": "陆美英",
       "supplier": "口口可（供应商）",
       "amount": 59.44,
-      "count": 7.3
+      "count": 0.59
     },
     {
       "manager": "陆美英",
       "supplier": "合洋水产",
       "amount": 387.55,
-      "count": 7.55
+      "count": 2.35
     },
     {
       "manager": "陆美英",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 263.67,
-      "count": 7.55
+      "count": 2.48
     },
     {
       "manager": "陆美英",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 15419.16,
-      "count": 121.56
+      "count": 187.9
     },
     {
       "manager": "陆美英",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 627.29,
-      "count": 8.6
+      "count": 4.65
     },
     {
       "manager": "陆美英",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 3.29,
-      "count": 7.3
+      "count": 0.01
     },
     {
       "manager": "陆美英",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 6465.39,
-      "count": 51.69
+      "count": 18.67
     },
     {
       "manager": "陆美英",
       "supplier": "广东恒兴食品",
       "amount": 9569.62,
-      "count": 29.29
+      "count": 27.83
     },
     {
       "manager": "陆美英",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 1380.79,
-      "count": 9.49
+      "count": 3.51
     },
     {
       "manager": "陆美英",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 12702.23,
-      "count": 20.12
+      "count": 17.27
     },
     {
       "manager": "陆美英",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 945.7,
-      "count": 8.28
+      "count": 3.46
     },
     {
       "manager": "陆美英",
@@ -5097,85 +5097,85 @@
       "manager": "陆美英",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 4337.31,
-      "count": 25.97
+      "count": 26.06
     },
     {
       "manager": "陆美英",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 278.38,
-      "count": 7.55
+      "count": 1.46
     },
     {
       "manager": "陆美英",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 2723.09,
-      "count": 40.9
+      "count": 40.05
     },
     {
       "manager": "陆美英",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 849.26,
-      "count": 8.11
+      "count": 2.78
     },
     {
       "manager": "陆美英",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 2063.42,
-      "count": 10.47
+      "count": 5.77
     },
     {
       "manager": "陆美英",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 2276.96,
-      "count": 17.12
+      "count": 13.77
     },
     {
       "manager": "陆美英",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 6042.93,
-      "count": 22.64
+      "count": 21.74
     },
     {
       "manager": "陆美英",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 349.7,
-      "count": 9.33
+      "count": 4.32
     },
     {
       "manager": "陆美英",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 14912.77,
-      "count": 31.97
+      "count": 28.8
     },
     {
       "manager": "陆美英",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 497.05,
-      "count": 9.49
+      "count": 4.94
     },
     {
       "manager": "陆美英",
       "supplier": "老铁厂家（供应商）",
       "amount": 1725.8,
-      "count": 13.71
+      "count": 1.02
     },
     {
       "manager": "陆美英",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 160.73,
-      "count": 7.55
+      "count": 1.58
     },
     {
       "manager": "陆美英",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 16421.99,
-      "count": 106.06
+      "count": 38.64
     },
     {
       "manager": "陆美英",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 38.44,
-      "count": 7.3
+      "count": 0.25
     },
     {
       "manager": "陆美英",
@@ -5187,31 +5187,31 @@
       "manager": "陆美英",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 3499.36,
-      "count": 30.92
+      "count": 25.66
     },
     {
       "manager": "陆美英",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 53.54,
-      "count": 7.3
+      "count": 0.15
     },
     {
       "manager": "陆美英",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 217.43,
-      "count": 7.47
+      "count": 1.12
     },
     {
       "manager": "陆美英",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 840.61,
-      "count": 8.76
+      "count": 1.08
     },
     {
       "manager": "陆美英",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 212.18,
-      "count": 7.47
+      "count": 1.13
     },
     {
       "manager": "陆美英",
@@ -5223,43 +5223,43 @@
       "manager": "陆美英",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 53470.18,
-      "count": 111.45
+      "count": 92.83
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 2698.59,
-      "count": 5.62
+      "count": 6.98
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-虾仁类",
       "amount": 2149.3,
-      "count": 4.48
+      "count": 2.64
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-虾滑类",
       "amount": 384.64,
-      "count": 0.8
+      "count": 0.54
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-虾类",
       "amount": 5653.8,
-      "count": 11.78
+      "count": 11.32
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-贝类",
       "amount": 6056.88,
-      "count": 12.62
+      "count": 14.56
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 9462.03,
-      "count": 19.72
+      "count": 25.61
     },
     {
       "manager": "陆美英",
@@ -5271,25 +5271,25 @@
       "manager": "陆美英",
       "supplier": "湘上厨土豆类",
       "amount": 4782.68,
-      "count": 446.66
+      "count": 22.73
     },
     {
       "manager": "陆美英",
       "supplier": "湘上厨扇子骨类",
       "amount": 2686.79,
-      "count": 250.92
+      "count": 13.69
     },
     {
       "manager": "陆美英",
       "supplier": "湘上厨河鲜类",
       "amount": 13243.56,
-      "count": 1236.83
+      "count": 5.72
     },
     {
       "manager": "陆美英",
       "supplier": "湘上厨海鲜类",
       "amount": 14789.93,
-      "count": 1381.25
+      "count": 18.0
     },
     {
       "manager": "陆美英",
@@ -5307,43 +5307,43 @@
       "manager": "陆美英",
       "supplier": "湘上厨牛肉类",
       "amount": 9683.53,
-      "count": 904.36
+      "count": 12.81
     },
     {
       "manager": "陆美英",
       "supplier": "湘上厨猪副类",
       "amount": 16253.52,
-      "count": 1517.94
+      "count": 36.55
     },
     {
       "manager": "陆美英",
       "supplier": "湘上厨笋类",
       "amount": 5656.03,
-      "count": 528.22
+      "count": 26.39
     },
     {
       "manager": "陆美英",
       "supplier": "湘上厨羊副类",
       "amount": 1266.77,
-      "count": 118.3
+      "count": 1.69
     },
     {
       "manager": "陆美英",
       "supplier": "湘上厨脆骨类",
       "amount": 1460.71,
-      "count": 136.42
+      "count": 6.14
     },
     {
       "manager": "陆美英",
       "supplier": "湘上厨蔬果类",
       "amount": 14272.36,
-      "count": 1332.91
+      "count": 66.13
     },
     {
       "manager": "陆美英",
       "supplier": "湘上厨调料类",
       "amount": 1745.65,
-      "count": 163.03
+      "count": 0
     },
     {
       "manager": "陆美英",
@@ -5355,7 +5355,7 @@
       "manager": "陆美英",
       "supplier": "湘上厨面点类",
       "amount": 2374.07,
-      "count": 221.72
+      "count": 12.21
     },
     {
       "manager": "陆美英",
@@ -5367,103 +5367,103 @@
       "manager": "陆美英",
       "supplier": "湘里情臭桂鱼",
       "amount": 22.42,
-      "count": 2.09
+      "count": 0.02
     },
     {
       "manager": "王纯",
       "supplier": "乡源（供应商）",
       "amount": 249.22,
-      "count": 2.27
+      "count": 0.86
     },
     {
       "manager": "王纯",
       "supplier": "六安鸿泰食品",
       "amount": 32.04,
-      "count": 2.19
+      "count": 0.13
     },
     {
       "manager": "王纯",
       "supplier": "勤恳食品王乐（供应商）",
       "amount": 52.85,
-      "count": 2.19
+      "count": 0.12
     },
     {
       "manager": "王纯",
       "supplier": "千百度,多味多（供应商）",
       "amount": 30.16,
-      "count": 2.19
+      "count": 0.2
     },
     {
       "manager": "王纯",
       "supplier": "原点厂家（供货商）",
       "amount": 261.11,
-      "count": 2.43
+      "count": 3.52
     },
     {
       "manager": "王纯",
       "supplier": "口口可（供应商）",
       "amount": 1037.84,
-      "count": 8.03
+      "count": 10.3
     },
     {
       "manager": "王纯",
       "supplier": "合洋水产",
       "amount": 205.05,
-      "count": 2.19
+      "count": 1.24
     },
     {
       "manager": "王纯",
       "supplier": "合肥逍遥津食品有限公司",
       "amount": 1538.59,
-      "count": 7.71
+      "count": 14.48
     },
     {
       "manager": "王纯",
       "supplier": "唐家桥藕带（供应商）",
       "amount": 553.98,
-      "count": 4.95
+      "count": 6.75
     },
     {
       "manager": "王纯",
       "supplier": "天门市鑫天农业发展有限公司",
       "amount": 242.59,
-      "count": 2.35
+      "count": 1.8
     },
     {
       "manager": "王纯",
       "supplier": "太湖银鱼寻味缘厂家（供应商）",
       "amount": 102.46,
-      "count": 2.19
+      "count": 0.22
     },
     {
       "manager": "王纯",
       "supplier": "山东威海海芝宝（供应商）",
       "amount": 5617.31,
-      "count": 42.36
+      "count": 16.22
     },
     {
       "manager": "王纯",
       "supplier": "广东恒兴食品",
       "amount": 584.21,
-      "count": 2.6
+      "count": 1.7
     },
     {
       "manager": "王纯",
       "supplier": "广东粤勤食品有限公司（供应商）",
       "amount": 73805.46,
-      "count": 233.54
+      "count": 187.37
     },
     {
       "manager": "王纯",
       "supplier": "恒都食品有限公司（河南）（供货商）",
       "amount": 844.03,
-      "count": 2.35
+      "count": 1.15
     },
     {
       "manager": "王纯",
       "supplier": "杭州和宇西子和平厂家（供应商）",
       "amount": 594.78,
-      "count": 2.84
+      "count": 2.18
     },
     {
       "manager": "王纯",
@@ -5475,85 +5475,85 @@
       "manager": "王纯",
       "supplier": "杭州富阳杭富罐头食品有限公司",
       "amount": 3454.6,
-      "count": 18.58
+      "count": 20.76
     },
     {
       "manager": "王纯",
       "supplier": "江西潘湖赣知源（供货商)",
       "amount": 156.72,
-      "count": 2.27
+      "count": 0.82
     },
     {
       "manager": "王纯",
       "supplier": "洛阳韵林土豆粉（供应商）",
       "amount": 329.72,
-      "count": 5.27
+      "count": 4.85
     },
     {
       "manager": "王纯",
       "supplier": "温氏佳丰食品有限公司（供应商）",
       "amount": 222.54,
-      "count": 2.19
+      "count": 0.73
     },
     {
       "manager": "王纯",
       "supplier": "湖北千湖梦水产有限公司",
       "amount": 828.8,
-      "count": 3.16
+      "count": 2.32
     },
     {
       "manager": "王纯",
       "supplier": "湖南好菇粮农林科技有限公司",
       "amount": 2729.0,
-      "count": 16.15
+      "count": 16.5
     },
     {
       "manager": "王纯",
       "supplier": "潍坊顺祥(供应商)",
       "amount": 1334.04,
-      "count": 4.79
+      "count": 4.8
     },
     {
       "manager": "王纯",
       "supplier": "田田屋厂家（虾饼）（供货商）",
       "amount": 7696.15,
-      "count": 90.07
+      "count": 95.11
     },
     {
       "manager": "王纯",
       "supplier": "盐帮鸡爪（供应商）",
       "amount": 41.73,
-      "count": 2.19
+      "count": 0.08
     },
     {
       "manager": "王纯",
       "supplier": "福建优润食品有限公司（供应商）",
       "amount": 1306.5,
-      "count": 11.69
+      "count": 12.99
     },
     {
       "manager": "王纯",
       "supplier": "老铁厂家（供应商）",
       "amount": 16296.43,
-      "count": 85.94
+      "count": 9.6
     },
     {
       "manager": "王纯",
       "supplier": "莆田市赞意食品有限公司",
       "amount": 72.1,
-      "count": 2.19
+      "count": 0.71
     },
     {
       "manager": "王纯",
       "supplier": "蓝鲸鱿鱼（供货商）",
       "amount": 737.13,
-      "count": 5.27
+      "count": 1.73
     },
     {
       "manager": "王纯",
       "supplier": "诺食食品厂刘敏粽香排骨（供应商）",
       "amount": 448.28,
-      "count": 3.9
+      "count": 2.89
     },
     {
       "manager": "王纯",
@@ -5565,79 +5565,79 @@
       "manager": "王纯",
       "supplier": "郑州上佳食品有限公司（供应商）",
       "amount": 1083.64,
-      "count": 9.17
+      "count": 7.95
     },
     {
       "manager": "王纯",
       "supplier": "重庆川久蒸鸭（供应商）",
       "amount": 803.18,
-      "count": 3.0
+      "count": 2.23
     },
     {
       "manager": "王纯",
       "supplier": "金海蓝天食品有限公司（泡椒鱼皮供应商）",
       "amount": 2416.88,
-      "count": 13.06
+      "count": 12.47
     },
     {
       "manager": "王纯",
       "supplier": "鑫乡宴（湖北）食品有限公司（供应商）",
       "amount": 187.54,
-      "count": 2.19
+      "count": 0.24
     },
     {
       "manager": "王纯",
       "supplier": "鑫鸿益厂家（供应商）",
       "amount": 127.03,
-      "count": 2.19
+      "count": 0.68
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-八爪类",
       "amount": 52.78,
-      "count": 0.14
+      "count": 0.11
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 5857.53,
-      "count": 15.55
+      "count": 10.17
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 295.62,
-      "count": 0.78
+      "count": 0.76
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-虾仁类",
       "amount": 235.45,
-      "count": 0.63
+      "count": 0.29
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-虾滑类",
       "amount": 42.14,
-      "count": 0.11
+      "count": 0.06
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-虾类",
       "amount": 619.36,
-      "count": 1.64
+      "count": 1.24
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-贝类",
       "amount": 663.52,
-      "count": 1.76
+      "count": 1.6
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 1036.54,
-      "count": 2.75
+      "count": 2.81
     },
     {
       "manager": "王纯",
@@ -5649,25 +5649,25 @@
       "manager": "王纯",
       "supplier": "湘上厨土豆类",
       "amount": 4292.24,
-      "count": 398.27
+      "count": 20.4
     },
     {
       "manager": "王纯",
       "supplier": "湘上厨扇子骨类",
       "amount": 2411.27,
-      "count": 223.74
+      "count": 12.28
     },
     {
       "manager": "王纯",
       "supplier": "湘上厨河鲜类",
       "amount": 11885.5,
-      "count": 1102.85
+      "count": 5.14
     },
     {
       "manager": "王纯",
       "supplier": "湘上厨海鲜类",
       "amount": 13273.3,
-      "count": 1231.62
+      "count": 16.15
     },
     {
       "manager": "王纯",
@@ -5685,43 +5685,43 @@
       "manager": "王纯",
       "supplier": "湘上厨牛肉类",
       "amount": 8690.53,
-      "count": 806.39
+      "count": 11.5
     },
     {
       "manager": "王纯",
       "supplier": "湘上厨猪副类",
       "amount": 14586.8,
-      "count": 1353.5
+      "count": 32.8
     },
     {
       "manager": "王纯",
       "supplier": "湘上厨笋类",
       "amount": 5076.04,
-      "count": 471.0
+      "count": 23.68
     },
     {
       "manager": "王纯",
       "supplier": "湘上厨羊副类",
       "amount": 1136.87,
-      "count": 105.49
+      "count": 1.52
     },
     {
       "manager": "王纯",
       "supplier": "湘上厨脆骨类",
       "amount": 1310.92,
-      "count": 121.64
+      "count": 5.51
     },
     {
       "manager": "王纯",
       "supplier": "湘上厨蔬果类",
       "amount": 12808.8,
-      "count": 1188.52
+      "count": 59.35
     },
     {
       "manager": "王纯",
       "supplier": "湘上厨调料类",
       "amount": 1566.65,
-      "count": 145.37
+      "count": 0
     },
     {
       "manager": "王纯",
@@ -5733,7 +5733,7 @@
       "manager": "王纯",
       "supplier": "湘上厨面点类",
       "amount": 2130.63,
-      "count": 197.7
+      "count": 10.96
     },
     {
       "manager": "王纯",
@@ -5745,7 +5745,7 @@
       "manager": "王纯",
       "supplier": "湘里情臭桂鱼",
       "amount": 20.12,
-      "count": 1.87
+      "count": 0.01
     }
   ],
   "supplierNames": [
