@@ -3,77 +3,77 @@
     {
       "name": "彭建华",
       "amountTarget": 1460655.94,
-      "countTarget": 8936.0
+      "countTarget": 9187.0
     },
     {
       "name": "张文胜",
       "amountTarget": 1344614.94,
-      "countTarget": 8721.0
+      "countTarget": 8935.0
     },
     {
       "name": "杨青青",
       "amountTarget": 1268336.25,
-      "countTarget": 7011.0
+      "countTarget": 7290.0
     },
     {
       "name": "张纯英",
       "amountTarget": 1115778.85,
-      "countTarget": 6810.0
+      "countTarget": 7038.0
     },
     {
       "name": "陈龙",
       "amountTarget": 973770.63,
-      "countTarget": 5603.0
+      "countTarget": 5768.0
     },
     {
       "name": "蔡磊",
       "amountTarget": 955918.17,
-      "countTarget": 5629.0
+      "countTarget": 5845.0
     },
     {
       "name": "尹建林",
       "amountTarget": 954295.22,
-      "countTarget": 6207.0
+      "countTarget": 6359.0
     },
     {
       "name": "周斌",
       "amountTarget": 933196.85,
-      "countTarget": 5269.0
+      "countTarget": 5512.0
     },
     {
       "name": "熊雄",
       "amountTarget": 892623.08,
-      "countTarget": 5096.0
+      "countTarget": 5360.0
     },
     {
       "name": "江廉政",
       "amountTarget": 795246.01,
-      "countTarget": 4050.0
+      "countTarget": 4213.0
     },
     {
       "name": "张金伟",
       "amountTarget": 783073.88,
-      "countTarget": 3993.0
+      "countTarget": 4227.0
     },
     {
       "name": "彭菊华",
       "amountTarget": 886131.27,
-      "countTarget": 4000.0
+      "countTarget": 4273.0
     },
     {
       "name": "胡珍",
       "amountTarget": 835819.79,
-      "countTarget": 4767.0
+      "countTarget": 4961.0
     },
     {
       "name": "陆美英",
       "amountTarget": 324590.21,
-      "countTarget": 1982.0
+      "countTarget": 2108.0
     },
     {
       "name": "王纯",
       "amountTarget": 259672.17,
-      "countTarget": 1680.0
+      "countTarget": 1724.0
     }
   ],
   "suppliers": [
@@ -267,7 +267,7 @@
       "manager": "彭建华",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 6003.66,
-      "count": 195.0
+      "count": 13.0
     },
     {
       "manager": "彭建华",
@@ -309,43 +309,43 @@
       "manager": "彭建华",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 103555.97,
-      "count": 222.0
+      "count": 180.0
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 5226.37,
-      "count": 11.2
+      "count": 14.0
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4162.56,
-      "count": 68.0
+      "count": 6.0
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-虾滑类",
       "amount": 744.93,
-      "count": 1.6
+      "count": 2.0
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-虾类",
       "amount": 10949.75,
-      "count": 23.5
+      "count": 22.0
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-贝类",
       "amount": 11730.38,
-      "count": 25.2
+      "count": 29.0
     },
     {
       "manager": "彭建华",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 18325.17,
-      "count": 39.3
+      "count": 50.0
     },
     {
       "manager": "彭建华",
@@ -453,7 +453,7 @@
       "manager": "彭建华",
       "supplier": "湘里情臭桂鱼",
       "amount": 73.56,
-      "count": 7.0
+      "count": 1.0
     },
     {
       "manager": "张文胜",
@@ -645,7 +645,7 @@
       "manager": "张文胜",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 559.83,
-      "count": 29.5
+      "count": 2.0
     },
     {
       "manager": "张文胜",
@@ -681,49 +681,49 @@
       "manager": "张文胜",
       "supplier": "八方宏泰-八爪类",
       "amount": 828.29,
-      "count": 1.9
+      "count": 2.0
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 91920.22,
-      "count": 212.5
+      "count": 160.0
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 4639.12,
-      "count": 10.7
+      "count": 12.0
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-虾仁类",
       "amount": 3694.84,
-      "count": 60.0
+      "count": 5.0
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-虾滑类",
       "amount": 661.23,
-      "count": 1.5
+      "count": 1.0
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-虾类",
       "amount": 9719.42,
-      "count": 22.5
+      "count": 20.0
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-贝类",
       "amount": 10412.33,
-      "count": 24.1
+      "count": 26.0
     },
     {
       "manager": "张文胜",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 16266.12,
-      "count": 37.6
+      "count": 45.0
     },
     {
       "manager": "张文胜",
@@ -831,7 +831,7 @@
       "manager": "张文胜",
       "supplier": "湘里情臭桂鱼",
       "amount": 52.45,
-      "count": 5.0
+      "count": 1.0
     },
     {
       "manager": "杨青青",
@@ -1023,7 +1023,7 @@
       "manager": "杨青青",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 1186.28,
-      "count": 52.4
+      "count": 3.0
     },
     {
       "manager": "杨青青",
@@ -1059,25 +1059,25 @@
       "manager": "杨青青",
       "supplier": "八方宏泰-八爪类",
       "amount": 1079.41,
-      "count": 2.6
+      "count": 3.0
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 119787.66,
-      "count": 284.7
+      "count": 209.0
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 6045.56,
-      "count": 14.4
+      "count": 16.0
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4815.01,
-      "count": 78.0
+      "count": 6.0
     },
     {
       "manager": "杨青青",
@@ -1089,19 +1089,19 @@
       "manager": "杨青青",
       "supplier": "八方宏泰-虾类",
       "amount": 12666.05,
-      "count": 30.1
+      "count": 26.0
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-贝类",
       "amount": 13569.04,
-      "count": 32.2
+      "count": 33.0
     },
     {
       "manager": "杨青青",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 21197.52,
-      "count": 50.4
+      "count": 58.0
     },
     {
       "manager": "杨青青",
@@ -1209,7 +1209,7 @@
       "manager": "杨青青",
       "supplier": "湘里情臭桂鱼",
       "amount": 59.74,
-      "count": 5.7
+      "count": 1.0
     },
     {
       "manager": "张纯英",
@@ -1401,7 +1401,7 @@
       "manager": "张纯英",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 492.85,
-      "count": 25.2
+      "count": 1.0
     },
     {
       "manager": "张纯英",
@@ -1437,49 +1437,49 @@
       "manager": "张纯英",
       "supplier": "八方宏泰-八爪类",
       "amount": 889.46,
-      "count": 1.9
+      "count": 2.0
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 98708.67,
-      "count": 207.8
+      "count": 172.0
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 4981.73,
-      "count": 10.5
+      "count": 13.0
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-虾仁类",
       "amount": 3967.71,
-      "count": 64.0
+      "count": 5.0
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-虾滑类",
       "amount": 710.07,
-      "count": 1.5
+      "count": 2.0
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-虾类",
       "amount": 10437.21,
-      "count": 22.0
+      "count": 21.0
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-贝类",
       "amount": 11181.3,
-      "count": 23.5
+      "count": 27.0
     },
     {
       "manager": "张纯英",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 17467.4,
-      "count": 36.8
+      "count": 48.0
     },
     {
       "manager": "张纯英",
@@ -1587,7 +1587,7 @@
       "manager": "张纯英",
       "supplier": "湘里情臭桂鱼",
       "amount": 44.04,
-      "count": 4.2
+      "count": 1.0
     },
     {
       "manager": "陈龙",
@@ -1779,7 +1779,7 @@
       "manager": "陈龙",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 497.26,
-      "count": 29.2
+      "count": 1.0
     },
     {
       "manager": "陈龙",
@@ -1815,49 +1815,49 @@
       "manager": "陈龙",
       "supplier": "八方宏泰-八爪类",
       "amount": 633.71,
-      "count": 1.7
+      "count": 2.0
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 70326.03,
-      "count": 186.2
+      "count": 123.0
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 3549.28,
-      "count": 9.4
+      "count": 10.0
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-虾仁类",
       "amount": 2826.84,
-      "count": 46.0
+      "count": 4.0
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-虾滑类",
       "amount": 505.89,
-      "count": 1.3
+      "count": 1.0
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-虾类",
       "amount": 7436.1,
-      "count": 19.7
+      "count": 15.0
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-贝类",
       "amount": 7966.24,
-      "count": 21.1
+      "count": 20.0
     },
     {
       "manager": "陈龙",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 12444.83,
-      "count": 32.9
+      "count": 34.0
     },
     {
       "manager": "陈龙",
@@ -1965,7 +1965,7 @@
       "manager": "陈龙",
       "supplier": "湘里情臭桂鱼",
       "amount": 37.11,
-      "count": 3.5
+      "count": 1.0
     },
     {
       "manager": "蔡磊",
@@ -2157,7 +2157,7 @@
       "manager": "蔡磊",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 726.59,
-      "count": 30.4
+      "count": 2.0
     },
     {
       "manager": "蔡磊",
@@ -2193,49 +2193,49 @@
       "manager": "蔡磊",
       "supplier": "八方宏泰-八爪类",
       "amount": 831.71,
-      "count": 1.8
+      "count": 2.0
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 92299.93,
-      "count": 194.8
+      "count": 161.0
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 4658.29,
-      "count": 9.8
+      "count": 13.0
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-虾仁类",
       "amount": 3710.11,
-      "count": 60.0
+      "count": 5.0
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-虾滑类",
       "amount": 663.96,
-      "count": 1.4
+      "count": 1.0
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-虾类",
       "amount": 9759.57,
-      "count": 20.6
+      "count": 20.0
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-贝类",
       "amount": 10455.35,
-      "count": 22.1
+      "count": 26.0
     },
     {
       "manager": "蔡磊",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 16333.31,
-      "count": 34.5
+      "count": 45.0
     },
     {
       "manager": "蔡磊",
@@ -2343,7 +2343,7 @@
       "manager": "蔡磊",
       "supplier": "湘里情臭桂鱼",
       "amount": 37.85,
-      "count": 3.6
+      "count": 1.0
     },
     {
       "manager": "尹建林",
@@ -2535,7 +2535,7 @@
       "manager": "尹建林",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 495.08,
-      "count": 25.7
+      "count": 1.0
     },
     {
       "manager": "尹建林",
@@ -2571,37 +2571,37 @@
       "manager": "尹建林",
       "supplier": "八方宏泰-八爪类",
       "amount": 585.96,
-      "count": 1.4
+      "count": 2.0
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 65026.78,
-      "count": 159.0
+      "count": 113.0
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 3281.84,
-      "count": 8.0
+      "count": 9.0
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-虾仁类",
       "amount": 2613.83,
-      "count": 43.0
+      "count": 4.0
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-虾滑类",
       "amount": 467.77,
-      "count": 1.1
+      "count": 1.0
     },
     {
       "manager": "尹建林",
       "supplier": "八方宏泰-虾类",
       "amount": 6875.77,
-      "count": 16.8
+      "count": 14.0
     },
     {
       "manager": "尹建林",
@@ -2613,7 +2613,7 @@
       "manager": "尹建林",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 11507.08,
-      "count": 28.1
+      "count": 32.0
     },
     {
       "manager": "尹建林",
@@ -2721,7 +2721,7 @@
       "manager": "尹建林",
       "supplier": "湘里情臭桂鱼",
       "amount": 22.92,
-      "count": 2.2
+      "count": 1.0
     },
     {
       "manager": "周斌",
@@ -2913,7 +2913,7 @@
       "manager": "周斌",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 546.76,
-      "count": 31.4
+      "count": 2.0
     },
     {
       "manager": "周斌",
@@ -2949,49 +2949,49 @@
       "manager": "周斌",
       "supplier": "八方宏泰-八爪类",
       "amount": 940.26,
-      "count": 2.2
+      "count": 2.0
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 104346.26,
-      "count": 243.2
+      "count": 182.0
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 5266.25,
-      "count": 12.3
+      "count": 14.0
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4194.32,
-      "count": 68.0
+      "count": 6.0
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-虾滑类",
       "amount": 750.62,
-      "count": 1.7
+      "count": 2.0
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-虾类",
       "amount": 11033.31,
-      "count": 25.7
+      "count": 23.0
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-贝类",
       "amount": 11819.9,
-      "count": 27.5
+      "count": 29.0
     },
     {
       "manager": "周斌",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 18465.02,
-      "count": 43.0
+      "count": 50.0
     },
     {
       "manager": "周斌",
@@ -3099,7 +3099,7 @@
       "manager": "周斌",
       "supplier": "湘里情臭桂鱼",
       "amount": 35.23,
-      "count": 3.4
+      "count": 1.0
     },
     {
       "manager": "熊雄",
@@ -3291,7 +3291,7 @@
       "manager": "熊雄",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 870.42,
-      "count": 29.9
+      "count": 2.0
     },
     {
       "manager": "熊雄",
@@ -3327,49 +3327,49 @@
       "manager": "熊雄",
       "supplier": "八方宏泰-八爪类",
       "amount": 1024.85,
-      "count": 1.9
+      "count": 3.0
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 113732.99,
-      "count": 205.6
+      "count": 198.0
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 5739.99,
-      "count": 10.4
+      "count": 15.0
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4571.63,
-      "count": 74.0
+      "count": 6.0
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-虾滑类",
       "amount": 818.14,
-      "count": 1.5
+      "count": 2.0
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-虾类",
       "amount": 12025.84,
-      "count": 21.7
+      "count": 25.0
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-贝类",
       "amount": 12883.19,
-      "count": 23.3
+      "count": 31.0
     },
     {
       "manager": "熊雄",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 20126.09,
-      "count": 36.4
+      "count": 55.0
     },
     {
       "manager": "熊雄",
@@ -3477,7 +3477,7 @@
       "manager": "熊雄",
       "supplier": "湘里情臭桂鱼",
       "amount": 42.53,
-      "count": 4.0
+      "count": 1.0
     },
     {
       "manager": "江廉政",
@@ -3669,7 +3669,7 @@
       "manager": "江廉政",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 460.5,
-      "count": 24.7
+      "count": 1.0
     },
     {
       "manager": "江廉政",
@@ -3705,37 +3705,37 @@
       "manager": "江廉政",
       "supplier": "八方宏泰-八爪类",
       "amount": 625.38,
-      "count": 1.5
+      "count": 2.0
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 69401.37,
-      "count": 167.6
+      "count": 121.0
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 3502.62,
-      "count": 8.5
+      "count": 10.0
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-虾仁类",
       "amount": 2789.67,
-      "count": 45.0
+      "count": 4.0
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-虾滑类",
       "amount": 499.24,
-      "count": 1.2
+      "count": 1.0
     },
     {
       "manager": "江廉政",
       "supplier": "八方宏泰-虾类",
       "amount": 7338.33,
-      "count": 17.7
+      "count": 15.0
     },
     {
       "manager": "江廉政",
@@ -3747,7 +3747,7 @@
       "manager": "江廉政",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 12281.2,
-      "count": 29.7
+      "count": 34.0
     },
     {
       "manager": "江廉政",
@@ -3855,7 +3855,7 @@
       "manager": "江廉政",
       "supplier": "湘里情臭桂鱼",
       "amount": 16.69,
-      "count": 1.6
+      "count": 1.0
     },
     {
       "manager": "张金伟",
@@ -4047,7 +4047,7 @@
       "manager": "张金伟",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 536.43,
-      "count": 24.6
+      "count": 2.0
     },
     {
       "manager": "张金伟",
@@ -4083,49 +4083,49 @@
       "manager": "张金伟",
       "supplier": "八方宏泰-八爪类",
       "amount": 907.05,
-      "count": 1.9
+      "count": 2.0
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 100660.54,
-      "count": 209.5
+      "count": 175.0
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 5080.24,
-      "count": 10.6
+      "count": 14.0
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4046.17,
-      "count": 66.0
+      "count": 5.0
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-虾滑类",
       "amount": 724.11,
-      "count": 1.5
+      "count": 2.0
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-虾类",
       "amount": 10643.6,
-      "count": 22.2
+      "count": 22.0
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-贝类",
       "amount": 11402.4,
-      "count": 23.7
+      "count": 28.0
     },
     {
       "manager": "张金伟",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 17812.8,
-      "count": 37.1
+      "count": 49.0
     },
     {
       "manager": "张金伟",
@@ -4233,7 +4233,7 @@
       "manager": "张金伟",
       "supplier": "湘里情臭桂鱼",
       "amount": 30.39,
-      "count": 2.9
+      "count": 1.0
     },
     {
       "manager": "彭菊华",
@@ -4425,7 +4425,7 @@
       "manager": "彭菊华",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 845.84,
-      "count": 34.8
+      "count": 2.0
     },
     {
       "manager": "彭菊华",
@@ -4461,49 +4461,49 @@
       "manager": "彭菊华",
       "supplier": "八方宏泰-八爪类",
       "amount": 1062.93,
-      "count": 2.2
+      "count": 3.0
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 117959.5,
-      "count": 245.4
+      "count": 205.0
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 5953.3,
-      "count": 12.4
+      "count": 16.0
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-虾仁类",
       "amount": 4741.52,
-      "count": 77.0
+      "count": 6.0
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-虾滑类",
       "amount": 848.55,
-      "count": 1.8
+      "count": 2.0
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-虾类",
       "amount": 12472.74,
-      "count": 25.9
+      "count": 25.0
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-贝类",
       "amount": 13361.95,
-      "count": 27.8
+      "count": 33.0
     },
     {
       "manager": "彭菊华",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 20874.01,
-      "count": 43.4
+      "count": 57.0
     },
     {
       "manager": "彭菊华",
@@ -4611,7 +4611,7 @@
       "manager": "彭菊华",
       "supplier": "湘里情臭桂鱼",
       "amount": 26.16,
-      "count": 2.5
+      "count": 1.0
     },
     {
       "manager": "胡珍",
@@ -4803,7 +4803,7 @@
       "manager": "胡珍",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 339.63,
-      "count": 21.4
+      "count": 1.0
     },
     {
       "manager": "胡珍",
@@ -4839,49 +4839,49 @@
       "manager": "胡珍",
       "supplier": "八方宏泰-八爪类",
       "amount": 754.25,
-      "count": 1.7
+      "count": 2.0
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 83703.05,
-      "count": 187.0
+      "count": 146.0
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 4224.41,
-      "count": 9.4
+      "count": 11.0
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-虾仁类",
       "amount": 3364.55,
-      "count": 55.0
+      "count": 5.0
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-虾滑类",
       "amount": 602.12,
-      "count": 1.3
+      "count": 1.0
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-虾类",
       "amount": 8850.55,
-      "count": 19.8
+      "count": 18.0
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-贝类",
       "amount": 9481.53,
-      "count": 21.2
+      "count": 23.0
     },
     {
       "manager": "胡珍",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 14812.02,
-      "count": 33.1
+      "count": 41.0
     },
     {
       "manager": "胡珍",
@@ -4989,7 +4989,7 @@
       "manager": "胡珍",
       "supplier": "湘里情臭桂鱼",
       "amount": 25.43,
-      "count": 2.4
+      "count": 1.0
     },
     {
       "manager": "陆美英",
@@ -5181,7 +5181,7 @@
       "manager": "陆美英",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 407.87,
-      "count": 16.8
+      "count": 1.0
     },
     {
       "manager": "陆美英",
@@ -5217,49 +5217,49 @@
       "manager": "陆美英",
       "supplier": "八方宏泰-八爪类",
       "amount": 481.82,
-      "count": 1.0
+      "count": 2.0
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 53470.18,
-      "count": 111.4
+      "count": 93.0
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 2698.59,
-      "count": 5.6
+      "count": 7.0
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-虾仁类",
       "amount": 2149.3,
-      "count": 35.0
+      "count": 3.0
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-虾滑类",
       "amount": 384.64,
-      "count": 0.8
+      "count": 1.0
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-虾类",
       "amount": 5653.8,
-      "count": 11.8
+      "count": 12.0
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-贝类",
       "amount": 6056.88,
-      "count": 12.6
+      "count": 15.0
     },
     {
       "manager": "陆美英",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 9462.03,
-      "count": 19.7
+      "count": 26.0
     },
     {
       "manager": "陆美英",
@@ -5367,7 +5367,7 @@
       "manager": "陆美英",
       "supplier": "湘里情臭桂鱼",
       "amount": 22.42,
-      "count": 2.1
+      "count": 1.0
     },
     {
       "manager": "王纯",
@@ -5559,7 +5559,7 @@
       "manager": "王纯",
       "supplier": "连江鲍员外电子商务有限公司",
       "amount": 12099.17,
-      "count": 379.8
+      "count": 25.0
     },
     {
       "manager": "王纯",
@@ -5595,49 +5595,49 @@
       "manager": "王纯",
       "supplier": "八方宏泰-八爪类",
       "amount": 52.78,
-      "count": 0.1
+      "count": 1.0
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-墨鱼仔",
       "amount": 5857.53,
-      "count": 15.6
+      "count": 11.0
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-墨鱼类",
       "amount": 295.62,
-      "count": 0.8
+      "count": 1.0
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-虾仁类",
       "amount": 235.45,
-      "count": 4.0
+      "count": 1.0
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-虾滑类",
       "amount": 42.14,
-      "count": 0.1
+      "count": 1.0
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-虾类",
       "amount": 619.36,
-      "count": 1.6
+      "count": 2.0
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-贝类",
       "amount": 663.52,
-      "count": 1.8
+      "count": 2.0
     },
     {
       "manager": "王纯",
       "supplier": "八方宏泰-鱼肚类",
       "amount": 1036.54,
-      "count": 2.8
+      "count": 3.0
     },
     {
       "manager": "王纯",
@@ -5745,7 +5745,7 @@
       "manager": "王纯",
       "supplier": "湘里情臭桂鱼",
       "amount": 20.12,
-      "count": 1.9
+      "count": 1.0
     }
   ]
 }
