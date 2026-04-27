@@ -270,18 +270,13 @@ function updateDataStatus() {
 }
 
 // 初始化：先使用本地数据，然后尝试获取云端更新
-(function initDualMode() {
-  updateDataStatus();
-  if (navigator.onLine) {
-    fetchCloudData();
-  }
-})();
+// initDualMode removed - now using loadDataFirst only
 
 // 监听网络状态变化
 window.addEventListener('online', function() {
-  console.log('🟢 网络已连接，尝试更新数据...');
+  console.log('🟢 网络已连接');
   updateDataStatus();
-  fetchCloudData();
+  // 不再自动刷新，避免覆盖本地数据
 });
 
 window.addEventListener('offline', function() {
@@ -293,7 +288,7 @@ window.addEventListener('offline', function() {
 function manualRefreshData() {
   if (navigator.onLine) {
     console.log('手动刷新数据...');
-    fetchCloudData();
+    loadDataFirst();
   } else {
     alert('当前网络不可用，请检查网络连接');
   }
