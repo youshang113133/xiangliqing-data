@@ -53056,7 +53056,7 @@
       "level": "C类普通客户",
       "nextDate": "2026-04-24",
       "lastDate": "2025-04-29",
-      "profitRate": Infinity,
+      "profitRate": null,
       "warning": "⚠️ 预警：3个月未采购",
       "advice": "准备跟进（5天后）",
       "isOverdue": false
