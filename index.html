@@ -381,7 +381,7 @@ async function fetchCloudData() {
       if (cloudData.dailyReportData) dailyReportData = cloudData.dailyReportData;
       
       dataSource = 'cloud';
-      dataUpdateTime = "2026-04-24 08:10:00"; cloudData.updateTime || new Date().toLocaleString();
+      dataUpdateTime = cloudData.updateTime || new Date().toLocaleString();
       console.log('✅ 云端数据加载成功，更新时间：' + dataUpdateTime);
       
       // 更新状态栏
