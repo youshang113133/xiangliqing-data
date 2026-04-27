@@ -25,6 +25,9 @@ async function loadDataFirst() {
         
         // 更新数据状态显示
         updateDataStatus();
+        
+        // 初始化页面渲染
+        initPageAfterDataLoad();
     } catch (error) {
         console.log('⚠️ data_core.json 加载失败，尝试从云端加载:', error.message);
         // 如果本地加载失败，尝试云端
@@ -53,22 +56,6 @@ function initPageAfterDataLoad() {
     }
     
     // 渲染各页面
-    renderReport();
-    renderProduct();
-    renderCustomerFilters();
-    renderCustomerList();
-};
-    productsData.forEach(function(p) { if(p.category) categories[p.category] = true; });
-    var catSelect = document.getElementById('pCategory');
-    if(catSelect){
-        Object.keys(categories).sort().forEach(function(cat) {
-            var opt = document.createElement('option');
-            opt.value = cat; opt.textContent = cat;
-            catSelect.appendChild(opt);
-        });
-    }
-    
-    // 
     renderReport();
     renderProduct();
     renderCustomerFilters();
