@@ -216,8 +216,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 // ===== 双模式数据加载系统 =====
 // 使用commit hash确保CDN加载最新版本
 var DATA_COMMIT = "main"
-var DATA_URL = "https://raw.githubusercontent.com/xiangliqing888/xiangliqing-data/" + DATA_COMMIT + "/data_core.json"
-var RECS_URL = "https://raw.githubusercontent.com/xiangliqing888/xiangliqing-data/" + DATA_COMMIT + "/data_recs.json"
+var DATA_URL = "https://cdn.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@" + DATA_COMMIT + "/data_core.json"
+var RECS_URL = "https://cdn.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@" + DATA_COMMIT + "/data_recs.json"
 
 // 全局数据变量初始化（等待云端加载）
 var dailyReportData = null;
