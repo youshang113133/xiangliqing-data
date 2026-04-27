@@ -380,10 +380,11 @@ function renderReport() {
     h += '</div></div>';
     h += '</div>';
 
-    // 亏损预警
-    if (data['核心经营指标']['亏损订单数']['预警']) {
+    // 亏损预警（可选字段）
+    var lossOrders = data['核心经营指标']['亏损订单数'];
+    if (lossOrders && lossOrders['预警']) {
         h += '<div style="margin-top:10px;padding:8px 10px;background:#fff3cd;border-radius:6px;font-size:12px;color:#856404">';
-        h += '⚠️ 亏损订单: 今日' + data['核心经营指标']['亏损订单数']['当日'] + '单, 月累计' + data['核心经营指标']['亏损订单数']['月累计'] + '单';
+        h += '⚠️ 亏损订单: 今日' + lossOrders['当日'] + '单, 月累计' + lossOrders['月累计'] + '单';
         h += '</div>';
     }
     h += '</div>';
