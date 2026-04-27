@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>湘里情智营系统 v202604280659</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; padding: 20px; background: #f5f5f5; margin: 0; }
+        .header { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: white; padding: 30px; border-radius: 12px; margin-bottom: 24px; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
+        .header h1 { margin: 0 0 8px 0; font-size: 28px; }
+        .header .date { opacity: 0.9; font-size: 14px; margin: 0; }
+        .card { background: white; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .card h2 { margin: 0 0 16px 0; color: #1f2937; font-size: 18px; border-bottom: 2px solid #e5e7eb; padding-bottom: 12px; }
+        .metrics { display: flex; gap: 24px; flex-wrap: wrap; }
+        .metric { flex: 1; min-width: 150px; text-align: center; padding: 16px; background: #f8fafc; border-radius: 8px; }
+        .metric-value { font-size: 28px; font-weight: bold; color: #2563eb; margin-bottom: 4px; }
+        .metric-label { font-size: 13px; color: #6b7280; }
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+        th, td { padding: 12px 8px; text-align: left; border-bottom: 1px solid #f3f4f6; }
+        th { background: #f8fafc; color: #374151; font-weight: 600; font-size: 13px; }
+        td { font-size: 14px; color: #4b5563; }
+        tr:hover { background: #f9fafb; }
+        .rank { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #e5e7eb; font-size: 12px; font-weight: 600; }
+        .rank-1 { background: #fef3c7; color: #d97706; }
+        .rank-2 { background: #f3f4f6; color: #6b7280; }
+        .rank-3 { background: #fef3c7; color: #b45309; }
+        .footer { text-align: center; color: #9ca3af; padding: 24px; font-size: 13px; }
+        @media (max-width: 768px) { .metrics { flex-direction: column; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>湘里情智营系统</h1>
+        <p class="date">📅 数据日期: 2026-04-27 | 版本: v202604280659</p>
+    </div>
+    
+    <div class="card">
+        <h2>📊 今日概览</h2>
+        <div class="metrics">
+            <div class="metric">
+                <div class="metric-value">780,856.37</div>
+                <div class="metric-label">销售额（元）</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">171,648.22</div>
+                <div class="metric-label">毛利（元）</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">22.0%</div>
+                <div class="metric-label">毛利率</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">449</div>
+                <div class="metric-label">订单数</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>👥 业务员业绩 TOP10</h2>
+        <table>
+            <tr><th style="width:60px">排名</th><th>业务员</th><th>销售额</th><th>毛利</th><th>毛利率</th><th>订单数</th></tr>
+            <tr>
+                <td><span class="rank rank-1">1</span></td>
+                <td><strong>蔡磊</strong></td>
+                <td>98,705.00</td>
+                <td>30,756.76</td>
+                <td>31.2%</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td><span class="rank rank-2">2</span></td>
+                <td><strong>张文胜</strong></td>
+                <td>76,323.22</td>
+                <td>13,683.79</td>
+                <td>17.9%</td>
+                <td>31</td>
+            </tr>
+            <tr>
+                <td><span class="rank rank-3">3</span></td>
+                <td><strong>周斌</strong></td>
+                <td>72,755.80</td>
+                <td>16,597.88</td>
+                <td>22.8%</td>
+                <td>42</td>
+            </tr>
+            <tr>
+                <td><span class="rank ">4</span></td>
+                <td><strong>尹建林</strong></td>
+                <td>67,861.85</td>
+                <td>15,091.74</td>
+                <td>22.2%</td>
+                <td>36</td>
+            </tr>
+            <tr>
+                <td><span class="rank ">5</span></td>
+                <td><strong>胡珍</strong></td>
+                <td>55,329.00</td>
+                <td>9,155.94</td>
+                <td>16.6%</td>
+                <td>28</td>
+            </tr>
+            <tr>
+                <td><span class="rank ">6</span></td>
+                <td><strong>彭建华</strong></td>
+                <td>52,815.50</td>
+                <td>8,603.03</td>
+                <td>16.3%</td>
+                <td>63</td>
+            </tr>
+            <tr>
+                <td><span class="rank ">7</span></td>
+                <td><strong>张金伟</strong></td>
+                <td>48,151.00</td>
+                <td>6,126.61</td>
+                <td>12.7%</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td><span class="rank ">8</span></td>
+                <td><strong>张纯英</strong></td>
+                <td>47,052.00</td>
+                <td>4,751.21</td>
+                <td>10.1%</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td><span class="rank ">9</span></td>
+                <td><strong>陈龙</strong></td>
+                <td>44,945.50</td>
+                <td>20,978.78</td>
+                <td>46.7%</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td><span class="rank ">10</span></td>
+                <td><strong>彭菊华</strong></td>
+                <td>39,870.50</td>
+                <td>11,147.63</td>
+                <td>28.0%</td>
+                <td>29</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="card">
+        <h2>📦 产品销售 TOP10</h2>
+        <table>
+            <tr><th style="width:60px">排名</th><th>产品名称</th><th>销售额</th><th>毛利</th><th>毛利率</th></tr>
+        </table>
+    </div>
+    
+    <div class="footer">
+        <p>湘里情智营系统 © 2026 | 数据每日更新</p>
+        <p>线上地址: https://xiangliqing888.github.io/xiangliqing-data/</p>
+    </div>
+</body>
+</html>
