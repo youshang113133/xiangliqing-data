@@ -196,12 +196,32 @@ document.addEventListener('DOMContentLoaded', async function() {
 </div>
 </div>
 
+<!-- 任务页 -->
+<div id="pgTask" class="pg">
+<div class="pg-hd"><h1>📋 任务目标</h1><p>4月份业务经理任务完成情况</p></div>
+<div class="fl" style="margin-top:8px">
+  <select id="taskManager" onchange="renderTaskData()" style="flex:1;font-size:14px;padding:10px;">
+    <option value="">选择业务经理</option>
+  </select>
+</div>
+<div id="taskSummary" style="display:none;margin-top:12px;">
+  <div class="card">
+    <div class="card-tit">📊 完成情况概览</div>
+    <div id="taskOverview"></div>
+  </div>
+</div>
+<div id="taskSupplierCard" class="card" style="display:none;margin-top:12px;">
+  <div class="card-tit">🏭 供应商完成明细 <span id="supplierCount" style="font-size:11px;color:#666;font-weight:normal"></span></div>
+  <div id="taskSupplierList"></div>
+</div>
+</div>
+
 <!-- 底部导航 -->
 <div class="nav">
 <div id="navReport" class="on" onclick="switchTab('Report')">日报</div>
 <div id="navProduct" onclick="switchTab('Product')">产品</div>
 <div id="navCustomer" onclick="switchTab('Customer')">客户</div>
-
+<div id="navTask" onclick="switchTab('Task')">任务</div>
 </div>
 
 <!-- 刷新按钮 -->
@@ -1483,38 +1503,138 @@ function showSalesmanAdvice(name) {
 }
 
 // ===== 任务跟进页 =====
+// 任务数据
+var taskData = null;
+
+// 异步加载任务数据
+async function fetchTaskData() {
+    try {
+        var TASK_URL = "https://cdn.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/task_data.json";
+        var response = await fetch(TASK_URL + "?t=" + Date.now(), {
+            method: 'GET',
+            headers: {'Accept': 'application/json'},
+            signal: AbortSignal.timeout(60000)
+        });
+        if (response.ok) {
+            taskData = await response.json();
+            console.log('任务数据加载完成');
+            initTaskPage();
+        }
+    } catch(e) {
+        console.log('任务数据加载失败:', e);
+    }
+}
+
 // 初始化任务页面
 function initTaskPage() {
-    // 填充业务员下拉框
-    var select = document.getElementById('taskManagerSelect');
-    select.innerHTML = '<option value="">请选择</option>';
+    var select = document.getElementById('taskManager');
+    if (!select) return;
     
-    // 获取所有业务经理（排除小计和公司合计）
-    var managers = [];
-    var regionSet = new Set();
+    select.innerHTML = '<option value="">选择业务经理</option>';
     
-    salesProgressData.forEach(function(item) {
-        var name = item['业务经理'];
-        if (name && name !== '小计' && name !== '公司合计') {
-            if (!managers.includes(name)) {
-                managers.push(name);
-            }
-        }
-    });
-    
-    managers.sort();
-    managers.forEach(function(name) {
-        var opt = document.createElement('option');
-        opt.value = name;
-        opt.textContent = name;
-        select.appendChild(opt);
-    });
-    
-    // 默认选中第一个
-    if (managers.length > 0) {
-        select.value = managers[0];
-        renderTaskManager();
+    // 从taskData获取业务经理列表
+    if (taskData && taskData.managers) {
+        taskData.managers.forEach(function(m) {
+            var opt = document.createElement('option');
+            opt.value = m.name;
+            opt.textContent = m.name;
+            select.appendChild(opt);
+        });
+    } else {
+        // 如果taskData还没加载，异步加载
+        fetchTaskData();
     }
+}
+
+// 渲染任务数据
+function renderTaskData() {
+    var managerName = document.getElementById('taskManager').value;
+    var taskSummary = document.getElementById('taskSummary');
+    var taskSupplierCard = document.getElementById('taskSupplierCard');
+    
+    if (!managerName || !taskData) {
+        taskSummary.style.display = 'none';
+        taskSupplierCard.style.display = 'none';
+        return;
+    }
+    
+    // 获取业务经理目标数据
+    var manager = taskData.managers.find(function(m) { return m.name === managerName; });
+    if (!manager) {
+        taskSummary.style.display = 'none';
+        taskSupplierCard.style.display = 'none';
+        return;
+    }
+    
+    taskSummary.style.display = 'block';
+    taskSupplierCard.style.display = 'block';
+    
+    // 获取该业务经理的供应商数据
+    var supplierList = taskData.suppliers.filter(function(s) { return s.manager === managerName; });
+    
+    // 计算完成情况
+    var amountTarget = manager.amountTarget || 0;
+    var countTarget = manager.countTarget || 0;
+    var amountActual = supplierList.reduce(function(sum, s) { return sum + (s.amount || 0); }, 0);
+    var countActual = supplierList.reduce(function(sum, s) { return sum + (s.count || 0); }, 0);
+    var amountRate = amountTarget > 0 ? (amountActual / amountTarget * 100) : 0;
+    var countRate = countTarget > 0 ? (countActual / countTarget * 100) : 0;
+    
+    // 渲染概览
+    var overviewHtml = '';
+    overviewHtml += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">';
+    
+    // 金额完成情况
+    overviewHtml += '<div style="background:#e8f0fe;padding:12px;border-radius:10px">';
+    overviewHtml += '<div style="font-size:11px;color:#1a73e8;margin-bottom:8px">💰 金额完成情况</div>';
+    overviewHtml += '<div style="font-size:18px;font-weight:700;color:#1a73e8">' + (amountActual/10000).toFixed(2) + '万</div>';
+    overviewHtml += '<div style="font-size:12px;color:#666">目标: ' + (amountTarget/10000).toFixed(2) + '万</div>';
+    overviewHtml += '<div style="margin-top:8px;height:6px;background:#fff;border-radius:3px;overflow:hidden">';
+    overviewHtml += '<div style="width:' + Math.min(amountRate, 100) + '%;height:100%;background:' + (amountRate >= 100 ? '#137333' : '#1a73e8') + ';border-radius:3px"></div>';
+    overviewHtml += '</div>';
+    overviewHtml += '<div style="font-size:14px;font-weight:600;color:' + (amountRate >= 100 ? '#137333' : (amountRate >= 50 ? '#1a73e8' : '#e53935')) + ';margin-top:4px">' + amountRate.toFixed(1) + '%</div>';
+    overviewHtml += '</div>';
+    
+    // 件数完成情况
+    overviewHtml += '<div style="background:#fef7e0;padding:12px;border-radius:10px">';
+    overviewHtml += '<div style="font-size:11px;color:#e37400;margin-bottom:8px">📦 件数完成情况</div>';
+    overviewHtml += '<div style="font-size:18px;font-weight:700;color:#e37400">' + countActual.toFixed(0) + '件</div>';
+    overviewHtml += '<div style="font-size:12px;color:#666">目标: ' + countTarget.toFixed(0) + '件</div>';
+    overviewHtml += '<div style="margin-top:8px;height:6px;background:#fff;border-radius:3px;overflow:hidden">';
+    overviewHtml += '<div style="width:' + Math.min(countRate, 100) + '%;height:100%;background:' + (countRate >= 100 ? '#137333' : '#e37400') + ';border-radius:3px"></div>';
+    overviewHtml += '</div>';
+    overviewHtml += '<div style="font-size:14px;font-weight:600;color:' + (countRate >= 100 ? '#137333' : (countRate >= 50 ? '#e37400' : '#e53935')) + ';margin-top:4px">' + countRate.toFixed(1) + '%</div>';
+    overviewHtml += '</div>';
+    
+    overviewHtml += '</div>';
+    document.getElementById('taskOverview').innerHTML = overviewHtml;
+    
+    // 渲染供应商列表
+    document.getElementById('supplierCount').textContent = '(共' + supplierList.length + '个供应商)';
+    
+    var supplierHtml = '';
+    supplierHtml += '<table style="width:100%;border-collapse:collapse;font-size:12px">';
+    supplierHtml += '<thead><tr style="background:#f0f0f0">';
+    supplierHtml += '<th style="padding:8px 4px;text-align:left;border-bottom:1px solid #ddd">供应商</th>';
+    supplierHtml += '<th style="padding:8px 4px;text-align:right;border-bottom:1px solid #ddd">金额(元)</th>';
+    supplierHtml += '<th style="padding:8px 4px;text-align:right;border-bottom:1px solid #ddd">件数</th>';
+    supplierHtml += '</tr></thead>';
+    supplierHtml += '<tbody>';
+    
+    // 按金额排序
+    supplierList.sort(function(a, b) { return (b.amount || 0) - (a.amount || 0); });
+    
+    supplierList.forEach(function(s, idx) {
+        var bgColor = idx % 2 === 0 ? '#fff' : '#fafafa';
+        supplierHtml += '<tr style="background:' + bgColor + '">';
+        supplierHtml += '<td style="padding:8px 4px;border-bottom:1px solid #eee">' + (s.supplier || '-') + '</td>';
+        supplierHtml += '<td style="padding:8px 4px;text-align:right;border-bottom:1px solid #eee">' + (s.amount || 0).toFixed(2) + '</td>';
+        supplierHtml += '<td style="padding:8px 4px;text-align:right;border-bottom:1px solid #eee">' + (s.count || 0).toFixed(2) + '</td>';
+        supplierHtml += '</tr>';
+    });
+    
+    supplierHtml += '</tbody></table>';
+    document.getElementById('taskSupplierList').innerHTML = supplierHtml;
 }
 
 // 渲染选中业务经理的任务情况
