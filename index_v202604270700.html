@@ -40,8 +40,24 @@ function initPageAfterDataLoad() {
     allCustomers = customersData;
     filteredCustomers = customersData;
     
-    // 
+    // 初始化产品分类下拉
     var categories = {};
+    productsData.forEach(function(p) { if(p.category) categories[p.category] = true; });
+    var catSelect = document.getElementById('pCategory');
+    if(catSelect){
+        Object.keys(categories).sort().forEach(function(cat) {
+            var opt = document.createElement('option');
+            opt.value = cat; opt.textContent = cat;
+            catSelect.appendChild(opt);
+        });
+    }
+    
+    // 渲染各页面
+    renderReport();
+    renderProduct();
+    renderCustomerFilters();
+    renderCustomerList();
+};
     productsData.forEach(function(p) { if(p.category) categories[p.category] = true; });
     var catSelect = document.getElementById('pCategory');
     if(catSelect){
