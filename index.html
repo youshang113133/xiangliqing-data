@@ -1558,7 +1558,7 @@ function renderTaskData() {
         return;
     }
     
-    // 获取业务经理目标数据
+    // 获取业务经理目标数据（4月任务目标）
     var manager = taskData.managers.find(function(m) { return m.name === managerName; });
     if (!manager) {
         taskSummary.style.display = 'none';
@@ -1569,14 +1569,33 @@ function renderTaskData() {
     taskSummary.style.display = 'block';
     taskSupplierCard.style.display = 'block';
     
-    // 获取该业务经理的供应商数据
+    // 获取该业务经理的供应商数据（目标分配）
     var supplierList = taskData.suppliers.filter(function(s) { return s.manager === managerName; });
     
+    // ===== 关键修改：从salesProgressData获取4月实际完成 =====
+    var managerSales = salesProgressData.find(function(item) {
+        return item['业务经理'] === managerName || item.name === managerName;
+    });
+    
     // 计算完成情况
-    var amountTarget = manager.amountTarget || 0;
-    var countTarget = manager.countTarget || 0;
-    var amountActual = supplierList.reduce(function(sum, s) { return sum + (s.amount || 0); }, 0);
-    var countActual = supplierList.reduce(function(sum, s) { return sum + (s.count || 0); }, 0);
+    var amountTarget = manager.amountTarget || 0;  // 4月任务目标
+    var countTarget = manager.countTarget || 0;    // 4月件数目标
+    
+    // 实际完成：优先从salesProgressData获取，否则从供应商累加
+    var amountActual = 0;
+    var countActual = 0;
+    
+    if (managerSales) {
+        // 使用月销售额作为实际完成
+        amountActual = managerSales['月销售额'] || managerSales.sales || 0;
+        // 件数目标完成率按金额完成率同比例计算
+        countActual = countTarget * (amountActual / amountTarget);
+    } else {
+        // 回退：从供应商累加（这是目标分配，不是实际完成）
+        amountActual = supplierList.reduce(function(sum, s) { return sum + (s.amount || 0); }, 0);
+        countActual = supplierList.reduce(function(sum, s) { return sum + (s.count || 0); }, 0);
+    }
+    
     var amountRate = amountTarget > 0 ? (amountActual / amountTarget * 100) : 0;
     var countRate = countTarget > 0 ? (countActual / countTarget * 100) : 0;
     
