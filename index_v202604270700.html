@@ -34,6 +34,30 @@ async function loadDataFirst() {
 
 // 页面加载完成后先尝试本地数据
 document.addEventListener('DOMContentLoaded', loadDataFirst);
+
+// 
+function initPageAfterDataLoad() {
+    allCustomers = customersData;
+    filteredCustomers = customersData;
+    
+    // 
+    var categories = {};
+    productsData.forEach(function(p) { if(p.category) categories[p.category] = true; });
+    var catSelect = document.getElementById('pCategory');
+    if(catSelect){
+        Object.keys(categories).sort().forEach(function(cat) {
+            var opt = document.createElement('option');
+            opt.value = cat; opt.textContent = cat;
+            catSelect.appendChild(opt);
+        });
+    }
+    
+    // 
+    renderReport();
+    renderProduct();
+    renderCustomerFilters();
+    renderCustomerList();
+}
 </script>
 
 <meta charset="UTF-8">
@@ -1173,27 +1197,8 @@ document.getElementById('md').classList.remove('on');
 }
 
 // ===== 初始化 =====
-document.addEventListener('DOMContentLoaded', function() {
-    allCustomers = customersData;
-    filteredCustomers = customersData;
-    
-    // 初始化产品分类选项
-    var categories = {};
-    productsData.forEach(function(p) { if(p.category) categories[p.category] = true; });
-    var catSelect = document.getElementById('pCategory');
-    if(catSelect){
-        Object.keys(categories).sort().forEach(function(cat) {
-            var opt = document.createElement('option');
-            opt.value = cat; opt.textContent = cat;
-            catSelect.appendChild(opt);
-        });
-    }
-    
-    renderReport();
-    renderProduct();
-    renderCustomerFilters();
-    renderCustomerList();
-});
+// Page init moved to loadDataFirst success callback
+
 
 
 
