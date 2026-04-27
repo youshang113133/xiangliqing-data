@@ -1,0 +1,5616 @@
+{
+  "date": "2026-04-27",
+  "totalCustomers": 357,
+  "customers": [
+    {
+      "name": "湖南省岳阳市汩罗李富",
+      "owner": "蔡磊",
+      "sales": 34440.0,
+      "profit": 12851.66,
+      "cost": 21588.34,
+      "margin": 0.3732,
+      "orders": 2,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 88525.96
+    },
+    {
+      "name": "湖南省长沙市肴之林",
+      "owner": "张金伟",
+      "sales": 32283.0,
+      "profit": 4131.55,
+      "cost": 28151.45,
+      "margin": 0.128,
+      "orders": 3,
+      "skuCount": 14,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 166987.364166667
+    },
+    {
+      "name": "湖南省湘潭市建设路口殷磊",
+      "owner": "周斌",
+      "sales": 24580.8,
+      "profit": 4378.63,
+      "cost": 20202.17,
+      "margin": 0.1781,
+      "orders": 2,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 43862.16
+    },
+    {
+      "name": "湖南省长沙市淘怡星平台张艳",
+      "owner": "彭建华",
+      "sales": 22455.0,
+      "profit": 5098.14,
+      "cost": 17356.86,
+      "margin": 0.227,
+      "orders": 1,
+      "skuCount": 6,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 210247.406666667
+    },
+    {
+      "name": "湖南省岳阳市春记五里牌店",
+      "owner": "蔡磊",
+      "sales": 21635.0,
+      "profit": 12304.44,
+      "cost": 9330.56,
+      "margin": 0.5687,
+      "orders": 2,
+      "skuCount": 7,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 128132.305
+    },
+    {
+      "name": "广东省东莞市大岭山信立农批水果区横二路46-48号厨友荟特色食材批发中心秦金健",
+      "owner": "罗策",
+      "sales": 14610.0,
+      "profit": 1205.36,
+      "cost": 13404.64,
+      "margin": 0.0825,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "广东",
+      "type": 0.0,
+      "monthlyAvg": 34993.0833333333
+    },
+    {
+      "name": "湖南省怀化市汇裕商贸有限公司杨球琳",
+      "owner": "尹建林",
+      "sales": 13999.35,
+      "profit": 3605.3,
+      "cost": 10394.05,
+      "margin": 0.2575,
+      "orders": 4,
+      "skuCount": 9,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 67001.0516666667
+    },
+    {
+      "name": "江西省南昌市东湖区右营街58-6和润源冻品樊正英",
+      "owner": "袁正军",
+      "sales": 12350.0,
+      "profit": 1965.01,
+      "cost": 10384.99,
+      "margin": 0.1591,
+      "orders": 2,
+      "skuCount": 4,
+      "region": "江西",
+      "type": NaN,
+      "monthlyAvg": 16125.3016666667
+    },
+    {
+      "name": "湖南省常德市彭伟",
+      "owner": "张文胜",
+      "sales": 12322.22,
+      "profit": 2521.34,
+      "cost": 9800.88,
+      "margin": 0.2046,
+      "orders": 2,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 45071.3333333333
+    },
+    {
+      "name": "湖南省益阳市沅江市草尾镇曾永康",
+      "owner": "张纯英",
+      "sales": 11596.0,
+      "profit": 563.93,
+      "cost": 11032.07,
+      "margin": 0.0486,
+      "orders": 1,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 52154.7925
+    },
+    {
+      "name": "湖南省邵阳市双清区帮厨汇食材商行刘奉岐",
+      "owner": "陈龙",
+      "sales": 10800.0,
+      "profit": 10800.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 111472.563333333
+    },
+    {
+      "name": "湖南省张家界市申国庆",
+      "owner": "尹建林",
+      "sales": 10760.0,
+      "profit": 1351.41,
+      "cost": 9408.59,
+      "margin": 0.1256,
+      "orders": 3,
+      "skuCount": 5,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 28552.6666666667
+    },
+    {
+      "name": "湖南省岳阳市梅溪桥乡村美味",
+      "owner": "蔡磊",
+      "sales": 10347.0,
+      "profit": 1150.74,
+      "cost": 9196.26,
+      "margin": 0.1112,
+      "orders": 2,
+      "skuCount": 5,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 9040.66666666667
+    },
+    {
+      "name": "湖南省常德蔡端丰",
+      "owner": "张文胜",
+      "sales": 10066.0,
+      "profit": 4277.21,
+      "cost": 5788.79,
+      "margin": 0.4249,
+      "orders": 2,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2908.66666666667
+    },
+    {
+      "name": "湖南省湘潭市湘大新路口荷味酒店配送倪芳",
+      "owner": "周斌",
+      "sales": 9900.0,
+      "profit": 600.96,
+      "cost": 9299.04,
+      "margin": 0.0607,
+      "orders": 3,
+      "skuCount": 5,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 23264.125
+    },
+    {
+      "name": "湖南省湘潭市汪群",
+      "owner": "周斌",
+      "sales": 9568.0,
+      "profit": 856.32,
+      "cost": 8711.68,
+      "margin": 0.0895,
+      "orders": 2,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6511.0
+    },
+    {
+      "name": "云南省昆明市官渡区关上海鲜市场秦厚远",
+      "owner": "刘文",
+      "sales": 9300.0,
+      "profit": 1389.68,
+      "cost": 7910.32,
+      "margin": 0.1494,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "云南",
+      "type": NaN,
+      "monthlyAvg": 2583.33333333333
+    },
+    {
+      "name": "江西省吉安市四季春海鲜胡文军",
+      "owner": "李志强",
+      "sales": 9200.0,
+      "profit": 872.86,
+      "cost": 8327.14,
+      "margin": 0.0949,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "江西",
+      "type": NaN,
+      "monthlyAvg": 15318.5416666667
+    },
+    {
+      "name": "湖北省易先元（汉口北）",
+      "owner": "宋杨杰",
+      "sales": 9187.5,
+      "profit": 5908.84,
+      "cost": 3278.66,
+      "margin": 0.6431,
+      "orders": 2,
+      "skuCount": 3,
+      "region": "湖北",
+      "type": NaN,
+      "monthlyAvg": 51379.9166666667
+    },
+    {
+      "name": "湖南省长沙市芙蓉区马王堆孙凯",
+      "owner": "彭菊华",
+      "sales": 9060.0,
+      "profit": 6057.15,
+      "cost": 3002.85,
+      "margin": 0.6686,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 121654.550833333
+    },
+    {
+      "name": "湖北省荆州市石首市湘鄂贸城十栋华香商贸朱义虎",
+      "owner": "宋杨杰",
+      "sales": 8250.0,
+      "profit": 1083.5,
+      "cost": 7166.5,
+      "margin": 0.1313,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖北",
+      "type": NaN,
+      "monthlyAvg": 2537.91666666667
+    },
+    {
+      "name": "湖南省衡阳市萧卿恒",
+      "owner": "江廉政",
+      "sales": 7980.0,
+      "profit": 1259.53,
+      "cost": 6720.47,
+      "margin": 0.1578,
+      "orders": 2,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 35441.1675
+    },
+    {
+      "name": "湖南省张家界刘建军",
+      "owner": "尹建林",
+      "sales": 7920.0,
+      "profit": 5551.02,
+      "cost": 2368.98,
+      "margin": 0.7009,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 21655.9416666667
+    },
+    {
+      "name": "广东省东莞市大岭山镇信立农批市场水果区横二路12-14号佳湘味食品梅昌军",
+      "owner": "罗策",
+      "sales": 7670.0,
+      "profit": 870.46,
+      "cost": 6799.54,
+      "margin": 0.1135,
+      "orders": 1,
+      "skuCount": 5,
+      "region": "广东",
+      "type": 0.0,
+      "monthlyAvg": 59166.1666666667
+    },
+    {
+      "name": "湖南省郴州市资兴市高椅岭丹霞饭店雷总",
+      "owner": "胡珍",
+      "sales": 7150.0,
+      "profit": 125.9,
+      "cost": 7024.1,
+      "margin": 0.0176,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "",
+      "type": "",
+      "monthlyAvg": 0
+    },
+    {
+      "name": "湖南省长沙市天心区肴湘记小苗哥餐饮连锁罗君",
+      "owner": "张金伟",
+      "sales": 7050.0,
+      "profit": 778.31,
+      "cost": 6271.69,
+      "margin": 0.1104,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2806.375
+    },
+    {
+      "name": "湖南省岳阳市华容县创鲜食材配送肖科",
+      "owner": "蔡磊",
+      "sales": 7020.0,
+      "profit": 1219.15,
+      "cost": 5800.85,
+      "margin": 0.1737,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 32632.8333333333
+    },
+    {
+      "name": "湖南省永州市宁远县九越酒李振宁",
+      "owner": "胡珍",
+      "sales": 6790.0,
+      "profit": 698.92,
+      "cost": 6091.08,
+      "margin": 0.1029,
+      "orders": 1,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 7906.04166666667
+    },
+    {
+      "name": "湖南省常德市南站小朱",
+      "owner": "张文胜",
+      "sales": 6768.0,
+      "profit": 299.18,
+      "cost": 6468.82,
+      "margin": 0.0442,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 28650.5983333333
+    },
+    {
+      "name": "湖南省永州市宁远县杨妹",
+      "owner": "胡珍",
+      "sales": 6620.0,
+      "profit": 541.62,
+      "cost": 6078.38,
+      "margin": 0.0818,
+      "orders": 1,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 13033.6666666667
+    },
+    {
+      "name": "湖南省益阳市南县刘胜才",
+      "owner": "张纯英",
+      "sales": 6560.0,
+      "profit": 1035.93,
+      "cost": 5524.07,
+      "margin": 0.1579,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 66689.25
+    },
+    {
+      "name": "湖北省武汉市起义门市场刘大姐",
+      "owner": "宋杨杰",
+      "sales": 6296.0,
+      "profit": 1094.8,
+      "cost": 5201.2,
+      "margin": 0.1739,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖北",
+      "type": NaN,
+      "monthlyAvg": 8518.5175
+    },
+    {
+      "name": "湖南省常德市澧县孙武林",
+      "owner": "张文胜",
+      "sales": 6070.0,
+      "profit": 581.57,
+      "cost": 5488.43,
+      "margin": 0.0958,
+      "orders": 1,
+      "skuCount": 4,
+      "region": "",
+      "type": "",
+      "monthlyAvg": 0
+    },
+    {
+      "name": "湖南省邵阳市强丰供应链彭民强",
+      "owner": "陈龙",
+      "sales": 6069.5,
+      "profit": 623.03,
+      "cost": 5446.47,
+      "margin": 0.1026,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 18037.3283333333
+    },
+    {
+      "name": "湖南省常德市王维",
+      "owner": "张文胜",
+      "sales": 5990.0,
+      "profit": 697.14,
+      "cost": 5292.86,
+      "margin": 0.1164,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1429.16666666667
+    },
+    {
+      "name": "湖南省长沙市西长街杨波",
+      "owner": "彭菊华",
+      "sales": 5787.0,
+      "profit": 694.5,
+      "cost": 5092.5,
+      "margin": 0.12,
+      "orders": 4,
+      "skuCount": 6,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 37489.45
+    },
+    {
+      "name": "湖南省湘潭市淑云冻货贺春花",
+      "owner": "周斌",
+      "sales": 5760.0,
+      "profit": 5760.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 17773.3675
+    },
+    {
+      "name": "湖南省长沙市开福区佳汇冷库湘永园",
+      "owner": "彭菊华",
+      "sales": 5550.0,
+      "profit": 683.94,
+      "cost": 4866.06,
+      "margin": 0.1232,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6986.66666666667
+    },
+    {
+      "name": "湖南长沙高桥德发",
+      "owner": "彭建华",
+      "sales": 5422.1,
+      "profit": 361.4,
+      "cost": 5060.7,
+      "margin": 0.0667,
+      "orders": 4,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 17904.7416666667
+    },
+    {
+      "name": "湖南省衡阳市付雁军",
+      "owner": "江廉政",
+      "sales": 5400.0,
+      "profit": 5400.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 125883.739166667
+    },
+    {
+      "name": "湖南省常德市赵蕾(常德店)",
+      "owner": "张文胜",
+      "sales": 5280.0,
+      "profit": 650.66,
+      "cost": 4629.34,
+      "margin": 0.1232,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 44944.7083333333
+    },
+    {
+      "name": "湖南省湘西永顺县芙蓉镇石帮",
+      "owner": "尹建林",
+      "sales": 5200.0,
+      "profit": 780.95,
+      "cost": 4419.05,
+      "margin": 0.1502,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4570.83333333333
+    },
+    {
+      "name": "湖南长沙高桥锦园（门面）",
+      "owner": "彭建华",
+      "sales": 5089.0,
+      "profit": 643.98,
+      "cost": 4445.02,
+      "margin": 0.1265,
+      "orders": 4,
+      "skuCount": 5,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 105483.585833333
+    },
+    {
+      "name": "湖北省荆州市监利市张小波",
+      "owner": "宋杨杰",
+      "sales": 5070.0,
+      "profit": 829.0,
+      "cost": 4241.0,
+      "margin": 0.1635,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖北",
+      "type": NaN,
+      "monthlyAvg": 21176.5833333333
+    },
+    {
+      "name": "湖南省邵东市李老三（李亚雄）",
+      "owner": "陈龙",
+      "sales": 4900.0,
+      "profit": 4900.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5312.58333333333
+    },
+    {
+      "name": "湖南省衡阳市祁东陈芳云",
+      "owner": "江廉政",
+      "sales": 4750.0,
+      "profit": 241.46,
+      "cost": 4508.54,
+      "margin": 0.0508,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 38604.5591666667
+    },
+    {
+      "name": "湖南省常德市安乡胡利军",
+      "owner": "张文胜",
+      "sales": 4600.0,
+      "profit": 601.98,
+      "cost": 3998.02,
+      "margin": 0.1309,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 20248.875
+    },
+    {
+      "name": "湖南省岳阳市湘阴张桂良",
+      "owner": "蔡磊",
+      "sales": 4555.0,
+      "profit": 785.44,
+      "cost": 3769.56,
+      "margin": 0.1724,
+      "orders": 1,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 60214.8058333333
+    },
+    {
+      "name": "湖南省益阳市团洲蔬菜批发市场易龙",
+      "owner": "张纯英",
+      "sales": 4260.0,
+      "profit": 332.28,
+      "cost": 3927.72,
+      "margin": 0.078,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 17784.4166666667
+    },
+    {
+      "name": "湖南省永州市江华瑶族自治县黄华斌",
+      "owner": "胡珍",
+      "sales": 4032.0,
+      "profit": 4032.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 26197.2666666667
+    },
+    {
+      "name": "湖南省永州市蒋友保",
+      "owner": "胡珍",
+      "sales": 4000.0,
+      "profit": 473.25,
+      "cost": 3526.75,
+      "margin": 0.1183,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1541.25
+    },
+    {
+      "name": "湖南省邵阳市邵东县申老三",
+      "owner": "陈龙",
+      "sales": 4000.0,
+      "profit": 601.45,
+      "cost": 3398.55,
+      "margin": 0.1504,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6104.16666666667
+    },
+    {
+      "name": "湖南邵阳市邵东诚信（朱艳）",
+      "owner": "陈龙",
+      "sales": 4000.0,
+      "profit": 601.45,
+      "cost": 3398.55,
+      "margin": 0.1504,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6301.66666666667
+    },
+    {
+      "name": "湖南省岳阳市梅溪桥细妹子荷味酒店特色菜系列",
+      "owner": "蔡磊",
+      "sales": 3960.0,
+      "profit": 375.1,
+      "cost": 3584.9,
+      "margin": 0.0947,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 9142.58333333333
+    },
+    {
+      "name": "湖南省衡阳常宁陈朝军",
+      "owner": "江廉政",
+      "sales": 3940.0,
+      "profit": 347.58,
+      "cost": 3592.42,
+      "margin": 0.0882,
+      "orders": 2,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5830.29166666667
+    },
+    {
+      "name": "湖南省衡阳市蔡庭信",
+      "owner": "江廉政",
+      "sales": 3900.0,
+      "profit": 324.15,
+      "cost": 3575.85,
+      "margin": 0.0831,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 14604.0833333333
+    },
+    {
+      "name": "湖南省常德市桃源钟昌华",
+      "owner": "张文胜",
+      "sales": 3810.0,
+      "profit": 557.46,
+      "cost": 3252.54,
+      "margin": 0.1463,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 7978.91666666667
+    },
+    {
+      "name": "湖南省永州市祁阳市惠源冻品何生",
+      "owner": "胡珍",
+      "sales": 3738.0,
+      "profit": 258.61,
+      "cost": 3479.39,
+      "margin": 0.0692,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4224.91666666667
+    },
+    {
+      "name": "湖南省常德市石潇",
+      "owner": "张文胜",
+      "sales": 3640.0,
+      "profit": 651.88,
+      "cost": 2988.12,
+      "margin": 0.1791,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4222.16666666667
+    },
+    {
+      "name": "湖南省邵阳市洞口周玉德",
+      "owner": "陈龙",
+      "sales": 3620.0,
+      "profit": 330.82,
+      "cost": 3289.18,
+      "margin": 0.0914,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4035.75
+    },
+    {
+      "name": "湖南省益阳市沅江唐巍",
+      "owner": "张纯英",
+      "sales": 3500.0,
+      "profit": 640.84,
+      "cost": 2859.16,
+      "margin": 0.1831,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 19708.8333333333
+    },
+    {
+      "name": "湖南省长沙市高桥湘情酒店配送",
+      "owner": "杨青青",
+      "sales": 3480.0,
+      "profit": 406.44,
+      "cost": 3073.56,
+      "margin": 0.1168,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 16113.2916666667
+    },
+    {
+      "name": "湖南省永州市道县兄弟冷库",
+      "owner": "胡珍",
+      "sales": 3350.0,
+      "profit": 383.16,
+      "cost": 2966.84,
+      "margin": 0.1144,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 18665.9583333333
+    },
+    {
+      "name": "湖南平安福食品有限公司",
+      "owner": "杨青青",
+      "sales": 3294.0,
+      "profit": 359.31,
+      "cost": 2934.69,
+      "margin": 0.1091,
+      "orders": 2,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5775.04166666667
+    },
+    {
+      "name": "湖南省益阳市红联市场徐记贸易郭新益",
+      "owner": "张纯英",
+      "sales": 3200.0,
+      "profit": 251.15,
+      "cost": 2948.85,
+      "margin": 0.0785,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 10746.6666666667
+    },
+    {
+      "name": "湖南省益阳市安化罗付良",
+      "owner": "张纯英",
+      "sales": 3190.0,
+      "profit": 358.2,
+      "cost": 2831.8,
+      "margin": 0.1123,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 11258.0333333333
+    },
+    {
+      "name": "湖南省郴州市桂阳县优鲜配送江名兵",
+      "owner": "胡珍",
+      "sales": 3150.0,
+      "profit": 387.13,
+      "cost": 2762.87,
+      "margin": 0.1229,
+      "orders": 3,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 393.333333333333
+    },
+    {
+      "name": "湖南省郴州市中农批旺佳冻品",
+      "owner": "胡珍",
+      "sales": 3080.0,
+      "profit": 551.55,
+      "cost": 2528.45,
+      "margin": 0.1791,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2022.08333333333
+    },
+    {
+      "name": "湖南省长沙市芙蓉区徐记海鲜总部",
+      "owner": "彭菊华",
+      "sales": 2952.0,
+      "profit": 495.07,
+      "cost": 2456.93,
+      "margin": 0.1677,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 11447.375
+    },
+    {
+      "name": "湖南省岳阳市何估生",
+      "owner": "蔡磊",
+      "sales": 2928.0,
+      "profit": 196.07,
+      "cost": 2731.93,
+      "margin": 0.067,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 11339.8333333333
+    },
+    {
+      "name": "湖南省永州市祁阳县吾城冷鲜生活商行周开利",
+      "owner": "胡珍",
+      "sales": 2919.0,
+      "profit": 263.24,
+      "cost": 2655.76,
+      "margin": 0.0902,
+      "orders": 1,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4325.04166666667
+    },
+    {
+      "name": "湖南省常德市李鹏",
+      "owner": "张文胜",
+      "sales": 2808.0,
+      "profit": 209.72,
+      "cost": 2598.28,
+      "margin": 0.0747,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 59033.2833333333
+    },
+    {
+      "name": "湖南省长沙市岳麓区湘仪生鲜大市场南大门青龙冻货总批发潘总",
+      "owner": "王纯",
+      "sales": 2755.0,
+      "profit": 146.52,
+      "cost": 2608.48,
+      "margin": 0.0532,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5156.91666666667
+    },
+    {
+      "name": "湖南省怀化市通道梁慧",
+      "owner": "尹建林",
+      "sales": 2718.0,
+      "profit": 196.95,
+      "cost": 2521.05,
+      "margin": 0.0725,
+      "orders": 1,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 10546.6666666667
+    },
+    {
+      "name": "浙江省杭州市勾庄市场舒鑫餐饮胡建荣",
+      "owner": "李志强",
+      "sales": 2700.0,
+      "profit": 279.23,
+      "cost": 2420.77,
+      "margin": 0.1034,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "浙江",
+      "type": NaN,
+      "monthlyAvg": 2175.0
+    },
+    {
+      "name": "湖南省张家界丁建苗",
+      "owner": "尹建林",
+      "sales": 2600.0,
+      "profit": 390.48,
+      "cost": 2209.52,
+      "margin": 0.1502,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 7128.25
+    },
+    {
+      "name": "湖南省岳阳市华容县章华镇南门市场潘辉明",
+      "owner": "蔡磊",
+      "sales": 2520.0,
+      "profit": 151.02,
+      "cost": 2368.98,
+      "margin": 0.0599,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3369.54166666667
+    },
+    {
+      "name": "湖南省岳阳市华容县肖磊",
+      "owner": "蔡磊",
+      "sales": 2520.0,
+      "profit": 151.02,
+      "cost": 2368.98,
+      "margin": 0.0599,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6047.475
+    },
+    {
+      "name": "广西防城港市港口区港湾街188号晨华御府12号楼1层第150号唐磊",
+      "owner": "刘文",
+      "sales": 2460.0,
+      "profit": 209.47,
+      "cost": 2250.53,
+      "margin": 0.0852,
+      "orders": 1,
+      "skuCount": 4,
+      "region": "广西",
+      "type": NaN,
+      "monthlyAvg": 3895.0
+    },
+    {
+      "name": "湖南省湘乡东升市场毅仔食材配送",
+      "owner": "周斌",
+      "sales": 2434.0,
+      "profit": 255.49,
+      "cost": 2178.51,
+      "margin": 0.105,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4781.25
+    },
+    {
+      "name": "湖南省湘潭市易俗河锦兴冻库黄敏",
+      "owner": "周斌",
+      "sales": 2364.0,
+      "profit": 1167.33,
+      "cost": 1196.67,
+      "margin": 0.4938,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1706.0
+    },
+    {
+      "name": "湖南省怀化市中心市场陆耀辉",
+      "owner": "尹建林",
+      "sales": 2250.0,
+      "profit": 300.33,
+      "cost": 1949.67,
+      "margin": 0.1335,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2718.75
+    },
+    {
+      "name": "湖南省岳阳市汨罗张跃军",
+      "owner": "蔡磊",
+      "sales": 2200.0,
+      "profit": 330.4,
+      "cost": 1869.6,
+      "margin": 0.1502,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3562.58333333333
+    },
+    {
+      "name": "湖南省长沙市开福区佳汇术红冻货周术红",
+      "owner": "彭菊华",
+      "sales": 2120.0,
+      "profit": 203.8,
+      "cost": 1916.2,
+      "margin": 0.0961,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 7300.0
+    },
+    {
+      "name": "湖南省株洲市攸县黄土岭张发良",
+      "owner": "周斌",
+      "sales": 2118.0,
+      "profit": 131.12,
+      "cost": 1986.88,
+      "margin": 0.0619,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1625.83333333333
+    },
+    {
+      "name": "湖南长沙高桥张荣华（门面）",
+      "owner": "彭建华",
+      "sales": 2100.0,
+      "profit": 165.54,
+      "cost": 1934.46,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 8419.85
+    },
+    {
+      "name": "湖南省长沙市雨花区海滋鲜食品商行",
+      "owner": "杨青青",
+      "sales": 2098.0,
+      "profit": 161.16,
+      "cost": 1936.84,
+      "margin": 0.0768,
+      "orders": 3,
+      "skuCount": 6,
+      "region": NaN,
+      "type": NaN,
+      "monthlyAvg": 10704.7791666667
+    },
+    {
+      "name": "湖南省益阳市钟胖子农产品配送有限公司",
+      "owner": "张纯英",
+      "sales": 2090.0,
+      "profit": 95.55,
+      "cost": 1994.45,
+      "margin": 0.0457,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5417.41666666667
+    },
+    {
+      "name": "湖南省张家界桑植张志刚",
+      "owner": "尹建林",
+      "sales": 2080.0,
+      "profit": 190.35,
+      "cost": 1889.65,
+      "margin": 0.0915,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 7887.58333333333
+    },
+    {
+      "name": "湖南省常德市火车站明益",
+      "owner": "张文胜",
+      "sales": 2060.0,
+      "profit": 94.18,
+      "cost": 1965.82,
+      "margin": 0.0457,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 489.583333333333
+    },
+    {
+      "name": "湖南省益阳市南洲镇南洲西路湖景盛宴饭店孟祥军",
+      "owner": "张纯英",
+      "sales": 2044.0,
+      "profit": 250.95,
+      "cost": 1793.05,
+      "margin": 0.1228,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2304.7
+    },
+    {
+      "name": "湖南省长沙市长沙县水渡河华瑞冻品批发部",
+      "owner": "张金伟",
+      "sales": 2025.0,
+      "profit": 92.58,
+      "cost": 1932.42,
+      "margin": 0.0457,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 10225.5383333333
+    },
+    {
+      "name": "湖南省张家界市福鑫陈永胜",
+      "owner": "尹建林",
+      "sales": 2002.5,
+      "profit": 228.77,
+      "cost": 1773.73,
+      "margin": 0.1142,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 25182.75
+    },
+    {
+      "name": "湖北省监利市监利大市场1603张国春",
+      "owner": "宋杨杰",
+      "sales": 2000.0,
+      "profit": 230.62,
+      "cost": 1769.38,
+      "margin": 0.1153,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖北",
+      "type": NaN,
+      "monthlyAvg": 1783.33333333333
+    },
+    {
+      "name": "湖南省张家界明天冷冻屈凡胜",
+      "owner": "尹建林",
+      "sales": 2000.0,
+      "profit": 298.85,
+      "cost": 1701.15,
+      "margin": 0.1494,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 42007.5858333333
+    },
+    {
+      "name": "湖南省益阳市沅江何建明",
+      "owner": "张纯英",
+      "sales": 1988.0,
+      "profit": 238.29,
+      "cost": 1749.71,
+      "margin": 0.1199,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 23593.5
+    },
+    {
+      "name": "湖南省长沙市芙蓉区伍佰",
+      "owner": "彭菊华",
+      "sales": 1950.0,
+      "profit": 180.02,
+      "cost": 1769.98,
+      "margin": 0.0923,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4612.83333333333
+    },
+    {
+      "name": "湖南省益阳市贺鹏",
+      "owner": "张纯英",
+      "sales": 1925.0,
+      "profit": 129.67,
+      "cost": 1795.33,
+      "margin": 0.0674,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3523.29166666667
+    },
+    {
+      "name": "湖南省常德市蒿子港任大雪",
+      "owner": "张文胜",
+      "sales": 1900.0,
+      "profit": 112.08,
+      "cost": 1787.92,
+      "margin": 0.059,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3150.91666666667
+    },
+    {
+      "name": "湖南省永州市宁远县诚信冷库刘来兴",
+      "owner": "胡珍",
+      "sales": 1900.0,
+      "profit": 254.9,
+      "cost": 1645.1,
+      "margin": 0.1342,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 19707.2916666667
+    },
+    {
+      "name": "湖南省益阳市沅江陈伯军",
+      "owner": "张纯英",
+      "sales": 1900.0,
+      "profit": 244.74,
+      "cost": 1655.26,
+      "margin": 0.1288,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 18098.4175
+    },
+    {
+      "name": "湖南省长沙市开福区捞刀河江边小厨娘",
+      "owner": "彭菊华",
+      "sales": 1900.0,
+      "profit": 294.9,
+      "cost": 1605.1,
+      "margin": 0.1552,
+      "orders": 1,
+      "skuCount": 6,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5093.75
+    },
+    {
+      "name": "湖南省长沙市芙蓉区马王堆黄文",
+      "owner": "彭菊华",
+      "sales": 1885.0,
+      "profit": 316.39,
+      "cost": 1568.61,
+      "margin": 0.1678,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 78905.0
+    },
+    {
+      "name": "湖南省长沙市雨花区高桥冷链3栋73号味之道",
+      "owner": "彭建华",
+      "sales": 1777.5,
+      "profit": 291.2,
+      "cost": 1486.3,
+      "margin": 0.1638,
+      "orders": 3,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 8578.1675
+    },
+    {
+      "name": "湖南省常德市澧县向李荣",
+      "owner": "张文胜",
+      "sales": 1760.0,
+      "profit": 311.38,
+      "cost": 1448.62,
+      "margin": 0.1769,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1371.79166666667
+    },
+    {
+      "name": "湖南省长沙市雨花区五一新村彭聚朝阳",
+      "owner": "杨青青",
+      "sales": 1753.0,
+      "profit": 1730.95,
+      "cost": 22.05,
+      "margin": 0.9874,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6726.83333333333
+    },
+    {
+      "name": "西藏拉萨酒店彭彩霞",
+      "owner": "刘文",
+      "sales": 1725.0,
+      "profit": 332.78,
+      "cost": 1392.22,
+      "margin": 0.1929,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "西藏",
+      "type": NaN,
+      "monthlyAvg": 7227.5
+    },
+    {
+      "name": "广西桂林市聚厨食材李戒",
+      "owner": "刘文",
+      "sales": 1700.0,
+      "profit": 226.7,
+      "cost": 1473.3,
+      "margin": 0.1334,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "广西",
+      "type": NaN,
+      "monthlyAvg": 17044.0
+    },
+    {
+      "name": "湖南省娄底市王胖子冷冻食品配送",
+      "owner": "陈龙",
+      "sales": 1656.0,
+      "profit": 1656.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 27811.25
+    },
+    {
+      "name": "湖南省湘潭市民主路方记冻货百货商行",
+      "owner": "周斌",
+      "sales": 1656.0,
+      "profit": 1656.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 73330.3083333333
+    },
+    {
+      "name": "湖南省长沙市雨花区高桥财富大厦谭元华",
+      "owner": "彭建华",
+      "sales": 1630.0,
+      "profit": 245.39,
+      "cost": 1384.61,
+      "margin": 0.1505,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1419.66666666667
+    },
+    {
+      "name": "厨盟主餐饮食材",
+      "owner": "彭建华",
+      "sales": 1601.0,
+      "profit": 204.37,
+      "cost": 1396.63,
+      "margin": 0.1277,
+      "orders": 3,
+      "skuCount": 5,
+      "region": "湖南",
+      "type": 0.0,
+      "monthlyAvg": 100550.315833333
+    },
+    {
+      "name": "江西省萍乡市叶国田",
+      "owner": "李志强",
+      "sales": 1600.0,
+      "profit": 282.06,
+      "cost": 1317.94,
+      "margin": 0.1763,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "江西",
+      "type": NaN,
+      "monthlyAvg": 1093.33333333333
+    },
+    {
+      "name": "湖南省长沙市鲁明利",
+      "owner": "杨青青",
+      "sales": 1600.0,
+      "profit": 211.97,
+      "cost": 1388.03,
+      "margin": 0.1325,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 932.75
+    },
+    {
+      "name": "湖南省衡阳市胡耀财",
+      "owner": "江廉政",
+      "sales": 1595.0,
+      "profit": 194.92,
+      "cost": 1400.08,
+      "margin": 0.1222,
+      "orders": 1,
+      "skuCount": 6,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4978.41666666667
+    },
+    {
+      "name": "湖南省湘西吉首市乾州高新区宏大广场4楼贤合庄火锅石总",
+      "owner": "尹建林",
+      "sales": 1560.0,
+      "profit": 180.33,
+      "cost": 1379.67,
+      "margin": 0.1156,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "",
+      "type": "",
+      "monthlyAvg": 0
+    },
+    {
+      "name": "湖南省长沙市芙蓉区江海牧",
+      "owner": "彭菊华",
+      "sales": 1560.0,
+      "profit": 213.12,
+      "cost": 1346.88,
+      "margin": 0.1366,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 44447.9083333333
+    },
+    {
+      "name": "湖南省娄底市双峰贺振",
+      "owner": "陈龙",
+      "sales": 1540.0,
+      "profit": 105.16,
+      "cost": 1434.84,
+      "margin": 0.0683,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 18060.4833333333
+    },
+    {
+      "name": "湖南长沙高桥腊尚皇（门面）",
+      "owner": "彭建华",
+      "sales": 1522.5,
+      "profit": 224.97,
+      "cost": 1297.53,
+      "margin": 0.1478,
+      "orders": 2,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 12620.875
+    },
+    {
+      "name": "湖南省永州市宁远县新华路5巷15号周继华",
+      "owner": "胡珍",
+      "sales": 1512.0,
+      "profit": 120.22,
+      "cost": 1391.78,
+      "margin": 0.0795,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 157.5
+    },
+    {
+      "name": "湖北省武汉市汉口北周四华",
+      "owner": "宋杨杰",
+      "sales": 1475.0,
+      "profit": 163.52,
+      "cost": 1311.48,
+      "margin": 0.1109,
+      "orders": 2,
+      "skuCount": 3,
+      "region": "湖北",
+      "type": NaN,
+      "monthlyAvg": 54532.2541666667
+    },
+    {
+      "name": "高桥店零售",
+      "owner": "杨青青",
+      "sales": 1474.0,
+      "profit": 170.39,
+      "cost": 1303.61,
+      "margin": 0.1156,
+      "orders": 9,
+      "skuCount": 12,
+      "region": "湖南",
+      "type": 0.0,
+      "monthlyAvg": 63303.8683333333
+    },
+    {
+      "name": "湖南省张家界慈利许永康",
+      "owner": "尹建林",
+      "sales": 1470.0,
+      "profit": 100.12,
+      "cost": 1369.88,
+      "margin": 0.0681,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6891.25
+    },
+    {
+      "name": "湖南省怀化市恒惠冷冻品经营部周铁刚",
+      "owner": "尹建林",
+      "sales": 1448.0,
+      "profit": 168.06,
+      "cost": 1279.94,
+      "margin": 0.1161,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 24332.0
+    },
+    {
+      "name": "湖南省长沙市开福区杨鑫",
+      "owner": "彭菊华",
+      "sales": 1442.0,
+      "profit": 157.99,
+      "cost": 1284.01,
+      "margin": 0.1096,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 55185.8891666667
+    },
+    {
+      "name": "湖南省湘潭市建设路口李正良",
+      "owner": "周斌",
+      "sales": 1440.0,
+      "profit": 194.5,
+      "cost": 1245.5,
+      "margin": 0.1351,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 37122.875
+    },
+    {
+      "name": "湖南省长沙市湘水农人",
+      "owner": "杨青青",
+      "sales": 1399.0,
+      "profit": 179.88,
+      "cost": 1219.12,
+      "margin": 0.1286,
+      "orders": 4,
+      "skuCount": 6,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 23467.2308333333
+    },
+    {
+      "name": "湖南省常德市甘露寺廖逸",
+      "owner": "张文胜",
+      "sales": 1360.0,
+      "profit": 107.21,
+      "cost": 1252.79,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5705.5
+    },
+    {
+      "name": "湖南省湘西吉首乾州香顺商行龙洪香",
+      "owner": "尹建林",
+      "sales": 1360.0,
+      "profit": 107.21,
+      "cost": 1252.79,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": NaN,
+      "type": NaN,
+      "monthlyAvg": 440.0
+    },
+    {
+      "name": "湖南省湘潭市旗远冻库易总",
+      "owner": "周斌",
+      "sales": 1352.0,
+      "profit": 230.2,
+      "cost": 1121.8,
+      "margin": 0.1703,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 10297.25
+    },
+    {
+      "name": "湖南省娄底市涟源谭老板",
+      "owner": "陈龙",
+      "sales": 1350.0,
+      "profit": 219.3,
+      "cost": 1130.7,
+      "margin": 0.1624,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6869.33333333333
+    },
+    {
+      "name": "湖南省常德市安乡县潘伟",
+      "owner": "张文胜",
+      "sales": 1350.0,
+      "profit": 213.9,
+      "cost": 1136.1,
+      "margin": 0.1584,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2016.66666666667
+    },
+    {
+      "name": "湖南省张家界市桑植县萍萍冻货郭春梅",
+      "owner": "尹建林",
+      "sales": 1350.0,
+      "profit": 130.35,
+      "cost": 1219.65,
+      "margin": 0.0966,
+      "orders": 1,
+      "skuCount": 2,
+      "region": NaN,
+      "type": NaN,
+      "monthlyAvg": 3198.625
+    },
+    {
+      "name": "湖南省衡阳市刘彪",
+      "owner": "江廉政",
+      "sales": 1350.0,
+      "profit": 112.21,
+      "cost": 1237.79,
+      "margin": 0.0831,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 200.0
+    },
+    {
+      "name": "湖南省长沙市雨花区永祥小区F10栋红辣椒湘味馆陈良才",
+      "owner": "彭建华",
+      "sales": 1350.0,
+      "profit": 85.01,
+      "cost": 1264.99,
+      "margin": 0.063,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 40164.1708333333
+    },
+    {
+      "name": "湖南省岳阳市八字门蔬菜市场张记酒店烧烤食材张正山",
+      "owner": "蔡磊",
+      "sales": 1260.0,
+      "profit": 75.51,
+      "cost": 1184.49,
+      "margin": 0.0599,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 14901.7191666667
+    },
+    {
+      "name": "湖南省张家界桑植朱红春",
+      "owner": "尹建林",
+      "sales": 1260.0,
+      "profit": 75.51,
+      "cost": 1184.49,
+      "margin": 0.0599,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 10049.375
+    },
+    {
+      "name": "湖南省长沙市雨花区红星全球肉食B1栋1022永乐餐饮张立勋",
+      "owner": "杨青青",
+      "sales": 1232.0,
+      "profit": 90.87,
+      "cost": 1141.13,
+      "margin": 0.0738,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2359.41666666667
+    },
+    {
+      "name": "湖南省永州市冷水滩区安哥餐饮原料配送中心尹世安",
+      "owner": "胡珍",
+      "sales": 1200.0,
+      "profit": 112.23,
+      "cost": 1087.77,
+      "margin": 0.0935,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 46974.7158333333
+    },
+    {
+      "name": "湖南省湘潭市雨湖区民主路金远达中西餐厅原料配送童老板",
+      "owner": "周斌",
+      "sales": 1200.0,
+      "profit": 155.56,
+      "cost": 1044.44,
+      "margin": 0.1296,
+      "orders": 1,
+      "skuCount": 1,
+      "region": NaN,
+      "type": NaN,
+      "monthlyAvg": 220.75
+    },
+    {
+      "name": "湖南省长沙市暮云尹江华",
+      "owner": "张金伟",
+      "sales": 1190.0,
+      "profit": 160.3,
+      "cost": 1029.7,
+      "margin": 0.1347,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 295.616666666667
+    },
+    {
+      "name": "湖南省长沙市围山田园何桂",
+      "owner": "彭建华",
+      "sales": 1188.0,
+      "profit": 157.94,
+      "cost": 1030.06,
+      "margin": 0.1329,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 7391.72916666667
+    },
+    {
+      "name": "湖南省长沙市雨花区兴湘红星A3-80号",
+      "owner": "杨青青",
+      "sales": 1188.0,
+      "profit": 94.46,
+      "cost": 1093.54,
+      "margin": 0.0795,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1289.41666666667
+    },
+    {
+      "name": "浙江省衢州市龙游县宝塔路168号小徐冻品徐国峰",
+      "owner": "李志强",
+      "sales": 1170.0,
+      "profit": 1170.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "浙江",
+      "type": NaN,
+      "monthlyAvg": 97.5
+    },
+    {
+      "name": "湖南省湘潭馥茗苔酒店李显奕",
+      "owner": "陆美英",
+      "sales": 1152.0,
+      "profit": 1152.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 199.833333333333
+    },
+    {
+      "name": "湖南省长沙市开福区佳汇市场兴凌冻品",
+      "owner": "彭菊华",
+      "sales": 1152.0,
+      "profit": 1152.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 816.0
+    },
+    {
+      "name": "湖南省长沙市神农茶都11栋11号肖文革",
+      "owner": "杨青青",
+      "sales": 1152.0,
+      "profit": 200.07,
+      "cost": 951.93,
+      "margin": 0.1737,
+      "orders": 2,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1837.33333333333
+    },
+    {
+      "name": "湖南省湘西永顺县芙蓉镇王静",
+      "owner": "尹建林",
+      "sales": 1150.0,
+      "profit": 605.5,
+      "cost": 544.5,
+      "margin": 0.5265,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1746.0
+    },
+    {
+      "name": "湖南省岳阳市华容县徐老四",
+      "owner": "蔡磊",
+      "sales": 1120.0,
+      "profit": 166.38,
+      "cost": 953.62,
+      "margin": 0.1486,
+      "orders": 1,
+      "skuCount": 1,
+      "region": NaN,
+      "type": NaN,
+      "monthlyAvg": 3516.66666666667
+    },
+    {
+      "name": "湖南省长沙市雨花区酒水食品城立体停车楼北向4号荟选菜食材",
+      "owner": "杨青青",
+      "sales": 1115.4,
+      "profit": 132.77,
+      "cost": 982.63,
+      "margin": 0.119,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 14193.4016666667
+    },
+    {
+      "name": "湖南省岳阳市梅溪桥冯小梅",
+      "owner": "蔡磊",
+      "sales": 1100.0,
+      "profit": 165.2,
+      "cost": 934.8,
+      "margin": 0.1502,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2368.95916666667
+    },
+    {
+      "name": "湖南省邵阳市邵东罗贵府",
+      "owner": "陈龙",
+      "sales": 1100.0,
+      "profit": 108.82,
+      "cost": 991.18,
+      "margin": 0.0989,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 14713.4583333333
+    },
+    {
+      "name": "湖南省邵阳市新邵县大禾塘冷冻食品罗氏批发部罗燕",
+      "owner": "陈龙",
+      "sales": 1080.0,
+      "profit": 101.84,
+      "cost": 978.16,
+      "margin": 0.0943,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2578.33333333333
+    },
+    {
+      "name": "湖南省长沙市岳麓区谭之厨餐饮管理有限公司",
+      "owner": "陆美英",
+      "sales": 1075.0,
+      "profit": 116.96,
+      "cost": 958.04,
+      "margin": 0.1088,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 20274.3333333333
+    },
+    {
+      "name": "湖南省邵阳市新邵唐红梅",
+      "owner": "陈龙",
+      "sales": 1050.0,
+      "profit": 174.48,
+      "cost": 875.52,
+      "margin": 0.1662,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 212.5
+    },
+    {
+      "name": "湖南省衡阳市衡东县吴集农贸市场福莲南杂谭老板",
+      "owner": "江廉政",
+      "sales": 1033.5,
+      "profit": 77.56,
+      "cost": 955.94,
+      "margin": 0.075,
+      "orders": 2,
+      "skuCount": 5,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 78.4166666666667
+    },
+    {
+      "name": "湖南省常德桃源刘英杰",
+      "owner": "张文胜",
+      "sales": 1015.0,
+      "profit": 149.94,
+      "cost": 865.06,
+      "margin": 0.1477,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 12550.5416666667
+    },
+    {
+      "name": "湖南省怀化市靖州蔡永红",
+      "owner": "尹建林",
+      "sales": 1012.0,
+      "profit": 115.63,
+      "cost": 896.37,
+      "margin": 0.1143,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1528.25
+    },
+    {
+      "name": "广东省潮州市枫溪区英唐村宫前八巷1号凯琦食材廖美华",
+      "owner": "罗策",
+      "sales": 1000.0,
+      "profit": 363.46,
+      "cost": 636.54,
+      "margin": 0.3635,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "广东",
+      "type": 0.0,
+      "monthlyAvg": 608.625
+    },
+    {
+      "name": "湖南长沙高桥厨艺到家（门面）",
+      "owner": "彭建华",
+      "sales": 998.0,
+      "profit": 72.94,
+      "cost": 925.06,
+      "margin": 0.0731,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 14054.5833333333
+    },
+    {
+      "name": "湖南省益阳市王禹",
+      "owner": "张纯英",
+      "sales": 984.0,
+      "profit": 186.08,
+      "cost": 797.92,
+      "margin": 0.1891,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 21910.9241666667
+    },
+    {
+      "name": "湖南省常德市石门县黄卫",
+      "owner": "张文胜",
+      "sales": 970.0,
+      "profit": 261.89,
+      "cost": 708.11,
+      "margin": 0.27,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1148.33333333333
+    },
+    {
+      "name": "湖南省长沙市红星大市场鑫鹏冻货",
+      "owner": "杨青青",
+      "sales": 960.0,
+      "profit": 82.03,
+      "cost": 877.97,
+      "margin": 0.0854,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 27775.2166666667
+    },
+    {
+      "name": "湖南省长沙市长沙县路口镇朱姐",
+      "owner": "张金伟",
+      "sales": 955.0,
+      "profit": 223.41,
+      "cost": 731.59,
+      "margin": 0.2339,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1306.45833333333
+    },
+    {
+      "name": "江西省九江市浔阳区飞鸿冷冻批发黄云飞",
+      "owner": "李志强",
+      "sales": 950.0,
+      "profit": 155.54,
+      "cost": 794.46,
+      "margin": 0.1637,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "",
+      "type": "",
+      "monthlyAvg": 0
+    },
+    {
+      "name": "湖南省湘西花垣县农贸市场张记冷冻批发张伟",
+      "owner": "尹建林",
+      "sales": 950.0,
+      "profit": 80.72,
+      "cost": 869.28,
+      "margin": 0.085,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1425.0
+    },
+    {
+      "name": "湖南省常德市汉寿史道勇",
+      "owner": "张文胜",
+      "sales": 938.0,
+      "profit": 127.82,
+      "cost": 810.18,
+      "margin": 0.1363,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2412.66666666667
+    },
+    {
+      "name": "湖南省湘潭市民主路源远副食品商行",
+      "owner": "周斌",
+      "sales": 930.0,
+      "profit": 137.79,
+      "cost": 792.21,
+      "margin": 0.1482,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4080.66666666667
+    },
+    {
+      "name": "湖南省株洲市何宗爱",
+      "owner": "周斌",
+      "sales": 924.0,
+      "profit": 78.52,
+      "cost": 845.48,
+      "margin": 0.085,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1843.33333333333
+    },
+    {
+      "name": "湖南省常德市朝阳农贸市场彭慧",
+      "owner": "张文胜",
+      "sales": 920.0,
+      "profit": 920.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 25643.0166666667
+    },
+    {
+      "name": "湖南省长沙市学平餐饮管理有限公司胡坚",
+      "owner": "张金伟",
+      "sales": 901.0,
+      "profit": 167.37,
+      "cost": 733.63,
+      "margin": 0.1858,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 409.583333333333
+    },
+    {
+      "name": "湖南省娄底市涟源谭胖子",
+      "owner": "陈龙",
+      "sales": 900.0,
+      "profit": 146.2,
+      "cost": 753.8,
+      "margin": 0.1624,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 707.833333333333
+    },
+    {
+      "name": "湖南省永州市东安县建华调味品副食店蒋建华(沈艳梅)",
+      "owner": "胡珍",
+      "sales": 900.0,
+      "profit": 85.61,
+      "cost": 814.39,
+      "margin": 0.0951,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6336.75
+    },
+    {
+      "name": "湖南省湘潭市民主路星华综合商店李翠兰",
+      "owner": "周斌",
+      "sales": 900.0,
+      "profit": 83.46,
+      "cost": 816.54,
+      "margin": 0.0927,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 935.0
+    },
+    {
+      "name": "湖南省衡阳市何铁红",
+      "owner": "江廉政",
+      "sales": 900.0,
+      "profit": 89.34,
+      "cost": 810.66,
+      "margin": 0.0993,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 23380.8333333333
+    },
+    {
+      "name": "湖南省长沙市雨花区草根大院",
+      "owner": "杨青青",
+      "sales": 900.0,
+      "profit": 71.56,
+      "cost": 828.44,
+      "margin": 0.0795,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 13168.01
+    },
+    {
+      "name": "湖南省长沙市雨花区红星3楼007阳阳鸿公司刘伟冰",
+      "owner": "彭建华",
+      "sales": 870.0,
+      "profit": 67.86,
+      "cost": 802.14,
+      "margin": 0.078,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 540.0
+    },
+    {
+      "name": "湖南省永州市祁阳邓文波",
+      "owner": "胡珍",
+      "sales": 864.0,
+      "profit": 80.68,
+      "cost": 783.32,
+      "margin": 0.0934,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2420.33333333333
+    },
+    {
+      "name": "湖南长沙市好采购门面",
+      "owner": "杨青青",
+      "sales": 840.0,
+      "profit": 38.4,
+      "cost": 801.6,
+      "margin": 0.0457,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 30287.8833333333
+    },
+    {
+      "name": "湖南省长沙市芙蓉区营盘东路顺风楼迎宾店李总",
+      "owner": "彭菊华",
+      "sales": 810.0,
+      "profit": 204.4,
+      "cost": 605.6,
+      "margin": 0.2523,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 21609.4583333333
+    },
+    {
+      "name": "湖南省长沙市雨花区长沙南站博美热链",
+      "owner": "陆美英",
+      "sales": 802.0,
+      "profit": 238.48,
+      "cost": 563.52,
+      "margin": 0.2974,
+      "orders": 1,
+      "skuCount": 3,
+      "region": NaN,
+      "type": NaN,
+      "monthlyAvg": 22298.8666666667
+    },
+    {
+      "name": "湖南省益阳市桃江县刘热良",
+      "owner": "张纯英",
+      "sales": 800.0,
+      "profit": 73.37,
+      "cost": 726.63,
+      "margin": 0.0917,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 24269.1
+    },
+    {
+      "name": "湖南省邵阳市邵东县两市镇亨达冷鲜食品批发部莫亮明",
+      "owner": "陈龙",
+      "sales": 800.0,
+      "profit": 73.37,
+      "cost": 726.63,
+      "margin": 0.0917,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6310.375
+    },
+    {
+      "name": "湖南省长沙市雨花区新睿唐国际供应链管理有限公司长沙分公司",
+      "owner": "杨青青",
+      "sales": 792.0,
+      "profit": 62.97,
+      "cost": 729.03,
+      "margin": 0.0795,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 11051.5833333333
+    },
+    {
+      "name": "湖南省长沙市芙蓉区稻湘黄总",
+      "owner": "彭菊华",
+      "sales": 786.0,
+      "profit": 77.5,
+      "cost": 708.5,
+      "margin": 0.0986,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 61198.3333333333
+    },
+    {
+      "name": "湖南省株洲市中南菜市场熊传兵",
+      "owner": "周斌",
+      "sales": 775.0,
+      "profit": 84.71,
+      "cost": 690.29,
+      "margin": 0.1093,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2247.5
+    },
+    {
+      "name": "湖南省株洲市四桥桥头许配如",
+      "owner": "周斌",
+      "sales": 775.0,
+      "profit": 84.71,
+      "cost": 690.29,
+      "margin": 0.1093,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 8030.90416666667
+    },
+    {
+      "name": "江西省宜春市赣西批发市场欧阳志军",
+      "owner": "李志强",
+      "sales": 734.0,
+      "profit": 65.37,
+      "cost": 668.63,
+      "margin": 0.0891,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "江西",
+      "type": NaN,
+      "monthlyAvg": 5120.95833333333
+    },
+    {
+      "name": "湖南省长沙市本湘本色冯平",
+      "owner": "彭建华",
+      "sales": 734.0,
+      "profit": 93.95,
+      "cost": 640.05,
+      "margin": 0.128,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 30073.15
+    },
+    {
+      "name": "湖南省湘西龙山县里耶镇小姜冻库姜圣云",
+      "owner": "尹建林",
+      "sales": 720.0,
+      "profit": 107.73,
+      "cost": 612.27,
+      "margin": 0.1496,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5865.89
+    },
+    {
+      "name": "湖南省湘潭市湘大新路口湘泉酒店特色菜谭爱辉",
+      "owner": "周斌",
+      "sales": 710.0,
+      "profit": 92.32,
+      "cost": 617.68,
+      "margin": 0.13,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 62113.9583333333
+    },
+    {
+      "name": "湖南南邵阳市武冈市兄弟冷冻黄元红",
+      "owner": "陈龙",
+      "sales": 700.0,
+      "profit": 55.18,
+      "cost": 644.82,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1071.66666666667
+    },
+    {
+      "name": "湖南省宁乡市喇叭口老吴冷鲜食材吴芳",
+      "owner": "熊雄",
+      "sales": 700.0,
+      "profit": 55.18,
+      "cost": 644.82,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3334.95833333333
+    },
+    {
+      "name": "湖南省岳阳市湘阴杨小平",
+      "owner": "蔡磊",
+      "sales": 700.0,
+      "profit": 55.18,
+      "cost": 644.82,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 729.166666666667
+    },
+    {
+      "name": "湖南省永州市冷水滩区老潘冻货店潘松军",
+      "owner": "胡珍",
+      "sales": 700.0,
+      "profit": 62.34,
+      "cost": 637.66,
+      "margin": 0.0891,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 19393.9166666667
+    },
+    {
+      "name": "湖南省永州市罗根发",
+      "owner": "胡珍",
+      "sales": 700.0,
+      "profit": 55.18,
+      "cost": 644.82,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2115.0
+    },
+    {
+      "name": "湖南省湘西吉首市乾州伟业市场罗姐",
+      "owner": "尹建林",
+      "sales": 700.0,
+      "profit": 55.18,
+      "cost": 644.82,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 931.666666666667
+    },
+    {
+      "name": "湖南省湘西吉首市早餐配送高老板",
+      "owner": "尹建林",
+      "sales": 700.0,
+      "profit": 55.18,
+      "cost": 644.82,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1915.83333333333
+    },
+    {
+      "name": "湖南省益阳市桃江县原滋味大汉龙城刘智强",
+      "owner": "张纯英",
+      "sales": 700.0,
+      "profit": 59.87,
+      "cost": 640.13,
+      "margin": 0.0855,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1398.33333333333
+    },
+    {
+      "name": "湖南省衡阳市衡阳县城西市场131号赵海龙",
+      "owner": "江廉政",
+      "sales": 700.0,
+      "profit": 127.73,
+      "cost": 572.27,
+      "margin": 0.1825,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 12449.0
+    },
+    {
+      "name": "湖南省长沙市海吉星冯根平",
+      "owner": "张金伟",
+      "sales": 690.0,
+      "profit": 103.63,
+      "cost": 586.37,
+      "margin": 0.1502,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4019.79166666667
+    },
+    {
+      "name": "湖南省岳阳市岳阳县中心市场徐胖子冷冻何宝利",
+      "owner": "蔡磊",
+      "sales": 680.0,
+      "profit": 589.94,
+      "cost": 90.06,
+      "margin": 0.8676,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2160.0
+    },
+    {
+      "name": "贵州省铜仁市罗宾",
+      "owner": "罗登友",
+      "sales": 680.0,
+      "profit": 53.6,
+      "cost": 626.4,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "贵州",
+      "type": NaN,
+      "monthlyAvg": 1485.0
+    },
+    {
+      "name": "湖南省张家界市武陵源区军邸路陆老板",
+      "owner": "尹建林",
+      "sales": 675.0,
+      "profit": 11.89,
+      "cost": 663.11,
+      "margin": 0.0176,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "",
+      "type": "",
+      "monthlyAvg": 0
+    },
+    {
+      "name": "湖南省长沙市长沙县星沙街道张林调味品商行",
+      "owner": "张金伟",
+      "sales": 675.0,
+      "profit": 78.61,
+      "cost": 596.39,
+      "margin": 0.1165,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 10054.1166666667
+    },
+    {
+      "name": "湖南长沙良之隆高桥店（门面）",
+      "owner": "杨青青",
+      "sales": 672.0,
+      "profit": 72.54,
+      "cost": 599.46,
+      "margin": 0.1079,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1708.08333333333
+    },
+    {
+      "name": "湖南省衡阳市南岳农家乐廖旷姐",
+      "owner": "江廉政",
+      "sales": 670.0,
+      "profit": 51.65,
+      "cost": 618.35,
+      "margin": 0.0771,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 658.0
+    },
+    {
+      "name": "湖南省长沙市西长街市场万辉酒店食材配送陈波",
+      "owner": "彭菊华",
+      "sales": 668.0,
+      "profit": 63.49,
+      "cost": 604.51,
+      "margin": 0.095,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 7071.51666666667
+    },
+    {
+      "name": "湖南省益阳市沅江市湘北市场曾老三冻库",
+      "owner": "张纯英",
+      "sales": 665.0,
+      "profit": 99.16,
+      "cost": 565.84,
+      "margin": 0.1491,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 8692.5
+    },
+    {
+      "name": "湖南省益阳市桥北市场刘富强",
+      "owner": "张纯英",
+      "sales": 660.0,
+      "profit": 98.35,
+      "cost": 561.65,
+      "margin": 0.149,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 30549.0808333333
+    },
+    {
+      "name": "湖南省邵阳县夏青阶",
+      "owner": "陈龙",
+      "sales": 660.0,
+      "profit": 84.09,
+      "cost": 575.91,
+      "margin": 0.1274,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6725.83333333333
+    },
+    {
+      "name": "邓杰",
+      "owner": "杨青青",
+      "sales": 636.0,
+      "profit": 27.08,
+      "cost": 608.92,
+      "margin": 0.0426,
+      "orders": 3,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": 0.0,
+      "monthlyAvg": 17116.54
+    },
+    {
+      "name": "湖南省长沙市岳麓区蒸浏记餐饮连锁管理有限公司",
+      "owner": "陆美英",
+      "sales": 630.0,
+      "profit": 90.88,
+      "cost": 539.12,
+      "margin": 0.1443,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1812.5
+    },
+    {
+      "name": "湖南省长沙市雨花区红星B2-084麦巴食品",
+      "owner": "杨青青",
+      "sales": 612.0,
+      "profit": 113.02,
+      "cost": 498.98,
+      "margin": 0.1847,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2073.16666666667
+    },
+    {
+      "name": "湖南省长沙市雨花区高桥冷链市场2栋45号味湘南",
+      "owner": "杨青青",
+      "sales": 611.0,
+      "profit": 69.74,
+      "cost": 541.26,
+      "margin": 0.1141,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2418.04166666667
+    },
+    {
+      "name": "湖南省岳阳市中南段德才",
+      "owner": "蔡磊",
+      "sales": 600.0,
+      "profit": 54.03,
+      "cost": 545.97,
+      "margin": 0.09,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 108.333333333333
+    },
+    {
+      "name": "湖南省湘潭市九华老莫酒店配送莫卫兵",
+      "owner": "周斌",
+      "sales": 576.0,
+      "profit": 70.98,
+      "cost": 505.02,
+      "margin": 0.1232,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 12184.85
+    },
+    {
+      "name": "湖南省岳阳市梅溪桥付德",
+      "owner": "蔡磊",
+      "sales": 570.0,
+      "profit": 63.25,
+      "cost": 506.75,
+      "margin": 0.111,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 855.0
+    },
+    {
+      "name": "红星零售",
+      "owner": "龙仙美",
+      "sales": 564.0,
+      "profit": 92.23,
+      "cost": 471.77,
+      "margin": 0.1635,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 10348.1741666667
+    },
+    {
+      "name": "湖南省长沙市雨花区大桥二区3栋湘水肴餐饮食材",
+      "owner": "杨青青",
+      "sales": 560.0,
+      "profit": 54.13,
+      "cost": 505.87,
+      "margin": 0.0967,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 7744.63333333333
+    },
+    {
+      "name": "湖南省长沙市雨花区高福星18栋14号众湘福供应链",
+      "owner": "杨青青",
+      "sales": 560.0,
+      "profit": 3.15,
+      "cost": 556.85,
+      "margin": 0.0056,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1096.20833333333
+    },
+    {
+      "name": "湖南省长沙市雨花区高福星34栋1号刘湘记",
+      "owner": "杨青青",
+      "sales": 560.0,
+      "profit": 116.76,
+      "cost": 443.24,
+      "margin": 0.2085,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2495.58333333333
+    },
+    {
+      "name": "湖南省长沙市雨花区高桥新太平街A28栋北向3号帅泽民",
+      "owner": "彭建华",
+      "sales": 555.0,
+      "profit": 74.46,
+      "cost": 480.54,
+      "margin": 0.1342,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 17584.5666666667
+    },
+    {
+      "name": "湖南省长沙市雨花区江佑别院潘总",
+      "owner": "杨青青",
+      "sales": 553.5,
+      "profit": 63.2,
+      "cost": 490.3,
+      "margin": 0.1142,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 11294.1966666667
+    },
+    {
+      "name": "湖南省岳阳市华容县袁建新",
+      "owner": "蔡磊",
+      "sales": 550.0,
+      "profit": 72.23,
+      "cost": 477.77,
+      "margin": 0.1313,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2081.83333333333
+    },
+    {
+      "name": "湖南省常德市桃源叶文定",
+      "owner": "张文胜",
+      "sales": 550.0,
+      "profit": 128.3,
+      "cost": 421.7,
+      "margin": 0.2333,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 25750.3166666667
+    },
+    {
+      "name": "湖南长沙高桥金帆金新（门面）",
+      "owner": "彭建华",
+      "sales": 545.0,
+      "profit": 54.14,
+      "cost": 490.86,
+      "margin": 0.0993,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 9612.71666666667
+    },
+    {
+      "name": "湖南省长沙市水渡河永盛商行尤老板娘",
+      "owner": "张金伟",
+      "sales": 540.0,
+      "profit": 62.49,
+      "cost": 477.51,
+      "margin": 0.1157,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 10819.4583333333
+    },
+    {
+      "name": "湖南省长沙市天心区汇金路长沙理工大学职工小区丁丁美食黄老板",
+      "owner": "张金伟",
+      "sales": 505.0,
+      "profit": 143.8,
+      "cost": 361.2,
+      "margin": 0.2847,
+      "orders": 1,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1274.58333333333
+    },
+    {
+      "name": "湖南省永州市江华瑶族自治县红星冷库刘品潮",
+      "owner": "胡珍",
+      "sales": 500.0,
+      "profit": 500.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2202.08333333333
+    },
+    {
+      "name": "湖南省衡阳市杨志刚",
+      "owner": "江廉政",
+      "sales": 500.0,
+      "profit": 90.64,
+      "cost": 409.36,
+      "margin": 0.1813,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1363.33333333333
+    },
+    {
+      "name": "湖南省湘潭市芙蓉农贸市场向阳食品总经销冯老板",
+      "owner": "周斌",
+      "sales": 478.0,
+      "profit": 85.93,
+      "cost": 392.07,
+      "margin": 0.1798,
+      "orders": 3,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1786.42833333333
+    },
+    {
+      "name": "湖南省长沙市开福区大洲食品黄丽芳",
+      "owner": "彭菊华",
+      "sales": 475.0,
+      "profit": 32.35,
+      "cost": 442.65,
+      "margin": 0.0681,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3523.49166666667
+    },
+    {
+      "name": "湖南省衡阳市肖斌",
+      "owner": "江廉政",
+      "sales": 460.0,
+      "profit": 126.85,
+      "cost": 333.15,
+      "margin": 0.2758,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 79209.3333333333
+    },
+    {
+      "name": "湖南省长沙市雨花区高桥福蓝妹砣",
+      "owner": "彭建华",
+      "sales": 450.0,
+      "profit": 42.96,
+      "cost": 407.04,
+      "margin": 0.0955,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6911.58333333333
+    },
+    {
+      "name": "湖南长沙高桥德科（门面）",
+      "owner": "彭建华",
+      "sales": 450.0,
+      "profit": 68.29,
+      "cost": 381.71,
+      "margin": 0.1518,
+      "orders": 4,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 20591.3508333333
+    },
+    {
+      "name": "湖南省长沙市高桥冷链盛东食品",
+      "owner": "杨青青",
+      "sales": 449.1,
+      "profit": 67.95,
+      "cost": 381.15,
+      "margin": 0.1513,
+      "orders": 3,
+      "skuCount": 8,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 26585.4875
+    },
+    {
+      "name": "湖南省常德市石门县青和陈先生",
+      "owner": "张文胜",
+      "sales": 445.0,
+      "profit": 39.29,
+      "cost": 405.71,
+      "margin": 0.0883,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2173.25
+    },
+    {
+      "name": "湖南省长沙市雨花区高桥医药城25栋3号兴食航",
+      "owner": "杨青青",
+      "sales": 444.5,
+      "profit": 88.49,
+      "cost": 356.01,
+      "margin": 0.1991,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 9089.85416666667
+    },
+    {
+      "name": "湖南省株洲市炎陵县张姐",
+      "owner": "周斌",
+      "sales": 440.0,
+      "profit": 56.06,
+      "cost": 383.94,
+      "margin": 0.1274,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 311.666666666667
+    },
+    {
+      "name": "湖南省耒阳市梁福田",
+      "owner": "江廉政",
+      "sales": 440.0,
+      "profit": 66.08,
+      "cost": 373.92,
+      "margin": 0.1502,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1485.75
+    },
+    {
+      "name": "湖南省长沙市雨花区湘村柴房(南站店)常广洪",
+      "owner": "杨青青",
+      "sales": 440.0,
+      "profit": 64.15,
+      "cost": 375.85,
+      "margin": 0.1458,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 12289.5508333333
+    },
+    {
+      "name": "湖南省怀化市金喜冷冻",
+      "owner": "尹建林",
+      "sales": 432.0,
+      "profit": 107.62,
+      "cost": 324.38,
+      "margin": 0.2491,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 13044.6066666667
+    },
+    {
+      "name": "湖南湘潭河西王老板",
+      "owner": "周斌",
+      "sales": 430.0,
+      "profit": 89.26,
+      "cost": 340.74,
+      "margin": 0.2076,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3441.75
+    },
+    {
+      "name": "湖南省株洲市攸县王妹妹",
+      "owner": "周斌",
+      "sales": 425.0,
+      "profit": 43.95,
+      "cost": 381.05,
+      "margin": 0.1034,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 179.166666666667
+    },
+    {
+      "name": "湖南省株洲市醴陵县姚青山",
+      "owner": "周斌",
+      "sales": 425.0,
+      "profit": 51.99,
+      "cost": 373.01,
+      "margin": 0.1223,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3896.41666666667
+    },
+    {
+      "name": "湖南省衡阳市衡山曾姐",
+      "owner": "江廉政",
+      "sales": 425.0,
+      "profit": 62.25,
+      "cost": 362.75,
+      "margin": 0.1465,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 226.25
+    },
+    {
+      "name": "湖南省常德市澧县高建新",
+      "owner": "张文胜",
+      "sales": 420.0,
+      "profit": 33.11,
+      "cost": 386.89,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4083.75
+    },
+    {
+      "name": "湖南老灶壁商贸有限公司",
+      "owner": "杨青青",
+      "sales": 420.0,
+      "profit": 19.2,
+      "cost": 400.8,
+      "margin": 0.0457,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 73.8333333333333
+    },
+    {
+      "name": "湖南省永州市冷水滩区唐小飞",
+      "owner": "胡珍",
+      "sales": 414.0,
+      "profit": 32.92,
+      "cost": 381.08,
+      "margin": 0.0795,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "",
+      "type": "",
+      "monthlyAvg": 0
+    },
+    {
+      "name": "湖南省永州市冷水滩湖南省黄金兄弟食品有限公司欧伟",
+      "owner": "胡珍",
+      "sales": 410.0,
+      "profit": 26.12,
+      "cost": 383.88,
+      "margin": 0.0637,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1454.13333333333
+    },
+    {
+      "name": "湖南省长沙市长沙县星沙皇冠假日酒店刘总",
+      "owner": "张金伟",
+      "sales": 405.0,
+      "profit": 63.48,
+      "cost": 341.52,
+      "margin": 0.1568,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3050.5
+    },
+    {
+      "name": "湖南省长沙市长沙县水渡河阿亮冷冻食品商行",
+      "owner": "彭建华",
+      "sales": 405.0,
+      "profit": 44.16,
+      "cost": 360.84,
+      "margin": 0.109,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 270.0
+    },
+    {
+      "name": "湖南省长沙市芙蓉区紫竹林食府",
+      "owner": "彭建华",
+      "sales": 400.0,
+      "profit": 26.94,
+      "cost": 373.06,
+      "margin": 0.0674,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 8840.29166666667
+    },
+    {
+      "name": "湖南省常德市澧县金先瑶",
+      "owner": "张文胜",
+      "sales": 396.0,
+      "profit": 52.65,
+      "cost": 343.35,
+      "margin": 0.1329,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6054.53333333333
+    },
+    {
+      "name": "湖南省常德市任达彪",
+      "owner": "张文胜",
+      "sales": 395.0,
+      "profit": 23.67,
+      "cost": 371.33,
+      "margin": 0.0599,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5205.91666666667
+    },
+    {
+      "name": "北京市湘厨湘菜食材商贸王金宇",
+      "owner": "刘文",
+      "sales": 390.0,
+      "profit": 21.03,
+      "cost": 368.97,
+      "margin": 0.0539,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "北京",
+      "type": 0.0,
+      "monthlyAvg": 1845.01666666667
+    },
+    {
+      "name": "湖南省湘潭市湘大新路口新林酒店食材配送欧阳",
+      "owner": "周斌",
+      "sales": 390.0,
+      "profit": 36.0,
+      "cost": 354.0,
+      "margin": 0.0923,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4849.16666666667
+    },
+    {
+      "name": "湖南省长沙市田趣园金功伟",
+      "owner": "彭菊华",
+      "sales": 390.0,
+      "profit": 50.01,
+      "cost": 339.99,
+      "margin": 0.1282,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3507.66666666667
+    },
+    {
+      "name": "湖南省长沙市雨区花高桥冷链食品市场A33栋任建舟",
+      "owner": "彭建华",
+      "sales": 390.0,
+      "profit": 79.14,
+      "cost": 310.86,
+      "margin": 0.2029,
+      "orders": 1,
+      "skuCount": 1,
+      "region": NaN,
+      "type": NaN,
+      "monthlyAvg": 2965.45
+    },
+    {
+      "name": "湖南省长沙市天心区解放西路269号三王丽都八碗湘长沙市井菜(坡子街店)吴总",
+      "owner": "张金伟",
+      "sales": 384.0,
+      "profit": 41.45,
+      "cost": 342.55,
+      "margin": 0.1079,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1477.33333333333
+    },
+    {
+      "name": "湖南省长沙市雨花区米小鲜东北砂锅米线店",
+      "owner": "杨青青",
+      "sales": 378.0,
+      "profit": 33.55,
+      "cost": 344.45,
+      "margin": 0.0888,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "",
+      "type": "",
+      "monthlyAvg": 0
+    },
+    {
+      "name": "湖南省株洲市满江红市场赵建军",
+      "owner": "周斌",
+      "sales": 375.0,
+      "profit": 46.56,
+      "cost": 328.44,
+      "margin": 0.1242,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 9645.91666666667
+    },
+    {
+      "name": "湖南省长沙市雨花区海龙食材工作号",
+      "owner": "杨青青",
+      "sales": 368.0,
+      "profit": 68.03,
+      "cost": 299.97,
+      "margin": 0.1849,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2054.5
+    },
+    {
+      "name": "湖南省湘潭市民主路农贸商行钟艳红",
+      "owner": "周斌",
+      "sales": 360.0,
+      "profit": 49.62,
+      "cost": 310.38,
+      "margin": 0.1378,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1940.72666666667
+    },
+    {
+      "name": "湖南省长沙市新太街17栋11号佳味多",
+      "owner": "彭建华",
+      "sales": 355.0,
+      "profit": 58.46,
+      "cost": 296.54,
+      "margin": 0.1647,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 10998.2791666667
+    },
+    {
+      "name": "湖南省长沙市雨花区长沙德语轩贸易有限公司",
+      "owner": "杨青青",
+      "sales": 352.5,
+      "profit": 27.71,
+      "cost": 324.79,
+      "margin": 0.0786,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1388.125
+    },
+    {
+      "name": "湖南省娄底市双峰县双峰县瑭洁冷库王长杰",
+      "owner": "陈龙",
+      "sales": 350.0,
+      "profit": 27.59,
+      "cost": 322.41,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 19790.5833333333
+    },
+    {
+      "name": "湖南省常德市17226司机周胖子",
+      "owner": "张文胜",
+      "sales": 350.0,
+      "profit": 49.23,
+      "cost": 300.77,
+      "margin": 0.1407,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2606.5
+    },
+    {
+      "name": "湖南省永州市宁远县兴德发冷库何艳娟",
+      "owner": "胡珍",
+      "sales": 350.0,
+      "profit": 27.59,
+      "cost": 322.41,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 443.333333333333
+    },
+    {
+      "name": "湖南省永州市李永松",
+      "owner": "胡珍",
+      "sales": 350.0,
+      "profit": 27.59,
+      "cost": 322.41,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1200.0
+    },
+    {
+      "name": "湖南省永州市江华县百兴冷鲜商行熊锦昌",
+      "owner": "胡珍",
+      "sales": 350.0,
+      "profit": 27.59,
+      "cost": 322.41,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1026.33333333333
+    },
+    {
+      "name": "湖南省益阳市莫强冷库",
+      "owner": "张纯英",
+      "sales": 350.0,
+      "profit": 27.59,
+      "cost": 322.41,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 571.666666666667
+    },
+    {
+      "name": "湖南省耒阳市蔡俊梅",
+      "owner": "江廉政",
+      "sales": 350.0,
+      "profit": 27.59,
+      "cost": 322.41,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 725.041666666667
+    },
+    {
+      "name": "湖南省衡阳市衡山新一佳",
+      "owner": "江廉政",
+      "sales": 350.0,
+      "profit": 27.59,
+      "cost": 322.41,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 829.583333333333
+    },
+    {
+      "name": "湖南省湘潭市芙蓉农贸市场曙光邱老板",
+      "owner": "周斌",
+      "sales": 348.0,
+      "profit": 48.74,
+      "cost": 299.26,
+      "margin": 0.1401,
+      "orders": 2,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1718.06
+    },
+    {
+      "name": "湖南省长沙市芙蓉区通程谭文刚",
+      "owner": "彭菊华",
+      "sales": 332.5,
+      "profit": 141.73,
+      "cost": 190.77,
+      "margin": 0.4263,
+      "orders": 1,
+      "skuCount": 4,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2134.29166666667
+    },
+    {
+      "name": "湖南省株洲市中南市场食安居龙海庆",
+      "owner": "周斌",
+      "sales": 330.0,
+      "profit": 26.92,
+      "cost": 303.08,
+      "margin": 0.0816,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 158.666666666667
+    },
+    {
+      "name": "湖南省湘潭市砂子岭吴氏冻库磊胖子",
+      "owner": "周斌",
+      "sales": 300.0,
+      "profit": 13.7,
+      "cost": 286.3,
+      "margin": 0.0457,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 449.75
+    },
+    {
+      "name": "湖南省株洲市攸县冷冻食品批发",
+      "owner": "周斌",
+      "sales": 297.0,
+      "profit": 5.23,
+      "cost": 291.77,
+      "margin": 0.0176,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3590.04166666667
+    },
+    {
+      "name": "湖南省长沙市高桥冷链5栋116号乐厨酒店原料配送",
+      "owner": "彭建华",
+      "sales": 293.0,
+      "profit": 55.63,
+      "cost": 237.37,
+      "margin": 0.1899,
+      "orders": 3,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 21604.4308333333
+    },
+    {
+      "name": "湖南省浏阳市周明根",
+      "owner": "熊雄",
+      "sales": 290.0,
+      "profit": 49.29,
+      "cost": 240.71,
+      "margin": 0.17,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4394.4175
+    },
+    {
+      "name": "湖南省长沙市天心区园艺路101号长沙市南庭湘餐饮管理有限公司",
+      "owner": "张金伟",
+      "sales": 288.0,
+      "profit": 41.19,
+      "cost": 246.81,
+      "margin": 0.143,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 572.25
+    },
+    {
+      "name": "湖南省怀化市王姐",
+      "owner": "尹建林",
+      "sales": 280.0,
+      "profit": 49.58,
+      "cost": 230.42,
+      "margin": 0.1771,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 9740.92083333333
+    },
+    {
+      "name": "长沙市芙蓉区马王堆海鲜市场军良国汇酒店食材配送",
+      "owner": "彭菊华",
+      "sales": 270.0,
+      "profit": 37.63,
+      "cost": 232.37,
+      "margin": 0.1394,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 10120.1666666667
+    },
+    {
+      "name": "湖南省长沙市雨花区泓雲轩",
+      "owner": "杨青青",
+      "sales": 262.5,
+      "profit": 29.56,
+      "cost": 232.94,
+      "margin": 0.1126,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 243.0
+    },
+    {
+      "name": "湖南省长沙市博丰食品商贸",
+      "owner": "彭建华",
+      "sales": 262.0,
+      "profit": 45.03,
+      "cost": 216.97,
+      "margin": 0.1719,
+      "orders": 1,
+      "skuCount": 2,
+      "region": NaN,
+      "type": NaN,
+      "monthlyAvg": 802.583333333333
+    },
+    {
+      "name": "湖南省怀化市靖州许红艳",
+      "owner": "尹建林",
+      "sales": 260.0,
+      "profit": 54.36,
+      "cost": 205.64,
+      "margin": 0.2091,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 8278.08333333333
+    },
+    {
+      "name": "湖南省浏阳市翠园路恒大玉厨兰国清",
+      "owner": "熊雄",
+      "sales": 260.0,
+      "profit": 21.92,
+      "cost": 238.08,
+      "margin": 0.0843,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3344.0
+    },
+    {
+      "name": "湖南省长沙市雨花区火焰九区8栋南向4号尚味潇湘",
+      "owner": "彭建华",
+      "sales": 255.0,
+      "profit": 34.35,
+      "cost": 220.65,
+      "margin": 0.1347,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 13263.9
+    },
+    {
+      "name": "湖南省长沙市雨花区锦湘国际康俭",
+      "owner": "彭建华",
+      "sales": 250.0,
+      "profit": 31.2,
+      "cost": 218.8,
+      "margin": 0.1248,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4033.0
+    },
+    {
+      "name": "江西省赣州市南康区赣南大道爱琴海5楼湘之味",
+      "owner": "李志强",
+      "sales": 232.0,
+      "profit": 33.91,
+      "cost": 198.09,
+      "margin": 0.1462,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "江西",
+      "type": NaN,
+      "monthlyAvg": 690.333333333333
+    },
+    {
+      "name": "湖南省长沙市雨花区味创食品经营部",
+      "owner": "彭建华",
+      "sales": 225.0,
+      "profit": 10.64,
+      "cost": 214.36,
+      "margin": 0.0473,
+      "orders": 2,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 14382.325
+    },
+    {
+      "name": "湖南省怀化市香厨源卿彬彬",
+      "owner": "尹建林",
+      "sales": 220.0,
+      "profit": 41.21,
+      "cost": 178.79,
+      "margin": 0.1873,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4859.33333333333
+    },
+    {
+      "name": "湖南省益阳市桃江县倪正",
+      "owner": "张纯英",
+      "sales": 220.0,
+      "profit": 32.16,
+      "cost": 187.84,
+      "margin": 0.1462,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1220.0
+    },
+    {
+      "name": "湖南省长沙市长沙配送聂勇",
+      "owner": "陆美英",
+      "sales": 219.0,
+      "profit": 17.26,
+      "cost": 201.74,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1551.25
+    },
+    {
+      "name": "湖南省衡阳市华耀城顺心冷冻封木军",
+      "owner": "江廉政",
+      "sales": 216.0,
+      "profit": 16.11,
+      "cost": 199.89,
+      "margin": 0.0746,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 11845.8333333333
+    },
+    {
+      "name": "湖南省永州市道县蒋配元",
+      "owner": "胡珍",
+      "sales": 210.0,
+      "profit": 16.55,
+      "cost": 193.45,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6612.95833333333
+    },
+    {
+      "name": "湖南省益阳市沅江张春仙",
+      "owner": "张纯英",
+      "sales": 210.0,
+      "profit": 16.55,
+      "cost": 193.45,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3807.0
+    },
+    {
+      "name": "湖南省益阳市赫山区南市场彭亚",
+      "owner": "张纯英",
+      "sales": 210.0,
+      "profit": 16.55,
+      "cost": 193.45,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2755.75
+    },
+    {
+      "name": "湖南省长沙市 A3-91门面廖妹子张总",
+      "owner": "杨青青",
+      "sales": 210.0,
+      "profit": 34.9,
+      "cost": 175.1,
+      "margin": 0.1662,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 350.0
+    },
+    {
+      "name": "湖南省长沙市高福星35栋北向1号宴三湘农副食品商行",
+      "owner": "杨青青",
+      "sales": 202.0,
+      "profit": 18.98,
+      "cost": 183.02,
+      "margin": 0.094,
+      "orders": 2,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5842.51666666667
+    },
+    {
+      "name": "湖南省邵阳市邵东县两市塘新星冷冻食品商行谢姐",
+      "owner": "陈龙",
+      "sales": 200.0,
+      "profit": 200.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2999.81666666667
+    },
+    {
+      "name": "湖南省长沙市芙蓉区顺风楼(东门店)",
+      "owner": "彭菊华",
+      "sales": 200.0,
+      "profit": 15.9,
+      "cost": 184.1,
+      "margin": 0.0795,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 10338.9166666667
+    },
+    {
+      "name": "湖南省株洲市醴陵太一街总工会对面刘记冷冻食品批发中心刘仕珍",
+      "owner": "周斌",
+      "sales": 195.0,
+      "profit": 25.3,
+      "cost": 169.7,
+      "margin": 0.1297,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1873.58333333333
+    },
+    {
+      "name": "湖南省长沙市徐林",
+      "owner": "彭建华",
+      "sales": 195.0,
+      "profit": 34.21,
+      "cost": 160.79,
+      "margin": 0.1754,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1768.45833333333
+    },
+    {
+      "name": "湖南省长沙市本润商贸有限公司",
+      "owner": "彭菊华",
+      "sales": 194.0,
+      "profit": 32.01,
+      "cost": 161.99,
+      "margin": 0.165,
+      "orders": 2,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 46613.9
+    },
+    {
+      "name": "湖南省长沙市五星龙阳",
+      "owner": "杨青青",
+      "sales": 180.0,
+      "profit": 38.49,
+      "cost": 141.51,
+      "margin": 0.2138,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 187.916666666667
+    },
+    {
+      "name": "湖南省长沙市芙蓉区地道黄总",
+      "owner": "彭菊华",
+      "sales": 180.0,
+      "profit": 17.33,
+      "cost": 162.67,
+      "margin": 0.0963,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 12518.3333333333
+    },
+    {
+      "name": "江西省吉安市湘源食材配送中心吴杨",
+      "owner": "李志强",
+      "sales": 170.0,
+      "profit": 18.99,
+      "cost": 151.01,
+      "margin": 0.1117,
+      "orders": 1,
+      "skuCount": 1,
+      "region": NaN,
+      "type": NaN,
+      "monthlyAvg": 85.0
+    },
+    {
+      "name": "湖南省娄底市邱阳",
+      "owner": "陈龙",
+      "sales": 170.0,
+      "profit": 170.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3187.66666666667
+    },
+    {
+      "name": "湖南省长沙市雨花区杜杜",
+      "owner": "杨青青",
+      "sales": 170.0,
+      "profit": 26.94,
+      "cost": 143.06,
+      "margin": 0.1584,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3956.09333333333
+    },
+    {
+      "name": "湖南省长沙市星沙聚食惠",
+      "owner": "彭建华",
+      "sales": 167.0,
+      "profit": 26.93,
+      "cost": 140.07,
+      "margin": 0.1613,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4883.15333333333
+    },
+    {
+      "name": "湖南省怀化市韩立文",
+      "owner": "尹建林",
+      "sales": 156.0,
+      "profit": 50.49,
+      "cost": 105.51,
+      "margin": 0.3237,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5825.0
+    },
+    {
+      "name": "湖南省长沙市岳麓区利利阿姨",
+      "owner": "陆美英",
+      "sales": 156.0,
+      "profit": 22.26,
+      "cost": 133.74,
+      "margin": 0.1427,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 7870.04166666667
+    },
+    {
+      "name": "湖南省长沙市胡林飞",
+      "owner": "彭建华",
+      "sales": 148.0,
+      "profit": 21.73,
+      "cost": 126.27,
+      "margin": 0.1468,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 816.333333333333
+    },
+    {
+      "name": "湖南长沙北城小镇",
+      "owner": "熊雄",
+      "sales": 144.0,
+      "profit": 24.17,
+      "cost": 119.83,
+      "margin": 0.1678,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5647.16666666667
+    },
+    {
+      "name": "湖南省常德市石门宁世兵",
+      "owner": "张文胜",
+      "sales": 140.0,
+      "profit": 11.04,
+      "cost": 128.96,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1689.08333333333
+    },
+    {
+      "name": "湖南省永州市李永安",
+      "owner": "胡珍",
+      "sales": 140.0,
+      "profit": 11.04,
+      "cost": 128.96,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 367.5
+    },
+    {
+      "name": "湖南省耒阳市廖秋云",
+      "owner": "江廉政",
+      "sales": 140.0,
+      "profit": 11.04,
+      "cost": 128.96,
+      "margin": 0.0788,
+      "orders": 2,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2114.58333333333
+    },
+    {
+      "name": "湖南省长沙市天心区大托铺街道黄合村456号湘厨旺府钓鱼台",
+      "owner": "张金伟",
+      "sales": 140.0,
+      "profit": 16.69,
+      "cost": 123.31,
+      "margin": 0.1192,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1573.83333333333
+    },
+    {
+      "name": "湖南省长沙市雨花区神农茶都11区9栋西头楚雄",
+      "owner": "杨青青",
+      "sales": 135.0,
+      "profit": 11.47,
+      "cost": 123.53,
+      "margin": 0.085,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2277.91666666667
+    },
+    {
+      "name": "湖南省长沙市雨花区熊小大农业",
+      "owner": "杨青青",
+      "sales": 132.0,
+      "profit": 16.07,
+      "cost": 115.93,
+      "margin": 0.1217,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 202.5
+    },
+    {
+      "name": "湖南省长沙市长沙县乾源农产品有限公司",
+      "owner": "张金伟",
+      "sales": 120.0,
+      "profit": 21.75,
+      "cost": 98.25,
+      "margin": 0.1813,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 732.45
+    },
+    {
+      "name": "湖南省长沙市雨花区火焰七区6栋7号岳北胜",
+      "owner": "杨青青",
+      "sales": 120.0,
+      "profit": 17.77,
+      "cost": 102.23,
+      "margin": 0.1481,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 166.916666666667
+    },
+    {
+      "name": "湖南长沙高桥火焰中洋贺伟",
+      "owner": "杨青青",
+      "sales": 117.0,
+      "profit": 117.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1820.41666666667
+    },
+    {
+      "name": "湖南长沙高桥火焰大市场8区12栋6号张波调料（门面）",
+      "owner": "彭建华",
+      "sales": 115.0,
+      "profit": 10.36,
+      "cost": 104.64,
+      "margin": 0.09,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3274.75833333333
+    },
+    {
+      "name": "湖南省长沙市雨花区火焰兴旺干货调料贺建新",
+      "owner": "杨青青",
+      "sales": 110.0,
+      "profit": 18.26,
+      "cost": 91.74,
+      "margin": 0.166,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 57.3333333333333
+    },
+    {
+      "name": "湖南省长沙市雨花区唐国庆配送唐国庆",
+      "owner": "杨青青",
+      "sales": 109.5,
+      "profit": 18.52,
+      "cost": 90.98,
+      "margin": 0.1692,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4525.35416666667
+    },
+    {
+      "name": "湖南省长沙市臻湘味酒店特色食材罗明辉",
+      "owner": "彭建华",
+      "sales": 108.0,
+      "profit": 12.37,
+      "cost": 95.63,
+      "margin": 0.1146,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 235.0
+    },
+    {
+      "name": "湖南省长沙市厨之峰",
+      "owner": "杨青青",
+      "sales": 105.0,
+      "profit": 4.8,
+      "cost": 100.2,
+      "margin": 0.0457,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2940.04166666667
+    },
+    {
+      "name": "湖南省长沙市酒店配送陈浩",
+      "owner": "杨青青",
+      "sales": 100.0,
+      "profit": 100.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1877.66666666667
+    },
+    {
+      "name": "湖南省长沙市雨花区树木岭龙哥调料王成龙",
+      "owner": "彭建华",
+      "sales": 100.0,
+      "profit": 9.54,
+      "cost": 90.46,
+      "margin": 0.0954,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1330.21666666667
+    },
+    {
+      "name": "湖南省长沙市雨花区欢姐臻选万欢",
+      "owner": "杨青青",
+      "sales": 97.5,
+      "profit": 7.11,
+      "cost": 90.39,
+      "margin": 0.073,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5641.5
+    },
+    {
+      "name": "湖南省长沙市雨花区火焰九区九栋南向3号凌云调料",
+      "owner": "彭建华",
+      "sales": 86.0,
+      "profit": 11.81,
+      "cost": 74.19,
+      "margin": 0.1373,
+      "orders": 1,
+      "skuCount": 3,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1098.94166666667
+    },
+    {
+      "name": "湖南省长沙陈斌",
+      "owner": "彭建华",
+      "sales": 83.0,
+      "profit": 83.0,
+      "cost": 0.0,
+      "margin": 1.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1761.85833333333
+    },
+    {
+      "name": "湖南省长沙市刘氏老坛湘味火锅",
+      "owner": "彭菊华",
+      "sales": 80.0,
+      "profit": 15.81,
+      "cost": 64.19,
+      "margin": 0.1977,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3297.99583333333
+    },
+    {
+      "name": "湖南省长沙市雨花区高桥新二号小区B9栋2号安化农副产品姚一伯",
+      "owner": "杨青青",
+      "sales": 80.0,
+      "profit": 11.25,
+      "cost": 68.75,
+      "margin": 0.1407,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 2982.125
+    },
+    {
+      "name": "湖南省长沙市赵老板",
+      "owner": "杨青青",
+      "sales": 78.0,
+      "profit": 4.59,
+      "cost": 73.41,
+      "margin": 0.0588,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 916.0
+    },
+    {
+      "name": "湖南省长沙市芙蓉区马王堆黄娜珍",
+      "owner": "彭菊华",
+      "sales": 77.0,
+      "profit": 5.19,
+      "cost": 71.81,
+      "margin": 0.0674,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 7121.5625
+    },
+    {
+      "name": "湖南长沙高桥新太平街31栋5号添霸粮油",
+      "owner": "彭建华",
+      "sales": 73.4,
+      "profit": 21.7,
+      "cost": 51.7,
+      "margin": 0.2956,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 43130.8958333333
+    },
+    {
+      "name": "湖南省长沙市雨花区腊些年高福星37栋",
+      "owner": "杨青青",
+      "sales": 72.0,
+      "profit": 5.37,
+      "cost": 66.63,
+      "margin": 0.0746,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1133.29166666667
+    },
+    {
+      "name": "湖南省吉首市凤凰龙四毛",
+      "owner": "尹建林",
+      "sales": 65.0,
+      "profit": 8.42,
+      "cost": 56.58,
+      "margin": 0.1296,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 27005.1666666667
+    },
+    {
+      "name": "湖南省长沙市众德配送",
+      "owner": "杨青青",
+      "sales": 65.0,
+      "profit": 12.85,
+      "cost": 52.15,
+      "margin": 0.1977,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 4262.44166666667
+    },
+    {
+      "name": "湖南省长沙市芙蓉区西长街姜老板湘东冻品",
+      "owner": "彭菊华",
+      "sales": 50.0,
+      "profit": 5.38,
+      "cost": 44.62,
+      "margin": 0.1077,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 12988.5
+    },
+    {
+      "name": "湖南长沙高桥贺家俚（门面）",
+      "owner": "彭建华",
+      "sales": 50.0,
+      "profit": 7.75,
+      "cost": 42.25,
+      "margin": 0.155,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1016.25
+    },
+    {
+      "name": "湖南省长沙市海吉星蔬菜市场睿方商贸",
+      "owner": "彭建华",
+      "sales": 39.0,
+      "profit": 12.62,
+      "cost": 26.38,
+      "margin": 0.3237,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 15734.2
+    },
+    {
+      "name": "湖南省长沙市雨花区嘉业水产",
+      "owner": "杨青青",
+      "sales": 37.5,
+      "profit": 4.47,
+      "cost": 33.03,
+      "margin": 0.1192,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1955.08333333333
+    },
+    {
+      "name": "湖南省长沙市张年生",
+      "owner": "彭建华",
+      "sales": 24.0,
+      "profit": 4.61,
+      "cost": 19.39,
+      "margin": 0.192,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 3550.0
+    },
+    {
+      "name": "湖南省长沙市雨花区高福星19栋好手艺食材田广",
+      "owner": "彭建华",
+      "sales": 24.0,
+      "profit": 5.02,
+      "cost": 18.98,
+      "margin": 0.2091,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1392.0
+    },
+    {
+      "name": "湖南省长沙市雨花区链百味锦湘国际3架7-8",
+      "owner": "彭建华",
+      "sales": 17.0,
+      "profit": 2.2,
+      "cost": 14.8,
+      "margin": 0.1294,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6263.5
+    },
+    {
+      "name": "湖南省长沙市斌哥之家门面",
+      "owner": "杨青青",
+      "sales": 14.0,
+      "profit": 2.17,
+      "cost": 11.83,
+      "margin": 0.1553,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 1702.83333333333
+    },
+    {
+      "name": "湖南省长沙市神农茶都12区8栋2号寻乡味餐饮食材欧庆",
+      "owner": "彭建华",
+      "sales": 14.0,
+      "profit": 1.1,
+      "cost": 12.9,
+      "margin": 0.0788,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 6141.68333333333
+    },
+    {
+      "name": "湖南省长沙市宁乡周全",
+      "owner": "熊雄",
+      "sales": 0.0,
+      "profit": 0.0,
+      "cost": 0.0,
+      "margin": 0.0,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 85037.2075
+    },
+    {
+      "name": "湖南省长沙市岳麓区含浦黄昉",
+      "owner": "王纯",
+      "sales": 0.0,
+      "profit": 0.0,
+      "cost": 0.0,
+      "margin": 0.0,
+      "orders": 1,
+      "skuCount": 2,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 12936.3583333333
+    },
+    {
+      "name": "湖南长沙高桥新太平街7区4栋6号佳诚调料（门面）",
+      "owner": "杨青青",
+      "sales": -46.0,
+      "profit": -7.38,
+      "cost": -38.62,
+      "margin": 0.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "湖南",
+      "type": NaN,
+      "monthlyAvg": 5484.41666666667
+    },
+    {
+      "name": "湖南省长沙市丰旺冻货陈海军",
+      "owner": "杨青青",
+      "sales": -400.0,
+      "profit": -35.24,
+      "cost": -364.76,
+      "margin": 0.0,
+      "orders": 1,
+      "skuCount": 1,
+      "region": "",
+      "type": "",
+      "monthlyAvg": 0
+    }
+  ],
+  "byOwner": [
+    {
+      "owner": "蔡磊",
+      "totalCustomers": 18,
+      "totalSales": 98705.0,
+      "totalProfit": 30756.76,
+      "topCustomers": [
+        {
+          "name": "湖南省岳阳市汩罗李富",
+          "sales": 34440.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省岳阳市春记五里牌店",
+          "sales": 21635.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省岳阳市梅溪桥乡村美味",
+          "sales": 10347.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省岳阳市华容县创鲜食材配送肖科",
+          "sales": 7020.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省岳阳市湘阴张桂良",
+          "sales": 4555.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省岳阳市梅溪桥细妹子荷味酒店特色菜系列",
+          "sales": 3960.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省岳阳市何估生",
+          "sales": 2928.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省岳阳市华容县章华镇南门市场潘辉明",
+          "sales": 2520.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省岳阳市华容县肖磊",
+          "sales": 2520.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省岳阳市汨罗张跃军",
+          "sales": 2200.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "张金伟",
+      "totalCustomers": 15,
+      "totalSales": 48151.0,
+      "totalProfit": 6126.609999999999,
+      "topCustomers": [
+        {
+          "name": "湖南省长沙市肴之林",
+          "sales": 32283.0,
+          "orders": 3
+        },
+        {
+          "name": "湖南省长沙市天心区肴湘记小苗哥餐饮连锁罗君",
+          "sales": 7050.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省长沙市长沙县水渡河华瑞冻品批发部",
+          "sales": 2025.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市暮云尹江华",
+          "sales": 1190.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市长沙县路口镇朱姐",
+          "sales": 955.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市学平餐饮管理有限公司胡坚",
+          "sales": 901.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市海吉星冯根平",
+          "sales": 690.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市长沙县星沙街道张林调味品商行",
+          "sales": 675.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市水渡河永盛商行尤老板娘",
+          "sales": 540.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市天心区汇金路长沙理工大学职工小区丁丁美食黄老板",
+          "sales": 505.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "周斌",
+      "totalCustomers": 31,
+      "totalSales": 72755.8,
+      "totalProfit": 16597.859999999997,
+      "topCustomers": [
+        {
+          "name": "湖南省湘潭市建设路口殷磊",
+          "sales": 24580.8,
+          "orders": 2
+        },
+        {
+          "name": "湖南省湘潭市湘大新路口荷味酒店配送倪芳",
+          "sales": 9900.0,
+          "orders": 3
+        },
+        {
+          "name": "湖南省湘潭市汪群",
+          "sales": 9568.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省湘潭市淑云冻货贺春花",
+          "sales": 5760.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省湘乡东升市场毅仔食材配送",
+          "sales": 2434.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省湘潭市易俗河锦兴冻库黄敏",
+          "sales": 2364.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省株洲市攸县黄土岭张发良",
+          "sales": 2118.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省湘潭市民主路方记冻货百货商行",
+          "sales": 1656.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省湘潭市建设路口李正良",
+          "sales": 1440.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省湘潭市旗远冻库易总",
+          "sales": 1352.0,
+          "orders": 2
+        }
+      ]
+    },
+    {
+      "owner": "彭建华",
+      "totalCustomers": 41,
+      "totalSales": 52815.5,
+      "totalProfit": 8603.040000000005,
+      "topCustomers": [
+        {
+          "name": "湖南省长沙市淘怡星平台张艳",
+          "sales": 22455.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南长沙高桥德发",
+          "sales": 5422.1,
+          "orders": 4
+        },
+        {
+          "name": "湖南长沙高桥锦园（门面）",
+          "sales": 5089.0,
+          "orders": 4
+        },
+        {
+          "name": "湖南长沙高桥张荣华（门面）",
+          "sales": 2100.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市雨花区高桥冷链3栋73号味之道",
+          "sales": 1777.5,
+          "orders": 3
+        },
+        {
+          "name": "湖南省长沙市雨花区高桥财富大厦谭元华",
+          "sales": 1630.0,
+          "orders": 2
+        },
+        {
+          "name": "厨盟主餐饮食材",
+          "sales": 1601.0,
+          "orders": 3
+        },
+        {
+          "name": "湖南长沙高桥腊尚皇（门面）",
+          "sales": 1522.5,
+          "orders": 2
+        },
+        {
+          "name": "湖南省长沙市雨花区永祥小区F10栋红辣椒湘味馆陈良才",
+          "sales": 1350.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市围山田园何桂",
+          "sales": 1188.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "罗策",
+      "totalCustomers": 3,
+      "totalSales": 23280.0,
+      "totalProfit": 2439.2799999999997,
+      "topCustomers": [
+        {
+          "name": "广东省东莞市大岭山信立农批水果区横二路46-48号厨友荟特色食材批发中心秦金健",
+          "sales": 14610.0,
+          "orders": 1
+        },
+        {
+          "name": "广东省东莞市大岭山镇信立农批市场水果区横二路12-14号佳湘味食品梅昌军",
+          "sales": 7670.0,
+          "orders": 1
+        },
+        {
+          "name": "广东省潮州市枫溪区英唐村宫前八巷1号凯琦食材廖美华",
+          "sales": 1000.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "尹建林",
+      "totalCustomers": 29,
+      "totalSales": 67297.85,
+      "totalProfit": 14999.5,
+      "topCustomers": [
+        {
+          "name": "湖南省怀化市汇裕商贸有限公司杨球琳",
+          "sales": 13999.35,
+          "orders": 4
+        },
+        {
+          "name": "湖南省张家界市申国庆",
+          "sales": 10760.0,
+          "orders": 3
+        },
+        {
+          "name": "湖南省张家界刘建军",
+          "sales": 7920.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省湘西永顺县芙蓉镇石帮",
+          "sales": 5200.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省怀化市通道梁慧",
+          "sales": 2718.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省张家界丁建苗",
+          "sales": 2600.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省怀化市中心市场陆耀辉",
+          "sales": 2250.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省张家界桑植张志刚",
+          "sales": 2080.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省张家界市福鑫陈永胜",
+          "sales": 2002.5,
+          "orders": 2
+        },
+        {
+          "name": "湖南省张家界明天冷冻屈凡胜",
+          "sales": 2000.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "袁正军",
+      "totalCustomers": 1,
+      "totalSales": 12350.0,
+      "totalProfit": 1965.01,
+      "topCustomers": [
+        {
+          "name": "江西省南昌市东湖区右营街58-6和润源冻品樊正英",
+          "sales": 12350.0,
+          "orders": 2
+        }
+      ]
+    },
+    {
+      "owner": "张文胜",
+      "totalCustomers": 26,
+      "totalSales": 76323.22,
+      "totalProfit": 13683.829999999998,
+      "topCustomers": [
+        {
+          "name": "湖南省常德市彭伟",
+          "sales": 12322.22,
+          "orders": 2
+        },
+        {
+          "name": "湖南省常德蔡端丰",
+          "sales": 10066.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省常德市南站小朱",
+          "sales": 6768.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省常德市澧县孙武林",
+          "sales": 6070.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省常德市王维",
+          "sales": 5990.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省常德市赵蕾(常德店)",
+          "sales": 5280.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省常德市安乡胡利军",
+          "sales": 4600.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省常德市桃源钟昌华",
+          "sales": 3810.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省常德市石潇",
+          "sales": 3640.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省常德市李鹏",
+          "sales": 2808.0,
+          "orders": 2
+        }
+      ]
+    },
+    {
+      "owner": "张纯英",
+      "totalCustomers": 20,
+      "totalSales": 47052.0,
+      "totalProfit": 4751.21,
+      "topCustomers": [
+        {
+          "name": "湖南省益阳市沅江市草尾镇曾永康",
+          "sales": 11596.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省益阳市南县刘胜才",
+          "sales": 6560.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省益阳市团洲蔬菜批发市场易龙",
+          "sales": 4260.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省益阳市沅江唐巍",
+          "sales": 3500.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省益阳市红联市场徐记贸易郭新益",
+          "sales": 3200.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省益阳市安化罗付良",
+          "sales": 3190.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省益阳市钟胖子农产品配送有限公司",
+          "sales": 2090.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省益阳市南洲镇南洲西路湖景盛宴饭店孟祥军",
+          "sales": 2044.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省益阳市沅江何建明",
+          "sales": 1988.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省益阳市贺鹏",
+          "sales": 1925.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "陈龙",
+      "totalCustomers": 19,
+      "totalSales": 44945.5,
+      "totalProfit": 20978.78,
+      "topCustomers": [
+        {
+          "name": "湖南省邵阳市双清区帮厨汇食材商行刘奉岐",
+          "sales": 10800.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省邵阳市强丰供应链彭民强",
+          "sales": 6069.5,
+          "orders": 1
+        },
+        {
+          "name": "湖南省邵东市李老三（李亚雄）",
+          "sales": 4900.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省邵阳市邵东县申老三",
+          "sales": 4000.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南邵阳市邵东诚信（朱艳）",
+          "sales": 4000.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省邵阳市洞口周玉德",
+          "sales": 3620.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省娄底市王胖子冷冻食品配送",
+          "sales": 1656.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省娄底市双峰贺振",
+          "sales": 1540.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省娄底市涟源谭老板",
+          "sales": 1350.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省邵阳市邵东罗贵府",
+          "sales": 1100.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "刘文",
+      "totalCustomers": 5,
+      "totalSales": 15575.0,
+      "totalProfit": 2179.6600000000003,
+      "topCustomers": [
+        {
+          "name": "云南省昆明市官渡区关上海鲜市场秦厚远",
+          "sales": 9300.0,
+          "orders": 1
+        },
+        {
+          "name": "广西防城港市港口区港湾街188号晨华御府12号楼1层第150号唐磊",
+          "sales": 2460.0,
+          "orders": 1
+        },
+        {
+          "name": "西藏拉萨酒店彭彩霞",
+          "sales": 1725.0,
+          "orders": 1
+        },
+        {
+          "name": "广西桂林市聚厨食材李戒",
+          "sales": 1700.0,
+          "orders": 1
+        },
+        {
+          "name": "北京市湘厨湘菜食材商贸王金宇",
+          "sales": 390.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "李志强",
+      "totalCustomers": 8,
+      "totalSales": 16756.0,
+      "totalProfit": 2877.9599999999996,
+      "topCustomers": [
+        {
+          "name": "江西省吉安市四季春海鲜胡文军",
+          "sales": 9200.0,
+          "orders": 1
+        },
+        {
+          "name": "浙江省杭州市勾庄市场舒鑫餐饮胡建荣",
+          "sales": 2700.0,
+          "orders": 1
+        },
+        {
+          "name": "江西省萍乡市叶国田",
+          "sales": 1600.0,
+          "orders": 1
+        },
+        {
+          "name": "浙江省衢州市龙游县宝塔路168号小徐冻品徐国峰",
+          "sales": 1170.0,
+          "orders": 1
+        },
+        {
+          "name": "江西省九江市浔阳区飞鸿冷冻批发黄云飞",
+          "sales": 950.0,
+          "orders": 1
+        },
+        {
+          "name": "江西省宜春市赣西批发市场欧阳志军",
+          "sales": 734.0,
+          "orders": 1
+        },
+        {
+          "name": "江西省赣州市南康区赣南大道爱琴海5楼湘之味",
+          "sales": 232.0,
+          "orders": 1
+        },
+        {
+          "name": "江西省吉安市湘源食材配送中心吴杨",
+          "sales": 170.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "宋杨杰",
+      "totalCustomers": 6,
+      "totalSales": 32278.5,
+      "totalProfit": 9310.28,
+      "topCustomers": [
+        {
+          "name": "湖北省易先元（汉口北）",
+          "sales": 9187.5,
+          "orders": 2
+        },
+        {
+          "name": "湖北省荆州市石首市湘鄂贸城十栋华香商贸朱义虎",
+          "sales": 8250.0,
+          "orders": 1
+        },
+        {
+          "name": "湖北省武汉市起义门市场刘大姐",
+          "sales": 6296.0,
+          "orders": 1
+        },
+        {
+          "name": "湖北省荆州市监利市张小波",
+          "sales": 5070.0,
+          "orders": 1
+        },
+        {
+          "name": "湖北省监利市监利大市场1603张国春",
+          "sales": 2000.0,
+          "orders": 1
+        },
+        {
+          "name": "湖北省武汉市汉口北周四华",
+          "sales": 1475.0,
+          "orders": 2
+        }
+      ]
+    },
+    {
+      "owner": "彭菊华",
+      "totalCustomers": 24,
+      "totalSales": 39870.5,
+      "totalProfit": 11147.609999999997,
+      "topCustomers": [
+        {
+          "name": "湖南省长沙市芙蓉区马王堆孙凯",
+          "sales": 9060.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省长沙市西长街杨波",
+          "sales": 5787.0,
+          "orders": 4
+        },
+        {
+          "name": "湖南省长沙市开福区佳汇冷库湘永园",
+          "sales": 5550.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市芙蓉区徐记海鲜总部",
+          "sales": 2952.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市开福区佳汇术红冻货周术红",
+          "sales": 2120.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市芙蓉区伍佰",
+          "sales": 1950.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市开福区捞刀河江边小厨娘",
+          "sales": 1900.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市芙蓉区马王堆黄文",
+          "sales": 1885.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市芙蓉区江海牧",
+          "sales": 1560.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市开福区杨鑫",
+          "sales": 1442.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "江廉政",
+      "totalCustomers": 19,
+      "totalSales": 35099.5,
+      "totalProfit": 8654.28,
+      "topCustomers": [
+        {
+          "name": "湖南省衡阳市萧卿恒",
+          "sales": 7980.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省衡阳市付雁军",
+          "sales": 5400.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省衡阳市祁东陈芳云",
+          "sales": 4750.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省衡阳常宁陈朝军",
+          "sales": 3940.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省衡阳市蔡庭信",
+          "sales": 3900.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省衡阳市胡耀财",
+          "sales": 1595.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省衡阳市刘彪",
+          "sales": 1350.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省衡阳市衡东县吴集农贸市场福莲南杂谭老板",
+          "sales": 1033.5,
+          "orders": 2
+        },
+        {
+          "name": "湖南省衡阳市何铁红",
+          "sales": 900.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省衡阳市衡阳县城西市场131号赵海龙",
+          "sales": 700.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "胡珍",
+      "totalCustomers": 25,
+      "totalSales": 55329.0,
+      "totalProfit": 9155.940000000002,
+      "topCustomers": [
+        {
+          "name": "湖南省郴州市资兴市高椅岭丹霞饭店雷总",
+          "sales": 7150.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省永州市宁远县九越酒李振宁",
+          "sales": 6790.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省永州市宁远县杨妹",
+          "sales": 6620.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省永州市江华瑶族自治县黄华斌",
+          "sales": 4032.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省永州市蒋友保",
+          "sales": 4000.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省永州市祁阳市惠源冻品何生",
+          "sales": 3738.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省永州市道县兄弟冷库",
+          "sales": 3350.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省郴州市桂阳县优鲜配送江名兵",
+          "sales": 3150.0,
+          "orders": 3
+        },
+        {
+          "name": "湖南省郴州市中农批旺佳冻品",
+          "sales": 3080.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省永州市祁阳县吾城冷鲜生活商行周开利",
+          "sales": 2919.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "杨青青",
+      "totalCustomers": 52,
+      "totalSales": 32845.0,
+      "totalProfit": 5339.879999999999,
+      "topCustomers": [
+        {
+          "name": "湖南省长沙市高桥湘情酒店配送",
+          "sales": 3480.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南平安福食品有限公司",
+          "sales": 3294.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省长沙市雨花区海滋鲜食品商行",
+          "sales": 2098.0,
+          "orders": 3
+        },
+        {
+          "name": "湖南省长沙市雨花区五一新村彭聚朝阳",
+          "sales": 1753.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市鲁明利",
+          "sales": 1600.0,
+          "orders": 1
+        },
+        {
+          "name": "高桥店零售",
+          "sales": 1474.0,
+          "orders": 9
+        },
+        {
+          "name": "湖南省长沙市湘水农人",
+          "sales": 1399.0,
+          "orders": 4
+        },
+        {
+          "name": "湖南省长沙市雨花区红星全球肉食B1栋1022永乐餐饮张立勋",
+          "sales": 1232.0,
+          "orders": 2
+        },
+        {
+          "name": "湖南省长沙市雨花区兴湘红星A3-80号",
+          "sales": 1188.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市神农茶都11栋11号肖文革",
+          "sales": 1152.0,
+          "orders": 2
+        }
+      ]
+    },
+    {
+      "owner": "王纯",
+      "totalCustomers": 2,
+      "totalSales": 2755.0,
+      "totalProfit": 146.52,
+      "topCustomers": [
+        {
+          "name": "湖南省长沙市岳麓区湘仪生鲜大市场南大门青龙冻货总批发潘总",
+          "sales": 2755.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市岳麓区含浦黄昉",
+          "sales": 0.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "陆美英",
+      "totalCustomers": 6,
+      "totalSales": 4034.0,
+      "totalProfit": 1637.8400000000001,
+      "topCustomers": [
+        {
+          "name": "湖南省湘潭馥茗苔酒店李显奕",
+          "sales": 1152.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市岳麓区谭之厨餐饮管理有限公司",
+          "sales": 1075.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市雨花区长沙南站博美热链",
+          "sales": 802.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市岳麓区蒸浏记餐饮连锁管理有限公司",
+          "sales": 630.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市长沙配送聂勇",
+          "sales": 219.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市岳麓区利利阿姨",
+          "sales": 156.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "熊雄",
+      "totalCustomers": 5,
+      "totalSales": 1394.0,
+      "totalProfit": 150.56,
+      "topCustomers": [
+        {
+          "name": "湖南省宁乡市喇叭口老吴冷鲜食材吴芳",
+          "sales": 700.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省浏阳市周明根",
+          "sales": 290.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省浏阳市翠园路恒大玉厨兰国清",
+          "sales": 260.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南长沙北城小镇",
+          "sales": 144.0,
+          "orders": 1
+        },
+        {
+          "name": "湖南省长沙市宁乡周全",
+          "sales": 0.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "罗登友",
+      "totalCustomers": 1,
+      "totalSales": 680.0,
+      "totalProfit": 53.6,
+      "topCustomers": [
+        {
+          "name": "贵州省铜仁市罗宾",
+          "sales": 680.0,
+          "orders": 1
+        }
+      ]
+    },
+    {
+      "owner": "龙仙美",
+      "totalCustomers": 1,
+      "totalSales": 564.0,
+      "totalProfit": 92.23,
+      "topCustomers": [
+        {
+          "name": "红星零售",
+          "sales": 564.0,
+          "orders": 1
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-04-28 06:55:47"
+}
