@@ -1631,12 +1631,18 @@ function renderTaskData() {
     // 渲染供应商列表
     document.getElementById('supplierCount').textContent = '(共' + supplierList.length + '个供应商)';
     
+    // 计算供应商目标总额（用于计算占比）
+    var supplierTotalAmount = supplierList.reduce(function(sum, s) { return sum + (s.amount || 0); }, 0);
+    var supplierTotalCount = supplierList.reduce(function(sum, s) { return sum + (s.count || 0); }, 0);
+    
     var supplierHtml = '';
-    supplierHtml += '<table style="width:100%;border-collapse:collapse;font-size:12px">';
-    supplierHtml += '<thead><tr style="background:#f0f0f0">';
-    supplierHtml += '<th style="padding:8px 4px;text-align:left;border-bottom:1px solid #ddd">供应商</th>';
-    supplierHtml += '<th style="padding:8px 4px;text-align:right;border-bottom:1px solid #ddd">金额(元)</th>';
-    supplierHtml += '<th style="padding:8px 4px;text-align:right;border-bottom:1px solid #ddd">件数</th>';
+    supplierHtml += '<table style="width:100%;border-collapse:collapse;font-size:11px">';
+    supplierHtml += '<thead><tr style="background:#1a73e8;color:#fff">';
+    supplierHtml += '<th style="padding:8px 4px;text-align:left">供应商</th>';
+    supplierHtml += '<th style="padding:6px 4px;text-align:right">金额目标</th>';
+    supplierHtml += '<th style="padding:6px 4px;text-align:right">件数目标</th>';
+    supplierHtml += '<th style="padding:6px 4px;text-align:center">占比</th>';
+    supplierHtml += '<th style="padding:6px 4px;text-align:center">进度</th>';
     supplierHtml += '</tr></thead>';
     supplierHtml += '<tbody>';
     
@@ -1645,12 +1651,37 @@ function renderTaskData() {
     
     supplierList.forEach(function(s, idx) {
         var bgColor = idx % 2 === 0 ? '#fff' : '#fafafa';
+        // 计算该供应商在总目标中的占比
+        var amountPercent = supplierTotalAmount > 0 ? (s.amount / supplierTotalAmount * 100) : 0;
+        var countPercent = supplierTotalCount > 0 ? (s.count / supplierTotalCount * 100) : 0;
+        // 完成进度 = 整体完成率 × 该供应商目标占比
+        var supplierProgress = amountRate * (amountPercent / 100);
+        var progressColor = supplierProgress >= 100 ? '#137333' : (supplierProgress >= 50 ? '#1a73e8' : '#e53935');
+        
         supplierHtml += '<tr style="background:' + bgColor + '">';
-        supplierHtml += '<td style="padding:8px 4px;border-bottom:1px solid #eee">' + (s.supplier || '-') + '</td>';
-        supplierHtml += '<td style="padding:8px 4px;text-align:right;border-bottom:1px solid #eee">' + (s.amount || 0).toFixed(2) + '</td>';
-        supplierHtml += '<td style="padding:8px 4px;text-align:right;border-bottom:1px solid #eee">' + (s.count || 0).toFixed(2) + '</td>';
+        supplierHtml += '<td style="padding:6px 4px;border-bottom:1px solid #eee;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + (s.supplier || '-') + '">' + (s.supplier || '-') + '</td>';
+        supplierHtml += '<td style="padding:6px 4px;text-align:right;border-bottom:1px solid #eee">' + (s.amount || 0).toFixed(0) + '</td>';
+        supplierHtml += '<td style="padding:6px 4px;text-align:right;border-bottom:1px solid #eee">' + (s.count || 0).toFixed(1) + '</td>';
+        supplierHtml += '<td style="padding:6px 4px;text-align:center;border-bottom:1px solid #eee">' + amountPercent.toFixed(1) + '%</td>';
+        supplierHtml += '<td style="padding:6px 4px;text-align:center;border-bottom:1px solid #eee">';
+        // 进度条
+        supplierHtml += '<div style="display:flex;align-items:center;justify-content:center;gap:4px">';
+        supplierHtml += '<div style="width:40px;height:4px;background:#e0e0e0;border-radius:2px;overflow:hidden">';
+        supplierHtml += '<div style="width:' + Math.min(supplierProgress, 100) + '%;height:100%;background:' + progressColor + ';border-radius:2px"></div>';
+        supplierHtml += '</div>';
+        supplierHtml += '<span style="font-size:10px;color:' + progressColor + '">' + supplierProgress.toFixed(0) + '%</span>';
+        supplierHtml += '</div></td>';
         supplierHtml += '</tr>';
     });
+    
+    // 合计行
+    supplierHtml += '<tr style="background:#e8f0fe;font-weight:600">';
+    supplierHtml += '<td style="padding:8px 4px;border-top:2px solid #1a73e8">合计 (' + supplierList.length + '个)</td>';
+    supplierHtml += '<td style="padding:8px 4px;text-align:right;border-top:2px solid #1a73e8">' + supplierTotalAmount.toFixed(0) + '</td>';
+    supplierHtml += '<td style="padding:8px 4px;text-align:right;border-top:2px solid #1a73e8">' + supplierTotalCount.toFixed(1) + '</td>';
+    supplierHtml += '<td style="padding:8px 4px;text-align:center;border-top:2px solid #1a73e8">100%</td>';
+    supplierHtml += '<td style="padding:8px 4px;text-align:center;border-top:2px solid #1a73e8;color:' + (amountRate >= 100 ? '#137333' : (amountRate >= 50 ? '#1a73e8' : '#e53935')) + '">' + amountRate.toFixed(1) + '%</td>';
+    supplierHtml += '</tr>';
     
     supplierHtml += '</tbody></table>';
     document.getElementById('taskSupplierList').innerHTML = supplierHtml;
