@@ -348,6 +348,12 @@ var salesProgressData = [];;
 // ===== 日报页 =====
 function renderReport() {
     var data = dailyReportData;
+    // 安全访问可选字段
+    var lossOrders = data['核心经营指标'] && data['核心经营指标']['亏损订单数'] || null;
+    var marginInfo = data['核心经营指标'] && data['核心经营指标']['毛利率'] || {};
+    var marginDailyTarget = marginInfo['当日达标'];
+    var marginMonthlyTarget = marginInfo['月累计达标'];
+
     var progress = salesProgressData;
     var now = new Date();
     var todayStr = now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日';
@@ -365,7 +371,7 @@ function renderReport() {
     h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
     h += '<div><div style="font-size:16px;font-weight:700;color:#1a73e8">' + fmtAmt(data['核心经营指标']['销售额']['当日']) + '</div><div style="font-size:10px;color:#888">销售额</div></div>';
     h += '<div><div style="font-size:16px;font-weight:700;color:#e53935">' + fmtAmt(data['核心经营指标']['毛利额']['当日']) + '</div><div style="font-size:10px;color:#888">毛利额</div></div>';
-    h += '<div><div style="font-size:16px;font-weight:700;color:' + (data['核心经营指标']['毛利率']['当日达标'] ? '#137333' : '#e53935') + '">' + (data['核心经营指标']['毛利率']['当日'] * 100).toFixed(1) + '%</div><div style="font-size:10px;color:#888">毛利率</div></div>';
+    h += '<div><div style="font-size:16px;font-weight:700;color:' + ((marginDailyTarget !== false ? '#137333' : '#e53935')) + '">' + (data['核心经营指标']['毛利率']['当日'] * 100).toFixed(1) + '%</div><div style="font-size:10px;color:#888">毛利率</div></div>';
     h += '<div><div style="font-size:16px;font-weight:700;color:#1a73e8">' + data['核心经营指标']['订单数']['当日'] + '</div><div style="font-size:10px;color:#888">订单数</div></div>';
     h += '</div></div>';
     
@@ -375,7 +381,7 @@ function renderReport() {
     h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
     h += '<div><div style="font-size:16px;font-weight:700;color:#1a73e8">' + fmtAmt(data['核心经营指标']['销售额']['月累计']) + '</div><div style="font-size:10px;color:#888">销售额</div></div>';
     h += '<div><div style="font-size:16px;font-weight:700;color:#e53935">' + fmtAmt(data['核心经营指标']['毛利额']['月累计']) + '</div><div style="font-size:10px;color:#888">毛利额</div></div>';
-    h += '<div><div style="font-size:16px;font-weight:700;color:' + (data['核心经营指标']['毛利率']['月累计达标'] ? '#137333' : '#e53935') + '">' + (data['核心经营指标']['毛利率']['月累计'] * 100).toFixed(1) + '%</div><div style="font-size:10px;color:#888">毛利率</div></div>';
+    h += '<div><div style="font-size:16px;font-weight:700;color:' + ((marginMonthlyTarget !== false ? '#137333' : '#e53935')) + '">' + (data['核心经营指标']['毛利率']['月累计'] * 100).toFixed(1) + '%</div><div style="font-size:10px;color:#888">毛利率</div></div>';
     h += '<div><div style="font-size:16px;font-weight:700;color:#1a73e8">' + data['核心经营指标']['订单数']['月累计'] + '</div><div style="font-size:10px;color:#888">订单数</div></div>';
     h += '</div></div>';
     h += '</div>';
