@@ -377,8 +377,6 @@ async function fetchCloudData() {
       salesProgressData = tempProgress;
     }
       if (cloudData.channelTypeMap) channelTypeMap = cloudData.channelTypeMap;
-      if (cloudData.salesProgressData) salesProgressData = cloudData.salesProgressData;
-      if (cloudData.dailyReportData) dailyReportData = cloudData.dailyReportData;
       
       dataSource = 'cloud';
       dataUpdateTime = cloudData.updateTime || new Date().toLocaleString();
