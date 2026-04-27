@@ -6,7 +6,7 @@
 
 <!-- 日报页 -->
 <div id="pgReport" class="pg on">
-<div class="pg-hd" style="position:relative"><h1>📊 湘里情智营·客户决策</h1><p id="rptDate"></p><div id="dataStatusBar" style="font-size:10px;color:#fff;opacity:0.8;margin-top:4px;padding:4px 0;"></div><button onclick="forceRefresh()" style="position:absolute;top:10px;right:10px;padding:6px 12px;background:#fff;color:#1a73e8;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer">🔄 刷新</button></div>
+<div class="pg-hd" style="position:relative"><h1>📊 湘里情智营·客户决策</h1><p id="rptDate"></p><div id="dataStatusBar" style="font-size:10px;color:#fff;opacity:0.8;margin-top:4px;padding:4px 0;"></div><button onclick="location.reload()" style="position:absolute;top:10px;right:10px;padding:6px 12px;background:#fff;color:#1a73e8;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer">🔄 刷新</button></div>
 <div id="rptContent"></div>
 </div>
 
@@ -109,23 +109,8 @@
 </div>
 
 <!-- 刷新按钮 -->
-<div style="position:fixed;top:60px;right:12px;z-index:99;">
-  <button onclick="manualRefreshData()" style="background:#fff;border:1px solid #ddd;border-radius:20px;padding:6px 12px;font-size:11px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
-    🔄 刷新数据
-  </button>
-</div>
-
 <script>
 
-// ===== 双模式数据加载系统 =====
-// 使用commit hash确保CDN加载最新版本
-var DATA_COMMIT = "main"
-// 优先使用CDN（更快更稳定），备用GitHub Pages
-var DATA_URL = "https://cdn.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@" + DATA_COMMIT + "/data_core.json"
-var RECS_URL = "https://cdn.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@" + DATA_COMMIT + "/data_recs.json"
-// 备用数据源：GitHub Pages
-var DATA_URL_BACKUP = "https://xiangliqing888.github.io/xiangliqing-data/data_core.json"
-var RECS_URL_BACKUP = "https://xiangliqing888.github.io/xiangliqing-data/data_recs.json"
 
 // 全局数据变量初始化（等待云端加载）
 var dailyReportData = null;
@@ -138,224 +123,15 @@ var salesmanMarginRange = {};
 var productSalesmen = {};
 var channelTypeMap = {};
 var recsDataLoaded = false;
+var dataSource = 'embedded';
+var dataUpdateTime = '';
+var dataUpdateTime = "";
 
-// 异步加载推荐数据（带备用URL）
-async function fetchRecsData() {
-  var recsSources = [
-    { url: RECS_URL, name: 'CDN' },
-    { url: RECS_URL_BACKUP, name: 'GitHub Pages' }
-  ];
-  
-  for (var i = 0; i < recsSources.length; i++) {
-    var source = recsSources[i];
-    try {
-      var fetchOptions = {
-        method: 'GET',
-        headers: {'Accept': 'application/json'}
-      };
-      if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) {
-        fetchOptions.signal = AbortSignal.timeout(15000);
-      }
-      var response = await fetch(source.url + "?t=" + Date.now(), fetchOptions);
-      if (response.ok) {
-        var recsDataRes = await response.json();
-        recsData = recsDataRes.recsData || {};
-        recsDataLoaded = true;
-        console.log('推荐数据从' + source.name + '加载完成');
-        return;
-      }
-    } catch(e) {
-      console.log('推荐数据从' + source.name + '加载失败: ' + e.message);
-    }
-  }
-  console.log('推荐数据加载失败，但不影响主功能');
-}
-; // 请替换为实际云端地址
-var dataSource = 'cloud'; // 'embedded' 或 'cloud'
-var dataUpdateTime = "";  // 从云端数据动态获取 '2026-04-24 08:00:00';
-
-// 强制刷新数据
-async function forceRefresh() {
-  var btn = event.target;
-  btn.textContent = '刷新中...';
-  btn.disabled = true;
-  
-  try {
-    // 清除CDN缓存
-    await fetch('https://purge.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/data_core.json');
-    await fetch('https://purge.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/data_recs.json');
-    await fetch('https://purge.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/index.html');
-    
-    // 延迟后重新加载页面
-    setTimeout(function() {
-      location.href = location.pathname + '?t=' + Date.now();
-    }, 1000);
-  } catch(e) {
-    alert('刷新失败，请手动刷新页面');
-    btn.textContent = '🔄 刷新';
-    btn.disabled = false;
-  }
+// 刷新页面
+function forceRefresh() {
+  location.reload();
 }
 
-// 尝试从云端获取数据
-async function fetchCloudData() {
-  var rptDateEl = document.getElementById('rptDate');
-  var lastError = null;
-  
-  // 定义所有可用的数据源（按优先级排序）
-  var dataSources = [
-    { url: DATA_URL, name: 'CDN' },
-    { url: DATA_URL_BACKUP, name: 'GitHub Pages' }
-  ];
-  
-  var cloudData = null;
-  
-  for (var i = 0; i < dataSources.length; i++) {
-    var source = dataSources[i];
-    try {
-      rptDateEl.textContent = '正在从' + source.name + '加载数据...';
-      
-      var fetchOptions = {
-        method: 'GET',
-        headers: {'Accept': 'application/json'}
-      };
-      // 使用较短的超时时间（30秒），加快失败切换
-      if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) {
-        fetchOptions.signal = AbortSignal.timeout(30000);
-      }
-      
-      console.log('尝试从 ' + source.name + ' 加载数据...');
-      var response = await fetch(source.url + "?t=" + Date.now(), fetchOptions);
-      
-      if (!response.ok) {
-        throw new Error('HTTP ' + response.status + ': ' + response.statusText);
-      }
-      
-      cloudData = await response.json();
-      console.log('✅ 从' + source.name + '加载数据成功');
-      rptDateEl.textContent = '数据加载成功';
-      break; // 成功获取数据，跳出循环
-      
-    } catch(e) {
-      console.log('⚠️ 从' + source.name + '加载失败: ' + e.message);
-      lastError = e;
-      if (i < dataSources.length - 1) {
-        rptDateEl.textContent = source.name + '失败，尝试备用源...';
-      }
-    }
-  }
-  
-  // 如果所有数据源都失败
-  if (!cloudData) {
-    console.log('❌ 所有数据源都加载失败');
-    rptDateEl.textContent = '加载失败: ' + lastError.message + '，点击刷新重试';
-    return;
-  }
-  
-  // 以下是数据处理逻辑（与原代码相同）
-      // 异步加载推荐数据（不阻塞页面渲染）
-      fetchRecsData();
-      // 更新全局数据变量
-      if (cloudData.productsData) productsData = cloudData.productsData;
-      if (cloudData.customersData) customersData = cloudData.customersData;
-      if (cloudData.recsData) recsData = cloudData.recsData;
-      if (cloudData.productPortraitData) productPortraitData = cloudData.productPortraitData;
-      if (cloudData.productSalesmen) productSalesmen = cloudData.productSalesmen;
-      // 已改用customersData（4247个客户），不再使用allCustomers（267个）
-      if (cloudData.dailyReportData) {
-      dailyReportData = cloudData.dailyReportData;
-      // 补充缺失字段
-      if (!dailyReportData['核心经营指标']['亏损订单数']) {
-        dailyReportData['核心经营指标']['亏损订单数'] = {'当日': 0, '月累计': 0, '预警': ''};
-      }
-      if (!dailyReportData['核心经营指标']['亏损金额']) {
-        dailyReportData['核心经营指标']['亏损金额'] = {'当日': 0, '月累计': 0};
-      }
-      if (!dailyReportData['核心经营指标']['成本']) {
-        dailyReportData['核心经营指标']['成本'] = {
-          '当日': dailyReportData['核心经营指标']['销售额']['当日'] - dailyReportData['核心经营指标']['毛利额']['当日'],
-          '月累计': dailyReportData['核心经营指标']['销售额']['月累计'] - dailyReportData['核心经营指标']['毛利额']['月累计']
-        };
-      }
-      // 补充达标字段
-      if (!dailyReportData['核心经营指标']['毛利率']['当日达标']) {
-        dailyReportData['核心经营指标']['毛利率']['当日达标'] = dailyReportData['核心经营指标']['毛利率']['当日'] >= 0.13;
-      }
-      if (!dailyReportData['核心经营指标']['毛利率']['月累计达标']) {
-        dailyReportData['核心经营指标']['毛利率']['月累计达标'] = dailyReportData['核心经营指标']['毛利率']['月累计'] >= 0.13;
-      }
-      if (!dailyReportData['核心经营指标']['销售额']['目标完成率']) {
-        dailyReportData['核心经营指标']['销售额']['目标完成率'] = dailyReportData['核心经营指标']['销售额']['月累计'] / 17500000; // 假设月目标1750万
-      }
-    }
-      // 加载业务员毛利区间数据
-      if (cloudData.salesmanMarginRange) salesmanMarginRange = cloudData.salesmanMarginRange;
-      
-      if (cloudData.salesProgressData) {
-      // 转换字段名以匹配页面代码
-      // 先转换个人数据
-      var tempProgress = cloudData.salesProgressData.map(function(item) {
-        return {
-          '区域': item.region || '长株潭业务部',
-          '业务经理': item.name,
-          '月销售额': item.sales,
-          '月度目标': item.target,
-          '完成进度': item.progress + '%',
-          '月累计毛利率': item.margin,
-          '月累计达标': item.progress >= 100 ? '✅' : ''
-        };
-      });
-      
-      // 按区域分组计算小计
-      var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
-      regions.forEach(function(region) {
-        var regionItems = tempProgress.filter(function(p) { return p['区域'] === region; });
-        if (regionItems.length > 0) {
-          var subSales = regionItems.reduce(function(sum, p) { return sum + (p['月销售额'] || 0); }, 0);
-          var subTarget = regionItems.reduce(function(sum, p) { return sum + (p['月度目标'] || 0); }, 0);
-          var subMargin = regionItems.reduce(function(sum, p) { return sum + (p['月累计毛利率'] || 0) * (p['月销售额'] || 0); }, 0) / (subSales || 1);
-          var subProgress = subTarget > 0 ? (subSales / subTarget * 100).toFixed(1) : 0;
-          tempProgress.push({
-            '区域': region,
-            '业务经理': '小计',
-            '月销售额': subSales,
-            '月度目标': subTarget,
-            '完成进度': subProgress + '%',
-            '月累计毛利率': subMargin,
-            '月累计达标': subProgress >= 100 ? '✅' : ''
-          });
-        }
-      });
-      
-      // 【修复1】公司合计改用dailyReportData中的月累计销售额，确保与月累计数据一致
-      var companyTotal = dailyReportData['核心经营指标']['销售额']['月累计'];
-      var companyMargin = dailyReportData['核心经营指标']['毛利率']['月累计'];
-      tempProgress.push({
-        '区域': '公司合计',
-        '业务经理': '公司合计',
-        '月销售额': companyTotal,
-        '月度目标': 17500000,
-        '完成进度': (companyTotal / 17500000 * 100).toFixed(1) + '%',
-        '月累计毛利率': companyMargin,
-        '月累计达标': ''
-      });
-      
-      salesProgressData = tempProgress;
-    }
-      if (cloudData.channelTypeMap) channelTypeMap = cloudData.channelTypeMap;
-      
-      dataSource = 'cloud';
-      dataUpdateTime = cloudData.updateTime || new Date().toLocaleString();
-      console.log('✅ 云端数据加载成功，更新时间：' + dataUpdateTime);
-      
-      // 更新状态栏
-      updateDataStatus();
-      
-      // 刷新当前页面
-      refreshCurrentPage();
-    }
-  }
-}
 
 // 刷新当前页面
 function refreshCurrentPage() {
@@ -380,20 +156,6 @@ function updateDataStatus() {
   }
 }
 
-// 初始化：先使用本地数据，然后尝试获取云端更新
-(function initDualMode() {
-  updateDataStatus();
-  if (navigator.onLine) {
-    fetchCloudData();
-  }
-})();
-
-// 监听网络状态变化
-window.addEventListener('online', function() {
-  console.log('🟢 网络已连接，尝试更新数据...');
-  updateDataStatus();
-  fetchCloudData();
-});
 
 window.addEventListener('offline', function() {
   console.log('🔴 网络已断开，使用本地数据');
@@ -402,12 +164,7 @@ window.addEventListener('offline', function() {
 
 // 手动刷新数据
 function manualRefreshData() {
-  if (navigator.onLine) {
-    console.log('手动刷新数据...');
-    fetchCloudData();
-  } else {
-    alert('当前网络不可用，请检查网络连接');
-  }
+  location.reload();
 }
 
 
@@ -1704,8 +1461,6 @@ var taskData = null;
 // 异步加载任务数据
 async function fetchTaskData() {
     try {
-        var TASK_URL = "https://cdn.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/task_data.json";
-        var response = await fetch(TASK_URL + "?t=" + Date.now(), {
             method: 'GET',
             headers: {'Accept': 'application/json'},
             signal: AbortSignal.timeout(60000)
