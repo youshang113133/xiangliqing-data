@@ -1303,11 +1303,117 @@ loadCustomerRecs(id);
 
 function loadCustomerRecs(id){
 // 使用内嵌的推荐商品数据
-
 var recs=recsData[id]||recsData["default"]||[];
 if(recs.length===0){
 document.getElementById('recsContainer').innerHTML='<div class="rc"><div class="rc-tt">暂无推荐商品</div></div>';
 return;
+}
+var h='<div class="rc"><div class="rc-tt">🎁 推荐商品 ('+recs.length+'个)</div>';
+recs.forEach(function(r, idx){
+// 从productsData匹配获取一批价格和售卖家数
+var matchedProduct = productsData.find(function(p) { return p.name === r.name; });
+if (matchedProduct) {
+    if (!r.price && matchedProduct.batchPrice) r.price = matchedProduct.batchPrice;
+    if (!r.sellerCount && matchedProduct.sellerCount) r.sellerCount = matchedProduct.sellerCount;
+}
+var typeTagClass='tag-b';
+var typeBgColor='#e8f0fe';
+if(r.type==='品类相关高毛利'||r.type==='品类相关高毛利产品'){
+typeTagClass='tag-g';
+typeBgColor='#e6f4ea';
+}else if(r.type==='高复购率'||r.type==='高复购率产品'){
+typeTagClass='tag-y';
+typeBgColor='#fef7e0';
+}else if(r.type==='行业趋势'||r.type==='行业趋势爆品'){
+typeTagClass='tag-p';
+typeBgColor='#f3e5f5';
+}
+var profitDisplay=0;
+if(r.profit!==undefined){
+profitDisplay=r.profit;
+}else if(r.毛利率!==undefined){
+profitDisplay=r.毛利率>1?r.毛利率:(r.毛利率*100);
+}
+var profitColor=profitDisplay>=18?'#137333':(profitDisplay>=13?'#1a73e8':'#e53935');
+var priceDisplay=r.price||r.一批价格||0;
+var salesCountDisplay=r.sellerCount||r.salesCount||r.售卖家数||r.购买客户数||'-';
+var reasonDisplay=r.reason||r.recommend||r.reason||r.recommended||'';
+if(!reasonDisplay){
+if(r.type==='品类相关高毛利'||r.type==='品类相关高毛利产品'){
+reasonDisplay='品类关联高毛利产品，毛利率'+profitDisplay.toFixed(1)+'%';
+}else if(r.type==='高复购率'||r.type==='高复购率产品'){
+reasonDisplay='高复购率爆品，'+salesCountDisplay+'个客户购买';
+}else if(r.type==='行业趋势'||r.type==='行业趋势爆品'){
+reasonDisplay='行业趋势爆品，冷冻食材热门品类';
+}else if(r.type==='渠道适配'||r.type==='渠道适配爆品'){
+reasonDisplay='渠道适配爆品(流通渠道畅销)';
+}else{
+reasonDisplay=r.type||'系统智能推荐';
+}
+}
+
+// 新增字段
+var corePoint=r.corePoint||'';
+var scriptDisplay=r.script||r.话术||r.AI话术||r.推销话术||'';
+var channel=r.channel||'';
+var scene=r.scene||'';
+var cookingTime=r.cookingTime||'';
+var spec=r.spec||'';
+
+h+='<div class="rc-i" style="padding:12px;border-bottom:1px solid #eee">';
+h+='<div class="rc-nm"><span style="flex:1;font-weight:600;font-size:14px">'+r.name+'</span>';
+if(spec){h+='<span style="font-size:11px;color:#666">'+spec+'</span>';}
+h+='</div>';
+h+='<div style="display:flex;gap:6px;margin:8px 0;flex-wrap:wrap">';
+h+='<div style="flex:1;min-width:70px;padding:6px 8px;background:#f8f9fa;border-radius:6px">';
+h+='<div style="font-size:10px;color:#888">一批价格</div>';
+h+='<div style="font-size:14px;font-weight:700;color:#e53935">¥'+(priceDisplay>0?priceDisplay.toLocaleString():'-')+'</div>';
+h+='</div>';
+h+='<div style="flex:1;min-width:70px;padding:6px 8px;background:#f8f9fa;border-radius:6px">';
+h+='<div style="font-size:10px;color:#888">售卖家数</div>';
+h+='<div style="font-size:14px;font-weight:700;color:#1a73e8">'+(salesCountDisplay!=='-'?salesCountDisplay+'家':salesCountDisplay)+'</div>';
+h+='</div>';
+h+='<div style="flex:1;min-width:70px;padding:6px 8px;background:#f8f9fa;border-radius:6px">';
+h+='<div style="font-size:10px;color:#888">毛利率</div>';
+h+='<div style="font-size:14px;font-weight:700;color:'+profitColor+'">'+profitDisplay.toFixed(1)+'%</div>';
+h+='</div>';
+h+='</div>';
+h+='<div style="margin-bottom:6px"><span class="tag '+typeTagClass+'" style="background:'+typeBgColor+'">'+r.type+'</span></div>';
+
+// 推荐理由
+if(reasonDisplay){
+h+='<div style="background:#fff3e0;padding:8px 10px;border-radius:6px;font-size:12px;line-height:1.5;color:#e65100;margin-bottom:8px">';
+h+='📌 推荐理由：'+reasonDisplay;
+h+='</div>';
+}
+
+// 核心卖点
+if(corePoint){
+h+='<div style="background:#e8f0fe;padding:8px 10px;border-radius:6px;font-size:12px;line-height:1.5;color:#1565c0;margin-bottom:8px">';
+h+='⭐ 核心卖点：'+corePoint;
+h+='</div>';
+}
+
+// 适用渠道和场景
+if(channel||scene||cookingTime){
+h+='<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;font-size:11px">';
+if(channel){h+='<div style="background:#f5f5f5;padding:4px 8px;border-radius:4px"><span style="color:#888">渠道:</span> '+channel+'</div>';}
+if(scene){h+='<div style="background:#f5f5f5;padding:4px 8px;border-radius:4px"><span style="color:#888">场景:</span> '+scene+'</div>';}
+if(cookingTime){h+='<div style="background:#f5f5f5;padding:4px 8px;border-radius:4px"><span style="color:#888">烹饪:</span> '+cookingTime+'分钟</div>';}
+h+='</div>';
+}
+
+// 推销话术
+if(scriptDisplay){
+h+='<div class="rc-sc" style="background:#e3f2fd;padding:10px;border-radius:8px;font-size:12px;line-height:1.6;color:#1565c0">';
+h+='💬 <b>推销话术：</b><br/>'+scriptDisplay;
+h+='</div>';
+}
+
+h+='</div>';
+});
+h+='</div>';
+document.getElementById('recsContainer').innerHTML=h;
 }
 var h='<div class="rc"><div class="rc-tt">🎁 推荐商品 ('+recs.length+'个)</div>';
 recs.forEach(function(r){
