@@ -1,45 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<script>
-// 页面加载时自动获取云端数据
-document.addEventListener('DOMContentLoaded', async function() {
-  console.log('页面加载完成');
-  var rptDateEl = document.getElementById('rptDate');
-  
-  // 直接使用内嵌数据（已在head中定义）
-  if (typeof EMBEDDED_DATA !== 'undefined') {
-    console.log('使用内嵌数据');
-    var cloudData = EMBEDDED_DATA;
-    if (cloudData.productsData) productsData = cloudData.productsData;
-    if (cloudData.customersData) customersData = cloudData.customersData;
-    if (cloudData.dailyReportData) dailyReportData = cloudData.dailyReportData;
-    if (cloudData.salesProgressData) salesProgressData = cloudData.salesProgressData;
-    if (cloudData.taskData) taskData = cloudData.taskData;
-    if (cloudData.productPortraitData) productPortraitData = cloudData.productPortraitData;
-    if (cloudData.productSalesmen) productSalesmen = cloudData.productSalesmen;
-    if (cloudData.suppliersData) suppliersData = cloudData.suppliersData;
-    if (typeof EMBEDDED_RECS !== 'undefined') recsData = EMBEDDED_RECS;
-    
-    if (cloudData.updateTime) {
-      rptDateEl.textContent = '数据更新: ' + cloudData.updateTime;
-    }
-    
-    // 数据已加载，等待页面完全解析后渲染
-    console.log('数据已加载，等待渲染...');
-    return;
-  }
-  
-  rptDateEl.textContent = '数据加载中...';
-  try {
-    await fetchCloudData();
-  } catch(e) {
-    console.log('数据加载失败:', e);
-    rptDateEl.textContent = '加载失败，点击刷新重试';
-    if (dailyReportData) renderReport();
-  }
-});
-</script>
 </head>
 <body>
 
