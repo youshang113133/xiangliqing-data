@@ -1641,8 +1641,8 @@ function renderTaskData() {
     supplierHtml += '<th style="padding:8px 4px;text-align:left">供应商</th>';
     supplierHtml += '<th style="padding:6px 4px;text-align:right">金额目标</th>';
     supplierHtml += '<th style="padding:6px 4px;text-align:right">件数目标</th>';
-    supplierHtml += '<th style="padding:6px 4px;text-align:center">占比</th>';
-    supplierHtml += '<th style="padding:6px 4px;text-align:center">进度</th>';
+    supplierHtml += '<th style="padding:6px 4px;text-align:center">金额完成率</th>';
+    supplierHtml += '<th style="padding:6px 4px;text-align:center">件数完成率</th>';
     supplierHtml += '</tr></thead>';
     supplierHtml += '<tbody>';
     
@@ -1662,14 +1662,25 @@ function renderTaskData() {
         supplierHtml += '<td style="padding:6px 4px;border-bottom:1px solid #eee;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + (s.supplier || '-') + '">' + (s.supplier || '-') + '</td>';
         supplierHtml += '<td style="padding:6px 4px;text-align:right;border-bottom:1px solid #eee">' + (s.amount || 0).toFixed(0) + '</td>';
         supplierHtml += '<td style="padding:6px 4px;text-align:right;border-bottom:1px solid #eee">' + (s.count || 0).toFixed(1) + '</td>';
-        supplierHtml += '<td style="padding:6px 4px;text-align:center;border-bottom:1px solid #eee">' + amountPercent.toFixed(1) + '%</td>';
+        // 金额完成率 = 整体金额完成率 × 该供应商占比
+        var supplierAmountRate = amountRate * (amountPercent / 100);
+        var amountRateColor = supplierAmountRate >= 100 ? '#137333' : (supplierAmountRate >= 50 ? '#1a73e8' : '#e53935');
         supplierHtml += '<td style="padding:6px 4px;text-align:center;border-bottom:1px solid #eee">';
-        // 进度条
         supplierHtml += '<div style="display:flex;align-items:center;justify-content:center;gap:4px">';
-        supplierHtml += '<div style="width:40px;height:4px;background:#e0e0e0;border-radius:2px;overflow:hidden">';
-        supplierHtml += '<div style="width:' + Math.min(supplierProgress, 100) + '%;height:100%;background:' + progressColor + ';border-radius:2px"></div>';
+        supplierHtml += '<div style="width:30px;height:4px;background:#e0e0e0;border-radius:2px;overflow:hidden">';
+        supplierHtml += '<div style="width:' + Math.min(supplierAmountRate, 100) + '%;height:100%;background:' + amountRateColor + ';border-radius:2px"></div>';
         supplierHtml += '</div>';
-        supplierHtml += '<span style="font-size:10px;color:' + progressColor + '">' + supplierProgress.toFixed(0) + '%</span>';
+        supplierHtml += '<span style="font-size:10px;color:' + amountRateColor + '">' + supplierAmountRate.toFixed(0) + '%</span>';
+        supplierHtml += '</div></td>';
+        // 件数完成率 = 整体件数完成率 × 该供应商占比
+        var supplierCountRate = countRate * (amountPercent / 100);
+        var countRateColor = supplierCountRate >= 100 ? '#137333' : (supplierCountRate >= 50 ? '#e37400' : '#e53935');
+        supplierHtml += '<td style="padding:6px 4px;text-align:center;border-bottom:1px solid #eee">';
+        supplierHtml += '<div style="display:flex;align-items:center;justify-content:center;gap:4px">';
+        supplierHtml += '<div style="width:30px;height:4px;background:#e0e0e0;border-radius:2px;overflow:hidden">';
+        supplierHtml += '<div style="width:' + Math.min(supplierCountRate, 100) + '%;height:100%;background:' + countRateColor + ';border-radius:2px"></div>';
+        supplierHtml += '</div>';
+        supplierHtml += '<span style="font-size:10px;color:' + countRateColor + '">' + supplierCountRate.toFixed(0) + '%</span>';
         supplierHtml += '</div></td>';
         supplierHtml += '</tr>';
     });
@@ -1679,8 +1690,10 @@ function renderTaskData() {
     supplierHtml += '<td style="padding:8px 4px;border-top:2px solid #1a73e8">合计 (' + supplierList.length + '个)</td>';
     supplierHtml += '<td style="padding:8px 4px;text-align:right;border-top:2px solid #1a73e8">' + supplierTotalAmount.toFixed(0) + '</td>';
     supplierHtml += '<td style="padding:8px 4px;text-align:right;border-top:2px solid #1a73e8">' + supplierTotalCount.toFixed(1) + '</td>';
-    supplierHtml += '<td style="padding:8px 4px;text-align:center;border-top:2px solid #1a73e8">100%</td>';
-    supplierHtml += '<td style="padding:8px 4px;text-align:center;border-top:2px solid #1a73e8;color:' + (amountRate >= 100 ? '#137333' : (amountRate >= 50 ? '#1a73e8' : '#e53935')) + '">' + amountRate.toFixed(1) + '%</td>';
+    var totalAmountRateColor = amountRate >= 100 ? '#137333' : (amountRate >= 50 ? '#1a73e8' : '#e53935');
+    supplierHtml += '<td style="padding:8px 4px;text-align:center;border-top:2px solid #1a73e8;color:' + totalAmountRateColor + '">' + amountRate.toFixed(1) + '%</td>';
+    var totalCountRateColor = countRate >= 100 ? '#137333' : (countRate >= 50 ? '#e37400' : '#e53935');
+    supplierHtml += '<td style="padding:8px 4px;text-align:center;border-top:2px solid #1a73e8;color:' + totalCountRateColor + '">' + countRate.toFixed(1) + '%</td>';
     supplierHtml += '</tr>';
     
     supplierHtml += '</tbody></table>';
