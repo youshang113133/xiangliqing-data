@@ -106,12 +106,14 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px}
 // 页面加载时自动获取云端数据
 document.addEventListener('DOMContentLoaded', async function() {
   console.log('页面加载完成，开始获取云端数据...');
-  document.getElementById('rptDate').textContent = '数据加载中...';
+  var rptDateEl = document.getElementById('rptDate');
+  rptDateEl.textContent = '数据加载中...';
   try {
     await fetchCloudData();
     console.log('数据加载完成，刷新页面');
   } catch(e) {
     console.log('数据加载失败:', e);
+    rptDateEl.textContent = '加载失败，点击刷新重试';
     // 即使失败也尝试渲染
     if (dailyReportData) renderReport();
   }
@@ -258,11 +260,14 @@ var recsDataLoaded = false;
 // 异步加载推荐数据
 async function fetchRecsData() {
   try {
-    var response = await fetch(RECS_URL + "?t=" + Date.now(), {
+    var fetchOptions = {
       method: 'GET',
-      headers: {'Accept': 'application/json'},
-      signal: AbortSignal.timeout(300000)
-    });
+      headers: {'Accept': 'application/json'}
+    };
+    if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) {
+      fetchOptions.signal = AbortSignal.timeout(300000);
+    }
+    var response = await fetch(RECS_URL + "?t=" + Date.now(), fetchOptions);
     if (response.ok) {
       var recsDataRes = await response.json();
       recsData = recsDataRes.recsData || {};
@@ -303,12 +308,16 @@ async function forceRefresh() {
 // 尝试从云端获取数据
 async function fetchCloudData() {
   try {
-    // 先加载核心数据
-    var response = await fetch(DATA_URL + "?t=" + Date.now(), {
+    // 先加载核心数据（不使用AbortSignal.timeout，兼容性更好）
+    var fetchOptions = {
       method: 'GET',
-      headers: {'Accept': 'application/json'},
-      signal: AbortSignal.timeout(180000)
-    });
+      headers: {'Accept': 'application/json'}
+    };
+    // 如果支持AbortSignal.timeout，添加超时设置
+    if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) {
+      fetchOptions.signal = AbortSignal.timeout(180000);
+    }
+    var response = await fetch(DATA_URL + "?t=" + Date.now(), fetchOptions);
     if (response.ok) {
       var cloudData = await response.json();
       // 异步加载推荐数据（不阻塞页面渲染）
