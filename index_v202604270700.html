@@ -29,10 +29,28 @@ async function loadDataFirst() {
         
         // 初始化页面渲染
         initPageAfterDataLoad();
+        
+        // 异步加载推荐数据（不阻塞页面渲染）
+        loadRecsData();
     } catch (error) {
         console.log('⚠️ data_core.json 加载失败，尝试从云端加载:', error.message);
         // 如果本地加载失败，尝试云端
         fetchCloudData();
+    }
+}
+
+// 异步加载推荐商品数据
+async function loadRecsData() {
+    try {
+        const response = await fetch('./data_recs.json');
+        if (!response.ok) return;
+        const data = await response.json();
+        if (data.recsData) {
+            recsData = data.recsData;
+            console.log('✅ 推荐数据加载成功:', Object.keys(recsData).length, '个客户');
+        }
+    } catch (error) {
+        console.log('⚠️ 推荐数据加载失败:', error.message);
     }
 }
 
