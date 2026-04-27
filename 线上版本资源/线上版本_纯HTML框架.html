@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>湘里情智营·客户决策</title>
+
+
+
+
+<button class="refresh-btn" onclick="forceRefresh()">🔄 强制刷新</button>
+</head>
+<body>
+
+<!-- 日报页 -->
+<div id="pgReport" class="pg on">
+<div class="pg-hd"><h1>📊 湘里情智营·客户决策</h1><p id="rptDate"></p><div id="dataStatusBar" style="font-size:10px;color:#fff;opacity:0.8;margin-top:4px;padding:4px 0;"></div></div>
+<div id="rptContent"></div>
+</div>
+
+<!-- 产品页 -->
+<div id="pgProduct" class="pg">
+<div class="pg-hd"><h1>📦 产品中心</h1><p>高毛利产品推荐</p></div>
+<input type="search" class="search" id="pSk" placeholder="搜索产品名称..." oninput="renderProduct()">
+<div class="fl" style="margin-top:0">
+<select id="pCategory" onchange="renderProduct()" style="flex:1">
+  <option value="">全部分类</option>
+</select>
+<select id="pProfitRange" onchange="renderProduct()" style="flex:1">
+  <option value="">全部毛利率</option>
+  <option value="high">高毛利≥15%</option>
+  <option value="mid">中毛利10-15%</option>
+  <option value="low">低毛利&lt;10%</option>
+</select>
+</div>
+<div id="prdContent"></div>
+</div>
+
+<!-- 客户页 -->
+<div id="pgCustomer" class="pg">
+<div class="pg-hd"><h1>👥 客户管理</h1><p id="custStat"></p></div>
+<input type="search" class="search" id="cSk" placeholder="搜索客户名称..." oninput="resetCustomerPage()">
+<div class="fl">
+<select id="cLevel" onchange="resetCustomerPage()"><option value="">全部分层</option><option value="A">A类</option><option value="B">B类</option><option value="C">C类</option><option value="D">D类</option></select>
+<select id="cSales" onchange="resetCustomerPage()"><option value="">全部业务员</option></select>
+</div>
+<div class="fl">
+<select id="cNextDate" onchange="resetCustomerPage()"><option value="">预测采购时间</option><option value="thisWeek">本周内</option><option value="thisMonth">本月内</option><option value="overdue">已逾期</option><option value="unknown">待预测</option></select>
+</div>
+<div class="fl">
+<select id="cProfitRange" onchange="resetCustomerPage()">
+  <option value="">全部毛利率</option>
+  <option value="high">高毛利≥15%</option>
+  <option value="mid">中毛利10-15%</option>
+  <option value="low">低毛利&lt;10%</option>
+</select>
+</div>
+<div id="custContent"></div>
+</div>
+
+<!-- 详情弹窗 -->
+<div id="md" class="md" onclick="closeMd()">
+<div class="md-ct" onclick="event.stopPropagation()">
+<div class="md-hd"><div class="md-tt" id="mdTt"></div><button class="md-cl" onclick="closeMd()">×</button></div>
+<div class="md-bd" id="mdBd"></div>
+</div>
+</div>
+
+<!-- 底部导航 -->
+<div class="nav">
+<div id="navReport" class="on" onclick="switchTab('Report')">日报</div>
+<div id="navProduct" onclick="switchTab('Product')">产品</div>
+<div id="navCustomer" onclick="switchTab('Customer')">客户</div>
+</div>
+
+<!-- 刷新按钮 -->
+<div style="position:fixed;top:60px;right:12px;z-index:99;">
+  <button onclick="manualRefreshData()" style="background:#fff;border:1px solid #ddd;border-radius:20px;padding:6px 12px;font-size:11px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+    🔄 刷新数据
+  </button>
+</div>
+
+
+</body>
+</html>
