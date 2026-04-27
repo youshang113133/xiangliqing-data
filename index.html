@@ -1302,11 +1302,80 @@ loadCustomerRecs(id);
 }
 
 function loadCustomerRecs(id){
-// 使用内嵌的推荐商品数据
+// 推荐数据格式: [name, type, profit, price, sellerCount, reason, script]
 var recs=recsData[id]||recsData["default"]||[];
 if(recs.length===0){
 document.getElementById('recsContainer').innerHTML='<div class="rc"><div class="rc-tt">暂无推荐商品</div></div>';
 return;
+}
+var h='<div class="rc"><div class="rc-tt">🎁 推荐商品 ('+recs.length+'个)</div>';
+recs.forEach(function(r, idx){
+// 支持两种格式：数组和对象
+var name, type, profit, price, sellerCount, reason, script;
+if (Array.isArray(r)) {
+    name = r[0] || '';
+    type = r[1] || '';
+    profit = r[2] || 0;
+    price = r[3] || 0;
+    sellerCount = r[4] || 0;
+    reason = r[5] || '';
+    script = r[6] || '';
+} else {
+    name = r.name || '';
+    type = r.type || '';
+    profit = r.profit || 0;
+    price = r.price || 0;
+    sellerCount = r.sellerCount || 0;
+    reason = r.reason || '';
+    script = r.script || '';
+}
+
+var typeTagClass='tag-b';
+var typeBgColor='#e8f0fe';
+if(type==='品类相关高毛利'||type==='品类相关高毛利产品'){
+typeTagClass='tag-g'; typeBgColor='#e6f4ea';
+}else if(type==='高复购率'||type==='高复购率产品'){
+typeTagClass='tag-y'; typeBgColor='#fef7e0';
+}else if(type==='行业趋势'||type==='行业趋势爆品'){
+typeTagClass='tag-p'; typeBgColor='#f3e5f5';
+}
+
+var profitColor=profit>=18?'#137333':(profit>=13?'#1a73e8':'#e53935');
+
+h+='<div class="rc-i" style="padding:12px;border-bottom:1px solid #eee">';
+h+='<div class="rc-nm"><span style="flex:1;font-weight:600;font-size:14px">'+name+'</span></div>';
+h+='<div style="display:flex;gap:6px;margin:8px 0;flex-wrap:wrap">';
+h+='<div style="flex:1;min-width:70px;padding:6px 8px;background:#f8f9fa;border-radius:6px">';
+h+='<div style="font-size:10px;color:#888">一批价格</div>';
+h+='<div style="font-size:14px;font-weight:700;color:#e53935">¥'+(price>0?price.toLocaleString():'-')+'</div>';
+h+='</div>';
+h+='<div style="flex:1;min-width:70px;padding:6px 8px;background:#f8f9fa;border-radius:6px">';
+h+='<div style="font-size:10px;color:#888">售卖家数</div>';
+h+='<div style="font-size:14px;font-weight:700;color:#1a73e8">'+(sellerCount>0?sellerCount+'家':'-')+'</div>';
+h+='</div>';
+h+='<div style="flex:1;min-width:70px;padding:6px 8px;background:#f8f9fa;border-radius:6px">';
+h+='<div style="font-size:10px;color:#888">毛利率</div>';
+h+='<div style="font-size:14px;font-weight:700;color:'+profitColor+'">'+profit.toFixed(1)+'%</div>';
+h+='</div>';
+h+='</div>';
+h+='<div style="margin-bottom:6px"><span class="tag '+typeTagClass+'" style="background:'+typeBgColor+'">'+type+'</span></div>';
+
+if(reason){
+h+='<div style="background:#fff3e0;padding:8px 10px;border-radius:6px;font-size:12px;line-height:1.5;color:#e65100;margin-bottom:8px">';
+h+='📌 推荐理由：'+reason;
+h+='</div>';
+}
+
+if(script){
+h+='<div class="rc-sc" style="background:#e3f2fd;padding:10px;border-radius:8px;font-size:12px;line-height:1.6;color:#1565c0">';
+h+='💬 <b>推销话术：</b><br/>'+script;
+h+='</div>';
+}
+
+h+='</div>';
+});
+h+='</div>';
+document.getElementById('recsContainer').innerHTML=h;
 }
 var h='<div class="rc"><div class="rc-tt">🎁 推荐商品 ('+recs.length+'个)</div>';
 recs.forEach(function(r, idx){
