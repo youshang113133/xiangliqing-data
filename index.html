@@ -6,8 +6,9 @@
 <meta http-equiv="Expires" content="0" />
 
 <script>const DATA={};
-var dailyReportData = DATA.dailyReportData;
-var salesProgressData = DATA.salesProgressData;
+// 全局变量声明
+var dailyReportData = DATA.dailyReportData || {};
+var salesProgressData = DATA.salesProgressData || [];
 </script>
 
 <meta charset="UTF-8">
@@ -310,8 +311,6 @@ var productPortraitData = {};
 // ===== 全局变量 =====
 var customersData = [];
 var productsData = [];
-var salesProgressData = [];
-var dailyReportData = {};
 var allCustomers = [];
 
 var allCustomers = [];
@@ -1197,6 +1196,7 @@ function closeMd(){
 document.getElementById('md').classList.remove('on');
 }
 
+
 // ===== 初始化 =====
 document.addEventListener('DOMContentLoaded', function() {
     allCustomers = customersData;
@@ -1214,13 +1214,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // 初始渲染（可能数据还没加载）
     renderReport();
     renderProduct();
     renderCustomerFilters();
     renderCustomerList();
+    
+    // 如果在线但数据为空，等待fetch完成后重新渲染
+    if (navigator.onLine && Object.keys(dailyReportData).length === 0) {
+        // 监听数据加载完成
+        var checkInterval = setInterval(function() {
+            if (Object.keys(dailyReportData).length > 0) {
+                clearInterval(checkInterval);
+                renderReport();
+                renderProduct();
+                renderCustomerList();
+                updateDataStatus();
+            }
+        }, 500);
+        // 10秒后停止检查
+        setTimeout(function() { clearInterval(checkInterval); }, 10000);
+    }
 });
-
-
 
 // ===== 业务经理建议数据 =====
 var salesmanAdviceData = {
