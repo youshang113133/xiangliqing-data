@@ -23847,67 +23847,43 @@ function renderReport() {
 
     var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
     regions.forEach(function(region) {
-        var regionData = progress.filter(function(p) { return p['区域'] === region; });
+        var regionData = progress.filter(function(p) { return p['region'] === region || p['区域'] === region; });
         if (regionData.length === 0) return;
         
-        var subtotal = regionData.find(function(p) { return p['业务经理'] === '小计'; });
-        if (subtotal) {
-            var subProgress = (typeof subtotal['完成进度'] === 'number' ? subtotal['完成进度'] : parseFloat(subtotal['完成进度'].replace('%',''))).toFixed(1);
-            var subColor = parseFloat(subtotal['月累计毛利率']) >= 0.13 ? '#137333' : '#e53935';
-            h += '<div style="background:#e8f0fe;padding:10px;margin-bottom:10px;border-radius:8px">';
-            h += '<div style="display:flex;justify-content:space-between;align-items:center">';
-            h += '<span style="font-weight:600;color:#1a73e8">' + region + '</span>';
-            h += '<span style="font-size:12px">';
-            h += '' + fmtAmt(subtotal['月销售额']) + ' | 进度 <b style="color:#1a73e8">' + subProgress + '%</b> | 毛利 <b style="color:' + subColor + '">' + (subtotal['月累计毛利率'] * 100).toFixed(1) + '%</b>';
-            h += '</span></div>';
-            h += '<div style="margin-top:6px;height:8px;background:#fff;border-radius:4px;overflow:hidden">';
-            h += '<div style="height:100%;width:' + Math.min(subProgress, 100) + '%;background:linear-gradient(90deg,#1a73e8,#0d47a1);border-radius:4px"></div>';
-            h += '</div>';
-            h += '</div>';
-        }
-
-        regionData.filter(function(p) { return p['业务经理'] !== '小计' && p['业务经理'] !== '公司合计'; }).forEach(function(p) {
-            var pProgress = parseFloat(p['完成进度']) || 0;
-            var pColor = parseFloat(p['月累计毛利率']) >= 0.13 ? '#137333' : '#e53935';
-            var isWang = p['月累计达标'] === '✅';
+        // 计算小计
+        var totalSales = 0, totalTarget = 0;
+        regionData.forEach(function(p) {
+            totalSales += p['sales'] || p['月销售额'] || 0;
+            totalTarget += p['target'] || p['月度目标'] || 0;
+        });
+        var avgProgress = totalTarget > 0 ? (totalSales / totalTarget * 100) : 0;
+        
+        h += '<div class="progress-row" style="background:#e3f2fd;font-weight:bold;">' +
+            '<span>' + region + '</span>' +
+            '<span>' + (totalSales/10000).toFixed(1) + '万/' + (totalTarget/10000).toFixed(0) + '万</span>' +
+            '<span>' + avgProgress.toFixed(1) + '%</span>' +
+            '<span style="width:80px;height:8px;background:#e0e0e0;border-radius:4px;display:inline-block;">' +
+            '<span style="width:' + Math.min(100, avgProgress) + '%;height:100%;background:#2196f3;border-radius:4px;display:block;"></span></span>' +
+            '</div>';
+        
+        regionData.forEach(function(p) {
+            var name = p['name'] || p['业务经理'] || '';
+            var sales = (p['sales'] || p['月销售额'] || 0) / 10000;
+            var target = (p['target'] || p['月度目标'] || 0) / 10000;
+            var prog = p['progress'] || p['完成进度'] || 0;
+            if (typeof prog !== 'number') prog = parseFloat(prog) || 0;
+            prog = Math.min(prog, 999);
             
-            h += '<div style="padding:8px 0;border-bottom:1px solid #f0f0f0">';
-            h += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">';
-            h += '<span style="font-weight:500;font-size:12px;cursor:pointer;color:#1a73e8" onclick="showSalesmanAdvice(\'' + p['业务经理'] + '\')">' + p['业务经理'] + '</span>';
-            h += '<span style="font-size:11px">' + fmtAmt(p['月销售额']) + ' / ' + fmtAmt(p['月度目标']) + ' ' + p['月累计达标'] + '</span></div>';
-            h += '<div style="height:6px;background:#e0e0e0;border-radius:3px;overflow:hidden">';
-            h += '<div style="height:100%;width:' + Math.min(pProgress, 100) + '%;background:' + (isWang ? '#137333' : '#f57c00') + ';border-radius:3px"></div>';
-            h += '</div>';
-            h += '<div style="font-size:10px;color:#888;margin-top:2px">进度' + pProgress + '% | 毛利 <span style="color:' + pColor + '">' + (typeof p['月累计毛利率'] === 'number' ? (p['月累计毛利率'] * 100).toFixed(1) + '%' : p['月累计毛利率']) + '</span></div>';
-            h += '</div>';
+            h += '<div class="progress-row">' +
+                '<span>' + name + '</span>' +
+                '<span>' + sales.toFixed(1) + '万/' + target.toFixed(0) + '万</span>' +
+                '<span>' + prog.toFixed(1) + '%</span>' +
+                '<span style="width:80px;height:8px;background:#e0e0e0;border-radius:4px;display:inline-block;">' +
+                '<span style="width:' + Math.min(100, prog) + '%;height:100%;background:' + (prog >= 80 ? '#4caf50' : prog >= 50 ? '#ff9800' : '#f44336') + ';border-radius:4px;display:block;"></span></span>' +
+                '</div>';
         });
     });
-
-    var total = progress.find(function(p) { return p['业务经理'] === '公司合计'; });
-    if (total) {
-        var tProgress = parseFloat(total['完成进度']) || 0;
-        h += '<div style="background:#fce8e6;padding:12px;margin-top:10px;border-radius:8px">';
-        h += '<div style="display:flex;justify-content:space-between;align-items:center">';
-        h += '<span style="font-weight:700;color:#c5221f">公司合计</span>';
-        h += '<span style="font-size:13px">' + fmtAmt(total['月销售额']) + ' / ' + fmtAmt(total['月度目标']) + '</span></div>';
-        h += '<div style="margin-top:8px;height:10px;background:#fff;border-radius:5px;overflow:hidden">';
-        h += '<div style="height:100%;width:' + Math.min(tProgress, 100) + '%;background:linear-gradient(90deg,#c5221f,#e53935);border-radius:5px"></div>';
-        h += '</div>';
-        h += '<div style="text-align:center;margin-top:6px;font-size:12px;font-weight:600;color:#c5221f">完成进度: ' + tProgress + '%</div>';
-        h += '</div>';
-    }
-    h += '</div>';
-
-    document.getElementById('rptContent').innerHTML = h;
-}
-
-function fmtAmt(amt) {
-    if (typeof amt !== 'number') return amt || '0';
-    if (amt >= 10000) return (amt / 10000).toFixed(1) + 'w';
-    return amt.toLocaleString('zh-CN', {maximumFractionDigits: 0});
-}
-
-
+    
 // ===== 产品页 =====
 
 
