@@ -23774,6 +23774,15 @@ if(tab==='Customer')loadCustomerList();
 
 
 
+// ===== 格式化金额 =====
+function fmtAmt(n) {
+    if (!n && n !== 0) return '-';
+    if (n >= 10000) {
+        return (n / 10000).toFixed(1) + '万';
+    }
+    return n.toLocaleString('zh-CN', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+}
+
 // ===== 日报页 =====
 function renderReport() {
     var data = dailyReportData;
