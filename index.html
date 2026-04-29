@@ -23839,14 +23839,30 @@ function renderReport() {
     h += '</tr>';
     
     data['毛利区间']['当日'].forEach(function(item) {
-        var isWarn = item['预警'] && item['预警'].indexOf('预警') >= 0;
-        var bgColor = isWarn ? '#fff3cd' : (item['预警'] && item['预警'].indexOf('正常') >= 0 ? '#e6f4ea' : '');
+        // 动态计算预警状态
+        var ratio = item['占比'] * 100;
+        var target = item['目标占比'] * 100;
+        var rangeName = item['区间'];
+        var isLowMargin = rangeName.indexOf('5%-8%') >= 0 || rangeName.indexOf('0%-5%') >= 0 || rangeName.indexOf('亏损') >= 0;
+        var isGood;
+        
+        if (isLowMargin) {
+            // 低毛利区间：占比越低越好
+            isGood = ratio <= target;
+        } else {
+            // 高毛利区间：占比越高越好
+            isGood = ratio >= target;
+        }
+        
+        var warnText = isGood ? '🟢正常' : '🔴严重偏低';
+        var bgColor = isGood ? '#e6f4ea' : '#fff3cd';
+        
         h += '<tr style="background:' + bgColor + ';border-bottom:1px solid #eee">';
         h += '<td style="padding:8px 4px">' + item['区间'] + '</td>';
         h += '<td style="padding:8px 4px;text-align:right;font-weight:500">' + fmtAmt(item['销售额']) + '</td>';
         h += '<td style="padding:8px 4px;text-align:right">' + (item['占比'] * 100).toFixed(1) + '%</td>';
         h += '<td style="padding:8px 4px;text-align:right;color:#888">' + (item['目标占比'] * 100).toFixed(0) + '%</td>';
-        h += '<td style="padding:8px 4px;text-align:center;font-size:12px">' + item['预警'] + '</td>';
+        h += '<td style="padding:8px 4px;text-align:center;font-size:12px">' + warnText + '</td>';
         h += '</tr>';
     });
     h += '</table></div></div>';
@@ -23883,12 +23899,16 @@ function renderReport() {
             if (typeof prog !== 'number') prog = parseFloat(prog) || 0;
             prog = Math.min(prog, 999);
             
-            h += '<div class="progress-row">' +
-                '<span>' + name + '</span>' +
-                '<span>' + sales.toFixed(1) + '万/' + target.toFixed(0) + '万</span>' +
-                '<span>' + prog.toFixed(1) + '%</span>' +
-                '<span style="width:80px;height:8px;background:#e0e0e0;border-radius:4px;display:inline-block;">' +
-                '<span style="width:' + Math.min(100, prog) + '%;height:100%;background:' + (prog >= 80 ? '#4caf50' : prog >= 50 ? '#ff9800' : '#f44336') + ';border-radius:4px;display:block;"></span></span>' +
+            // 进度条颜色
+            var progColor = prog >= 80 ? '#4caf50' : prog >= 50 ? '#ff9800' : '#f44336';
+            var progBg = prog >= 80 ? '#e8f5e9' : prog >= 50 ? '#fff3e0' : '#ffebee';
+            
+            h += '<div class="progress-row" style="display:flex;align-items:center;padding:10px 12px;border-radius:8px;margin:4px 0;background:' + progBg + ';cursor:pointer" onclick="showSalesmanAdvice(\'' + name + '\')">' +
+                '<span style="flex:1;font-weight:500">' + name + '</span>' +
+                '<span style="flex:1;text-align:center;font-size:12px">' + sales.toFixed(1) + '万/' + target.toFixed(0) + '万</span>' +
+                '<span style="flex:0 0 50px;text-align:right;font-weight:600;color:' + progColor + '">' + prog.toFixed(0) + '%</span>' +
+                '<span style="flex:0 0 100px;margin-left:8px;height:6px;background:#e0e0e0;border-radius:3px;overflow:hidden">' +
+                '<span style="width:' + Math.min(100, prog) + '%;height:100%;background:' + progColor + ';display:block;border-radius:3px;"></span></span>' +
                 '</div>';
         });
     });
