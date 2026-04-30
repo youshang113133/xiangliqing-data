@@ -608,7 +608,7 @@ function renderProduct() {
     
     h += '</div>';
     
-    if (filtered.length === 0) h = '<div class="empty"><p>未找到匹配的产品</p></div>';
+    if (filtered.length === 0 && productsData.length === 0) h = '<div class="empty"><p>产品数据加载中...</p><p style="font-size:12px;color:#999;margin-top:8px">如未自动加载，请点击其他标签后返回重试</p></div>'; else if (filtered.length === 0) h = '<div class="empty"><p>未找到匹配的产品</p></div>';
     
     document.getElementById('prdContent').innerHTML = h;
 }
