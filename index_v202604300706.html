@@ -23775,6 +23775,20 @@ if(tab==='Customer')loadCustomerList();
 
 
 // ===== 日报页 =====
+function fmtAmt(n){
+  if(n==null||n===undefined)return '-';
+  if(typeof n==='string')n=parseFloat(n);
+  if(isNaN(n))return '-';
+  if(Math.abs(n)>=10000)return (n/10000).toFixed(1)+'万';
+  return n.toFixed(0);
+}
+function fmtPct(n){
+  if(n==null||n===undefined)return '-';
+  if(typeof n==='string')n=parseFloat(n);
+  if(isNaN(n))return '-';
+  return (n*100).toFixed(1)+'%';
+}
+
 function renderReport() {
     var data = dailyReportData;
     var progress = salesProgressData;
