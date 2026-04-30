@@ -319,10 +319,10 @@ function loadExtraData(tab){
   _dataLoading=true;
   var el=document.getElementById(tab==='Product'?'prdContent':'custContent');
   if(el)el.innerHTML='<div style="text-align:center;padding:40px;color:#666"><div class="spinner" style="margin:0 auto 16px;width:32px;height:32px;border:3px solid #e0e0e0;border-top:3px solid #1a73e8;border-radius:50%;animation:spin .8s linear infinite"></div>正在加载数据...</div>';
-  var url=tab==='Product'?COS_BASE+'data_products_slim.json':COS_BASE+'data_customers_tiny.json';
+  var url=tab==='Product'?COS_BASE+'data_products_tiny.json':COS_BASE+'data_customers_tiny.json';
   fetch(url,{mode:'cors',cache:'force-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(data){
     if(tab==='Product'){
-      if(data.length>0&&data[0].n!==undefined){data=data.map(function(p){return{code:p.c||'',name:p.n||'',spec:p.sp||'',type:p.t||'',category:p.ct||'',sales:p.sl||0,profit:p.pf||0,stock:p.sk||0,sellerCount:p.sc||0,batchPrice:p.bp||0,profitRate:p.pr||0,orderCount:p.oc||0,monthSales:p.sl||0,margin:p.pf||0,grade:p.g||'',healthLevel:p.hl||'',salesperson:'',unitPrice:p.bp||0};});}
+      if(data.length>0&&data[0].n!==undefined){data=data.map(function(p){return{code:p.c||'',name:p.n||'',spec:'',type:'',category:p.ct||'',sales:p.sl||0,profit:p.pf||0,stock:0,sellerCount:p.sc||0,batchPrice:p.bp||0,profitRate:p.pf||0,orderCount:0,monthSales:p.sl||0,margin:p.pf||0,grade:'',healthLevel:'',salesperson:'',unitPrice:p.bp||0};});}
       productsData=data;DATA.productsData=data;
       // 初始化产品分类选项
       var categories={};
