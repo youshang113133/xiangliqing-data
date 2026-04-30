@@ -415,8 +415,29 @@ document.querySelectorAll('.nav>div').forEach(n=>n.classList.remove('on'));
 document.getElementById('pg'+tab).classList.add('on');
 document.getElementById('nav'+tab).classList.add('on');
 if(tab==='Report')renderReport();
-if(tab==='Product')renderProduct();
-if(tab==='Customer')loadCustomerList();
+if(tab==='Product'){if(productsData.length===0){loadExtraData('Product');}else{renderProduct();}}
+if(tab==='Customer'){if(customersData.length===0){loadExtraData('Customer');}else{loadCustomerList();}}
+}
+
+// ===== COS增量数据加载 =====
+var COS_BASE='https://xiangliqing-data-1423818390.cos.ap-guangzhou.myqcloud.com/';
+var _dataLoading=false;
+
+function loadExtraData(tab){
+  if(_dataLoading)return;
+  _dataLoading=true;
+  var el=document.getElementById(tab==='Product'?'prdContent':'custContent');
+  if(el)el.innerHTML='<div style="text-align:center;padding:40px;color:#666"><div class="spinner" style="margin:0 auto 16px;width:32px;height:32px;border:3px solid #e0e0e0;border-top:3px solid #1a73e8;border-radius:50%;animation:spin .8s linear infinite"></div>正在加载数据...</div>';
+  var url=tab==='Product'?COS_BASE+'data_products_fetch.json':COS_BASE+'data_customers_fetch.json';
+  fetch(url,{mode:'cors',cache:'force-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();}).then(function(data){
+    if(tab==='Product'){productsData=data;renderProduct();}
+    else{customersData=data;loadCustomerList();}
+    _dataLoading=false;
+  }).catch(function(e){
+    console.error('fetch error:',e);
+    if(el)el.innerHTML='<div style="text-align:center;padding:40px;color:#e53935">数据加载失败，请检查网络后重试<br><button onclick="_dataLoading=false;loadExtraData(\''+tab+'\')" style="margin-top:12px;padding:8px 24px;background:#1a73e8;color:#fff;border:none;border-radius:20px;cursor:pointer">重新加载</button></div>';
+    _dataLoading=false;
+  });
 }
 
 // ===== 报表数据 =====
