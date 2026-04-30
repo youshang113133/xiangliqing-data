@@ -1,13 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0;url=index_v202604281133.html">
-    <title>湘里情智营系统 - 重定向中</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>湘里情智营·客户决策</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,sans-serif;background:linear-gradient(135deg,#1a73e8,#0d47a1);min-height:100vh;display:flex;align-items:center;justify-content:center;color:#fff}
+.loader{text-align:center;padding:40px}
+.loader h2{font-size:20px;margin-bottom:16px}
+.loader p{font-size:14px;opacity:0.8}
+.spinner{width:40px;height:40px;border:4px solid rgba(255,255,255,0.3);border-top:4px solid #fff;border-radius:50%;animation:spin 1s linear infinite;margin:20px auto}
+@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+</style>
 </head>
 <body>
-    <p>正在跳转到最新版本...</p>
-    <script>window.location.href = 'index_v202604281133.html';</script>
+<div class="loader">
+<h2>湘里情智营·客户决策</h2>
+<div class="spinner"></div>
+<p id="status">正在跳转...</p>
+</div>
+<script>
+(function(){
+var COS_URL = 'https://xiangliqing-data-1423818390.cos.ap-guangzhou.myqcloud.com/index.html';
+var statusEl = document.getElementById('status');
+
+// 方案1：直接重定向到COS API域名
+// 如果浏览器下载而不是渲染，则回退到blob方案
+statusEl.textContent = '正在加载页面...';
+
+// 先用fetch获取HTML内容，然后用blob URL导航
+// 这样可以确保HTML被渲染而不是下载
+fetch(COS_URL, {
+  method: 'GET',
+  headers: {'Accept': 'text/html'},
+  signal: AbortSignal.timeout(60000)
+})
+.then(function(r) {
+  if (!r.ok) throw new Error('HTTP ' + r.status);
+  return r.text();
+})
+.then(function(html) {
+  // 创建blob URL并导航 - 浏览器会正常渲染HTML
+  var blob = new Blob([html], {type: 'text/html;charset=utf-8'});
+  var url = URL.createObjectURL(blob);
+  window.location.replace(url);
+})
+.catch(function(e) {
+  statusEl.textContent = '加载失败: ' + e.message;
+});
+})();
+</script>
 </body>
 </html>
