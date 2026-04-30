@@ -262,7 +262,7 @@ var dataSource = 'embedded';  // 数据已嵌入HTML // 'embedded' 或 'cloud'
 var dataUpdateTime = DATA.updateTime || '';
 
 // 尝试从云端获取数据
-async function fetchCloudData() {
+async async function fetchCloudData() {
     // 数据已内嵌，跳过云端加载
     if (customersData.length > 0 && productsData.length > 0) {
         console.log('数据已内嵌，跳过云端加载');
@@ -433,6 +433,16 @@ function loadExtraData(tab){
     if(tab==='Product'){
       if(data.length>0&&data[0].n!==undefined){data=data.map(function(p){return{code:p.c||'',name:p.n||'',spec:p.sp||'',type:p.t||'',category:p.ct||'',sales:p.sl||0,profit:p.pf||0,stock:p.sk||0,sellerCount:p.sc||0,batchPrice:p.bp||0,profitRate:p.pr||0,orderCount:p.oc||0,monthSales:p.sl||0,margin:p.pf||0,grade:p.g||'',healthLevel:p.hl||'',salesperson:'',unitPrice:p.bp||0};});}
       productsData=data;DATA.productsData=data;
+      // 初始化产品分类选项
+      var categories={};
+      productsData.forEach(function(p){if(p.category)categories[p.category]=true;});
+      var catSelect=document.getElementById('pCategory');
+      if(catSelect){
+        catSelect.innerHTML='<option value="">全部分类</option>';
+        Object.keys(categories).sort().forEach(function(cat){
+          var opt=document.createElement('option');opt.value=cat;opt.textContent=cat;catSelect.appendChild(opt);
+        });
+      }
       renderProduct();
     }else{
       if(data.length>0&&data[0].n!==undefined){data=data.map(function(c){return{id:c.id||'',name:c.n||'',salesman:c.s||'',level:c.l||'',monthSales:c.ms||0,monthlyAmount:c.ms||0,profitRate:c.pr||0,margin:c.m||0,orderCount:c.oc||0,lastDate:c.ld||'',lastOrderDate:c.ld||'',nextDate:c.nd||'',warning:c.w||'',code:c.c||'',advice:c.a||'',isOverdue:c.io||false,channelType:'','主要对接业务员':c.s||'','整体毛利率':c.pr||0,'月均采购额':c.ms||0,'流失预警':c.w||''};});}
@@ -1343,7 +1353,7 @@ function initApp() {
     
     // 立即尝试加载产品和客户数据
     if (navigator.onLine) {
-        fetchCloudData();
+        fetchCloudData().catch(function(e){console.log('fetchCloudData error:',e);});
     }
 }
 
