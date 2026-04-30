@@ -141,40 +141,7 @@ window.addEventListener('load', function() {
 });
 
 // ===== 异步加载外部数据 =====
-async function loadExternalData() {
-    const loadJson = async (url, name) => {
-        try {
-            const resp = await fetch(url);
-            if (!resp.ok) throw new Error('HTTP ' + resp.status);
-            const data = await resp.json();
-            console.log(name + ' 加载成功: ' + data.length + ' 条记录');
-            return data;
-        } catch(e) {
-            console.error(name + ' 加载失败:', e);
-            return [];
-        }
-    };
-
-    try {
-        const [customers, products] = await Promise.all([
-            loadJson('./data_customers.json', '客户数据'),
-            loadJson('./data_products.json', '产品数据')
-        ]);
-        
-        // 更新全局变量
-        customersData = customers;
-        productsData = products;
-        
-        // 触发各模块重新渲染
-        if (typeof renderProduct === 'function') renderProduct();
-        if (typeof renderCustomerFilters === 'function') renderCustomerFilters();
-        if (typeof renderCustomerList === 'function') renderCustomerList();
-        
-        console.log('外部数据加载完成');
-    } catch(e) {
-        console.error('数据加载异常:', e);
-    }
-}
+async function loadExternalData(){console.log("loadExternalData skipped");}
 
 // 页面加载完成后自动加载外部数据
 setTimeout(loadExternalData, 100);
@@ -262,83 +229,7 @@ var dataSource = 'embedded';  // 数据已嵌入HTML // 'embedded' 或 'cloud'
 var dataUpdateTime = DATA.updateTime || '';
 
 // 尝试从云端获取数据
-async async function fetchCloudData() {
-    // 数据已内嵌，跳过云端加载
-    if (customersData.length > 0 && productsData.length > 0) {
-        console.log('数据已内嵌，跳过云端加载');
-        dataSource = 'embedded';
-        updateDataStatus();
-        return;
-    }
-  try {
-    // 并行加载所有数据文件
-    var fetches = [];
-    var urls = [
-      {url: DATA_URL_PRODUCTS, key: 'productsData'},
-      {url: DATA_URL_CUSTOMERS, key: 'customersData'},
-      {url: DATA_URL_CORE, key: 'core'}
-    ];
-    
-    var results = await Promise.allSettled(urls.map(function(item) {
-      return fetch(item.url + '?t=' + Date.now(), {
-        method: 'GET',
-        headers: {'Accept': 'application/json'},
-        signal: AbortSignal.timeout(30000)
-      }).then(function(r) { return r.ok ? r.json() : null; });
-    }));
-    
-    var loaded = 0;
-    results.forEach(function(result, i) {
-      if (result.status === 'fulfilled' && result.value) {
-        var data = result.value;
-        var key = urls[i].key;
-        if (key === 'productsData' && Array.isArray(data)) {
-          productsData = data;
-          loaded++;
-        } else if (key === 'customersData' && Array.isArray(data)) {
-          customersData = data;
-          allCustomers = data;
-          filteredCustomers = data;
-          loaded++;
-        } else if (key === 'core') {
-          if (data.dailyReportData) dailyReportData = data.dailyReportData;
-          if (data.salesProgressData) salesProgressData = data.salesProgressData;
-          if (data.updateTime) dataUpdateTime = data.updateTime;
-          loaded++;
-        }
-      }
-    });
-    
-    if (loaded > 0) {
-      dataSource = 'cloud';
-      console.log('✅ 云端数据加载成功，加载了' + loaded + '个文件');
-      updateDataStatus();
-      refreshCurrentPage();
-      
-      // 重新初始化客户和产品过滤
-      if (productsData.length > 0) {
-        var categories = {};
-        productsData.forEach(function(p) { if(p.category) categories[p.category] = true; });
-        var catSelect = document.getElementById('pCategory');
-        if(catSelect){
-          catSelect.innerHTML = '<option value="">全部分类</option>';
-          Object.keys(categories).sort().forEach(function(cat) {
-            var opt = document.createElement('option');
-            opt.value = cat; opt.textContent = cat;
-            catSelect.appendChild(opt);
-          });
-        }
-        renderProduct();
-      }
-      if (customersData.length > 0) {
-        renderCustomerFilters();
-        renderCustomerList();
-      }
-    }
-  } catch (e) {
-    console.log('⚠️ 云端数据获取失败，使用本地数据：' + e.message);
-  }
-}
+async function fetchCloudData(){console.log("fetchCloudData skipped, using loadExtraData");}
 
 // 刷新当前页面
 function refreshCurrentPage() {
@@ -1352,9 +1243,7 @@ function initApp() {
     renderCustomerList();
     
     // 立即尝试加载产品和客户数据
-    if (navigator.onLine) {
-        fetchCloudData().catch(function(e){console.log('fetchCloudData error:',e);});
-    }
+    // fetchCloudData skipped - using loadExtraData for on-demand loading
 }
 
 // 直接在脚本末尾调用初始化，确保DOM已就绪
