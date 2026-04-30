@@ -306,8 +306,8 @@ document.querySelectorAll('.nav>div').forEach(n=>n.classList.remove('on'));
 document.getElementById('pg'+tab).classList.add('on');
 document.getElementById('nav'+tab).classList.add('on');
 if(tab==='Report')renderReport();
-if(tab==='Product'){if(productsData.length===0){loadExtraData('Product');}else{renderProduct();}}
-if(tab==='Customer'){if(customersData.length===0){loadExtraData('Customer');}else{loadCustomerList();}}
+if(tab==='Product'){if(productsData.length===0||!productsData[0].name){loadExtraData('Product');}else{renderProduct();}}
+if(tab==='Customer'){if(customersData.length===0||!customersData[0].name){loadExtraData('Customer');}else{loadCustomerList();}}
 }
 
 // ===== COS增量数据加载 =====
