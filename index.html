@@ -566,63 +566,6 @@ function renderReport() {
     h += '<div><div style="font-size:16px;font-weight:700;color:#1a73e8">' + data['核心经营指标']['订单数']['月累计'] + '</div><div style="font-size:10px;color:#888">订单数</div></div>';
     h += '</div></div>';
     h += '</div>';
-    // ===== 4. 产品系数贡献分析 =====
-    h += '<div class="card"><div class="card-tit">🏷️ 产品系数贡献分析</div>';
-    if (productsData && productsData.length > 0) {
-        var coefGroups = {
-            '⭐自主产品(×1.20)': { sales: 0, count: 0, margin: 0.20 },
-            '💎核心1类(×1.15)': { sales: 0, count: 0, margin: 0.15 },
-            '🔵核心2类(×1.08)': { sales: 0, count: 0, margin: 0.10 },
-            '⚪常规产品(×1.00)': { sales: 0, count: 0, margin: 0 }
-        };
-        var totalSales = 0;
-        productsData.forEach(function(p) {
-            var s = p.sales || p.amount || 0;
-            var m = p.margin || 0;
-            totalSales += s;
-            if (m >= 0.20) { coefGroups['⭐自主产品(×1.20)'].sales += s; coefGroups['⭐自主产品(×1.20)'].count++; }
-            else if (m >= 0.15) { coefGroups['💎核心1类(×1.15)'].sales += s; coefGroups['💎核心1类(×1.15)'].count++; }
-            else if (m >= 0.10) { coefGroups['🔵核心2类(×1.08)'].sales += s; coefGroups['🔵核心2类(×1.08)'].count++; }
-            else { coefGroups['⚪常规产品(×1.00)'].sales += s; coefGroups['⚪常规产品(×1.00)'].count++; }
-        });
-        
-        h += '<table style="width:100%;border-collapse:collapse;font-size:11px">';
-        h += '<tr style="background:#1a73e8;color:#fff"><th style="padding:8px 4px;text-align:left">系数分类</th><th style="padding:8px 4px;text-align:right">产品数</th><th style="padding:8px 4px;text-align:right">销售额</th><th style="padding:8px 4px;text-align:right">占比</th><th style="padding:8px 4px;text-align:right">加权贡献</th></tr>';
-        
-        var coefColors = {'⭐自主产品(×1.20)': '#e8f0fe', '💎核心1类(×1.15)': '#fce8e6', '🔵核心2类(×1.08)': '#e8f7fe', '⚪常规产品(×1.00)': '#f5f5f5'};
-        Object.keys(coefGroups).forEach(function(key) {
-            var g = coefGroups[key];
-            var pct = totalSales > 0 ? (g.sales / totalSales * 100) : 0;
-            var weighted = g.sales * g.margin;
-            h += '<tr style="background:' + coefColors[key] + ';border-bottom:1px solid #eee">';
-            h += '<td style="padding:8px 4px;font-weight:500">' + key + '</td>';
-            h += '<td style="padding:8px 4px;text-align:right">' + g.count + '个</td>';
-            h += '<td style="padding:8px 4px;text-align:right;font-weight:500">' + fmtAmt(g.sales) + '</td>';
-            h += '<td style="padding:8px 4px;text-align:right">' + pct.toFixed(1) + '%</td>';
-            h += '<td style="padding:8px 4px;text-align:right;color:#1a73e8">' + fmtAmt(weighted) + '</td>';
-            h += '</tr>';
-        });
-        
-        // 合计行
-        var totalWeighted = 0;
-        Object.keys(coefGroups).forEach(function(key) { totalWeighted += coefGroups[key].sales * coefGroups[key].margin; });
-        h += '<tr style="background:#fff3cd;font-weight:600"><td style="padding:8px 4px">合计</td><td style="padding:8px 4px;text-align:right">' + productsData.length + '个</td><td style="padding:8px 4px;text-align:right">' + fmtAmt(totalSales) + '</td><td style="padding:8px 4px;text-align:right">100%</td><td style="padding:8px 4px;text-align:right;color:#1a73e8">' + fmtAmt(totalWeighted) + '</td></tr>';
-        h += '</table>';
-        
-        // 可视化占比条
-        h += '<div style="margin-top:10px;display:flex;height:20px;border-radius:10px;overflow:hidden">';
-        Object.keys(coefGroups).forEach(function(key) {
-            var pct = totalSales > 0 ? (coefGroups[key].sales / totalSales * 100) : 0;
-            var barColors = {'⭐自主产品(×1.20)': '#1a73e8', '💎核心1类(×1.15)': '#e53935', '🔵核心2类(×1.08)': '#1a73e8', '⚪常规产品(×1.00)': '#bbb'};
-            if (pct > 0) {
-                h += '<div style="width:' + pct + '%;background:' + barColors[key] + ';display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px">' + (pct >= 8 ? pct.toFixed(0) + '%' : '') + '</div>';
-            }
-        });
-        h += '</div>';
-    } else {
-        h += '<div style="font-size:12px;color:#888;padding:10px">暂无产品数据</div>';
-    }
-    h += '</div>';
 
 
 
@@ -715,7 +658,64 @@ function renderReport() {
     }
     h += '</div>';
 
-    // ===== 4. 收入预估 =====
+    // ===== 4. 产品系数贡献分析 =====
+    h += '<div class="card"><div class="card-tit">🏷️ 产品系数贡献分析</div>';
+    if (productsData && productsData.length > 0) {
+        var coefGroups = {
+            '⭐自主产品(×1.20)': { sales: 0, count: 0, margin: 0.20 },
+            '💎核心1类(×1.15)': { sales: 0, count: 0, margin: 0.15 },
+            '🔵核心2类(×1.08)': { sales: 0, count: 0, margin: 0.10 },
+            '⚪常规产品(×1.00)': { sales: 0, count: 0, margin: 0 }
+        };
+        var totalSales = 0;
+        productsData.forEach(function(p) {
+            var s = p.sales || p.amount || 0;
+            var m = p.margin || 0;
+            totalSales += s;
+            if (m >= 0.20) { coefGroups['⭐自主产品(×1.20)'].sales += s; coefGroups['⭐自主产品(×1.20)'].count++; }
+            else if (m >= 0.15) { coefGroups['💎核心1类(×1.15)'].sales += s; coefGroups['💎核心1类(×1.15)'].count++; }
+            else if (m >= 0.10) { coefGroups['🔵核心2类(×1.08)'].sales += s; coefGroups['🔵核心2类(×1.08)'].count++; }
+            else { coefGroups['⚪常规产品(×1.00)'].sales += s; coefGroups['⚪常规产品(×1.00)'].count++; }
+        });
+        
+        h += '<table style="width:100%;border-collapse:collapse;font-size:11px">';
+        h += '<tr style="background:#1a73e8;color:#fff"><th style="padding:8px 4px;text-align:left">系数分类</th><th style="padding:8px 4px;text-align:right">产品数</th><th style="padding:8px 4px;text-align:right">销售额</th><th style="padding:8px 4px;text-align:right">占比</th><th style="padding:8px 4px;text-align:right">加权贡献</th></tr>';
+        
+        var coefColors = {'⭐自主产品(×1.20)': '#e8f0fe', '💎核心1类(×1.15)': '#fce8e6', '🔵核心2类(×1.08)': '#e8f7fe', '⚪常规产品(×1.00)': '#f5f5f5'};
+        Object.keys(coefGroups).forEach(function(key) {
+            var g = coefGroups[key];
+            var pct = totalSales > 0 ? (g.sales / totalSales * 100) : 0;
+            var weighted = g.sales * g.margin;
+            h += '<tr style="background:' + coefColors[key] + ';border-bottom:1px solid #eee">';
+            h += '<td style="padding:8px 4px;font-weight:500">' + key + '</td>';
+            h += '<td style="padding:8px 4px;text-align:right">' + g.count + '个</td>';
+            h += '<td style="padding:8px 4px;text-align:right;font-weight:500">' + fmtAmt(g.sales) + '</td>';
+            h += '<td style="padding:8px 4px;text-align:right">' + pct.toFixed(1) + '%</td>';
+            h += '<td style="padding:8px 4px;text-align:right;color:#1a73e8">' + fmtAmt(weighted) + '</td>';
+            h += '</tr>';
+        });
+        
+        // 合计行
+        var totalWeighted = 0;
+        Object.keys(coefGroups).forEach(function(key) { totalWeighted += coefGroups[key].sales * coefGroups[key].margin; });
+        h += '<tr style="background:#fff3cd;font-weight:600"><td style="padding:8px 4px">合计</td><td style="padding:8px 4px;text-align:right">' + productsData.length + '个</td><td style="padding:8px 4px;text-align:right">' + fmtAmt(totalSales) + '</td><td style="padding:8px 4px;text-align:right">100%</td><td style="padding:8px 4px;text-align:right;color:#1a73e8">' + fmtAmt(totalWeighted) + '</td></tr>';
+        h += '</table>';
+        
+        // 可视化占比条
+        h += '<div style="margin-top:10px;display:flex;height:20px;border-radius:10px;overflow:hidden">';
+        Object.keys(coefGroups).forEach(function(key) {
+            var pct = totalSales > 0 ? (coefGroups[key].sales / totalSales * 100) : 0;
+            var barColors = {'⭐自主产品(×1.20)': '#1a73e8', '💎核心1类(×1.15)': '#e53935', '🔵核心2类(×1.08)': '#1a73e8', '⚪常规产品(×1.00)': '#bbb'};
+            if (pct > 0) {
+                h += '<div style="width:' + pct + '%;background:' + barColors[key] + ';display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px">' + (pct >= 8 ? pct.toFixed(0) + '%' : '') + '</div>';
+            }
+        });
+        h += '</div>';
+    } else {
+        h += '<div style="font-size:12px;color:#888;padding:10px">暂无产品数据</div>';
+    }
+    h += '</div>';
+    // ===== 5. 收入预估 =====
     h += '<div class="card"><div class="card-tit">📈 收入预估</div>';
     if (data && data['核心经营指标']) {
         var now = new Date();
