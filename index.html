@@ -78,25 +78,7 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px}
 
 </style>
 
-<script>
-// 从CDN加载所有数据
-async function fetchCloudData() {
-  const CDN = "https://cdn.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main";
-  try {
-    const r1 = await fetch(CDN+"/data.json?t="+Date.now());
-    window.dailyReportData = await r1.json();
-    const r2 = await fetch(CDN+"/data_core.json?t="+Date.now());
-    const d = await r2.json();
-    window.customersData = d.customers||[];
-    window.allCustomers = d.customers||[];
-    window.productsData = d.products||[];
-    window.salesProgressData = d.salesProgress||[];
-    document.getElementById("rptDate").textContent = "更新: "+new Date().toLocaleString("zh-CN");
-    renderReport();renderProduct();resetCustomerPage();
-  } catch(e) { document.getElementById("rptDate").textContent="加载失败";console.error(e); }
-}
-function forceRefresh() { fetchCloudData(); }
-</script>
+
 </head>
 <body>
 
@@ -162,6 +144,25 @@ function forceRefresh() { fetchCloudData(); }
 </div>
 
 <script>
+// 从CDN加载所有数据
+async function fetchCloudData() {
+  const CDN = "https://cdn.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main";
+  try {
+    const r1 = await fetch(CDN+"/data.json?t="+Date.now());
+    window.dailyReportData = await r1.json();
+    const r2 = await fetch(CDN+"/data_core.json?t="+Date.now());
+    const d = await r2.json();
+    window.customersData = d.customers||[];
+    window.allCustomers = d.customers||[];
+    window.productsData = d.products||[];
+    window.salesProgressData = d.salesProgress||[];
+    document.getElementById("rptDate").textContent = "更新: "+new Date().toLocaleString("zh-CN");
+    renderReport();renderProduct();resetCustomerPage();
+  } catch(e) { document.getElementById("rptDate").textContent="加载失败";console.error(e); }
+}
+function forceRefresh() { fetchCloudData(); }
+
+
 function renderReport() {
   var data = window.dailyReportData || {};
   var progress = window.salesProgressData || [];
