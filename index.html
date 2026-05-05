@@ -428,6 +428,446 @@ document.addEventListener('DOMContentLoaded', async function() {
     h += '</div>';
 }
 
+
+// 强制刷新函数
+async function forceRefresh() {
+  var btn = event.target;
+  btn.textContent = '刷新中...';
+  btn.disabled = true;
+  
+  try {
+    // 清除CDN缓存
+    await fetch('https://purge.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/data_core.json');
+    await fetch('https://purge.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/data_recs.json');
+    await fetch('https://purge.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main/index.html');
+    
+    // 延迟后重新加载页面
+    setTimeout(function() {
+      location.href = location.pathname + '?t=' + Date.now();
+    }, 1000);
+  } catch(e) {
+    alert('刷新失败，请手动刷新页面');
+    btn.textContent = '🔄 刷新';
+    btn.disabled = false;
+  }
+}
+
+// 从云端获取数据
+async function fetchCloudData() {
+  var rptDateEl = document.getElementById('rptDate');
+  try {
+    rptDateEl.textContent = '正在连接数据源...';
+    var fetchOptions = {
+      method: 'GET',
+      headers: {'Accept': 'application/json'}
+    };
+    if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) {
+      fetchOptions.signal = AbortSignal.timeout(180000);
+    }
+    rptDateEl.textContent = '正在下载数据...';
+    var response = await fetch(DATA_URL + "?t=" + Date.now(), fetchOptions);
+    if (!response.ok) {
+      throw new Error('HTTP ' + response.status + ': ' + response.statusText);
+    }
+    if (response.ok) {
+      var cloudData = await response.json();
+      fetchRecsData();
+      if (cloudData.productsData) productsData = cloudData.productsData;
+      if (cloudData.customersData) customersData = cloudData.customersData;
+      if (cloudData.recsData) recsData = cloudData.recsData;
+      if (cloudData.productPortraitData) productPortraitData = cloudData.productPortraitData;
+      if (cloudData.productSalesmen) productSalesmen = cloudData.productSalesmen;
+      if (cloudData.dailyReportData) {
+        dailyReportData = cloudData.dailyReportData;
+        if (!dailyReportData['核心经营指标']['亏损订单数']) {
+          dailyReportData['核心经营指标']['亏损订单数'] = {'当日': 0, '月累计': 0, '预警': ''};
+        }
+        if (!dailyReportData['核心经营指标']['亏损金额']) {
+          dailyReportData['核心经营指标']['亏损金额'] = {'当日': 0, '月累计': 0};
+        }
+        if (!dailyReportData['核心经营指标']['成本']) {
+          dailyReportData['核心经营指标']['成本'] = {
+            '当日': dailyReportData['核心经营指标']['销售额']['当日'] - dailyReportData['核心经营指标']['毛利额']['当日'],
+            '月累计': dailyReportData['核心经营指标']['销售额']['月累计'] - dailyReportData['核心经营指标']['毛利额']['月累计']
+          };
+        }
+        if (!dailyReportData['核心经营指标']['毛利率']['当日达标']) {
+          dailyReportData['核心经营指标']['毛利率']['当日达标'] = dailyReportData['核心经营指标']['毛利率']['当日'] >= 0.13;
+        }
+        if (!dailyReportData['核心经营指标']['毛利率']['月累计达标']) {
+          dailyReportData['核心经营指标']['毛利率']['月累计达标'] = dailyReportData['核心经营指标']['毛利率']['月累计'] >= 0.13;
+        }
+        if (!dailyReportData['核心经营指标']['销售额']['目标完成率']) {
+          dailyReportData['核心经营指标']['销售额']['目标完成率'] = dailyReportData['核心经营指标']['销售额']['月累计'] / 17500000;
+        }
+      }
+      if (cloudData.salesmanMarginRange) salesmanMarginRange = cloudData.salesmanMarginRange;
+      
+      if (cloudData.salesProgressData) {
+        var tempProgress = cloudData.salesProgressData.map(function(item) {
+          return {
+            '区域': item.region || '长株潭业务部',
+            '业务经理': item.name,
+            '月销售额': item.sales,
+            '月度目标': item.target,
+            '完成进度': item.progress + '%',
+            '月累计毛利率': item.margin,
+            '月累计达标': item.progress >= 100 ? '✅' : ''
+          };
+        });
+        
+        var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
+        regions.forEach(function(region) {
+          var regionItems = tempProgress.filter(function(p) { return p['区域'] === region; });
+          if (regionItems.length > 0) {
+            var subSales = regionItems.reduce(function(sum, p) { return sum + (p['月销售额'] || 0); }, 0);
+            var subTarget = regionItems.reduce(function(sum, p) { return sum + (p['月度目标'] || 0); }, 0);
+            var subMargin = regionItems.reduce(function(sum, p) { return sum + (p['月累计毛利率'] || 0) * (p['月销售额'] || 0); }, 0) / (subSales || 1);
+            var subProgress = subTarget > 0 ? (subSales / subTarget * 100).toFixed(1) : 0;
+            tempProgress.push({
+              '区域': region,
+              '业务经理': '小计',
+              '月销售额': subSales,
+              '月度目标': subTarget,
+              '完成进度': subProgress + '%',
+              '月累计毛利率': subMargin,
+              '月累计达标': subProgress >= 100 ? '✅' : ''
+            });
+          }
+        });
+        
+        var companyTotal = dailyReportData['核心经营指标']['销售额']['月累计'];
+        var companyMargin = dailyReportData['核心经营指标']['毛利率']['月累计'];
+        tempProgress.push({
+          '区域': '公司合计',
+          '业务经理': '公司合计',
+          '月销售额': companyTotal,
+          '月度目标': 17500000,
+          '完成进度': (companyTotal / 17500000 * 100).toFixed(1) + '%',
+          '月累计毛利率': companyMargin,
+          '月累计达标': ''
+        });
+        
+        salesProgressData = tempProgress;
+      }
+      if (cloudData.channelTypeMap) channelTypeMap = cloudData.channelTypeMap;
+      
+      dataSource = 'cloud';
+      dataUpdateTime = cloudData.updateTime || new Date().toLocaleString();
+      console.log('✅ 云端数据加载成功，更新时间：' + dataUpdateTime);
+      
+      updateDataStatus();
+      refreshCurrentPage();
+    }
+  } catch (e) {
+    console.log('⚠️ 云端数据获取失败: ' + e.message);
+    if (rptDateEl) {
+      rptDateEl.textContent = '加载失败: ' + e.message;
+    }
+  }
+}
+
+// 刷新当前页面
+function refreshCurrentPage() {
+  var activeTab = document.querySelector('.pg.on');
+  if (activeTab) {
+    var tabId = activeTab.id;
+    if (tabId === 'pgReport') renderReport();
+    if (tabId === 'pgProduct') renderProduct();
+    if (tabId === 'pgCustomer') loadCustomerList();
+  }
+}
+
+// 更新数据状态栏
+function updateDataStatus() {
+  var statusBar = document.getElementById('dataStatusBar');
+  if (statusBar) {
+    var onlineIcon = navigator.onLine ? '🟢' : '🔴';
+    var sourceIcon = dataSource === 'cloud' ? '☁️' : '📦';
+    statusBar.innerHTML = sourceIcon + ' 数据: ' + (dataSource === 'cloud' ? '云端' : '本地') + 
+                          ' | ' + onlineIcon + ' 网络: ' + (navigator.onLine ? '在线' : '离线') + 
+                          ' | 更新时间: ' + dataUpdateTime;
+  }
+}
+
+
+function renderReport() {
+    var data = dailyReportData;
+    var progress = salesProgressData;
+    var now = new Date();
+    var todayStr = now.getFullYear() + '年' + (now.getMonth() + 1) + '月' + now.getDate() + '日';
+    document.getElementById('rptDate').textContent = todayStr + ' ' + ['周日','周一','周二','周三','周四','周五','周六'][now.getDay()];
+
+    if (!data || !progress || progress.length === 0) {
+        document.getElementById('rptContent').innerHTML = '<div class="loading">正在加载数据...</div>';
+        return;
+    }
+
+    var h = '';
+
+    // ===== 1. 核心经营指标 =====
+    h += '<div class="card"><div class="card-tit">📊 核心经营指标</div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+    
+    h += '<div style="background:#f8f9fa;padding:10px;border-radius:8px">';
+    h += '<div style="font-size:11px;color:#888;margin-bottom:6px">当日数据</div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+    h += '<div><div style="font-size:16px;font-weight:700;color:#1a73e8">' + fmtAmt(data['核心经营指标']['销售额']['当日']) + '</div><div style="font-size:10px;color:#888">销售额</div></div>';
+    h += '<div><div style="font-size:16px;font-weight:700;color:#e53935">' + fmtAmt(data['核心经营指标']['毛利额']['当日']) + '</div><div style="font-size:10px;color:#888">毛利额</div></div>';
+    h += '<div><div style="font-size:16px;font-weight:700;color:' + (data['核心经营指标']['毛利率']['当日达标'] ? '#137333' : '#e53935') + '">' + (data['核心经营指标']['毛利率']['当日'] * 100).toFixed(1) + '%</div><div style="font-size:10px;color:#888">毛利率</div></div>';
+    h += '<div><div style="font-size:16px;font-weight:700;color:#1a73e8">' + data['核心经营指标']['订单数']['当日'] + '</div><div style="font-size:10px;color:#888">订单数</div></div>';
+    h += '</div></div>';
+    
+    h += '<div style="background:#e8f0fe;padding:10px;border-radius:8px">';
+    h += '<div style="font-size:11px;color:#1a73e8;margin-bottom:6px">月累计</div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+    h += '<div><div style="font-size:16px;font-weight:700;color:#1a73e8">' + fmtAmt(data['核心经营指标']['销售额']['月累计']) + '</div><div style="font-size:10px;color:#888">销售额</div></div>';
+    h += '<div><div style="font-size:16px;font-weight:700;color:#e53935">' + fmtAmt(data['核心经营指标']['毛利额']['月累计']) + '</div><div style="font-size:10px;color:#888">毛利额</div></div>';
+    h += '<div><div style="font-size:16px;font-weight:700;color:' + (data['核心经营指标']['毛利率']['月累计达标'] ? '#137333' : '#e53935') + '">' + (data['核心经营指标']['毛利率']['月累计'] * 100).toFixed(1) + '%</div><div style="font-size:10px;color:#888">毛利率</div></div>';
+    h += '<div><div style="font-size:16px;font-weight:700;color:#1a73e8">' + data['核心经营指标']['订单数']['月累计'] + '</div><div style="font-size:10px;color:#888">订单数</div></div>';
+    h += '</div></div>';
+    h += '</div>';
+
+    if (data['核心经营指标']['亏损订单数']['预警']) {
+        h += '<div style="margin-top:10px;padding:8px 10px;background:#fff3cd;border-radius:6px;font-size:12px;color:#856404">';
+        h += '⚠️ 亏损订单: 今日' + data['核心经营指标']['亏损订单数']['当日'] + '单, 月累计' + data['核心经营指标']['亏损订单数']['月累计'] + '单';
+        h += '</div>';
+    }
+    h += '</div>';
+
+    // ===== 2. 毛利区间分布 =====
+    h += '<div class="card"><div class="card-tit">📈 毛利区间分布（当日）</div>';
+    h += '<div style="overflow-x:auto">';
+    h += '<table style="width:100%;border-collapse:collapse;font-size:11px">';
+    h += '<tr style="background:#1a73e8;color:#fff">';
+    h += '<th style="padding:8px 4px;text-align:left">区间</th>';
+    h += '<th style="padding:8px 4px;text-align:right">销售额</th>';
+    h += '<th style="padding:8px 4px;text-align:right">占比</th>';
+    h += '<th style="padding:8px 4px;text-align:right">目标</th>';
+    h += '<th style="padding:8px 4px;text-align:center">状态</th>';
+    h += '</tr>';
+    
+    data['毛利区间']['当日'].forEach(function(item) {
+        var isWarn = item['预警'] && item['预警'].indexOf('预警') >= 0;
+        var bgColor = isWarn ? '#fff3cd' : (item['预警'] && item['预警'].indexOf('正常') >= 0 ? '#e6f4ea' : '');
+        h += '<tr style="background:' + bgColor + ';border-bottom:1px solid #eee">';
+        h += '<td style="padding:8px 4px">' + item['区间'] + '</td>';
+        h += '<td style="padding:8px 4px;text-align:right;font-weight:500">' + fmtAmt(item['销售额']) + '</td>';
+        h += '<td style="padding:8px 4px;text-align:right">' + (item['占比'] * 100).toFixed(1) + '%</td>';
+        h += '<td style="padding:8px 4px;text-align:right;color:#888">' + (item['目标占比'] * 100).toFixed(0) + '%</td>';
+        h += '<td style="padding:8px 4px;text-align:center;font-size:12px">' + item['预警'] + '</td>';
+        h += '</tr>';
+    });
+    h += '</table></div></div>';
+
+    // ===== 3. 销售目标进度 =====
+    h += '<div class="card"><div class="card-tit">🎯 销售目标进度（月累计）</div>';
+
+    var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
+    regions.forEach(function(region) {
+        var regionData = progress.filter(function(p) { return p['区域'] === region; });
+        if (regionData.length === 0) return;
+        
+        var subtotal = regionData.find(function(p) { return p['业务经理'] === '小计'; });
+        if (subtotal) {
+            var subProgress = parseFloat(subtotal['完成进度'].replace('%','')).toFixed(1);
+            var subColor = parseFloat(subtotal['月累计毛利率']) >= 13 ? '#137333' : '#e53935';
+            h += '<div style="background:#e8f0fe;padding:10px;margin-bottom:10px;border-radius:8px">';
+            h += '<div style="display:flex;justify-content:space-between;align-items:center">';
+            h += '<span style="font-weight:600;color:#1a73e8">' + region + '</span>';
+            h += '<span style="font-size:12px">' + fmtAmt(subtotal['月销售额']) + ' | 进度 <b style="color:#1a73e8">' + subProgress + '%</b> | 毛利 <b style="color:' + subColor + '">' + (subtotal['月累计毛利率'] * 100).toFixed(1) + '%</b></span>';
+            h += '</div>';
+            h += '<div style="margin-top:6px;height:8px;background:#fff;border-radius:4px;overflow:hidden">';
+            h += '<div style="height:100%;width:' + Math.min(subProgress, 100) + '%;background:linear-gradient(90deg,#1a73e8,#0d47a1);border-radius:4px"></div>';
+            h += '</div>';
+            h += '</div>';
+        }
+
+        regionData.filter(function(p) { return p['业务经理'] !== '小计' && p['业务经理'] !== '公司合计'; }).forEach(function(p) {
+            var pProgress = parseFloat(p['完成进度']) || 0;
+            var pColor = parseFloat(p['月累计毛利率']) >= 13 ? '#137333' : '#e53935';
+            var isWang = p['月累计达标'] === '✅';
+            
+            h += '<div style="padding:8px 0;border-bottom:1px solid #f0f0f0">';
+            h += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">';
+            h += '<span style="font-weight:500;font-size:12px;cursor:pointer;color:#1a73e8" onclick="showSalesmanAdvice(\'' + p['业务经理'] + '\')">' + p['业务经理'] + '</span>';
+            h += '<span style="font-size:11px">' + fmtAmt(p['月销售额']) + ' / ' + fmtAmt(p['月度目标']) + ' ' + p['月累计达标'] + '</span></div>';
+            h += '<div style="height:6px;background:#e0e0e0;border-radius:3px;overflow:hidden">';
+            h += '<div style="height:100%;width:' + Math.min(pProgress, 100) + '%;background:' + (isWang ? '#137333' : '#f57c00') + ';border-radius:3px"></div>';
+            h += '</div>';
+            h += '<div style="font-size:10px;color:#888;margin-top:2px">进度' + pProgress + '% | 毛利 <span style="color:' + pColor + '">' + (typeof p['月累计毛利率'] === 'number' ? (p['月累计毛利率'] * 100).toFixed(1) + '%' : p['月累计毛利率']) + '</span></div>';
+            h += '</div>';
+        });
+    });
+
+    var total = progress.find(function(p) { return p['业务经理'] === '公司合计'; });
+    if (total) {
+        var tProgress = parseFloat(total['完成进度']) || 0;
+        h += '<div style="background:#fce8e6;padding:12px;margin-top:10px;border-radius:8px">';
+        h += '<div style="display:flex;justify-content:space-between;align-items:center">';
+        h += '<span style="font-weight:700;color:#c5221f">公司合计</span>';
+        h += '<span style="font-size:13px">' + fmtAmt(total['月销售额']) + ' / ' + fmtAmt(total['月度目标']) + '</span></div>';
+        h += '<div style="margin-top:8px;height:10px;background:#fff;border-radius:5px;overflow:hidden">';
+        h += '<div style="height:100%;width:' + Math.min(tProgress, 100) + '%;background:linear-gradient(90deg,#c5221f,#e53935);border-radius:5px"></div>';
+        h += '</div>';
+        h += '<div style="text-align:center;margin-top:6px;font-size:12px;font-weight:600;color:#c5221f">完成进度: ' + tProgress + '%</div>';
+        h += '</div>';
+    }
+    h += '</div>';
+
+    // ===== 4. 产品系数贡献分析 =====
+    h += '<div class="card"><div class="card-tit">🏷️ 产品系数贡献分析</div>';
+    if (productsData && productsData.length > 0) {
+        var coefGroups = {
+            '⭐自主产品(×1.20)': { sales: 0, count: 0, margin: 0.20 },
+            '💎核心1类(×1.15)': { sales: 0, count: 0, margin: 0.15 },
+            '🔵核心2类(×1.08)': { sales: 0, count: 0, margin: 0.10 },
+            '⚪常规产品(×1.00)': { sales: 0, count: 0, margin: 0 }
+        };
+        var totalSales = 0;
+        productsData.forEach(function(p) {
+            var s = p.sales || p.amount || 0;
+            var m = p.margin || 0;
+            totalSales += s;
+            if (m >= 0.20) { coefGroups['⭐自主产品(×1.20)'].sales += s; coefGroups['⭐自主产品(×1.20)'].count++; }
+            else if (m >= 0.15) { coefGroups['💎核心1类(×1.15)'].sales += s; coefGroups['💎核心1类(×1.15)'].count++; }
+            else if (m >= 0.10) { coefGroups['🔵核心2类(×1.08)'].sales += s; coefGroups['🔵核心2类(×1.08)'].count++; }
+            else { coefGroups['⚪常规产品(×1.00)'].sales += s; coefGroups['⚪常规产品(×1.00)'].count++; }
+        });
+        
+        h += '<table style="width:100%;border-collapse:collapse;font-size:11px">';
+        h += '<tr style="background:#1a73e8;color:#fff"><th style="padding:8px 4px;text-align:left">系数分类</th><th style="padding:8px 4px;text-align:right">产品数</th><th style="padding:8px 4px;text-align:right">销售额</th><th style="padding:8px 4px;text-align:right">占比</th><th style="padding:8px 4px;text-align:right">加权贡献</th></tr>';
+        
+        var coefColors = {'⭐自主产品(×1.20)': '#e8f0fe', '💎核心1类(×1.15)': '#fce8e6', '🔵核心2类(×1.08)': '#e8f7fe', '⚪常规产品(×1.00)': '#f5f5f5'};
+        Object.keys(coefGroups).forEach(function(key) {
+            var g = coefGroups[key];
+            var pct = totalSales > 0 ? (g.sales / totalSales * 100) : 0;
+            var weighted = g.sales * g.margin;
+            h += '<tr style="background:' + coefColors[key] + ';border-bottom:1px solid #eee">';
+            h += '<td style="padding:8px 4px;font-weight:500">' + key + '</td>';
+            h += '<td style="padding:8px 4px;text-align:right">' + g.count + '个</td>';
+            h += '<td style="padding:8px 4px;text-align:right;font-weight:500">' + fmtAmt(g.sales) + '</td>';
+            h += '<td style="padding:8px 4px;text-align:right">' + pct.toFixed(1) + '%</td>';
+            h += '<td style="padding:8px 4px;text-align:right;color:#1a73e8">' + fmtAmt(weighted) + '</td>';
+            h += '</tr>';
+        });
+        
+        var totalWeighted = 0;
+        Object.keys(coefGroups).forEach(function(key) { totalWeighted += coefGroups[key].sales * coefGroups[key].margin; });
+        h += '<tr style="background:#fff3cd;font-weight:600"><td style="padding:8px 4px">合计</td><td style="padding:8px 4px;text-align:right">' + productsData.length + '个</td><td style="padding:8px 4px;text-align:right">' + fmtAmt(totalSales) + '</td><td style="padding:8px 4px;text-align:right">100%</td><td style="padding:8px 4px;text-align:right;color:#1a73e8">' + fmtAmt(totalWeighted) + '</td></tr>';
+        h += '</table>';
+        
+        h += '<div style="margin-top:10px;display:flex;height:20px;border-radius:10px;overflow:hidden">';
+        Object.keys(coefGroups).forEach(function(key) {
+            var pct = totalSales > 0 ? (coefGroups[key].sales / totalSales * 100) : 0;
+            var barColors = {'⭐自主产品(×1.20)': '#1a73e8', '💎核心1类(×1.15)': '#e53935', '🔵核心2类(×1.08)': '#1a73e8', '⚪常规产品(×1.00)': '#bbb'};
+            if (pct > 0) {
+                h += '<div style="width:' + pct + '%;background:' + barColors[key] + ';display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px">' + (pct >= 8 ? pct.toFixed(0) + '%' : '') + '</div>';
+            }
+        });
+        h += '</div>';
+    } else {
+        h += '<div style="font-size:12px;color:#888;padding:10px">暂无产品数据</div>';
+    }
+    h += '</div>';
+
+    // ===== 5. 收入预估 =====
+    h += '<div class="card"><div class="card-tit">📈 收入预估</div>';
+    if (data && data['核心经营指标']) {
+        var now = new Date();
+        var currentDay = now.getDate();
+        var totalDays = new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+        var passedDays = currentDay;
+        var remainingDays = totalDays - passedDays;
+        
+        var monthSales = data['核心经营指标']['销售额']['月累计'] || 0;
+        var daySales = data['核心经营指标']['销售额']['当日'] || 0;
+        var marginRate = data['核心经营指标']['毛利率']['月累计'] || 0;
+        var targetSales = 17500000;
+        
+        var avgDailySales = passedDays > 0 ? monthSales / passedDays : 0;
+        var forecastEndSales = avgDailySales * totalDays;
+        var forecastRate = targetSales > 0 ? (forecastEndSales / targetSales * 100) : 0;
+        var forecastMargin = forecastEndSales * marginRate;
+        var targetGap = targetSales - monthSales;
+        var dailyNeed = remainingDays > 0 ? targetGap / remainingDays : 0;
+        
+        var probabilityText = '';
+        var probabilityColor = '';
+        if (forecastRate >= 100) { 
+            probabilityText = '🌟 高概率(>80%)'; 
+            probabilityColor = '#137333';
+        } else if (forecastRate >= 90) { 
+            probabilityText = '🟡 中等(50-80%)'; 
+            probabilityColor = '#f57c00';
+        } else { 
+            probabilityText = '🔴 需努力(<50%)'; 
+            probabilityColor = '#e53935';
+        }
+        
+        h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">';
+        h += '<div style="background:#e8f0fe;padding:12px;border-radius:8px;text-align:center">';
+        h += '<div style="font-size:10px;color:#888;margin-bottom:4px">月底预计收入</div>';
+        h += '<div style="font-size:18px;font-weight:700;color:#1a73e8">' + fmtAmt(forecastEndSales) + '</div>';
+        h += '<div style="font-size:11px;color:' + (forecastRate >= 100 ? '#137333' : '#e53935') + ';margin-top:4px">预计完成 ' + forecastRate.toFixed(1) + '%</div>';
+        h += '</div>';
+        
+        h += '<div style="background:#fff3cd;padding:12px;border-radius:8px;text-align:center">';
+        h += '<div style="font-size:10px;color:#888;margin-bottom:4px">月底预计毛利</div>';
+        h += '<div style="font-size:18px;font-weight:700;color:#856404">' + fmtAmt(forecastMargin) + '</div>';
+        h += '<div style="font-size:11px;color:#888;margin-top:4px">毛利率 ' + (marginRate * 100).toFixed(1) + '%</div>';
+        h += '</div>';
+        h += '</div>';
+        
+        h += '<div style="display:flex;justify-content:space-between;align-items:center;background:#f8f9fa;padding:10px;border-radius:8px;margin-bottom:12px">';
+        h += '<span style="font-size:12px;color:#666">目标达成概率</span>';
+        h += '<span style="font-size:13px;font-weight:600;color:' + probabilityColor + '">' + probabilityText + '</span>';
+        h += '</div>';
+        
+        h += '<div style="margin-bottom:12px">';
+        h += '<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:6px">';
+        h += '<span>当前已完成 ' + fmtAmt(monthSales) + '</span>';
+        h += '<span>目标 ' + fmtAmt(targetSales) + '</span>';
+        h += '</div>';
+        h += '<div style="height:10px;background:#e0e0e0;border-radius:5px;overflow:hidden">';
+        var actualProgress = targetSales > 0 ? (monthSales / targetSales * 100) : 0;
+        var forecastProgress = Math.min(forecastRate, 100);
+        h += '<div style="display:inline-block;height:100%;width:' + actualProgress + '%;background:linear-gradient(90deg,#1a73e8,#0d47a1);border-radius:5px 0 0 5px;vertical-align:top" title="已完成"></div>';
+        if (forecastProgress > actualProgress) {
+            h += '<div style="display:inline-block;height:100%;width:' + (forecastProgress - actualProgress) + '%;background:linear-gradient(90deg,#0d47a1,#4285f4);border-radius:0 5px 5px 0;vertical-align:top;opacity:0.5" title="预计可达"></div>';
+        }
+        h += '</div>';
+        h += '</div>';
+        
+        h += '<table style="width:100%;border-collapse:collapse;font-size:11px">';
+        h += '<tr style="background:#1a73e8;color:#fff">';
+        h += '<th style="padding:8px 4px;text-align:left">时间进度</th>';
+        h += '<th style="padding:8px 4px;text-align:right">累计销售</th>';
+        h += '<th style="padding:8px 4px;text-align:right">日均销售</th>';
+        h += '<th style="padding:8px 4px;text-align:right">日需完成</th>';
+        h += '</tr>';
+        
+        h += '<tr style="background:#f8f9fa">';
+        h += '<td style="padding:8px 4px">第 ' + currentDay + ' 天 / 共 ' + totalDays + '天</td>';
+        h += '<td style="padding:8px 4px;text-align:right;font-weight:500">' + fmtAmt(monthSales) + '</td>';
+        h += '<td style="padding:8px 4px;text-align:right">' + fmtAmt(avgDailySales) + '</td>';
+        h += '<td style="padding:8px 4px;text-align:right;color:' + (daySales >= dailyNeed ? '#137333' : '#e53935') + ';font-weight:600">' + fmtAmt(dailyNeed) + '</td>';
+        h += '</tr>';
+        h += '</table>';
+        
+        h += '<div style="margin-top:10px;font-size:11px;text-align:center">';
+        var todayStatus = daySales >= dailyNeed ? '✅ 今日已达标' : '⚠️ 今日还差 ' + fmtAmt(dailyNeed - daySales);
+        h += '<span style="color:' + (daySales >= dailyNeed ? '#137333' : '#e53935') + ';font-weight:500">' + todayStatus + '</span>';
+        h += '，剩余 ' + remainingDays + ' 天还需完成 <b style="color:#1a73e8">' + fmtAmt(targetGap) + '</b>';
+        h += '</div>';
+    } else {
+        h += '<div style="font-size:12px;color:#888;padding:10px">暂无数据</div>';
+    }
+    h += '</div>';
+
+    document.getElementById('rptContent').innerHTML = h;
+}
+
 function fmtAmt(amt) {
     if (typeof amt !== 'number') return amt || '0';
     if (amt >= 10000) return (amt / 10000).toFixed(1) + 'w';
