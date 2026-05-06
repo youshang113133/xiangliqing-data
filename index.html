@@ -168,14 +168,13 @@ var dataUpdateTime = '2026-04-26';
 async function fetchCloudData() {
   const CDN = "https://cdn.jsdelivr.net/gh/xiangliqing888/xiangliqing-data@main";
   try {
-    const r1 = await fetch(CDN+"/data.json?t="+Date.now());
-    window.dailyReportData = await r1.json();
-    const r2 = await fetch(CDN+"/data_core.json?t="+Date.now());
-    const d = await r2.json();
-    window.customersData = d.customers||[];
-    window.allCustomers = d.customers||[];
-    window.productsData = d.products||[];
-    window.salesProgressData = d.salesProgress||[];
+    const r1 = await fetch(CDN+"/data_core.json?t="+Date.now());
+    const d = await r1.json();
+    window.dailyReportData = d.dailyReportData||{};
+    window.salesProgressData = d.salesProgressData||[];
+    window.customersData = d.customersData||[];
+    window.allCustomers = d.customersData||[];
+    window.productsData = d.productsData||[];
     document.getElementById("rptDate").textContent = "更新: "+new Date().toLocaleString("zh-CN");
     renderReport();renderProduct();resetCustomerPage();
   } catch(e) { document.getElementById("rptDate").textContent="加载失败";console.error(e); }
