@@ -237,7 +237,7 @@ function renderReport() {
 
 
     // 亏损预警
-    if (data['核心经营指标']['亏损订单数']['预警']) {
+    if (data['核心经营指标']['亏损订单数'] && data['核心经营指标']['亏损订单数']['预警']) {
         h += '<div style="margin-top:10px;padding:8px 10px;background:#fff3cd;border-radius:6px;font-size:12px;color:#856404">';
         h += '⚠️ 亏损订单: 今日' + data['核心经营指标']['亏损订单数']['当日'] + '单, 月累计' + data['核心经营指标']['亏损订单数']['月累计'] + '单';
         h += '</div>';
@@ -256,7 +256,7 @@ function renderReport() {
     h += '<th style="padding:8px 4px;text-align:center">状态</th>';
     h += '</tr>';
     
-    data['毛利区间']['当日'].forEach(function(item) {
+    (data['毛利区间'] data['毛利区间']['当日'].forEachdata['毛利区间']['当日'].forEach data['毛利区间']['当日'] || []).forEach(function(item) {
         var isWarn = item['预警'] && item['预警'].indexOf('预警') >= 0;
         var bgColor = isWarn ? '#fff3cd' : (item['预警'] && item['预警'].indexOf('正常') >= 0 ? '#e6f4ea' : '');
         h += '<tr style="background:' + bgColor + ';border-bottom:1px solid #eee">';
