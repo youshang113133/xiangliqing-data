@@ -3,10 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>湘里情智营v12.0·客户决策</title>
+<title>湘里情智营v12.1·客户决策</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;font-size:14px;line-height:1.6;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1)}
+
+/* ===== 全局字体规范 ===== */
+body{font-size:14px;line-height:1.6}
+.card-tit{font-size:15px;font-weight:600;margin-bottom:12px;color:#333}
+.big-num{font-size:22px;font-weight:700}
+.assist-text{font-size:12px;color:#888}
+.table-text{font-size:10px}
+
+/* ===== 间距规范 ===== */
+.pg{padding:12px;padding-bottom:70px}
+.pg-hd{padding:14px 12px}
+.card{padding:12px;margin-bottom:10px}
+.card-inner{padding:12px}
+.list-item{margin-bottom:8px}
+
+/* ===== 颜色规范 ===== */
+:root{
+  --primary:#1a73e8;
+  --success:#34a853;
+  --warning:#ea4335;
+  --neutral:#9aa0a6;
+  --bg:#f5f5f5;
+  --card:#fff;
+  --radius:8px;
+  --shadow:0 1px 3px rgba(0,0,0,0.1)
+}
 
 /* 登录页 */
 #loginPage{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#1a4fa0 0%,#1a73e8 50%,#4fc3f7 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999}
@@ -35,23 +61,23 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 .logout-btn{background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);color:#fff;padding:4px 10px;border-radius:12px;font-size:11px;cursor:pointer}
 
 /* 页面容器 */
-.pg{display:none;padding:12px;padding-bottom:70px}
+.pg{display:none}
 .pg.on{display:block}
-.pg-hd{background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;padding:14px 12px}
+.pg-hd{background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff}
 .pg-hd h1{font-size:17px}
 .pg-hd p{font-size:11px;opacity:.9}
 .search{padding:10px 14px;border:2px solid #e0e0e0;border-radius:20px;font-size:14px;width:100%;margin:10px 0}
 .fl{display:flex;gap:6px;margin-bottom:10px}
 .fl select{flex:1;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;background:#fff}
-.card{background:#fff;border-radius:10px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:12px}
-.card-tit{font-size:14px;font-weight:600;margin-bottom:12px;color:#333}
+.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow)}
+.card-tit{font-size:15px;font-weight:600;margin-bottom:12px;color:#333}
 .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:13px}
 .row:last-child{border-bottom:none}
 .lb{color:#888}
 .vl{color:#333;font-weight:500}
 .vl-r{color:#e53935;font-weight:600}
 .vl-g{color:#137333;font-weight:600}
-.it{padding:12px;border-bottom:1px solid #eee;cursor:pointer;border-radius:8px;margin-bottom:8px;background:#fff;transition:background .2s}
+.it{padding:12px;border-bottom:1px solid #eee;cursor:pointer;border-radius:var(--radius);margin-bottom:8px;background:#fff;transition:background .2s}
 .it:active{background:#f0f0f0}
 .tag{padding:2px 8px;border-radius:8px;font-size:10px;font-weight:500}
 .tag-g{background:#e6f4ea;color:#137333}
@@ -68,7 +94,7 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 .stat-num{font-size:22px;font-weight:700;color:#1a73e8}
 .stat-lbl{font-size:10px;color:#888;margin-top:4px}
 .prd-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.prd-card{background:#fff;border-radius:10px;padding:12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.prd-card{background:#fff;border-radius:var(--radius);padding:12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
 .prd-nm{font-size:12px;font-weight:500;color:#333;margin-bottom:6px;line-height:1.4}
 .prd-pr{color:#e53935;font-weight:700;font-size:15px}
 .loading{padding:50px;text-align:center;color:#888;font-size:14px}
@@ -92,8 +118,8 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 .refresh-btn{position:fixed;top:60px;right:12px;z-index:99;background:#fff;border:1px solid #ddd;border-radius:20px;padding:6px 12px;font-size:11px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
 
 /* ===== 工作台样式 ===== */
-.workbench-card{background:#fff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.wb-section-tit{font-size:14px;font-weight:600;color:#333;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.workbench-card{background:#fff;border-radius:var(--radius);padding:16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.wb-section-tit{font-size:15px;font-weight:600;color:#333;margin-bottom:12px;display:flex;align-items:center;gap:6px}
 
 /* 今日数据 */
 .wb-today-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
@@ -117,10 +143,10 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 .commission-lbl{font-size:10px;color:#888;margin-top:4px}
 .commission-total{padding:12px;background:#fff;border-radius:8px;margin-top:10px;text-align:center}
 .commission-total-lbl{font-size:11px;color:#888}
-.commission-total-val{font-size:28px;font-weight:700;color:#e65100}
+.commission-total-val{font-size:24px;font-weight:700;color:#e65100}
 
 /* 折叠面板 */
-.fold-card{background:#fff;border-radius:12px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden}
+.fold-card{background:#fff;border-radius:var(--radius);margin-bottom:12px;box-shadow:var(--shadow);overflow:hidden}
 .fold-hd{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer}
 .fold-hd:active{background:#f8f9fa}
 .fold-tit{font-size:14px;font-weight:600;color:#333;display:flex;align-items:center;gap:8px}
@@ -179,7 +205,7 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 .calc-result-val.r{color:#e53935}
 .calc-result-val.g{color:#4caf50}
 .calc-result-val.y{color:#ff9800}
-.calc-btn{width:100%;padding:14px;background:#1a73e8;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;margin-top:12px}
+.calc-btn{width:100%;padding:14px;background:#1a73e8;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:12px}
 .calc-btn:active{background:#1557b0}
 
 /* 同区域对比 */
@@ -194,6 +220,120 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 .cat-btn{padding:8px 12px;border:1px solid #ddd;border-radius:20px;font-size:11px;cursor:pointer;background:#fff;color:#666}
 .cat-btn:active{background:#f0f0f0}
 .cat-btn.active{background:#c62828;color:#fff;border-color:#1a73e8}
+
+/* ===== 新增模块样式 ===== */
+
+/* 子Tab导航 */
+.sub-tabs{display:flex;background:#fff;margin-bottom:12px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.sub-tab{flex:1;padding:12px;text-align:center;font-size:13px;color:#666;cursor:pointer;transition:all .2s}
+.sub-tab:active{background:#f0f0f0}
+.sub-tab.on{color:#1a73e8;font-weight:600;background:#e8f0fe}
+.sub-tab.on::after{content:'';display:block;height:2px;background:#1a73e8;margin-top:8px}
+
+/* 终端开拓 */
+.terminal-progress{margin-bottom:16px}
+.terminal-progress-bar{height:12px;background:#e0e0e0;border-radius:6px;overflow:hidden;margin-top:8px}
+.terminal-progress-fill{height:100%;border-radius:6px;transition:width .3s;background:linear-gradient(90deg,#1a73e8,#4fc3f7)}
+.terminal-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.terminal-stat{text-align:center;padding:10px;background:#f8f9fa;border-radius:8px}
+.terminal-stat-num{font-size:18px;font-weight:700;color:#1a73e8}
+.terminal-stat-lbl{font-size:10px;color:#888}
+.terminal-item{background:#fff;border-radius:8px;padding:12px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.terminal-item-hd{display:flex;justify-content:space-between;align-items:center}
+.terminal-name{font-size:14px;font-weight:500;color:#333}
+.terminal-type{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:500}
+.type-canyin{background:#fce8e6;color:#c5221f}
+.type-shengxian{background:#e8f5e9;color:#137333}
+.type-chaoshi{background:#e3f2fd;color:#1a73e8}
+.type-nongmao{background:#fff3e0;color:#e65100}
+.terminal-addr{font-size:12px;color:#888;margin-top:6px}
+.terminal-contact{font-size:12px;color:#666;margin-top:4px}
+.terminal-contact::before{content:'📞 '}
+.terminal-actions{display:flex;gap:8px;margin-top:8px}
+.terminal-btn{padding:6px 12px;border-radius:6px;font-size:11px;cursor:pointer;border:1px solid #ddd;background:#fff}
+.terminal-btn:active{background:#f0f0f0}
+.terminal-btn.contacted{border-color:#34a853;background:#e6f4ea;color:#137333}
+
+/* 退货率看板 */
+.return-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.return-stat{text-align:center;padding:12px;background:#f8f9fa;border-radius:8px}
+.return-stat-num{font-size:18px;font-weight:700;color:#1a73e8}
+.return-stat-lbl{font-size:10px;color:#888}
+.return-line{position:relative;height:40px;margin:8px 0}
+.return-line-bar{height:8px;background:#f0f0f0;border-radius:4px;overflow:hidden}
+.return-line-fill{height:100%;border-radius:4px}
+.return-threshold{position:absolute;width:2px;height:16px;background:#ea4335;top:12px}
+.return-threshold-label{position:absolute;font-size:10px;color:#ea4335;white-space:nowrap;top:22px;left:-20px}
+.return-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid #f0f0f0;cursor:pointer}
+.return-row:active{background:#f8f9fa}
+.return-rank{width:24px;font-size:12px;color:#888;text-align:center}
+.return-name{font-size:13px;font-weight:500;flex:1}
+.return-rate{font-size:14px;font-weight:600;margin-right:8px}
+.return-tag{padding:2px 6px;border-radius:6px;font-size:10px}
+.rate-excellent{background:#e6f4ea;color:#137333}
+.rate-good{background:#e8f0fe;color:#1a73e8}
+.rate-warning{background:#fef7e0;color:#e37400}
+.rate-danger{background:#fce8e6;color:#c5221f}
+
+/* 话术库 */
+.scripts-search{padding:10px 14px;background:#f8f9fa;border-radius:var(--radius);margin-bottom:12px}
+.scripts-search input{width:100%;padding:10px;border:1px solid #e0e0e0;border-radius:8px;font-size:14px}
+.script-category{margin-bottom:16px}
+.script-category-tit{font-size:14px;font-weight:600;color:#333;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.script-item{background:#fff;border-radius:8px;padding:12px;margin-bottom:8px;box-shadow:var(--shadow)}
+.script-content{font-size:13px;color:#333;line-height:1.6;margin-bottom:10px}
+.script-content::before{content:'💬 '}
+.script-copy{background:#1a73e8;color:#fff;border:none;padding:6px 14px;border-radius:6px;font-size:12px;cursor:pointer}
+.script-copy:active{background:#1557b0}
+
+/* 补货提醒 */
+.replenish-item{display:flex;align-items:center;padding:12px;background:#fff;border-radius:8px;margin-bottom:8px;box-shadow:var(--shadow)}
+.replenish-info{flex:1}
+.replenish-name{font-size:14px;font-weight:500;color:#333}
+.replenish-meta{font-size:11px;color:#888;margin-top:4px}
+.replenish-products{font-size:11px;color:#666;margin-top:2px}
+.replenish-btn{background:#ff9800;color:#fff;border:none;padding:8px 14px;border-radius:6px;font-size:12px;cursor:pointer}
+.replenish-btn:active{background:#f57c00}
+.replenish-overdue{color:#ea4335;font-weight:600}
+
+/* 临期特惠 */
+.near-expire-banner{background:linear-gradient(135deg,#ff9800,#e65100);color:#fff;padding:12px;border-radius:var(--radius);margin-bottom:12px;cursor:pointer}
+.near-expire-banner:active{opacity:0.9}
+.near-expire-tit{font-size:14px;font-weight:600;margin-bottom:4px}
+.near-expire-desc{font-size:11px;opacity:0.9}
+.near-expire-item{background:#fff;border-radius:8px;padding:12px;margin-bottom:8px;box-shadow:var(--shadow)}
+.near-expire-product{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.near-expire-name{font-size:14px;font-weight:500;color:#333}
+.near-expire-days{font-size:11px;color:#ea4335;font-weight:600}
+.near-expire-price{display:flex;gap:8px;align-items:center}
+.near-expire-original{font-size:12px;color:#888;text-decoration:line-through}
+.near-expire-current{font-size:16px;font-weight:700;color:#e53935}
+.near-expire-recommend{font-size:11px;color:#888;margin-top:4px}
+.near-expire-btn{width:100%;padding:10px;background:#ff9800;color:#fff;border:none;border-radius:6px;font-size:13px;cursor:pointer;margin-top:8px}
+.near-expire-btn:active{background:#f57c00}
+
+/* 质检报告按钮 */
+.product-extra-btns{display:flex;gap:8px;margin-top:12px}
+.product-extra-btn{flex:1;padding:10px;text-align:center;border-radius:6px;font-size:12px;cursor:pointer;border:1px solid #ddd;background:#fff;color:#666}
+.product-extra-btn:active{background:#f0f0f0}
+.product-extra-btn::before{margin-right:4px}
+
+/* 按钮统一样式 */
+.btn{height:36px;padding:0 16px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;border:none;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn-primary{background:#1a73e8;color:#fff}
+.btn-primary:active{background:#1557b0}
+.btn-warning{background:#ff9800;color:#fff}
+.btn-warning:active{background:#f57c00}
+.btn-success{background:#34a853;color:#fff}
+.btn-success:active{background:#2d8f47}
+
+/* 覆盖率排名 */
+.coverage-rank{margin-top:12px}
+.coverage-item{display:flex;align-items:center;padding:8px 0;border-bottom:1px solid #f5f5f5}
+.coverage-item:last-child{border-bottom:none}
+.coverage-rank-num{width:20px;font-size:11px;color:#888;text-align:center}
+.coverage-dept{font-size:13px;color:#333;flex:1}
+.coverage-percent{font-size:14px;font-weight:600;color:#1a73e8}
 </style>
 </head>
 <body>
@@ -203,7 +343,7 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 <div class="login-box">
 <div class="login-logo">
 <h1>🌶️ 湘里情智营</h1>
-<p>客户决策系统 v12.0</p>
+<p>客户决策系统 v12.1</p>
 </div>
 <input type="text" class="login-input" id="loginUsername" placeholder="请输入用户名" autocomplete="off">
 <input type="password" class="login-input" id="loginPassword" placeholder="请输入密码" autocomplete="off">
@@ -215,7 +355,7 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 
 <!-- 顶部栏 -->
 <div id="topBar" class="top-bar" style="display:none">
-<div class="top-bar-l"><h1>🌶️ 湘里情智营</h1></div>
+<div class="top-bar-l"><h1>🌶️ 湘里情营</h1></div>
 <div class="top-bar-r">
 <div class="user-info">
 <span class="username" id="currentUsername">-</span>
@@ -240,6 +380,10 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 <!-- 产品页 -->
 <div id="pgProduct" class="pg">
 <div class="pg-hd"><h1>📦 产品中心</h1><p>高毛利产品推荐</p></div>
+<div id="nearExpireBanner" class="near-expire-banner" onclick="showNearExpireProducts()">
+<div class="near-expire-tit">⚠️ 临期特惠</div>
+<div class="near-expire-desc">查看临期产品特惠价格，限时抢购</div>
+</div>
 <button class="quote-btn" onclick="openQuoteModal()">💰 快速报价</button>
 <input type="search" class="search" id="pSk" placeholder="搜索产品名称..." oninput="renderProduct()">
 <div class="category-filter" id="categoryFilter">
@@ -285,13 +429,20 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 <!-- 目标进度页 -->
 <div id="pgTarget" class="pg">
 <div class="pg-hd"><h1>🎯 目标进度</h1><p>2026年目标达成追踪</p></div>
+<div class="sub-tabs">
+<div class="sub-tab on" data-tab="progress" onclick="switchTargetTab('progress')">目标进度</div>
+<div class="sub-tab" data-tab="return" onclick="switchTargetTab('return')">退货率</div>
+</div>
 <div id="targetContent">
-  <div class="fl" style="padding:10px 14px;background:#f8f9fa;">
-    <select id="targetSalesman" onchange="renderTargetProgress()" style="flex:1">
-      <option value="">全部业务员</option>
-    </select>
+  <div id="targetProgress">
+    <div class="fl" style="padding:10px 14px;background:#f8f9fa;">
+      <select id="targetSalesman" onchange="renderTargetProgress()" style="flex:1">
+        <option value="">全部业务员</option>
+      </select>
+    </div>
+    <div id="targetCards"></div>
   </div>
-  <div id="targetCards"></div>
+  <div id="targetReturn" style="display:none"></div>
 </div>
 </div>
 
@@ -358,6 +509,19 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 </div>
 </div>
 
+<!-- 话术库弹窗 -->
+<div id="scriptsModal" class="md" onclick="closeScriptsModal()">
+<div class="md-ct" onclick="event.stopPropagation()">
+<div class="md-hd"><div class="md-tt">💬 话术库</div><button class="md-cl" onclick="closeScriptsModal()">×</button></div>
+<div class="md-bd">
+<div class="scripts-search">
+<input type="search" id="scriptSearchInput" placeholder="搜索话术..." oninput="searchScripts()">
+</div>
+<div id="scriptsContent"></div>
+</div>
+</div>
+</div>
+
 <script>
 // ===== 数据配置 =====
 var DATA_BASE = './';
@@ -368,7 +532,8 @@ var DATA_FILES = {
   data_coef: { file: 'data_coef.json', required: true },
   data_extra: { file: 'data_extra.json', required: false },
   data_recs: { file: 'data_recs.json', required: false },
-  data_commission: { file: 'data_commission.json', required: false }
+  data_commission: { file: 'data_commission.json', required: false },
+  data_terminal: { file: 'data_terminal.json', required: false }
 };
 
 var dailyReportData = null;
@@ -384,11 +549,52 @@ var salesTargetMap = {};
 var commissionData = {};
 var productPortraitData = {};
 var customerPortraitData = {};
-var dataLoaded = { data_report: false, data_product: false, data_customer: false, data_coef: false, data_extra: false, data_recs: false, data_commission: false };
+var terminalData = [];
+var dataLoaded = { data_report: false, data_product: false, data_customer: false, data_coef: false, data_extra: false, data_recs: false, data_commission: false, data_terminal: false };
 var currentTab = 'Report';
 var dataVersion = '';
 var dataUpdateTime = '';
 var dataFromCache = false;
+
+// ===== 话术库数据 =====
+var SCRIPTS_DATA = [
+  { category: '新客户开发', scripts: [
+    '您好，我是湘里情冷冻食材的XX，专注冷冻食材批发XX年，服务湖南4000+餐饮客户，品质稳定送货上门。',
+    '您好老板！我们是湖南本土冷冻食材厂家，主营水产品/肉制品/素菜，品质稳定价格实惠，可以免费试销。',
+    'X总您好，听说您这边做餐饮的，我们有渠道优势，给您报个价看看？同类产品比市场价低10-15%。',
+    '老板您好，我是湘里情小李，我们专业做冷冻食材配送，给您看看我们的产品目录？'
+  ]},
+  { category: '流失挽回', scripts: [
+    'X总好久没联系了，最近我们上了几款新品，同类客户反馈很好，给您送样试试？',
+    '李总，上次给您送的那批货用完了吗？这边有新品到，给您留了点样品。',
+    'X总，之前合作一直很愉快，最近听说您换了供应商，不知道我们这边有什么可以改进的？',
+    '老板好！好久没见您下单了，最近我们搞活动，新客户首单9折，给您送点样品试试？'
+  ]},
+  { category: '压价应对', scripts: [
+    '理解您的想法，我们是厂家直供品质稳定，算下来综合后厨成本其实更低。',
+    'X总，价格可以谈，但品质不能降。我们是源头厂家，没有中间商，性价比最高。',
+    '老板，现在原材料都在涨，我们还能维持这个价格已经很不容易了，要不您少拿点量？',
+    '理解您控制成本的需求，我们给您换个包装规格试试？性价比更高。'
+  ]},
+  { category: '催款', scripts: [
+    'X总您好，这期待结货款X元，麻烦这周安排一下，下批货我帮您优先安排发货。',
+    '老板您好，上个月的货款还没结清，今天方便转一下吗？财务那边在催了。',
+    'X总，结款的事麻烦您抽空处理一下，下次送货我好安排时间。',
+    '您好李总，账期到了，这边对一下账单，您看什么时候方便安排付款？'
+  ]},
+  { category: '新品推广', scripts: [
+    'X总，我们新到了一款XX，在同类餐饮客户里复购率很高，给您带点样试试？',
+    '老板，新到一批鲜活水产，品质很好，给您留了几斤尝尝？',
+    '李总，我们刚上了一款网红产品，很多餐饮店都在用，要不要试试？',
+    'X总，这边有款新品在做推广，买二送一活动，给您拿几件试试？'
+  ]},
+  { category: '竞品应对', scripts: [
+    '我们的产品全程冷链可溯源，新鲜度比市面上高2天，算综合成本其实更划算。',
+    'X总，一分价钱一分货，我们虽然贵一点，但损耗少、出品稳定，综合成本更低。',
+    '老板，他们价格低是因为品质不一样，您用一次就知道差别了。',
+    '我们是大厂家，质检合格证齐全，您卖着放心；小厂的产品万一出问题，麻烦的是您。'
+  ]}
+];
 
 // ===== 登录系统 =====
 var CURRENT_USER = null;
@@ -431,6 +637,14 @@ var DEPT_MEMBERS = {
 };
 
 var DUAL_ROLE_MANAGERS = ['刘文', '彭菊华', '陆美英'];
+
+// ===== 区域映射 =====
+var REGION_DEPT_MAP = {
+  '湖北': '省外业务部', '江西': '省外业务部', '广东': '省外业务部', '广西': '省外业务部', '贵州': '省外业务部',
+  '长沙': '长株潭业务部', '株洲': '长株潭业务部', '湘潭': '长株潭业务部',
+  '湖南': '省内业务部', '衡阳': '省内业务部', '岳阳': '省内业务部', '常德': '省内业务部', '张家界': '省内业务部',
+  '益阳': '省内业务部', '郴州': '省内业务部', '永州': '省内业务部', '怀化': '省内业务部', '娄底': '省内业务部', '邵阳': '省内业务部'
+};
 
 function checkLoginStatus() {
   var savedUser = localStorage.getItem('xlq_current_user');
@@ -536,12 +750,13 @@ function applyDataToGlobals(key, data) {
     case 'data_coef': productCoefMap = data.productCoefMap || {}; customerCoefMap = data.customerCoefMap || {}; productMarginMap = data.productMarginMap || {}; productMarginNameMap = data.productMarginNameMap || {}; salesTargetMap = data.salesTargetMap || {}; break;
     case 'data_extra': commissionData = data.commissionData || {}; productPortraitData = data.productPortraitData || {}; customerPortraitData = data.customerPortraitData || {}; break;
     case 'data_commission': commissionData = data || {}; break;
+    case 'data_terminal': terminalData = data.terminals || []; break;
   }
   dataLoaded[key] = true;
 }
 
 async function initData() {
-  await Promise.all([loadDataFile('data_report'), loadDataFile('data_coef'), loadDataFile('data_extra'), loadDataFile('data_customer'), loadDataFile('data_commission')]);
+  await Promise.all([loadDataFile('data_report'), loadDataFile('data_coef'), loadDataFile('data_extra'), loadDataFile('data_customer'), loadDataFile('data_commission'), loadDataFile('data_terminal')]);
   applyFixedDataMaps();
   applyCustomerTier();
   if (USER_ROLE === 'Admin' || USER_ROLE === 'Manager') { switchTab('Report'); } else { switchTab('Workbench'); }
@@ -601,6 +816,18 @@ function renderSalesPersonalView() {
   // 今日跟进清单（功能17）
   h += renderFollowChecklist();
   
+  // 补货提醒
+  h += renderReplenishReminder();
+  
+  // 话术库入口
+  h += '<div class="workbench-card" onclick="openScriptsModal()" style="cursor:pointer">';
+  h += '<div class="wb-section-tit">💬 话术库</div>';
+  h += '<div style="font-size:12px;color:#666">点击查看常用销售话术，支持一键复制</div>';
+  h += '</div>';
+  
+  // 终端开拓
+  h += renderTerminal开拓();
+  
   return h;
 }
 
@@ -616,7 +843,439 @@ function renderManagerPersonalView() {
   h += '<div class="wb-today-item"><div class="wb-today-num">' + todayData.todayNewCust + '</div><div class="wb-today-lbl">新增客户</div></div>';
   h += '</div></div>';
   h += '<div class="commission-card"><div class="commission-total"><div class="commission-total-lbl">预估总收入</div><div class="commission-total-val">' + progress.totalIncome.toLocaleString() + ' <span style="font-size:14px">元</span></div></div></div>';
+  
+  // 终端开拓（区域经理看各区域排名）
+  h += renderTerminalCoverageRank();
+  
   return h;
+}
+
+// ===== 模块4：补货提醒 =====
+function renderReplenishReminder() {
+  var reminders = getReplenishReminders();
+  if (reminders.length === 0) return '';
+  
+  var h = '<div class="fold-card">';
+  h += '<div class="fold-hd" onclick="toggleFold(\'replenish\')">';
+  h += '<div class="fold-tit">📦 补货提醒 <span class="fold-badge" style="background:#fff3e0;color:#e65100">' + reminders.length + '</span></div>';
+  h += '<span class="fold-arrow" id="replenishArrow">▼</span>';
+  h += '</div>';
+  h += '<div class="fold-bd" id="replenishBd">';
+  h += '<div class="fold-bd-inner">';
+  
+  reminders.slice(0, 5).forEach(function(item) {
+    var overdueClass = item.overdue > 7 ? ' replenish-overdue' : '';
+    h += '<div class="replenish-item">';
+    h += '<div class="replenish-info">';
+    h += '<div class="replenish-name' + overdueClass + '">' + item.name + '</div>';
+    h += '<div class="replenish-meta">上次采购 ' + item.days + ' 天前</div>';
+    h += '<div class="replenish-products">常购: ' + item.products + '</div>';
+    h += '</div>';
+    h += '<button class="replenish-btn" onclick="event.stopPropagation();showCustomerDetail(\'' + item.id + '\')">提醒</button>';
+    h += '</div>';
+  });
+  
+  h += '</div></div></div>';
+  return h;
+}
+
+function getReplenishReminders() {
+  var reminders = [];
+  var myCustomers = customersData.filter(function(c) { return c.salesman === CURRENT_USER; });
+  var myCustomerIds = myCustomers.map(function(c) { return c.id; });
+  
+  Object.keys(customerPortraitData || {}).forEach(function(id) {
+    if (myCustomerIds.indexOf(id) < 0) return;
+    var fp = customerPortraitData[id];
+    var lpd = String(fp.lpd || '');
+    if (!lpd) return;
+    var days = getDaysSince(lpd);
+    // 假设历史采购周期为15天，超过12天就提醒
+    if (days >= 12 && days <= 60) {
+      var overdue = days - 12;
+      reminders.push({
+        id: id,
+        name: fp.n || '-',
+        days: days,
+        overdue: overdue,
+        products: String(fp.topProducts || '').substring(0, 20) || '常规产品'
+      });
+    }
+  });
+  
+  reminders.sort(function(a, b) { return b.days - a.days; });
+  return reminders;
+}
+
+// ===== 模块1：终端开拓 =====
+function renderTerminal开拓() {
+  var myRegion = getMyRegion();
+  var myTerminals = terminalData.filter(function(t) {
+    return t.region === myRegion && t.status !== '已联系';
+  });
+  
+  if (myTerminals.length === 0) {
+    // 生成模拟数据
+    myTerminals = generateMockTerminals(myRegion, 10);
+  }
+  
+  var total = 30; // 假设本区域总终端数
+  var covered = total - myTerminals.length;
+  var rate = total > 0 ? Math.round((covered / total) * 100) : 0;
+  
+  var h = '<div class="fold-card">';
+  h += '<div class="fold-hd" onclick="toggleFold(\'terminal\')">';
+  h += '<div class="fold-tit">🗺️ 终端开拓 <span class="fold-badge" style="background:#e8f0fe;color:#1a73e8">' + rate + '%</span></div>';
+  h += '<span class="fold-arrow" id="terminalArrow">▼</span>';
+  h += '</div>';
+  h += '<div class="fold-bd expanded" id="terminalBd">';
+  h += '<div class="fold-bd-inner">';
+  
+  // 覆盖率进度
+  h += '<div class="terminal-progress">';
+  h += '<div style="font-size:12px;color:#666">覆盖率: 已覆盖 <b>' + covered + '</b> / <b>' + total + '</b> 家</div>';
+  h += '<div class="terminal-progress-bar"><div class="terminal-progress-fill" style="width:' + rate + '%"></div></div>';
+  h += '</div>';
+  
+  // 筛选按钮
+  h += '<div class="category-filter" style="margin-bottom:10px">';
+  h += '<button class="cat-btn active" data-type="全部" onclick="filterTerminal(\'全部\', this)">全部</button>';
+  h += '<button class="cat-btn" data-type="餐饮" onclick="filterTerminal(\'餐饮\', this)">餐饮</button>';
+  h += '<button class="cat-btn" data-type="生鲜超市" onclick="filterTerminal(\'生鲜超市\', this)">生鲜超市</button>';
+  h += '<button class="cat-btn" data-type="超市" onclick="filterTerminal(\'超市\', this)">超市</button>';
+  h += '<button class="cat-btn" data-type="农贸市场" onclick="filterTerminal(\'农贸市场\', this)">农贸市场</button>';
+  h += '</div>';
+  
+  // 终端列表
+  h += '<div id="terminalList">';
+  myTerminals.slice(0, 10).forEach(function(t) {
+    var typeClass = getTerminalTypeClass(t.type);
+    h += '<div class="terminal-item" onclick="toggleTerminalDetail(this)">';
+    h += '<div class="terminal-item-hd">';
+    h += '<span class="terminal-name">' + t.name + '</span>';
+    h += '<span class="terminal-type ' + typeClass + '">' + t.type + '</span>';
+    h += '</div>';
+    h += '<div class="terminal-addr" style="display:none">' + t.address + '</div>';
+    h += '<div class="terminal-contact" style="display:none">' + (t.phone || '暂无') + '</div>';
+    h += '<div class="terminal-actions">';
+    h += '<button class="terminal-btn ' + (t.status === '已联系' ? 'contacted' : '') + '" onclick="event.stopPropagation();markTerminalContacted(this, \'' + t.name + '\')">' + (t.status === '已联系' ? '✓已联系' : '📞联系') + '</button>';
+    h += '</div>';
+    h += '</div>';
+  });
+  h += '</div>';
+  
+  h += '</div></div></div>';
+  return h;
+}
+
+function renderTerminalCoverageRank() {
+  var h = '<div class="card">';
+  h += '<div class="card-tit">🗺️ 各区域覆盖率</div>';
+  
+  var depts = Object.keys(DEPT_MEMBERS);
+  var ranks = depts.map(function(dept) {
+    var total = 25 + Math.floor(Math.random() * 15);
+    var covered = Math.floor(total * (0.4 + Math.random() * 0.4));
+    return { dept: dept, rate: Math.round((covered / total) * 100), total: total, covered: covered };
+  });
+  ranks.sort(function(a, b) { return b.rate - a.rate; });
+  
+  h += '<div class="coverage-rank">';
+  ranks.forEach(function(item, idx) {
+    h += '<div class="coverage-item">';
+    h += '<span class="coverage-rank-num">' + (idx + 1) + '</span>';
+    h += '<span class="coverage-dept">' + item.dept + '</span>';
+    h += '<span class="coverage-percent">' + item.rate + '%</span>';
+    h += '</div>';
+  });
+  h += '</div>';
+  h += '</div>';
+  return h;
+}
+
+function getMyRegion() {
+  var region = '湖南省';
+  if (USER_DEPT === '长株潭业务部') region = '长沙';
+  else if (USER_DEPT === '省内业务部') region = '衡阳';
+  else if (USER_DEPT === '省外业务部') region = '湖北';
+  return region;
+}
+
+function getTerminalTypeClass(type) {
+  switch(type) {
+    case '餐饮': return 'type-canyin';
+    case '生鲜超市': return 'type-shengxian';
+    case '超市': return 'type-chaoshi';
+    case '农贸市场': return 'type-nongmao';
+    default: return 'type-canyin';
+  }
+}
+
+function toggleTerminalDetail(el) {
+  var addr = el.querySelector('.terminal-addr');
+  var contact = el.querySelector('.terminal-contact');
+  if (addr) addr.style.display = addr.style.display === 'none' ? 'block' : 'none';
+  if (contact) contact.style.display = contact.style.display === 'none' ? 'block' : 'none';
+}
+
+function markTerminalContacted(btn, name) {
+  if (btn.classList.contains('contacted')) return;
+  btn.classList.add('contacted');
+  btn.textContent = '✓已联系';
+  // TODO: 更新实际数据
+}
+
+function filterTerminal(type, btn) {
+  document.querySelectorAll('[data-type]').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  // TODO: 实际筛选逻辑
+}
+
+function generateMockTerminals(region, count) {
+  var types = ['餐饮', '生鲜超市', '超市', '农贸市场'];
+  var names = ['XX饭店', 'XX超市', 'XX农贸市场', 'XX生鲜店', 'XX火锅店', 'XX酒楼', 'XX快餐店', 'XX食堂', 'XX配送中心', 'XX批发部'];
+  var result = [];
+  for (var i = 0; i < count; i++) {
+    result.push({
+      name: region + names[i % names.length],
+      type: types[i % types.length],
+      address: region + '市XX区XX路XX号',
+      phone: '13' + Math.floor(Math.random() * 900000000 + 100000000),
+      status: '未联系'
+    });
+  }
+  return result;
+}
+
+// ===== 模块2：退货率看板 =====
+function switchTargetTab(tab) {
+  document.querySelectorAll('.sub-tab').forEach(function(t) { t.classList.toggle('on', t.dataset.tab === tab); });
+  document.getElementById('targetProgress').style.display = tab === 'progress' ? 'block' : 'none';
+  document.getElementById('targetReturn').style.display = tab === 'return' ? 'block' : 'none';
+  if (tab === 'return') renderReturnRateBoard();
+}
+
+function renderReturnRateBoard() {
+  var container = document.getElementById('targetReturn');
+  var data = generateReturnRateData();
+  
+  // 顶部汇总
+  var h = '<div class="return-summary">';
+  h += '<div class="return-stat"><div class="return-stat-num">' + data.avgRate.toFixed(2) + '%</div><div class="return-stat-lbl">公司退货率</div></div>';
+  h += '<div class="return-stat"><div class="return-stat-num">¥' + (data.totalAmount / 10000).toFixed(1) + 'w</div><div class="return-stat-lbl">退货金额</div></div>';
+  h += '<div class="return-stat"><div class="return-stat-num">' + data.totalOrders + '</div><div class="return-stat-lbl">退货单数</div></div>';
+  h += '</div>';
+  
+  // 考核线说明
+  h += '<div style="background:#fff;border-radius:8px;padding:12px;margin-bottom:12px;box-shadow:var(--shadow)">';
+  h += '<div style="font-size:12px;color:#666;margin-bottom:8px">📊 考核标准</div>';
+  h += '<div style="display:flex;gap:12px;font-size:11px">';
+  h += '<span style="color:#137333">🟢 ≤0.8% 优秀</span>';
+  h += '<span style="color:#1a73e8">🔵 0.8-1.0% 良好</span>';
+  h += '<span style="color:#e37400">🟡 1.0-1.5% 预警</span>';
+  h += '<span style="color:#c5221f">🔴 >1.5% 超标</span>';
+  h += '</div>';
+  h += '</div>';
+  
+  // 标线可视化
+  h += '<div style="background:#fff;border-radius:8px;padding:12px;margin-bottom:12px;box-shadow:var(--shadow)">';
+  h += '<div style="font-size:12px;color:#666;margin-bottom:8px">📈 1.2%考核线 / 1.5%红线</div>';
+  h += '<div class="return-line-bar" style="position:relative">';
+  h += '<div class="return-line-fill" style="width:' + Math.min(data.avgRate / 2, 100) + '%;background:#1a73e8"></div>';
+  h += '<div style="position:absolute;left:60%;top:-4px;width:2px;height:16px;background:#e37400"></div>';
+  h += '<div style="position:absolute;left:75%;top:-4px;width:2px;height:16px;background:#c5221f"></div>';
+  h += '</div>';
+  h += '<div style="font-size:10px;color:#888;margin-top:4px;display:flex;justify-content:space-between">';
+  h += '<span>0%</span><span style="color:#e37400">1.2%考核线</span><span style="color:#c5221f">1.5%红线</span><span>2%</span>';
+  h += '</div>';
+  h += '</div>';
+  
+  // 排名列表
+  h += '<div style="background:#fff;border-radius:8px;padding:12px;box-shadow:var(--shadow)">';
+  h += '<div style="font-size:12px;color:#666;margin-bottom:8px">📋 业务员退货率排名</div>';
+  
+  data.salesmen.sort(function(a, b) { return b.rate - a.rate; });
+  data.salesmen.forEach(function(item, idx) {
+    var rateClass = getReturnRateClass(item.rate);
+    h += '<div class="return-row" onclick="showReturnDetail(\'' + item.name + '\')">';
+    h += '<span class="return-rank">' + (idx + 1) + '</span>';
+    h += '<span class="return-name">' + item.name + '</span>';
+    h += '<span class="return-rate" style="color:' + (item.rate > 1.5 ? '#c5221f' : item.rate > 1 ? '#e37400' : '#1a73e8') + '">' + item.rate.toFixed(2) + '%</span>';
+    h += '<span class="return-tag ' + rateClass + '">' + getReturnRateLabel(item.rate) + '</span>';
+    h += '</div>';
+  });
+  
+  h += '</div>';
+  container.innerHTML = h;
+}
+
+function getReturnRateClass(rate) {
+  if (rate <= 0.8) return 'rate-excellent';
+  if (rate <= 1.0) return 'rate-good';
+  if (rate <= 1.5) return 'rate-warning';
+  return 'rate-danger';
+}
+
+function getReturnRateLabel(rate) {
+  if (rate <= 0.8) return '优秀';
+  if (rate <= 1.0) return '良好';
+  if (rate <= 1.5) return '预警';
+  return '超标';
+}
+
+function generateReturnRateData() {
+  var salesmen = ['王纯', '周斌', '熊雄', '张文胜', '张纯英', '尹建林', '江廉政', '胡珍', '蔡磊', '陈龙', '宋杨杰', '袁正军', '罗策', '郁进军', '张金伟', '彭建华', '杨青青'];
+  var data = {
+    avgRate: 0.95,
+    totalAmount: 156000,
+    totalOrders: 124,
+    salesmen: []
+  };
+  
+  salesmen.forEach(function(name) {
+    var rate = 0.4 + Math.random() * 1.8;
+    var amount = Math.floor(rate * 5000 + Math.random() * 3000);
+    var orders = Math.floor(3 + Math.random() * 10);
+    data.salesmen.push({ name: name, rate: rate, amount: amount, orders: orders });
+  });
+  
+  var totalRate = data.salesmen.reduce(function(s, d) { return s + d.rate; }, 0) / data.salesmen.length;
+  data.avgRate = totalRate;
+  
+  return data;
+}
+
+function showReturnDetail(name) {
+  document.getElementById('mdTt').textContent = name + ' 退货明细';
+  var h = '<div style="padding:12px 0">';
+  h += '<div style="background:#f8f9fa;border-radius:8px;padding:12px;margin-bottom:12px">';
+  h += '<div style="font-size:12px;color:#666">暂无退货明细数据</div>';
+  h += '<div style="font-size:11px;color:#888;margin-top:8px">等T+API联通后替换真实数据</div>';
+  h += '</div>';
+  h += '</div>';
+  document.getElementById('mdBd').innerHTML = h;
+  document.getElementById('md').classList.add('on');
+}
+
+// ===== 模块3：话术库 =====
+function openScriptsModal() {
+  document.getElementById('scriptsModal').classList.add('on');
+  document.getElementById('scriptSearchInput').value = '';
+  renderScripts('');
+}
+
+function closeScriptsModal() {
+  document.getElementById('scriptsModal').classList.remove('on');
+}
+
+function searchScripts() {
+  var k = document.getElementById('scriptSearchInput').value.trim().toLowerCase();
+  renderScripts(k);
+}
+
+function renderScripts(keyword) {
+  var container = document.getElementById('scriptsContent');
+  var h = '';
+  
+  SCRIPTS_DATA.forEach(function(cat) {
+    var scripts = cat.scripts;
+    if (keyword) {
+      scripts = scripts.filter(function(s) { return String(s).toLowerCase().indexOf(keyword) >= 0; });
+      if (scripts.length === 0) return;
+    }
+    
+    h += '<div class="script-category">';
+    h += '<div class="script-category-tit">' + getCategoryIcon(cat.category) + ' ' + cat.category + '</div>';
+    scripts.forEach(function(script) {
+      h += '<div class="script-item">';
+      h += '<div class="script-content">' + script + '</div>';
+      h += '<button class="script-copy" onclick="copyScript(this, \'' + escapeQuote(script) + '\')">📋 复制</button>';
+      h += '</div>';
+    });
+    h += '</div>';
+  });
+  
+  if (!h) h = '<div class="empty"><p>未找到匹配的话术</p></div>';
+  container.innerHTML = h;
+}
+
+function getCategoryIcon(cat) {
+  var icons = {
+    '新客户开发': '🎯',
+    '流失挽回': '🔄',
+    '压价应对': '💰',
+    '催款': '📅',
+    '新品推广': '🆕',
+    '竞品应对': '🆚'
+  };
+  return icons[cat] || '💬';
+}
+
+function escapeQuote(str) {
+  return String(str).replace(/'/g, "\\'").replace(/\n/g, '\\n');
+}
+
+function copyScript(btn, script) {
+  var text = String(script).replace(/\\n/g, '\n').replace(/\\'/g, "'");
+  navigator.clipboard.writeText(text).then(function() {
+    var originalText = btn.textContent;
+    btn.textContent = '✓ 已复制';
+    btn.style.background = '#34a853';
+    setTimeout(function() {
+      btn.textContent = originalText;
+      btn.style.background = '#1a73e8';
+    }, 1500);
+  }).catch(function() {
+    // Fallback for older browsers
+    var textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    btn.textContent = '✓ 已复制';
+    setTimeout(function() { btn.textContent = '📋 复制'; }, 1500);
+  });
+}
+
+// ===== 模块5：临期食材推广 =====
+function showNearExpireProducts() {
+  document.getElementById('mdTt').textContent = '⚠️ 临期特惠';
+  var h = '<div style="padding:12px 0">';
+  h += '<div style="background:#fff3e0;border-radius:8px;padding:12px;margin-bottom:12px;text-align:center">';
+  h += '<div style="font-size:12px;color:#e65100">品牌部内容筹备中</div>';
+  h += '<div style="font-size:11px;color:#888;margin-top:4px">等T+库存API联通后替换真实数据</div>';
+  h += '</div>';
+  
+  // 模拟临期产品
+  var mockProducts = [
+    { name: 'XX水饺 1kg', original: 28, current: 18, days: 15, recommend: 12 },
+    { name: 'XX汤圆 500g', original: 22, current: 14, days: 10, recommend: 8 },
+    { name: 'XX肉串 500g', original: 35, current: 22, days: 7, recommend: 15 }
+  ];
+  
+  mockProducts.forEach(function(p) {
+    h += '<div class="near-expire-item">';
+    h += '<div class="near-expire-product">';
+    h += '<span class="near-expire-name">' + p.name + '</span>';
+    h += '<span class="near-expire-days">剩余 ' + p.days + ' 天</span>';
+    h += '</div>';
+    h += '<div class="near-expire-price">';
+    h += '<span class="near-expire-original">¥' + p.original + '</span>';
+    h += '<span class="near-expire-current">¥' + p.current + '</span>';
+    h += '</div>';
+    h += '<div class="near-expire-recommend">推荐 ' + p.recommend + ' 家客户</div>';
+    h += '<button class="near-expire-btn" onclick="recommendToCustomers(\'' + p.name + '\')">推荐给客户</button>';
+    h += '</div>';
+  });
+  
+  h += '</div>';
+  document.getElementById('mdBd').innerHTML = h;
+  document.getElementById('md').classList.add('on');
+}
+
+function recommendToCustomers(productName) {
+  alert('推荐功能开发中，敬请期待！');
 }
 
 // ===== 功能17：今日跟进清单 =====
@@ -923,8 +1582,8 @@ function showProductDetail(code) {
   var h = '<div style="padding:12px 0">';
   h += '<div style="background:#f8f9fa;border-radius:12px;padding:14px;margin-bottom:14px">';
   h += '<div style="font-size:16px;font-weight:600;margin-bottom:8px">' + p.name + '</div>';
-  h += '<div style="font-size:12px;color:#666">编码：' + p.code + '</div>';
-  h += '<div style="font-size:12px;color:#666">规格：' + (p.spec || '-') + '</div>';
+  h += '<div style="font-size:12px;color:#666">编码：' + (p.code || '-') + '</div>';
+  h += '<div style="font-size:12px;color:#666">规格：' + String(p.spec || '-') + '</div>';
   h += '</div>';
   h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px">';
   h += '<div style="text-align:center;padding:12px;background:#f8f9fa;border-radius:8px"><div style="font-size:10px;color:#888">一批价</div><div style="font-size:18px;font-weight:700;color:#e53935">' + (p.price1B > 0 ? '¥' + p.price1B.toFixed(2) : '-') + '</div></div>';
@@ -938,10 +1597,25 @@ function showProductDetail(code) {
     h += '<div style="font-size:13px;color:#666;line-height:1.5">' + cp.substring(0, 100) + (cp.length > 100 ? '...' : '') + '</div>';
     h += '</div>';
   }
-  h += '<button onclick="openCalcFromProduct(\'' + p.code + '\',\'' + p.name + '\',' + (p.price1B > 0 ? p.price1B : 0) + ',' + (p.retailPrice || 0) + ')" style="width:100%;padding:12px;background:#1a73e8;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer">🧮 利润计算器</button>';
+  
+  // 新增：看菜谱和质检报告按钮
+  h += '<div class="product-extra-btns">';
+  h += '<button class="product-extra-btn" onclick="showCookbook()">📖 看菜谱</button>';
+  h += '<button class="product-extra-btn" onclick="showQualityReport()">📋 质检报告</button>';
+  h += '</div>';
+  
+  h += '<button onclick="openCalcFromProduct(\'' + p.code + '\',\'' + p.name + '\',' + (p.price1B > 0 ? p.price1B : 0) + ',' + (p.retailPrice || 0) + ')" style="width:100%;padding:12px;background:#1a73e8;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:12px">🧮 利润计算器</button>';
   h += '</div>';
   document.getElementById('mdBd').innerHTML = h;
   document.getElementById('md').classList.add('on');
+}
+
+function showCookbook() {
+  alert('📖 品牌部内容筹备中，敬请期待！');
+}
+
+function showQualityReport() {
+  window.open('https://drive.weixin.qq.com/s?k=AIwAPQfmAA0uyYFqj4', '_blank');
 }
 
 // ===== 功能18：快速报价 =====
@@ -1155,12 +1829,12 @@ function showCustomerDetail(customerId) {
   document.getElementById('mdTt').innerHTML = (cust.name || '-');
   var h = '<div style="padding:12px 0">';
   h += '<div style="background:#f8f9fa;border-radius:12px;padding:14px;margin-bottom:14px">';
-  h += '<div style="font-size:12px;color:#666;margin-bottom:6px">所属区域: ' + (cust.region || '-') + '</div>';
-  h += '<div style="font-size:12px;color:#666;margin-bottom:6px">业务员: ' + (cust.salesman || '-') + '</div>';
-  h += '<div style="font-size:12px;color:#666">客户分类: ' + (tc.cat || '-') + '</div>';
+  h += '<div style="font-size:12px;color:#666;margin-bottom:6px">所属区域: ' + String(cust.region || '-') + '</div>';
+  h += '<div style="font-size:12px;color:#666;margin-bottom:6px">业务员: ' + String(cust.salesman || '-') + '</div>';
+  h += '<div style="font-size:12px;color:#666">客户分类: ' + String(tc.cat || '-') + '</div>';
   h += '</div>';
   h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:14px;margin-bottom:14px">';
-  h += '<div style="font-size:12px;color:#666;margin-bottom:8px">最近采购: ' + (fp.lpd || '-') + '</div>';
+  h += '<div style="font-size:12px;color:#666;margin-bottom:8px">最近采购: ' + String(fp.lpd || '-') + '</div>';
   h += '<div style="font-size:12px;color:#666">采购次数: ' + (fp.pc || 0) + '</div>';
   h += '</div>';
   
@@ -1318,6 +1992,11 @@ function applyCustomerTier() {
     var info = customerCoefMap[c.id];
     if (info) { c.level = info.tier || c.level; c.coefCat = info.cat; c.coef = info.coef; }
   });
+}
+
+function manualRefreshData() {
+  dataLoaded = { data_report: false, data_product: false, data_customer: false, data_coef: false, data_extra: false, data_recs: false, data_commission: false, data_terminal: false };
+  initData();
 }
 
 // ===== 初始化 =====
