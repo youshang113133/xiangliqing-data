@@ -209,23 +209,23 @@ function showError(msg) {
 async function loadDataFile(key) {
   var info = DATA_FILES[key];
   if (!info) return false;
+  if (dataLoaded[key]) return true; // 已加载过则跳过
   try {
     var cacheKey = 'xlq_' + key;
     var cached = localStorage.getItem(cacheKey);
     var cacheVer = localStorage.getItem(cacheKey + '_ver');
-    var versionUrl = DATA_BASE + 'version.json?v=' + Date.now();
-    var versionResp = await fetch(versionUrl, { signal: AbortSignal.timeout(5000) });
-    var versionData = await versionResp.json();
-    dataVersion = versionData.version || '';
-    dataUpdateTime = versionData.updateTime || '';
-    var fileVer = versionData.files && versionData.files[key] ? versionData.files[key].ver : '';
-    if (cached && cacheVer === fileVer) {
+    // version信息只在第一次加载时获取，后续用缓存
+    var fileVer = '';
+    if (window._versionData && window._versionData.files && window._versionData.files[key]) {
+      fileVer = window._versionData.files[key].ver || '';
+    }
+    if (cached && cacheVer === fileVer && fileVer) {
       var data = JSON.parse(cached);
       applyDataToGlobals(key, data);
       dataFromCache = true;
       return true;
     }
-    var url = DATA_BASE + info.file + '?v=' + Date.now();
+    var url = DATA_BASE + info.file + '?v=' + (fileVer || Date.now());
     var response = await fetch(url, { signal: AbortSignal.timeout(30000) });
     if (!response.ok) throw new Error('HTTP ' + response.status);
     var data = await response.json();
