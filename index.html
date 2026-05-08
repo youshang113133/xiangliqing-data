@@ -2285,9 +2285,9 @@ var DAYS_ELAPSED = Math.ceil((currentDate - monthStart) / (1000 * 60 * 60 * 24))
     var baseSalary = 2000;
     var perfSalary = 2000; // 默认0-8万档
     var salaryLevel = '0-8万';
-    if (profitMonthly >= 200000)      { perfSalary = 5000; salaryLevel = '20万+'; }
-    else if (profitMonthly >= 130000) { perfSalary = 4000; salaryLevel = '13-20万'; }
-    else if (profitMonthly >= 80000)  { perfSalary = 3000; salaryLevel = '8-13万'; }
+    if (profitMonthly >= 200000)      { perfSalary = 3500; salaryLevel = '20万+'; }
+    else if (profitMonthly >= 130000) { perfSalary = 3000; salaryLevel = '13-20万'; }
+    else if (profitMonthly >= 80000)  { perfSalary = 2500; salaryLevel = '8-13万'; }
     var basePerfSalary = baseSalary + perfSalary;
 
     // 达标现金奖励
