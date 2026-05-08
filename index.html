@@ -1383,12 +1383,12 @@ function showProductDetail(idx) {
     var featureRows = '';
     if (portrait['核心工艺']) featureRows += '<div class="row"><span class="lb">核心工艺</span><span class="vl">' + portrait['核心工艺'] + '</span></div>';
     if (portrait['原料等级']) featureRows += '<div class="row"><span class="lb">原料等级</span><span class="vl">' + portrait['原料等级'] + '</span></div>';
-    if (portrait['适配渠道']) featureRows += '<div class="row"><span class="lb">适配渠道</span><span class="vl">' + portrait['适配渠道'].substring(0, 30) + (portrait['适配渠道'].length > 30 ? '...' : '') + '</span></div>';
-    if (portrait['核心卖点']) featureRows += '<div class="row"><span class="lb">核心卖点</span><span class="vl">' + portrait['核心卖点'].substring(0, 40) + (portrait['核心卖点'].length > 40 ? '...' : '') + '</span></div>';
+    if (portrait['适配渠道']) featureRows += '<div class="row"><span class="lb">适配渠道</span><span class="vl">' + String(portrait['适配渠道'] || '').substring(0, 30) + (portrait['适配渠道'].length > 30 ? '...' : '') + '</span></div>';
+    if (portrait['核心卖点']) featureRows += '<div class="row"><span class="lb">核心卖点</span><span class="vl">' + String(portrait['核心卖点'] || '').substring(0, 40) + (portrait['核心卖点'].length > 40 ? '...' : '') + '</span></div>';
     if (portrait['烹饪时间(分钟)']) featureRows += '<div class="row"><span class="lb">烹饪时间</span><span class="vl">' + portrait['烹饪时间(分钟)'] + '</span></div>';
     if (portrait['是否免洗/免切']) featureRows += '<div class="row"><span class="lb">免洗/免切</span><span class="vl">' + portrait['是否免洗/免切'] + '</span></div>';
     if (portrait['成品出成率']) featureRows += '<div class="row"><span class="lb">成品出成率</span><span class="vl">' + portrait['成品出成率'] + '</span></div>';
-    if (portrait['适配菜系/场景']) featureRows += '<div class="row"><span class="lb">适配菜系</span><span class="vl">' + portrait['适配菜系/场景'].substring(0, 35) + (portrait['适配菜系/场景'].length > 35 ? '...' : '') + '</span></div>';
+    if (portrait['适配菜系/场景']) featureRows += '<div class="row"><span class="lb">适配菜系</span><span class="vl">' + String(portrait['适配菜系/场景'] || '').substring(0, 35) + (portrait['适配菜系/场景'].length > 35 ? '...' : '') + '</span></div>';
     if (featureRows) {
         h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin-bottom:14px">';
         h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">🔧 产品特性</div>';
@@ -1400,7 +1400,7 @@ function showProductDetail(idx) {
     var competeRows = '';
     if (portrait['核心竞品名称']) competeRows += '<div class="row"><span class="lb">核心竞品</span><span class="vl">' + portrait['核心竞品名称'] + '</span></div>';
     if (portrait['竞品出成率(%)']) competeRows += '<div class="row"><span class="lb">竞品出成率</span><span class="vl">' + portrait['竞品出成率(%)'] + '%</span></div>';
-    if (portrait['我们的差异化优势']) competeRows += '<div class="row"><span class="lb" style="flex-shrink:0">差异化优势</span><span class="vl" style="word-break:break-all">' + portrait['我们的差异化优势'].substring(0, 60) + '</span></div>';
+    if (portrait['我们的差异化优势']) competeRows += '<div class="row"><span class="lb" style="flex-shrink:0">差异化优势</span><span class="vl" style="word-break:break-all">' + String(portrait['我们的差异化优势'] || '').substring(0, 60) + '</span></div>';
     if (competeRows || portrait['标准阻击话术']) {
         h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin-bottom:14px">';
         h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">⚔️ 竞争信息</div>';
@@ -1408,7 +1408,7 @@ function showProductDetail(idx) {
         if (portrait['标准阻击话术']) {
             h += '<div style="margin-top:8px;padding:10px;background:#fff3cd;border-radius:6px;font-size:12px;color:#795548;line-height:1.5">';
             h += '<div style="font-weight:600;margin-bottom:4px">💬 标准阻击话术</div>';
-            h += portrait['标准阻击话术'].substring(0, 100) + (portrait['标准阻击话术'].length > 100 ? '...' : '');
+            h += String(portrait['标准阻击话术'] || '').substring(0, 100) + (portrait['标准阻击话术'].length > 100 ? '...' : '');
             h += '</div>';
         }
         h += '</div>';
