@@ -334,6 +334,112 @@ body{font-size:14px;line-height:1.6}
 .coverage-rank-num{width:20px;font-size:11px;color:#888;text-align:center}
 .coverage-dept{font-size:13px;color:#333;flex:1}
 .coverage-percent{font-size:14px;font-weight:600;color:#1a73e8}
+
+/* ===== 退货申请样式 ===== */
+.return-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: flex-end;
+}
+.return-modal.on {
+  display: flex;
+}
+.return-head {
+  background: #fff;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.return-head h3 {
+  font-size: 16px;
+  color: #333;
+}
+.return-body {
+  background: #fff;
+  padding: 16px;
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 480px;
+}
+.return-form .form-group {
+  margin-bottom: 16px;
+}
+.return-form label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+}
+.return-form input[type="text"],
+.return-form input[type="number"],
+.return-form select,
+.return-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.return-form textarea {
+  resize: none;
+}
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f5f5f5;
+  padding: 6px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.radio-item:has(input:checked) {
+  background: #e8f0fe;
+  color: #1a73e8;
+}
+.radio-item input {
+  display: none;
+}
+.upload-hint {
+  padding: 16px;
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  text-align: center;
+  color: #aaa;
+  font-size: 12px;
+  cursor: not-allowed;
+}
+.return-submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 12px;
+}
+.return-submit-btn:active {
+  background: #0d47a1;
+}
 </style>
 </head>
 <body>
@@ -454,6 +560,53 @@ body{font-size:14px;line-height:1.6}
 </div>
 </div>
 
+
+<!-- 退货申请弹窗 -->
+<div id="returnModal" class="return-modal">
+  <div class="return-head">
+    <h3>📦 退货申请</h3>
+    <button onclick="closeReturnModal()" style="background:none;border:none;font-size:24px;cursor:pointer;color:#666">×</button>
+  </div>
+  <div class="return-body">
+    <div class="return-form">
+      <div class="form-group">
+        <label>选择客户 <span style="color:#e53935">*</span></label>
+        <select id="returnCustomer">
+          <option value="">-- 请选择客户 --</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>选择产品 <span style="color:#e53935">*</span></label>
+        <input type="text" id="returnProduct" placeholder="输入产品名称搜索" list="productList">
+        <datalist id="productList"></datalist>
+      </div>
+      <div class="form-group">
+        <label>退货数量 <span style="color:#e53935">*</span></label>
+        <input type="number" id="returnQty" placeholder="件/箱" min="1">
+      </div>
+      <div class="form-group">
+        <label>退货类型 <span style="color:#e53935">*</span></label>
+        <div class="radio-group">
+          <label class="radio-item"><input type="radio" name="returnType" value="quality"> 质量问题</label>
+          <label class="radio-item"><input type="radio" name="returnType" value="slow"> 滞销</label>
+          <label class="radio-item"><input type="radio" name="returnType" value="wrong"> 错配</label>
+          <label class="radio-item"><input type="radio" name="returnType" value="malice"> 恶意</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>退货原因</label>
+        <textarea id="returnReason" placeholder="请详细描述退货原因..." rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label>附件上传</label>
+        <div class="upload-hint">📷 拍照上传（暂不支持）</div>
+      </div>
+    </div>
+    <div id="returnApprovalInfo" style="display:none;margin-top:16px;padding:12px;background:#f8f9fa;border-radius:8px;font-size:12px">
+    </div>
+    <button onclick="submitReturn()" class="return-submit-btn">提交申请</button>
+  </div>
+</div>
 <!-- 底部导航 -->
 <div class="nav" id="mainNav" style="display:none"></div>
 
@@ -1604,7 +1757,11 @@ function showProductDetail(code) {
   h += '<button class="product-extra-btn" onclick="showQualityReport()">📋 质检报告</button>';
   h += '</div>';
   
-  h += '<button onclick="openCalcFromProduct(\'' + p.code + '\',\'' + p.name + '\',' + (p.price1B > 0 ? p.price1B : 0) + ',' + (p.retailPrice || 0) + ')" style="width:100%;padding:12px;background:#1a73e8;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:12px">🧮 利润计算器</button>';
+  h += '<button onclick="openCalcFromProduct(\'' + p.code + '\',\'' + p.name + '\',' + (p.price1B > 0 ? p.price1B : 0) + ',' + (p.retailPrice || 0) + ')" style="width:100%;padding:12px;background:#1a73e8;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:12px">🧮 利润计算</button>';
+  // TODO: 对接码上游API后替换为真实菜谱内容
+  h += '<button onclick="showRecipeHint()" style="width:100%;padding:10px;background:#fff;border:1px solid #e0e0e0;color:#666;border-radius:8px;font-size:13px;cursor:pointer;margin-top:8px">📖 看菜谱</button>';
+  // TODO: 对接企微微盘API后替换为真实质检报告链接
+  h += '<button onclick="showQCReportHint(\'' + p.code + '\')" style="width:100%;padding:10px;background:#fff;border:1px solid #e0e0e0;color:#666;border-radius:8px;font-size:13px;cursor:pointer;margin-top:8px">📋 质检报告</button>';
   h += '</div>';
   document.getElementById('mdBd').innerHTML = h;
   document.getElementById('md').classList.add('on');
@@ -1854,19 +2011,41 @@ function showCustomerDetail(customerId) {
   document.getElementById('md').classList.add('on');
 }
 
+// TODO: 对接T+客户数据API后增强谈判弹药数据来源
 function getRegionCompare(customerId, region) {
   var result = [];
   if (!region) return result;
-  // 找出同区域其他客户
+  
+  // 找出同区域其他客户（放宽权限检查，确保能获取到数据）
   var sameRegionCustomers = customersData.filter(function(c) {
     if (c.id === customerId) return false;
     if (c.region !== region) return false;
+    // 业务员只能看自己客户，但Admin和Manager可以看所有同区域客户
     if (USER_ROLE === 'Sales' && c.salesman !== CURRENT_USER) return false;
-    if (USER_ROLE === 'Manager') { var members = DEPT_MEMBERS[USER_DEPT] || []; if (members.indexOf(c.salesman) < 0) return false; }
+    if (USER_ROLE === 'Manager') { var members = DEPT_MEMBERS[USER_DEPT] || []; if (members.indexOf(c.salesman) < 0 && c.salesman !== CURRENT_USER) return false; }
     return true;
   });
-  if (sameRegionCustomers.length === 0) return result;
-  // 统计品类
+  
+  // 如果通过权限过滤后没有客户，尝试获取所有同区域客户（仅用于生成话术参考）
+  if (sameRegionCustomers.length === 0) {
+    sameRegionCustomers = customersData.filter(function(c) {
+      if (c.id === customerId) return false;
+      return c.region === region;
+    });
+  }
+  
+  if (sameRegionCustomers.length === 0) {
+    // 没有同区域客户时，基于该客户的画像数据生成话术
+    var fp = customerPortraitData[customerId] || {};
+    var tc = customerCoefMap[customerId] || {};
+    if (fp.categories || fp.lpd || tc.cat) {
+      result.push('建议关注客户采购周期，及时跟进补货需求');
+      if (tc.cat) result.push('该客户为' + tc.cat + '客户，可参考同类客户采购偏好');
+    }
+    return result;
+  }
+  
+  // 统计品类（基于客户画像数据）
   var categoryStats = {};
   sameRegionCustomers.forEach(function(c) {
     var fp = customerPortraitData[c.id] || {};
@@ -1879,15 +2058,77 @@ function getRegionCompare(customerId, region) {
       categoryStats[cat].profit += parseFloat(fp.avgProfit || 0);
     });
   });
+  
+  // 基于其他字段生成话术（当没有categories数据时）
+  if (Object.keys(categoryStats).length === 0) {
+    var cust = customersData.find(function(c) { return c.id === customerId; }) || {};
+    var fp = customerPortraitData[customerId] || {};
+    
+    // 基于采购频次生成话术
+    var avgPurchaseCount = sameRegionCustomers.reduce(function(sum, c) {
+      var cfp = customerPortraitData[c.id] || {};
+      return sum + (parseInt(cfp.pc) || 0);
+    }, 0) / sameRegionCustomers.length;
+    
+    if (avgPurchaseCount > 5) {
+      result.push('同区域' + sameRegionCustomers.length + '家客户平均月采购' + avgPurchaseCount.toFixed(0) + '次，您可以加强跟进频率');
+    }
+    
+    // 基于最近采购日期生成话术
+    var recentCount = sameRegionCustomers.filter(function(c) {
+      var cfp = customerPortraitData[c.id] || {};
+      return cfp.lpd && getDaysSince(cfp.lpd) <= 7;
+    }).length;
+    
+    if (recentCount > 0) {
+      result.push('同区域' + recentCount + '家客户本周有采购，可参考其采购节奏');
+    }
+    
+    // 基于毛利数据生成话术
+    var avgProfit = sameRegionCustomers.reduce(function(sum, c) {
+      var cfp = customerPortraitData[c.id] || {};
+      return sum + (parseFloat(cfp.avgProfit) || 0);
+    }, 0) / sameRegionCustomers.length;
+    
+    if (avgProfit > 0) {
+      result.push('同区域客户平均毛利约' + avgProfit.toFixed(1) + '%，可参考定价策略');
+    }
+    
+    if (result.length === 0) {
+      result.push('同区域有' + sameRegionCustomers.length + '家客户，建议加强关系维护');
+    }
+    
+    return result;
+  }
+  
   // 生成话术
   var catList = Object.keys(categoryStats).slice(0, 5);
   catList.forEach(function(cat) {
     var stat = categoryStats[cat];
     var pct = ((stat.count / sameRegionCustomers.length) * 100).toFixed(0);
-    var avgProfit = (stat.profit / stat.count).toFixed(1);
+    var avgProfit = stat.count > 0 ? (stat.profit / stat.count).toFixed(1) : '0';
     result.push('同区域' + sameRegionCustomers.length + '家客户中，' + pct + '%在采购【' + cat + '】，您可以考虑');
+    if (parseFloat(avgProfit) > 10) {
+      result.push('采购【' + cat + '】的客户毛利表现良好，建议重点推广');
+    }
   });
+  
   return result;
+}
+
+// 辅助函数：计算距离某日期的天数
+function getDaysSince(dateStr) {
+  if (!dateStr) return 999;
+  try {
+    var parts = dateStr.split('-');
+    if (parts.length !== 3) return 999;
+    var date = new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
+    var now = new Date();
+    var diff = now - date;
+    return Math.floor(diff / (1000 * 60 * 60 * 24));
+  } catch(e) {
+    return 999;
+  }
 }
 
 // ===== 业务员详情 =====
@@ -1937,9 +2178,14 @@ function initTargetSalesmanFilter() {
   select.innerHTML = opts;
 }
 
+// TODO: 对接T+销售数据API后替换为真实进度数据
 function renderTargetProgress() {
   var container = document.getElementById('targetCards');
   if (!container) return;
+  
+  // TODO: 从 salesTargetMap 读取真实目标数据
+  // var salesTargetMap = {}; // 预留数据接口
+  
   var h = '';
   var types = [
     { key: 'core1', title: '🏆 核心1类', color: '#c5221f', bg: '#fce8e6', target: 1500000 },
@@ -1947,12 +2193,18 @@ function renderTargetProgress() {
     { key: 'bf8', title: '🦐 八方宏泰', color: '#7b1fa2', bg: '#f3e5f5', target: 1500000 },
     { key: 'self', title: '🚀 自主产品', color: '#1a73e8', bg: '#e8f0fe', target: 500000 }
   ];
+  
   types.forEach(function(t) {
+    // TODO: 替换为真实数据计算
+    // var target = salesTargetMap[t.key] || t.target;
+    // var actual = getActualSalesByCategory(t.key);
     var actual = Math.random() * t.target * 0.6;
     var rate = Math.min((actual / t.target) * 100, 100);
-    h += '<div class="card" style="background:' + t.bg + '">';
+    
+    // 点击弹出二级明细弹窗
+    h += '<div class="card" style="background:' + t.bg + ';cursor:pointer" onclick="showCategoryDetail(\'' + t.key + '\',\'' + t.title + '\', ' + t.target + ', ' + actual + ')">';
     h += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">';
-    h += '<div style="font-size:14px;font-weight:600;color:' + t.color + '">' + t.title + '</div>';
+    h += '<div style="font-size:14px;font-weight:600;color:' + t.color + '">' + t.title + ' <span style="font-size:10px;color:#888">▼</span></div>';
     h += '<div style="font-size:18px;font-weight:700;color:' + t.color + '">' + rate.toFixed(1) + '%</div>';
     h += '</div>';
     h += '<div style="height:10px;background:#fff;border-radius:5px;overflow:hidden;margin-bottom:8px">';
@@ -1964,7 +2216,111 @@ function renderTargetProgress() {
     h += '</div>';
     h += '</div>';
   });
+  
+  // 总目标进度
+  var totalTarget = types.reduce(function(sum, t) { return sum + t.target; }, 0);
+  var totalActual = types.reduce(function(sum, t) { return sum + Math.random() * t.target * 0.6; }, 0);
+  var totalRate = Math.min((totalActual / totalTarget) * 100, 100);
+  
+  h += '<div class="card" style="background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;cursor:pointer" onclick="showTotalDetail()">';
+  h += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">';
+  h += '<div style="font-size:14px;font-weight:600">🎯 总目标 <span style="font-size:10px;opacity:0.8">▼</span></div>';
+  h += '<div style="font-size:18px;font-weight:700">' + totalRate.toFixed(1) + '%</div>';
+  h += '</div>';
+  h += '<div style="height:10px;background:rgba(255,255,255,0.3);border-radius:5px;overflow:hidden;margin-bottom:8px">';
+  h += '<div style="height:100%;width:' + totalRate + '%;background:#fff;border-radius:5px"></div>';
+  h += '</div>';
+  h += '<div style="display:flex;justify-content:space-between;font-size:12px">';
+  h += '<span>目标: <b>' + (totalTarget / 10000).toFixed(0) + '万</b></span>';
+  h += '<span>完成: <b>' + (totalActual / 10000).toFixed(1) + '万</b></span>';
+  h += '</div>';
+  h += '</div>';
+  
   container.innerHTML = h;
+}
+
+// TODO: 对接T+供应商数据API后替换为真实供应商明细
+// 点击分类进度条，显示供应商明细弹窗
+function showCategoryDetail(categoryKey, categoryTitle, target, actual) {
+  // TODO: 从核心供应商数据源读取真实供应商目标数据
+  // var supplierData = getSupplierDataByCategory(categoryKey);
+  
+  // 模拟供应商数据（实际对接时替换）
+  var suppliers = [
+    { name: '长沙宏兴', target: target * 0.3, actual: actual * 0.35 },
+    { name: '株洲旺角', target: target * 0.25, actual: actual * 0.28 },
+    { name: '湘潭福源', target: target * 0.2, actual: actual * 0.18 },
+    { name: '其他供应商', target: target * 0.25, actual: actual * 0.19 }
+  ];
+  
+  var rate = Math.min((actual / target) * 100, 100);
+  var color = categoryKey === 'core1' ? '#c5221f' : (categoryKey === 'core2' ? '#e37400' : (categoryKey === 'bf8' ? '#7b1fa2' : '#1a73e8'));
+  
+  var h = '<div style="padding:12px 0">';
+  h += '<div style="text-align:center;margin-bottom:16px">';
+  h += '<div style="font-size:14px;color:#666;margin-bottom:4px">' + categoryTitle.replace(/[🏆🌟🦐🚀]/g, '').trim() + '</div>';
+  h += '<div style="font-size:28px;font-weight:700;color:' + color + '">' + rate.toFixed(1) + '%</div>';
+  h += '<div style="font-size:12px;color:#888">完成 ' + (actual/10000).toFixed(1) + '万 / 目标 ' + (target/10000).toFixed(0) + '万</div>';
+  h += '</div>';
+  
+  h += '<div style="background:#f8f9fa;border-radius:8px;padding:12px;margin-bottom:12px">';
+  h += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:8px;font-size:11px;color:#888;margin-bottom:8px;text-align:center">';
+  h += '<div>供应商</div><div>目标</div><div>完成</div><div>完成率</div>';
+  h += '</div>';
+  
+  suppliers.forEach(function(s) {
+    var sRate = Math.min((s.actual / s.target) * 100, 100);
+    h += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:8px;font-size:12px;padding:8px 0;border-bottom:1px solid #eee;text-align:center;align-items:center">';
+    h += '<div style="text-align:left;font-weight:500">' + s.name + '</div>';
+    h += '<div style="color:#666">' + (s.target/10000).toFixed(1) + '万</div>';
+    h += '<div style="color:' + color + ';font-weight:600">' + (s.actual/10000).toFixed(1) + '万</div>';
+    h += '<div><span style="background:' + (sRate >= 100 ? '#e8f5e9' : '#fff3e0') + ';color:' + (sRate >= 100 ? '#2e7d32' : '#e65100') + ';padding:2px 6px;border-radius:4px;font-size:11px">' + sRate.toFixed(0) + '%</span></div>';
+    h += '</div>';
+  });
+  h += '</div>';
+  
+  h += '<div style="text-align:center;font-size:11px;color:#aaa;margin-top:8px">📌 数据来自核心供应商Excel文件（T+联通后自动更新）</div>';
+  h += '</div>';
+  
+  document.getElementById('mdTt').innerHTML = '<span style="color:' + color + '">' + categoryTitle + '</span> 明细';
+  document.getElementById('mdBd').innerHTML = h;
+  document.getElementById('md').classList.add('on');
+}
+
+// 总目标明细弹窗
+function showTotalDetail() {
+  var h = '<div style="padding:12px 0">';
+  h += '<div style="text-align:center;margin-bottom:16px">';
+  h += '<div style="font-size:14px;color:#666;margin-bottom:4px">2026年目标总览</div>';
+  h += '<div style="font-size:28px;font-weight:700;color:#1a73e8">总进度</div>';
+  h += '</div>';
+  
+  var categories = [
+    { name: '🏆 核心1类', target: 1500000, color: '#c5221f' },
+    { name: '🌟 核心2类', target: 2000000, color: '#e37400' },
+    { name: '🦐 八方宏泰', target: 1500000, color: '#7b1fa2' },
+    { name: '🚀 自主产品', target: 500000, color: '#1a73e8' }
+  ];
+  
+  categories.forEach(function(c) {
+    var actual = Math.random() * c.target * 0.6;
+    var rate = Math.min((actual / c.target) * 100, 100);
+    h += '<div style="margin-bottom:12px">';
+    h += '<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">';
+    h += '<span style="color:' + c.color + '">' + c.name + '</span>';
+    h += '<span style="font-weight:600">' + rate.toFixed(1) + '%</span>';
+    h += '</div>';
+    h += '<div style="height:8px;background:#f0f0f0;border-radius:4px;overflow:hidden">';
+    h += '<div style="height:100%;width:' + rate + '%;background:' + c.color + ';border-radius:4px"></div>';
+    h += '</div>';
+    h += '</div>';
+  });
+  
+  h += '</div>';
+  
+  document.getElementById('mdTt').innerHTML = '🎯 总目标明细';
+  document.getElementById('mdBd').innerHTML = h;
+  document.getElementById('md').classList.add('on');
 }
 
 // ===== 辅助函数 =====
@@ -2008,6 +2364,244 @@ function manualRefreshData() {
 function init() {
   if (checkLoginStatus()) showMainInterface();
 }
+
+// ===== 功能：退货申请 =====
+var returnApplications = []; // TODO: 对接后端存储API后替换
+
+function openReturnModal() {
+  document.getElementById('returnModal').classList.add('on');
+  
+  // 加载客户列表
+  var customerSelect = document.getElementById('returnCustomer');
+  var customers = customersData;
+  if (USER_ROLE === 'Sales') {
+    customers = customers.filter(function(c) { return c.salesman === CURRENT_USER; });
+  } else if (USER_ROLE === 'Manager') {
+    var members = DEPT_MEMBERS[USER_DEPT] || [];
+    customers = customers.filter(function(c) { return members.indexOf(c.salesman) >= 0; });
+  }
+  
+  var options = '<option value="">-- 请选择客户 --</option>';
+  customers.forEach(function(c) {
+    options += '<option value="' + c.id + '">' + c.name + ' (' + (c.region || '未分区') + ')</option>';
+  });
+  customerSelect.innerHTML = options;
+  
+  // 加载产品列表
+  var productList = document.getElementById('productList');
+  var productOptions = '';
+  productsData.slice(0, 100).forEach(function(p) {
+    productOptions += '<option value="' + p.name + '">';
+  });
+  productList.innerHTML = productOptions;
+  
+  // 清空表单
+  document.getElementById('returnProduct').value = '';
+  document.getElementById('returnQty').value = '';
+  document.getElementById('returnReason').value = '';
+  document.querySelectorAll('input[name="returnType"]').forEach(function(r) { r.checked = false; });
+  document.getElementById('returnApprovalInfo').style.display = 'none';
+}
+
+function closeReturnModal() {
+  document.getElementById('returnModal').classList.remove('on');
+}
+
+function updateReturnApprovalInfo() {
+  var qty = parseFloat(document.getElementById('returnQty').value) || 0;
+  var productInput = document.getElementById('returnProduct').value;
+  
+  // 查找产品价格估算
+  var estimatedAmount = 0;
+  productsData.forEach(function(p) {
+    if (p.name === productInput && p.price1B > 0) {
+      estimatedAmount = qty * p.price1B;
+    }
+  });
+  
+  if (estimatedAmount <= 0) {
+    document.getElementById('returnApprovalInfo').style.display = 'none';
+    return;
+  }
+  
+  var info = document.getElementById('returnApprovalInfo');
+  var level = estimatedAmount <= 500 ? '自主决定' : (estimatedAmount <= 2000 ? '区域经理' : (estimatedAmount <= 10000 ? '营销总' : '营销总+总经理'));
+  
+  info.style.display = 'block';
+  info.innerHTML = '<div style="font-weight:600;margin-bottom:6px">💡 审批流程预估</div>' +
+    '<div>预估金额：<b style="color:#e53935">¥' + estimatedAmount.toFixed(0) + '</b></div>' +
+    '<div style="margin-top:4px">审批级别：' + 
+    (level === '自主决定' ? '<span style="color:#137333">自主决定，仓库备案</span>' : 
+     level === '区域经理' ? '<span style="color:#e65100">待区域经理审批</span>' :
+     level === '营销总' ? '<span style="color:#c5221f">待营销总审批</span>' :
+     '<span style="color:#7b1fa2">待营销总+总经理审批</span>') +
+    '</div>';
+}
+
+function submitReturn() {
+  var customerId = document.getElementById('returnCustomer').value;
+  var product = document.getElementById('returnProduct').value;
+  var qty = parseFloat(document.getElementById('returnQty').value);
+  var returnType = document.querySelector('input[name="returnType"]:checked');
+  var reason = document.getElementById('returnReason').value;
+  
+  // 验证
+  if (!customerId) { alert('请选择客户'); return; }
+  if (!product) { alert('请输入产品'); return; }
+  if (!qty || qty <= 0) { alert('请输入退货数量'); return; }
+  if (!returnType) { alert('请选择退货类型'); return; }
+  
+  // TODO: 对接T+退货数据API后，将数据提交到后端
+  var application = {
+    id: 'RET' + Date.now(),
+    customerId: customerId,
+    product: product,
+    qty: qty,
+    type: returnType.value,
+    reason: reason,
+    amount: 0, // 估算金额
+    status: 'pending',
+    createTime: new Date().toLocaleString(),
+    approvalLevel: '' // 将在后端计算
+  };
+  
+  // 计算预估金额
+  productsData.forEach(function(p) {
+    if (p.name === product && p.price1B > 0) {
+      application.amount = qty * p.price1B;
+    }
+  });
+  
+  returnApplications.push(application);
+  
+  // TODO: 提交到后端API
+  // fetch('/api/returns', { method: 'POST', body: JSON.stringify(application) })
+  //   .then(res => res.json())
+  //   .then(data => { alert('提交成功'); closeReturnModal(); })
+  //   .catch(err => { console.error(err); });
+  
+  alert('✅ 退货申请已提交（系统对接中）
+申请编号：' + application.id + '
+
+审批流程将在T+系统联通后自动执行');
+  closeReturnModal();
+}
+
+// 退货数量变化时更新审批信息
+document.getElementById('returnQty') && document.getElementById('returnQty').addEventListener('input', updateReturnApprovalInfo);
+document.getElementById('returnProduct') && document.getElementById('returnProduct').addEventListener('change', updateReturnApprovalInfo);
+
+// TODO: 对接T+退货数据API后替换为真实数据
+function updateReturnStats() {
+  // 模拟数据（实际对接时从API获取）
+  // var returnData = await fetch('/api/returns/stats').then(r => r.json());
+  
+  // 模拟月退货额（基于客户销售数据推算）
+  var monthlySales = 0;
+  var monthlyReturns = 0;
+  
+  // 获取当前用户的月销售额
+  customersData.forEach(function(c) {
+    if (USER_ROLE === 'Sales' && c.salesman !== CURRENT_USER) return;
+    if (USER_ROLE === 'Manager') {
+      var members = DEPT_MEMBERS[USER_DEPT] || [];
+      if (members.indexOf(c.salesman) < 0) return;
+    }
+    monthlySales += parseFloat(c.monthlySales || 0);
+  });
+  
+  // 模拟退货数据（实际对接时从T+获取）
+  // 退货率上限：A类1.2% / B类1.0% / C类1.2% / D类1.5%
+  var customerTier = customerCoefMap[CURRENT_USER] || {};
+  var returnLimit = 0.012; // 默认1.2%
+  if (customerTier.tier === 'A') returnLimit = 0.012;
+  else if (customerTier.tier === 'B') returnLimit = 0.010;
+  else if (customerTier.tier === 'C') returnLimit = 0.012;
+  else if (customerTier.tier === 'D') returnLimit = 0.015;
+  
+  var returnQuota = monthlySales * returnLimit;
+  monthlyReturns = returnQuota * Math.random() * 0.6; // 模拟使用60%左右
+  
+  var returnRate = monthlySales > 0 ? (monthlyReturns / monthlySales * 100) : 0;
+  var quotaUsage = returnQuota > 0 ? (monthlyReturns / returnQuota * 100) : 0;
+  
+  // 更新UI
+  document.getElementById('returnRateVal').textContent = returnRate.toFixed(1) + '%';
+  document.getElementById('returnQuotaVal').textContent = quotaUsage.toFixed(0) + '%';
+  document.getElementById('returnUsedAmt').textContent = Math.round(monthlyReturns).toLocaleString();
+  document.getElementById('returnTotalAmt').textContent = Math.round(returnQuota).toLocaleString();
+  document.getElementById('returnQuotaBar').style.width = Math.min(quotaUsage, 100) + '%';
+  
+  // 预警状态：70%黄色 / 90%红色
+  var badge = document.getElementById('returnWarningBadge');
+  if (quotaUsage >= 90) {
+    badge.textContent = '🔴 紧急';
+    badge.style.background = '#ffebee';
+    badge.style.color = '#c5221f';
+    document.getElementById('returnQuotaBar').style.background = '#c5221f';
+  } else if (quotaUsage >= 70) {
+    badge.textContent = '🟡 预警';
+    badge.style.background = '#fff8e1';
+    badge.style.color = '#e65100';
+    document.getElementById('returnQuotaBar').style.background = '#e65100';
+  } else {
+    badge.textContent = '🟢 正常';
+    badge.style.background = '#e8f5e9';
+    badge.style.color = '#2e7d32';
+    document.getElementById('returnQuotaBar').style.background = '#1a73e8';
+  }
+}
+
+// TODO: 对接码上游API后替换为真实菜谱内容
+function showRecipeHint() {
+  document.getElementById('mdTt').textContent = '📖 看菜谱';
+  document.getElementById('mdBd').innerHTML = '<div style="padding:40px;text-align:center;color:#888">' +
+    '<div style="font-size:48px;margin-bottom:16px">🍳</div>' +
+    '<div style="font-size:14px;margin-bottom:8px">品牌部内容筹备中</div>' +
+    '<div style="font-size:12px;color:#aaa">码上游API对接后可用</div>' +
+    '</div>';
+  document.getElementById('md').classList.add('on');
+}
+
+// TODO: 对接企微微盘API后替换为真实质检报告链接
+function showQCReportHint(productCode) {
+  document.getElementById('mdTt').textContent = '📋 质检报告';
+  document.getElementById('mdBd').innerHTML = '<div style="padding:40px;text-align:center;color:#888">' +
+    '<div style="font-size:48px;margin-bottom:16px">📄</div>' +
+    '<div style="font-size:14px;margin-bottom:8px">质检报告待上传</div>' +
+    '<div style="font-size:12px;color:#aaa">产品编码: ' + productCode + '</div>' +
+    '<div style="margin-top:16px"><a href="https://work.weixin.qq.com/wework_explorer#/" target="_blank" style="color:#1a73e8;text-decoration:none;font-size:13px">前往微盘查看 →</a></div>' +
+    '</div>';
+  document.getElementById('md').classList.add('on');
+}
+
 </script>
+
+<!-- 退货率看板（工作台底部） -->
+<div id="returnStatsPanel" style="background:#fff;border-radius:12px;padding:14px;margin:14px;box-shadow:0 2px 8px rgba(0,0,0,0.08)">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+    <div style="font-size:13px;font-weight:600;color:#333">📊 退货率看板</div>
+    <span id="returnWarningBadge" style="font-size:11px;padding:2px 8px;border-radius:10px">正常</span>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <div style="text-align:center">
+      <div style="font-size:11px;color:#888">本月退货率</div>
+      <div id="returnRateVal" style="font-size:24px;font-weight:700;color:#1a73e8">0.0%</div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-size:11px;color:#888">额度使用率</div>
+      <div id="returnQuotaVal" style="font-size:24px;font-weight:700;color:#1a73e8">0%</div>
+    </div>
+  </div>
+  <div style="margin-top:10px">
+    <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">
+      <span>退货额度</span>
+      <span><span id="returnUsedAmt">0</span> / <span id="returnTotalAmt">0</span>元</span>
+    </div>
+    <div style="height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">
+      <div id="returnQuotaBar" style="height:100%;width:0%;background:#1a73e8;border-radius:3px"></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
