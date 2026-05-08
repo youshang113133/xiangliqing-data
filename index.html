@@ -695,6 +695,9 @@ function renderReport() {
     // 毛利额目标 = 销售额目标 × 13%
     var PROFIT_TARGET_RATE = 0.13;
     
+    // 过滤掉非业务员（已移除+免考核）
+    var EXCLUDE_SALESMAN = ["马政","陈长林","谢荣星","孙其云","郑昌华","龙仙美","李春岚"];
+    progress = progress.filter(function(p) { return EXCLUDE_SALESMAN.indexOf(p["业务经理"]) === -1; });
     h += '\u003cdiv class="card"\u003e\u003cdiv class="card-tit"\u003e🎯 毛利额目标达成率（月累计）\u003c/div\u003e';
 
     var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
