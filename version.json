@@ -1,0 +1,30 @@
+{
+  "version": "20260508002",
+  "updateTime": "2026-05-08 15:00:00",
+  "files": {
+    "data_report": {
+      "ver": "20260508002",
+      "size": 11630
+    },
+    "data_product": {
+      "ver": "20260508002",
+      "size": 662077
+    },
+    "data_customer": {
+      "ver": "20260508002",
+      "size": 1954463
+    },
+    "data_coef": {
+      "ver": "20260508002",
+      "size": 957088
+    },
+    "data_extra": {
+      "ver": "20260508002",
+      "size": 5614413
+    },
+    "data_commission": {
+      "ver": "20260508002",
+      "size": 218514
+    }
+  }
+}
