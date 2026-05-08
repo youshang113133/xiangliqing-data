@@ -226,7 +226,7 @@ async function loadDataFile(key) {
       return true;
     }
     var url = DATA_BASE + info.file + '?v=' + (fileVer || Date.now());
-    var response = await fetch(url, { signal: AbortSignal.timeout(30000) });
+    var response = await fetch(url);
     if (!response.ok) throw new Error('HTTP ' + response.status);
     var data = await response.json();
     // localStorage 限制约5MB，超过3MB不缓存
@@ -318,6 +318,17 @@ function applyDataToGlobals(key, data) {
 
 async function initData() {
   showLoading('正在加载数据...');
+  // 先获取版本信息（只请求一次）
+  try {
+    var vResp = await fetch(DATA_BASE + 'version.json?v=' + Date.now());
+    if (vResp.ok) {
+      window._versionData = await vResp.json();
+      dataVersion = window._versionData.version || '';
+      dataUpdateTime = window._versionData.updateTime || '';
+    }
+  } catch(e) {
+    console.log('版本信息获取失败，不影响加载');
+  }
   // 首屏并行加载所有关键数据
   await Promise.all([
     loadDataFile('data_report'),
