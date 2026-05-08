@@ -1367,6 +1367,30 @@ function showProductDetail(idx) {
     h += '<div class="row"><span class="lb">销售次数</span><span class="vl">' + (p.salesTimes > 0 ? p.salesTimes + '次' : '-') + '</span></div>';
     h += '</div>';
     
+    // 💵 供货与定价信息（画像数据）
+    h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin-bottom:14px">';
+    h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">💵 供货与定价</div>';
+    h += '<div class="row"><span class="lb">供货价</span><span class="vl vl-r">' + (portrait['供货价(元/包)'] ? '¥' + parseFloat(portrait['供货价(元/包)']).toFixed(2) + '/包' : '-') + '</span></div>';
+    h += '<div class="row"><span class="lb">建议零售价</span><span class="vl">' + (portrait['建议零售价(元/包)'] ? '¥' + parseFloat(portrait['建议零售价(元/包)']).toFixed(2) + '/包' : '-') + '</span></div>';
+    h += '<div class="row"><span class="lb">毛利率</span><span class="vl" style="color:' + (parseFloat(portrait['毛利率'] || 0) >= 15 ? '#137333' : (parseFloat(portrait['毛利率'] || 0) >= 10 ? '#1a73e8' : '#e53935')) + '">' + (portrait['毛利率'] || '-') + '</span></div>';
+    h += '<div class="row"><span class="lb">品类标签</span><span class="vl">' + (portrait['品类标签'] || '-') + '</span></div>';
+    h += '<div class="row"><span class="lb">核心供应商</span><span class="vl">' + (portrait['核心供应商'] || '-') + '</span></div>';
+    h += '</div>';
+    
+    // 📊 销售与库存详情（画像数据）
+    var hasSalesDetail = portrait['总销售额'] || portrait['总毛利额'] || portrait['期末库存数量'] || portrait['期末库存金额'];
+    if (hasSalesDetail) {
+        h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin-bottom:14px">';
+        h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📊 销售与库存详情</div>';
+        if (portrait['总销售额']) h += '<div class="row"><span class="lb">总销售额</span><span class="vl vl-r">¥' + parseFloat(portrait['总销售额']).toLocaleString() + '</span></div>';
+        if (portrait['总毛利额']) h += '<div class="row"><span class="lb">总毛利额</span><span class="vl">¥' + parseFloat(portrait['总毛利额']).toFixed(0) + '</span></div>';
+        if (portrait['期末库存数量']) h += '<div class="row"><span class="lb">期末库存数量</span><span class="vl">' + parseFloat(portrait['期末库存数量']).toLocaleString() + '</span></div>';
+        if (portrait['期末库存金额']) h += '<div class="row"><span class="lb">期末库存金额</span><span class="vl">¥' + parseFloat(portrait['期末库存金额']).toFixed(0) + '</span></div>';
+        if (portrait['销售次数']) h += '<div class="row"><span class="lb">销售次数</span><span class="vl">' + portrait['销售次数'] + '次</span></div>';
+        if (portrait['覆盖客户数']) h += '<div class="row"><span class="lb">覆盖客户数</span><span class="vl">' + portrait['覆盖客户数'] + '家</span></div>';
+        h += '</div>';
+    }
+    
     // 🏭 产品规格信息（v15风格：区块整体条件判断，字段无条件显示"-"）
     if (portrait['单包规格(g)'] || portrait['整箱规格'] || portrait['存储条件'] || portrait['保质期(月)']) {
         h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin-bottom:14px">';
@@ -1672,6 +1696,38 @@ function showCustomerDetail(customerId) {
     h += '<div class="row"><span class="lb">综合评分</span><span class="vl" style="font-size:18px;font-weight:700;color:' + levelColor + '">' + score + '分</span></div>';
     h += '<div class="row"><span class="lb">ABCD分层</span><span class="vl" style="font-weight:700;color:' + levelColor + '">' + level + '</span></div>';
     h += '</div>';
+    
+    // ===== 8.5 26财年分类与系数 =====
+    h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin-bottom:14px">';
+    h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">🏷️ 26财年分类</div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+    var tierVal = portrait['26财年分类'] || '-';
+    var tierColor = '#666';
+    if (tierVal.indexOf('终端A') >= 0) tierColor = '#137333';
+    else if (tierVal.indexOf('终端B') >= 0) tierColor = '#1a73e8';
+    else if (tierVal.indexOf('批发A') >= 0) tierColor = '#1a73e8';
+    else if (tierVal.indexOf('沉默') >= 0) tierColor = '#e53935';
+    h += '<div class="row"><span class="lb">客户分类</span><span class="vl" style="font-weight:700;color:' + tierColor + '">' + tierVal + '</span></div>';
+    var coefVal = parseFloat(portrait['客户系数']) || 0;
+    h += '<div class="row"><span class="lb">客户系数</span><span class="vl" style="font-weight:700;color:#e65100">×' + coefVal.toFixed(1) + '</span></div>';
+    h += '</div></div>';
+    
+    // ===== 8.6 25财年经营数据 =====
+    var s25 = parseFloat(portrait['25财年销售额']) || 0;
+    var p25 = parseFloat(portrait['25财年毛利额']) || 0;
+    var r25 = parseFloat(portrait['25财年毛利率']) || 0;
+    if (s25 > 0 || p25 > 0) {
+        h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin-bottom:14px">';
+        h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📈 25财年经营数据</div>';
+        h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+        h += '<div class="row"><span class="lb">25财年销售额</span><span class="vl">¥' + s25.toLocaleString() + '</span></div>';
+        h += '<div class="row"><span class="lb">25财年毛利额</span><span class="vl">¥' + p25.toLocaleString() + '</span></div>';
+        if (r25 > 0) {
+            var r25Display = r25 > 1 ? r25 : (r25 * 100);
+            h += '<div class="row" style="grid-column:span 2"><span class="lb">25财年毛利率</span><span class="vl" style="color:' + (r25Display >= 15 ? '#137333' : (r25Display >= 10 ? '#1a73e8' : '#e53935')) + '">' + r25Display.toFixed(1) + '%</span></div>';
+        }
+        h += '</div></div>';
+    }
     
     // ===== 9. 产品结构 =====
     var coreSales = parseFloat(portrait['核心产品销售额']) || 0;
