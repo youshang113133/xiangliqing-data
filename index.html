@@ -2222,8 +2222,8 @@ var DAYS_ELAPSED = Math.ceil((currentDate - monthStart) / (1000 * 60 * 60 * 24))
     var salesTargetMonthly = targetInfo.salesTarget || salesData['月度目标'] || 800000;
     var profitTargetMonthly = targetInfo.profitTarget || (salesTargetMonthly * 0.13);
 
-    // 毛利额完成率（按月度推算，封顶120%）
-    var profitCompletionRate = profitTargetMonthly > 0 ? Math.min(profitMonthly / profitTargetMonthly, 1.2) : 1.0;
+    // 毛利额完成率（按月度推算，封顶100%）
+    var profitCompletionRate = profitTargetMonthly > 0 ? Math.min(profitMonthly / profitTargetMonthly, 1.0) : 1.0;
 
     // 基本工资统一2000，绩效工资按月度毛利额档位
     var baseSalary = 2000;
