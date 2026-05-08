@@ -1455,33 +1455,22 @@ function showProductDetail(idx) {
         h += '</div>';
     }
     
-    // 业务经理销售覆盖
+    // 业务经理销售覆盖（精简：只显示覆盖人数+Top3）
     var salesmenData = productSalesmen[pCode] || {};
     var salesmenKeys = Object.keys(salesmenData);
-    var totalSalesmen = 21;
     var coveredSalesmen = salesmenKeys.length;
-    
-    h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin-bottom:14px">';
-    h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">👥 业务经理销售覆盖</div>';
-    h += '<div style="font-size:14px;margin-bottom:10px">覆盖业务经理：<span style="color:' + (coveredSalesmen >= 15 ? '#137333' : (coveredSalesmen >= 8 ? '#1a73e8' : '#e53935')) + ';font-weight:600">' + coveredSalesmen + '/' + totalSalesmen + '人</span></div>';
     
     if (coveredSalesmen > 0) {
         var sortedSalesmen = salesmenKeys.sort(function(a, b) { return salesmenData[b] - salesmenData[a]; });
-        var displayList = sortedSalesmen.slice(0, 10);
+        var top3 = sortedSalesmen.slice(0, 3);
+        var topStr = top3.map(function(n) { return n + '(' + salesmenData[n] + '家)'; }).join('、');
+        var moreStr = coveredSalesmen > 3 ? '等' + coveredSalesmen + '人' : '';
         
-        h += '<div style="font-size:11px;color:#666;margin-bottom:8px">业务经理销售分布：</div>';
-        h += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
-        displayList.forEach(function(name) {
-            h += '<span style="background:#f0f0f0;padding:4px 8px;border-radius:4px;font-size:11px">' + name + '：' + salesmenData[name] + '家</span>';
-        });
-        if (sortedSalesmen.length > 10) {
-            h += '<span style="color:#888;font-size:11px">...等' + sortedSalesmen.length + '人</span>';
-        }
+        h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px;margin-bottom:14px">';
+        h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:8px">👥 销售覆盖</div>';
+        h += '<div style="font-size:12px;color:#333">' + topStr + ' ' + moreStr + '</div>';
         h += '</div>';
-    } else {
-        h += '<div style="color:#e53935;font-size:12px">⚠️ 暂无销售数据</div>';
     }
-    h += '</div>';
 
     // 推广信息
     var promoRows = '';
