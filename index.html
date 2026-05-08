@@ -75,6 +75,85 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 .more:active{color:#1a73e8}
 .more::before{content:'⬇️ ';margin-right:6px}
 .pager{text-align:center;padding:16px;color:#888;font-size:12px;background:#f8f9fa;border-radius:8px;margin-top:10px}
+
+/* ===== 功能一：客户跟进日历样式 ===== */
+.follow-card{background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.follow-card-hd{display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding-bottom:10px;border-bottom:1px solid #eee}
+.follow-card-tit{font-size:14px;font-weight:600;color:#333}
+.follow-card-tit::before{content:'📋 ';margin-right:4px}
+.follow-stats{display:flex;gap:8px;font-size:11px}
+.follow-stat{padding:3px 8px;border-radius:10px;font-weight:500}
+.follow-stat-y{background:#fef9e7;color:#e37400}
+.follow-stat-o{background:#fff3e0;color:#f57c00}
+.follow-stat-r{background:#ffebee;color:#c62828}
+.follow-arrow{font-size:16px;color:#999;transition:transform .2s}
+.follow-arrow.collapsed{transform:rotate(-90deg)}
+.follow-card-bd{max-height:400px;overflow:hidden;transition:max-height .3s}
+.follow-card-bd.collapsed{max-height:0}
+.follow-filter{padding:8px 0}
+.follow-filter select{width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:12px;background:#fff}
+.follow-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid #f5f5f5;cursor:pointer}
+.follow-row:last-child{border-bottom:none}
+.follow-row:active{background:#f8f9fa}
+.follow-row-l{width:4px;height:32px;border-radius:2px;margin-right:10px;flex-shrink:0}
+.follow-row-y{background:#fbc02d}
+.follow-row-o{background:#ff9800}
+.follow-row-r{background:#e53935}
+.follow-row-c{display:flex;flex-direction:column;flex:1;min-width:0}
+.follow-row-n{font-size:13px;font-weight:500;color:#333;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.follow-row-n .follow-tier-tag{padding:1px 5px;border-radius:6px;font-size:10px;font-weight:600;margin-left:4px}
+.follow-row-i{font-size:11px;color:#888;display:flex;gap:8px}
+.follow-row-i span{display:flex;align-items:center}
+.follow-row-d{font-size:11px;color:#666;text-align:right;white-space:nowrap}
+
+/* ===== 功能二：沉默客户激活样式 ===== */
+.silent-card{background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.silent-card-hd{display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding-bottom:10px;border-bottom:1px solid #eee}
+.silent-card-tit{font-size:14px;font-weight:600;color:#333}
+.silent-card-tit::before{content:'🔥 ';margin-right:4px}
+.silent-stats{display:flex;gap:8px;font-size:11px}
+.silent-stat{padding:3px 8px;border-radius:10px;font-weight:500}
+.silent-stat-gold{background:#fff8e1;color:#ff8f00}
+.silent-stat-blue{background:#e3f2fd;color:#1565c0}
+.silent-stat-gray{background:#f5f5f5;color:#757575}
+.silent-arrow{font-size:16px;color:#999;transition:transform .2s}
+.silent-arrow.collapsed{transform:rotate(-90deg)}
+.silent-card-bd{max-height:400px;overflow:hidden;transition:max-height .3s}
+.silent-card-bd.collapsed{max-height:0}
+.silent-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid #f5f5f5;cursor:pointer}
+.silent-row:last-child{border-bottom:none}
+.silent-row:active{background:#f8f9fa}
+.silent-row.high{background:#fffbf0}
+.silent-row-c{display:flex;flex-direction:column;flex:1;min-width:0}
+.silent-row-n{font-size:13px;font-weight:500;color:#333;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center}
+.silent-row-n .silent-val-tag{padding:1px 5px;border-radius:6px;font-size:10px;font-weight:600;margin-left:4px}
+.silent-val-gold{background:linear-gradient(135deg,#ffd54f,#ffb300);color:#5d4037}
+.silent-val-blue{background:#e3f2fd;color:#1565c0}
+.silent-val-gray{background:#f5f5f5;color:#757575}
+.silent-row-i{font-size:11px;color:#888;display:flex;gap:6px;flex-wrap:wrap}
+.silent-row-i span{display:flex;align-items:center}
+.silent-expand{text-align:center;padding:10px;color:#1a73e8;font-size:12px;cursor:pointer}
+.silent-expand:active{color:#0d47a1}
+
+/* ===== 功能三：客户-产品匹配样式 ===== */
+.prod-match-section{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:14px;margin-top:14px}
+.prod-match-tit{font-size:14px;font-weight:600;color:#333;margin-bottom:12px;display:flex;align-items:center}
+.prod-match-tit::before{content:'🎯 ';margin-right:4px}
+.prod-match-row{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid #f0f0f0;cursor:pointer}
+.prod-match-row:last-child{border-bottom:none}
+.prod-match-row:active{background:#f8f9fa}
+.prod-match-l{display:flex;flex-direction:column;flex:1;min-width:0}
+.prod-match-n{font-size:13px;font-weight:500;color:#333;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center}
+.prod-match-n .prod-grade-tag{padding:1px 5px;border-radius:6px;font-size:10px;font-weight:600;margin-left:4px}
+.prod-grade-gold{background:linear-gradient(135deg,#ffd54f,#ffb300);color:#5d4037}
+.prod-grade-blue{background:#e3f2fd;color:#1565c0}
+.prod-grade-green{background:#e8f5e9;color:#2e7d32}
+.prod-grade-gray{background:#f5f5f5;color:#757575}
+.prod-match-i{font-size:11px;color:#888;display:flex;gap:8px}
+.prod-match-i span{display:flex;align-items:center}
+.prod-match-r{text-align:right;flex-shrink:0;margin-left:8px}
+.prod-match-p{font-size:14px;font-weight:700;color:#e53935}
+.prod-match-m{font-size:10px;color:#888}
 </style>
 </head>
 <body>
@@ -107,6 +186,39 @@ body{font-family:-apple-system,sans-serif;background:#f5f7fa;font-size:14px;max-
 <div id="pgCustomer" class="pg">
 <div class="pg-hd"><h1>👥 客户管理</h1><p id="custStat"></p></div>
 <input type="search" class="search" id="cSk" placeholder="搜索客户名称..." oninput="resetCustomerPage()">
+<!-- 功能一：客户跟进日历 -->
+<div id="followCard" class="follow-card">
+  <div class="follow-card-hd" onclick="toggleFollowCard()">
+    <div class="follow-card-tit">待跟进客户</div>
+    <div class="follow-stats" id="followStats"></div>
+    <span class="follow-arrow" id="followArrow">▼</span>
+  </div>
+  <div class="follow-card-bd" id="followCardBd">
+    <div class="follow-filter">
+      <select id="followSalesFilter" onchange="renderFollowList()">
+        <option value="">全部业务员</option>
+      </select>
+    </div>
+    <div id="followList"></div>
+  </div>
+</div>
+<!-- 功能二：沉默客户激活 -->
+<div id="silentCard" class="silent-card">
+  <div class="silent-card-hd" onclick="toggleSilentCard()">
+    <div class="silent-card-tit">沉默客户激活</div>
+    <div class="silent-stats" id="silentStats"></div>
+    <span class="silent-arrow" id="silentArrow">▼</span>
+  </div>
+  <div class="silent-card-bd" id="silentCardBd">
+    <div class="follow-filter">
+      <select id="silentSalesFilter" onchange="renderSilentList()">
+        <option value="">全部业务员</option>
+      </select>
+    </div>
+    <div id="silentList"></div>
+    <div class="silent-expand" id="silentExpandBtn" onclick="toggleSilentExpand()">展开全部 ▼</div>
+  </div>
+</div>
 <div class="fl">
 <select id="cLevel" onchange="resetCustomerPage()"><option value="">全部分层</option><option value="终端A">终端A×1.5</option><option value="终端B">终端B×1.35</option><option value="终端C">终端C×1.2</option><option value="终端D">终端D×1.1</option><option value="批发A">批发A×1.2</option><option value="批发B">批发B×1.1</option><option value="批发C">批发C×1.0</option><option value="批发D">批发D×1.0</option><option value="沉默">沉默×1.5</option></select>
 <select id="cSales" onchange="resetCustomerPage()"><option value="">全部业务员</option></select>
@@ -1766,6 +1878,10 @@ function loadCustomerList(){
 	document.getElementById('custStat').textContent='共'+customersData.length+'个客户';
 	renderCustomerFilters();
 	renderCustomerList();
+	// 初始化跟进和沉默客户数据
+	if (typeof initFollowAndSilentData === 'function') {
+		initFollowAndSilentData();
+	}
 }
 
 // 23个业务经理名单及实际负责区域
@@ -2395,6 +2511,471 @@ var DAYS_ELAPSED = Math.ceil((currentDate - monthStart) / (1000 * 60 * 60 * 24))
 // [taskManagerData from JSON]
 
 
+
+// ===== 功能一：客户跟进日历 =====
+// 免考核/已移除人员列表
+var EXCLUDE_SALESMAN = ["马政","陈长林","谢荣星","孙其云","郑昌华","龙仙美","李春岚"];
+
+// 折叠状态
+var followCardCollapsed = false;
+var silentCardCollapsed = false;
+var silentExpanded = false;
+
+// 切换跟进卡片折叠
+function toggleFollowCard() {
+    followCardCollapsed = !followCardCollapsed;
+    var bd = document.getElementById('followCardBd');
+    var arrow = document.getElementById('followArrow');
+    if (followCardCollapsed) {
+        bd.classList.add('collapsed');
+        arrow.classList.add('collapsed');
+    } else {
+        bd.classList.remove('collapsed');
+        arrow.classList.remove('collapsed');
+    }
+}
+
+// 切换沉默卡片折叠
+function toggleSilentCard() {
+    silentCardCollapsed = !silentCardCollapsed;
+    var bd = document.getElementById('silentCardBd');
+    var arrow = document.getElementById('silentArrow');
+    if (silentCardCollapsed) {
+        bd.classList.add('collapsed');
+        arrow.classList.add('collapsed');
+    } else {
+        bd.classList.remove('collapsed');
+        arrow.classList.remove('collapsed');
+    }
+}
+
+// 切换沉默客户展开
+function toggleSilentExpand() {
+    silentExpanded = !silentExpanded;
+    var btn = document.getElementById('silentExpandBtn');
+    btn.textContent = silentExpanded ? '收起 ▲' : '展开全部 ▼';
+    renderSilentList();
+}
+
+// 初始化跟进和沉默客户数据
+function initFollowAndSilentData() {
+    // 填充业务员筛选下拉
+    var salesMap = {};
+    Object.keys(customerPortraitData).forEach(function(id) {
+        var fp = customerPortraitData[id];
+        var salesman = fp.sm || '';
+        // 排除免考核人员
+        if (salesman && EXCLUDE_SALESMAN.indexOf(salesman) === -1) {
+            salesMap[salesman] = (salesMap[salesman] || 0) + 1;
+        }
+    });
+    
+    var followSalesOpts = '<option value="">全部业务员</option>';
+    var silentSalesOpts = '<option value="">全部业务员</option>';
+    salesmanList.forEach(function(s) {
+        if (EXCLUDE_SALESMAN.indexOf(s.name) === -1) {
+            var count = salesMap[s.name] || 0;
+            if (count > 0) {
+                followSalesOpts += '<option value="' + s.name + '">' + s.name + ' (' + count + ')</option>';
+                silentSalesOpts += '<option value="' + s.name + '">' + s.name + ' (' + count + ')</option>';
+            }
+        }
+    });
+    
+    var followFilter = document.getElementById('followSalesFilter');
+    var silentFilter = document.getElementById('silentSalesFilter');
+    if (followFilter) followFilter.innerHTML = followSalesOpts;
+    if (silentFilter) silentFilter.innerHTML = silentSalesOpts;
+    
+    // 渲染跟进列表和统计
+    renderFollowList();
+    // 渲染沉默列表和统计
+    renderSilentList();
+}
+
+// 计算距今天数
+function getDaysSince(dateStr) {
+    if (!dateStr) return 999;
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var lastDate = new Date(dateStr);
+    lastDate.setHours(0, 0, 0, 0);
+    var diff = today - lastDate;
+    return Math.floor(diff / (1000 * 60 * 60 * 24));
+}
+
+// 渲染跟进客户列表
+function renderFollowList() {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var salesFilter = document.getElementById('followSalesFilter').value;
+    
+    // 统计变量
+    var urgentCount = 0;  // 急待跟进 15-30天
+    var riskCount = 0;     // 流失风险 >30天
+    var normalCount = 0;   // 待跟进 7-15天
+    
+    // 收集待跟进客户
+    var followCustomers = [];
+    Object.keys(customerPortraitData).forEach(function(id) {
+        var fp = customerPortraitData[id];
+        var tc = fp.tc || '';
+        var salesman = fp.sm || '';
+        
+        // 排除沉默客户和免考核人员
+        if (tc === '沉默' || EXCLUDE_SALESMAN.indexOf(salesman) !== -1) return;
+        
+        var lpd = fp.lpd || '';
+        var days = getDaysSince(lpd);
+        
+        // 只处理超过7天未采购的客户
+        if (days < 7) return;
+        
+        // 业务员筛选
+        if (salesFilter && salesman !== salesFilter) return;
+        
+        // 判断紧急程度
+        var urgency = 'normal';
+        if (days > 30) {
+            urgency = 'risk';
+            riskCount++;
+        } else if (days > 15) {
+            urgency = 'urgent';
+            urgentCount++;
+        } else {
+            urgency = 'normal';
+            normalCount++;
+        }
+        
+        followCustomers.push({
+            id: id,
+            name: fp.n || '-',
+            tc: tc,
+            lpd: lpd,
+            days: days,
+            salesman: salesman,
+            urgency: urgency
+        });
+    });
+    
+    // 按紧急程度和距今天数排序（风险>急待跟进>待跟进，再按天数降序）
+    followCustomers.sort(function(a, b) {
+        var priority = {risk: 3, urgent: 2, normal: 1};
+        if (priority[a.urgency] !== priority[b.urgency]) {
+            return priority[b.urgency] - priority[a.urgency];
+        }
+        return b.days - a.days;
+    });
+    
+    // 更新统计
+    var statsEl = document.getElementById('followStats');
+    if (statsEl) {
+        var statsHtml = '';
+        if (normalCount > 0) statsHtml += '<span class="follow-stat follow-stat-y">待跟进' + normalCount + '家</span>';
+        if (urgentCount > 0) statsHtml += '<span class="follow-stat follow-stat-o">急待跟进' + urgentCount + '家</span>';
+        if (riskCount > 0) statsHtml += '<span class="follow-stat follow-stat-r">流失风险' + riskCount + '家</span>';
+        statsEl.innerHTML = statsHtml;
+    }
+    
+    // 渲染列表
+    var listEl = document.getElementById('followList');
+    if (!listEl) return;
+    
+    if (followCustomers.length === 0) {
+        listEl.innerHTML = '<div style="text-align:center;padding:20px;color:#888;font-size:12px">暂无待跟进客户 👍</div>';
+        return;
+    }
+    
+    var h = '';
+    followCustomers.forEach(function(c) {
+        var tierTag = getTierTagHtml(c.tc);
+        var urgencyClass = c.urgency === 'risk' ? 'follow-row-r' : (c.urgency === 'urgent' ? 'follow-row-o' : 'follow-row-y');
+        var dayText = c.days > 30 ? c.days + '天前' : c.days + '天前';
+        
+        h += '<div class="follow-row" onclick="showCustomerDetail(\'' + c.id + '\')">';
+        h += '<div class="follow-row-l ' + urgencyClass + '"></div>';
+        h += '<div class="follow-row-c">';
+        h += '<div class="follow-row-n">' + c.name + tierTag + '</div>';
+        h += '<div class="follow-row-i">';
+        h += '<span>' + (c.salesman || '-') + '</span>';
+        h += '</div>';
+        h += '</div>';
+        h += '<div class="follow-row-d">' + dayText + '</div>';
+        h += '</div>';
+    });
+    
+    listEl.innerHTML = h;
+}
+
+// 获取分层标签HTML
+function getTierTagHtml(tc) {
+    if (!tc) return '';
+    var tagClass = '';
+    var displayText = tc;
+    
+    if (tc.indexOf('终端A') >= 0) tagClass = 'background:#e8f5e9;color:#137333';
+    else if (tc.indexOf('终端B') >= 0) tagClass = 'background:#e8f0fe;color:#1a73e8';
+    else if (tc.indexOf('终端C') >= 0) tagClass = 'background:#fff3e0;color:#e37400';
+    else if (tc.indexOf('终端D') >= 0) tagClass = 'background:#f5f5f5;color:#666';
+    else if (tc.indexOf('批发A') >= 0) tagClass = 'background:#e8f0fe;color:#1a73e8';
+    else if (tc.indexOf('批发B') >= 0) tagClass = 'background:#fff3e0;color:#e37400';
+    else if (tc.indexOf('批发C') >= 0) tagClass = 'background:#f5f5f5;color:#666';
+    else if (tc.indexOf('批发D') >= 0) tagClass = 'background:#f5f5f5;color:#666';
+    else if (tc.indexOf('沉默') >= 0) tagClass = 'background:#fce4ec;color:#c62828';
+    
+    return '<span class="follow-tier-tag" style="' + tagClass + '">' + displayText + '</span>';
+}
+
+// ===== 功能二：沉默客户激活 =====
+// 渲染沉默客户列表
+function renderSilentList() {
+    var salesFilter = document.getElementById('silentSalesFilter').value;
+    
+    // 统计变量
+    var totalCount = 0;
+    var highValueCount = 0;
+    var midValueCount = 0;
+    var lowValueCount = 0;
+    
+    // 收集沉默客户
+    var silentCustomers = [];
+    Object.keys(customerPortraitData).forEach(function(id) {
+        var fp = customerPortraitData[id];
+        var tc = fp.tc || '';
+        var salesman = fp.sm || '';
+        
+        // 只处理沉默客户
+        if (tc !== '沉默') return;
+        
+        // 排除免考核人员
+        if (EXCLUDE_SALESMAN.indexOf(salesman) !== -1) return;
+        
+        // 业务员筛选
+        if (salesFilter && salesman !== salesFilter) return;
+        
+        var sm = parseFloat(fp.sm) || 0;  // 总销售额
+        var pc = parseInt(fp.pc) || 0;   // 采购次数
+        var lpd = fp.lpd || '-';          // 最后采购日期
+        
+        totalCount++;
+        
+        // 判断价值等级
+        var valueLevel = 'low';
+        if (sm >= 50000) {
+            valueLevel = 'high';
+            highValueCount++;
+        } else if (sm >= 20000) {
+            valueLevel = 'mid';
+            midValueCount++;
+        } else {
+            lowValueCount++;
+        }
+        
+        silentCustomers.push({
+            id: id,
+            name: fp.n || '-',
+            sm: sm,
+            pc: pc,
+            lpd: lpd,
+            salesman: salesman,
+            valueLevel: valueLevel
+        });
+    });
+    
+    // 按历史采购总额降序排列
+    silentCustomers.sort(function(a, b) {
+        return b.sm - a.sm;
+    });
+    
+    // 更新统计
+    var statsEl = document.getElementById('silentStats');
+    if (statsEl) {
+        var statsHtml = '<span class="silent-stat silent-stat-gray">共' + totalCount + '家</span>';
+        if (highValueCount > 0) statsHtml += '<span class="silent-stat silent-stat-gold">高价值' + highValueCount + '家</span>';
+        statsEl.innerHTML = statsHtml;
+    }
+    
+    // 渲染列表
+    var listEl = document.getElementById('silentList');
+    if (!listEl) return;
+    
+    if (silentCustomers.length === 0) {
+        listEl.innerHTML = '<div style="text-align:center;padding:20px;color:#888;font-size:12px">暂无沉默客户 👍</div>';
+        return;
+    }
+    
+    // 根据展开状态决定显示数量
+    var displayCount = silentExpanded ? silentCustomers.length : Math.min(10, silentCustomers.length);
+    var hasMore = silentCustomers.length > 10;
+    
+    var h = '';
+    for (var i = 0; i < displayCount; i++) {
+        var c = silentCustomers[i];
+        var isHigh = c.valueLevel === 'high';
+        var valTagClass = c.valueLevel === 'high' ? 'silent-val-gold' : (c.valueLevel === 'mid' ? 'silent-val-blue' : 'silent-val-gray');
+        var valText = c.valueLevel === 'high' ? '高价值' : (c.valueLevel === 'mid' ? '中价值' : '低价值');
+        
+        var smDisplay = c.sm >= 10000 ? (c.sm / 10000).toFixed(1) + '万' : c.sm.toFixed(0) + '元';
+        
+        h += '<div class="silent-row' + (isHigh ? ' high' : '') + '" onclick="showCustomerDetail(\'' + c.id + '\')">';
+        h += '<div class="silent-row-c">';
+        h += '<div class="silent-row-n">' + c.name + '<span class="silent-val-tag ' + valTagClass + '">' + valText + '</span></div>';
+        h += '<div class="silent-row-i">';
+        h += '<span>历史采购: ' + smDisplay + '</span>';
+        h += '<span>采购' + c.pc + '次</span>';
+        h += '<span>' + (c.salesman || '-') + '</span>';
+        h += '</div>';
+        h += '</div>';
+        h += '</div>';
+    }
+    
+    listEl.innerHTML = h;
+    
+    // 更新展开按钮
+    var expandBtn = document.getElementById('silentExpandBtn');
+    if (expandBtn) {
+        if (hasMore) {
+            expandBtn.style.display = 'block';
+            expandBtn.textContent = silentExpanded ? '收起 ▲' : '展开全部 (' + silentCustomers.length + '家) ▼';
+        } else {
+            expandBtn.style.display = 'none';
+        }
+    }
+}
+
+// ===== 功能三：客户-产品匹配 =====
+// 根据客户分层确定渠道类型
+function getChannelType(tc) {
+    if (!tc) return '批发';
+    if (tc.indexOf('终端') >= 0) return '终端';
+    if (tc.indexOf('沉默') >= 0) return '沉默';
+    return '批发';
+}
+
+// 获取推荐产品
+function getRecommendedProducts(tc, maxCount) {
+    var channelType = getChannelType(tc);
+    var products = [];
+    
+    // 获取产品列表
+    Object.keys(productPortraitData).forEach(function(code) {
+        var p = productPortraitData[code];
+        var 适配渠道 = p['适配渠道'] || '';
+        var 商品分级 = p['商品分级'] || '常规';
+        
+        // 检查渠道匹配
+        var channelMatch = false;
+        if (channelType === '终端') {
+            channelMatch = 适配渠道.indexOf('终端') >= 0 || 适配渠道.indexOf('餐饮') >= 0 || 适配渠道.indexOf('团膳') >= 0 || 适配渠道.indexOf('连锁') >= 0 || 适配渠道.indexOf('商超') >= 0 || 适配渠道.indexOf('商超/流通') >= 0;
+        } else if (channelType === '批发') {
+            channelMatch = 适配渠道.indexOf('批发') >= 0 || 适配渠道.indexOf('流通') >= 0 || 适配渠道.indexOf('商超/流通') >= 0 || 适配渠道.indexOf('全渠道') >= 0;
+        }
+        
+        if (!channelMatch && 适配渠道.indexOf('全渠道') < 0) {
+            // 如果没有明确渠道匹配，尝试全渠道或留空
+            if (适配渠道 && 适配渠道 !== '-' && 适配渠道 !== '全渠道') {
+                return;
+            }
+        }
+        
+        // 计算推荐系数
+        var coef = 1.0;
+        if (商品分级 === '自主') coef = 1.2;
+        else if (商品分级 === '核心1类') coef = 1.15;
+        else if (商品分级 === '核心2类') coef = 1.08;
+        else coef = 1.0;
+        
+        // 获取毛利率
+        var 毛利率 = p['毛利率'] || '0%';
+        毛利率 = parseFloat(String(毛利率).replace('%', '')) || 0;
+        
+        // 获取建议零售价
+        var 建议零售价 = p['建议零售价(元/包)'] || 0;
+        
+        products.push({
+            code: code,
+            name: p['产品名称'] || code,
+            品类标签: p['品类标签'] || '-',
+            毛利率: 毛利率,
+            建议零售价: 建议零售价,
+            商品分级: 商品分级,
+            coef: coef
+        });
+    });
+    
+    // 按推荐系数排序
+    products.sort(function(a, b) {
+        return b.coef - a.coef;
+    });
+    
+    // 返回前maxCount个
+    return products.slice(0, maxCount);
+}
+
+// 渲染推荐产品区域
+function renderProductMatchSection(tc) {
+    var channelType = getChannelType(tc);
+    var products = getRecommendedProducts(tc, 8);
+    
+    if (products.length === 0) {
+        return '<div style="text-align:center;padding:20px;color:#888;font-size:12px">暂无推荐产品</div>';
+    }
+    
+    var h = '';
+    products.forEach(function(p) {
+        // 产品分级标签样式
+        var gradeTagClass = '';
+        var gradeText = p.商品分级;
+        if (p.商品分级 === '自主') gradeTagClass = 'prod-grade-gold';
+        else if (p.商品分级 === '核心1类') gradeTagClass = 'prod-grade-blue';
+        else if (p.商品分级 === '核心2类') gradeTagClass = 'prod-grade-green';
+        else gradeTagClass = 'prod-grade-gray';
+        
+        var profitColor = p.毛利率 >= 15 ? '#137333' : (p.毛利率 >= 10 ? '#1a73e8' : '#e53935');
+        var priceDisplay = p.建议零售价 > 0 ? '¥' + p.建议零售价.toFixed(2) : '-';
+        
+        h += '<div class="prod-match-row">';
+        h += '<div class="prod-match-l">';
+        h += '<div class="prod-match-n">';
+        h += '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + p.name + '</span>';
+        h += '<span class="prod-grade-tag ' + gradeTagClass + '">' + gradeText + '</span>';
+        h += '</div>';
+        h += '<div class="prod-match-i">';
+        h += '<span>' + (p.品类标签 || '-') + '</span>';
+        h += '<span>系数×' + p.coef.toFixed(2) + '</span>';
+        h += '</div>';
+        h += '</div>';
+        h += '<div class="prod-match-r">';
+        h += '<div class="prod-match-p">' + priceDisplay + '</div>';
+        h += '<div class="prod-match-m" style="color:' + profitColor + '">' + p.毛利率.toFixed(1) + '%</div>';
+        h += '</div>';
+        h += '</div>';
+    });
+    
+    return h;
+}
+
+// 修改客户详情弹窗函数，在最后添加推荐产品
+var originalShowCustomerDetail = showCustomerDetail;
+showCustomerDetail = function(customerId) {
+    // 调用原始函数
+    originalShowCustomerDetail(customerId);
+    
+    // 获取客户分层
+    var fp = customerPortraitData[customerId] || {};
+    var tc = fp.tc || '';
+    
+    // 在mdBd最后添加推荐产品板块
+    setTimeout(function() {
+        var mdBd = document.getElementById('mdBd');
+        if (mdBd) {
+            var sectionTitle = '<div style="font-size:14px;font-weight:600;color:#333;margin-bottom:12px;display:flex;align-items:center">🎯 推荐产品</div>';
+            var sectionContent = renderProductMatchSection(tc);
+            var sectionHtml = '<div class="prod-match-section">' + sectionTitle + sectionContent + '</div>';
+            mdBd.innerHTML = mdBd.innerHTML + sectionHtml;
+        }
+    }, 100);
+};
 
 </script>
 </body>
