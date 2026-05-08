@@ -1300,6 +1300,13 @@ function showSortOptions(field) {
     }, 10);
 }
 
+// 从规格型号中提取每件包数
+function getSpecCount(spec) {
+    if (!spec) return 1;
+    var match = spec.match(/\*(\d+)/);
+    return match ? parseInt(match[1]) : 1;
+}
+
 // 产品详情弹窗
 function showProductDetail(idx) {
     var p = productsData[idx];
