@@ -255,16 +255,21 @@ async function loadDataFile(key) {
     applyDataToGlobals(key, data);
     return true;
   } catch (e) {
+    console.error('加载数据失败[' + key + ']:', e.message || e);
     var cacheKey = 'xlq_' + key;
     var cached = localStorage.getItem(cacheKey);
     if (cached) {
-      var data = JSON.parse(cached);
-      applyDataToGlobals(key, data);
-      dataFromCache = true;
-      return true;
+      try {
+        var data = JSON.parse(cached);
+        applyDataToGlobals(key, data);
+        dataFromCache = true;
+        return true;
+      } catch(e2) {
+        console.error('缓存数据解析失败[' + key + ']:', e2.message);
+      }
     }
     if (info.required) {
-      showError('数据加载失败: ' + key);
+      showError('数据加载失败: ' + key + ' (' + (e.message||'网络错误') + ')');
       return false;
     }
     return false;
