@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>湘里情智营v12.1·客户决策</title>
+<title>湘里情智营v12.3·客户决策</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f5;font-size:14px;line-height:1.6;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1)}
@@ -440,6 +440,35 @@ body{font-size:14px;line-height:1.6}
 .return-submit-btn:active {
   background: #0d47a1;
 }
+
+/* ===== 布局优化 ===== */
+/* 表格字体 */
+.table-text, table { font-size: 10pt !important }
+.stat-num, .big-num { font-size: 20px !important }
+/* 标题字体 */
+.card-tit, .fold-tit, .pg-hd h1 { font-size: 15pt !important }
+/* 数字格式化 */
+.num-value { font-variant-numeric: tabular-nums }
+/* 按钮间距优化 */
+.terminal-btn, .product-extra-btn { margin: 4px }
+.follow-action { margin-left: 12px }
+/* 弹窗内边距优化 */
+.md-bd { padding: 16px; line-height: 1.6 }
+.md-bd > div + div { margin-top: 12px }
+/* 手机端480px优化 */
+@media (max-width: 480px) {
+  .pg { padding: 10px; padding-bottom: 70px }
+  .card { padding: 10px; margin-bottom: 8px }
+  .prd-card { padding: 10px }
+  .terminal-item { padding: 10px }
+  .follow-item { padding: 8px 0 }
+  .script-item { padding: 10px }
+  .cat-btn { padding: 6px 10px; font-size: 11px }
+  .terminal-btn { padding: 5px 10px; font-size: 10px }
+}
+/* 数字千分位 */
+.format-num { font-variant-numeric: tabular-nums }
+
 </style>
 </head>
 <body>
@@ -473,7 +502,11 @@ body{font-size:14px;line-height:1.6}
 
 <!-- 日报页 -->
 <div id="pgReport" class="pg">
-<div class="pg-hd"><h1>📊 日报</h1><p id="rptDate"></p></div>
+<div class="pg-hd"><h1>📊 日报</h1><div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px">
+<button onclick="changeReportDate(-1)" style="padding:2px 8px;border:1px solid rgba(255,255,255,0.4);background:rgba(255,255,255,0.2);color:#fff;border-radius:4px;font-size:12px;cursor:pointer">◀ 前日</button>
+<span id="rptDate"></span>
+<button onclick="changeReportDate(1)" style="padding:2px 8px;border:1px solid rgba(255,255,255,0.4);background:rgba(255,255,255,0.2);color:#fff;border-radius:4px;font-size:12px;cursor:pointer">后日 ▶</button>
+</div></div>
 <div id="rptContent"></div>
 </div>
 
@@ -1064,17 +1097,15 @@ function getReplenishReminders() {
 function renderTerminal开拓() {
   var myRegion = getMyRegion();
   var myTerminals = terminalData.filter(function(t) {
-    return t.region === myRegion && t.status !== '已联系';
+    return t.department === USER_DEPT && t.status !== '已联系';
   });
-  
-  if (myTerminals.length === 0) {
-    // 生成模拟数据
-    myTerminals = generateMockTerminals(myRegion, 10);
-  }
-  
-  var total = 30; // 假设本区域总终端数
-  var covered = total - myTerminals.length;
-  var rate = total > 0 ? Math.round((covered / total) * 100) : 0;
+
+  // 如果数据量太大，限制显示
+  var displayTerminals = myTerminals.length > 100 ? myTerminals.slice(0, 100) : myTerminals;
+
+  var total = myTerminals.length;
+  var covered = terminalData.filter(function(t) { return t.department === USER_DEPT && t.status === '已联系'; }).length;
+  var rate = (total + covered) > 0 ? Math.round((covered / (total + covered)) * 100) : 0;
   
   var h = '<div class="fold-card">';
   h += '<div class="fold-hd" onclick="toggleFold(\'terminal\')">';
@@ -1101,7 +1132,7 @@ function renderTerminal开拓() {
   
   // 终端列表
   h += '<div id="terminalList">';
-  myTerminals.slice(0, 10).forEach(function(t) {
+  displayTerminals.slice(0, 50).forEach(function(t) {
     var typeClass = getTerminalTypeClass(t.type);
     h += '<div class="terminal-item" onclick="toggleTerminalDetail(this)">';
     h += '<div class="terminal-item-hd">';
@@ -1459,6 +1490,30 @@ function renderFollowChecklist() {
       h += '</div>';
     });
   }
+  // 沉默客户列表
+  var silentList = [];
+  Object.keys(customerPortraitData || {}).forEach(function(id) {
+    var fp = customerPortraitData[id];
+    if (fp.sm !== CURRENT_USER) return;
+    if (String(fp.tc || '') !== '沉默') return;
+    var totalAmt = parseFloat(fp.tpa || 0);
+    var valueTag = totalAmt > 50000 ? '💎' : (totalAmt > 10000 ? '💰' : '📦');
+    var valueLabel = totalAmt > 50000 ? '高价值' : (totalAmt > 10000 ? '中价值' : '普通');
+    silentList.push({ id: id, name: fp.n || '-', valueTag: valueTag, valueLabel: valueLabel, totalAmt: totalAmt });
+  });
+  if (silentList.length > 0) {
+    h += '<div style="margin-top:16px;padding-top:16px;border-top:1px dashed #e0e0e0">';
+    h += '<div style="font-size:12px;color:#888;margin-bottom:10px">📦 沉默客户（' + silentList.length + '）</div>';
+    silentList.forEach(function(item) {
+      var valueColor = item.valueTag === '💎' ? '#c5221f' : (item.valueTag === '💰' ? '#e37400' : '#888');
+      h += '<div class="follow-item" onclick="showCustomerDetail(\' + item.id + \')" style="padding:8px 10px">';
+      h += '<div class="follow-info"><div class="follow-name" style="font-size:12px">' + item.name + ' <span style="color:' + valueColor + ';font-size:11px">' + item.valueTag + ' ' + item.valueLabel + '</span></div>';
+      h += '<div class="follow-meta" style="font-size:10px">历史采购: ¥' + (item.totalAmt/10000).toFixed(1) + '万</div></div>';
+      h += '</div>';
+    });
+    h += '</div>';
+  }
+  
   h += '</div></div></div>';
   return h;
 }
@@ -1486,7 +1541,13 @@ function getFollowList(username, showAll) {
     var fp = customerPortraitData[id];
     if (fp.sm !== username) return;
     var tc = String(fp.tc || '');
-    if (tc === '沉默') return;
+    if (tc === '沉默') {
+      var totalAmt = parseFloat(fp.tpa || 0);
+      var valueTag = totalAmt > 50000 ? '💎' : (totalAmt > 10000 ? '💰' : '📦');
+      var valueLabel = totalAmt > 50000 ? '高价值' : (totalAmt > 10000 ? '中价值' : '普通');
+      list.push({ id: id, name: fp.n || '-', days: 0, urgency: 'silent', valueTag: valueTag, valueLabel: valueLabel, totalAmt: totalAmt });
+      return;
+    }
     var lpd = String(fp.lpd || '');
     if (!lpd) return;
     var days = getDaysSince(lpd);
@@ -1596,8 +1657,22 @@ function getDaysSince(dateStr) {
 }
 
 // ===== 日报页 =====
+var reportDateOffset = 0;
+function changeReportDate(delta) {
+  reportDateOffset += delta;
+  renderReport();
+}
 function renderReport() {
-  document.getElementById('rptDate').textContent = new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+  var reportDate = new Date();
+reportDate.setDate(reportDate.getDate() + reportDateOffset);
+var dateStr = reportDate.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+if (reportDateOffset !== 0) {
+  dateStr += ' (';
+  if (reportDateOffset > 0) dateStr += '+' + reportDateOffset;
+  else dateStr += reportDateOffset;
+  dateStr += '天)';
+}
+document.getElementById('rptDate').textContent = dateStr;
   var h = '';
   if (USER_ROLE === 'Sales') { h += renderPersonalReport(CURRENT_USER); }
   else if (USER_ROLE === 'Manager') { h += renderDeptReport(USER_DEPT); if (DUAL_ROLE_MANAGERS.indexOf(CURRENT_USER) >= 0) { h += renderPersonalReport(CURRENT_USER); } }
@@ -1758,11 +1833,7 @@ function showProductDetail(code) {
   h += '</div>';
   
   h += '<button onclick="openCalcFromProduct(\'' + p.code + '\',\'' + p.name + '\',' + (p.price1B > 0 ? p.price1B : 0) + ',' + (p.retailPrice || 0) + ')" style="width:100%;padding:12px;background:#1a73e8;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:12px">🧮 利润计算</button>';
-  // TODO: 对接码上游API后替换为真实菜谱内容
-  h += '<button onclick="showRecipeHint()" style="width:100%;padding:10px;background:#fff;border:1px solid #e0e0e0;color:#666;border-radius:8px;font-size:13px;cursor:pointer;margin-top:8px">📖 看菜谱</button>';
-  // TODO: 对接企微微盘API后替换为真实质检报告链接
-  h += '<button onclick="showQCReportHint(\'' + p.code + '\')" style="width:100%;padding:10px;background:#fff;border:1px solid #e0e0e0;color:#666;border-radius:8px;font-size:13px;cursor:pointer;margin-top:8px">📋 质检报告</button>';
-  h += '</div>';
+  
   document.getElementById('mdBd').innerHTML = h;
   document.getElementById('md').classList.add('on');
 }
@@ -2353,6 +2424,17 @@ function applyCustomerTier() {
 function manualRefreshData() {
   dataLoaded = { data_report: false, data_product: false, data_customer: false, data_coef: false, data_extra: false, data_recs: false, data_commission: false, data_terminal: false };
   initData();
+}
+
+
+// 格式化数字（千分位，保留1位小数）
+function fmtNum(num) {
+  if (num === null || num === undefined || isNaN(num)) return '0';
+  var n = parseFloat(num);
+  if (Math.abs(n) >= 10000) {
+    return (n / 10000).toFixed(1) + '万';
+  }
+  return n.toLocaleString('zh-CN', { minimumFractionDigits: 0, maximumFractionDigits: 1 });
 }
 
 // ===== 初始化 =====
