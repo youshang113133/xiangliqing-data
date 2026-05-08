@@ -459,10 +459,7 @@ function getCommissionRate(p) {
 }
 
 function getBaseSalary(p) {
-  if (p <= 80000) return 2000;
-  if (p <= 130000) return 2500;
-  if (p <= 200000) return 3000;
-  return 3500;
+  return 2000;
 }
 
 function getCashBonus(p) {
@@ -2228,12 +2225,14 @@ var DAYS_ELAPSED = Math.ceil((currentDate - monthStart) / (1000 * 60 * 60 * 24))
     // 毛利额完成率（按月度推算，封顶120%）
     var profitCompletionRate = profitTargetMonthly > 0 ? Math.min(profitMonthly / profitTargetMonthly, 1.2) : 1.0;
 
-    // 基本+绩效工资（按月度毛利额档位）
-    var basePerfSalary = 4000; // 默认0-8万档
+    // 基本工资统一2000，绩效工资按月度毛利额档位
+    var baseSalary = 2000;
+    var perfSalary = 2000; // 默认0-8万档
     var salaryLevel = '0-8万';
-    if (profitMonthly >= 200000)      { basePerfSalary = 7000; salaryLevel = '20万+'; }
-    else if (profitMonthly >= 130000) { basePerfSalary = 6000; salaryLevel = '13-20万'; }
-    else if (profitMonthly >= 80000)  { basePerfSalary = 5000; salaryLevel = '8-13万'; }
+    if (profitMonthly >= 200000)      { perfSalary = 5000; salaryLevel = '20万+'; }
+    else if (profitMonthly >= 130000) { perfSalary = 4000; salaryLevel = '13-20万'; }
+    else if (profitMonthly >= 80000)  { perfSalary = 3000; salaryLevel = '8-13万'; }
+    var basePerfSalary = baseSalary + perfSalary;
 
     // 达标现金奖励
     var milestoneBonus = 0;
@@ -2282,7 +2281,7 @@ var DAYS_ELAPSED = Math.ceil((currentDate - monthStart) / (1000 * 60 * 60 * 24))
     h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
     h += '<div style="font-size:10px;color:#888">基本+绩效工资</div>';
     h += '<div style="font-size:16px;font-weight:700;color:#1565c0">' + basePerfSalary.toLocaleString() + '<span style="font-size:11px">元</span></div>';
-    h += '<div style="font-size:10px;color:#aaa">毛利' + salaryLevel + '</div>';
+    h += '<div style="font-size:10px;color:#aaa">基本2千+绩效' + perfSalary.toLocaleString() + '</div>';
     h += '</div>';
 
     h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
