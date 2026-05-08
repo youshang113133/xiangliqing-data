@@ -193,6 +193,14 @@ function showLoading(msg) {
   if (el) el.innerHTML = '<div class="loading">' + msg + '</div>';
 }
 
+function hideLoading() {
+  // 移除加载提示（如果有的话）
+  var el = document.getElementById('rptContent');
+  if (el && el.querySelector('.loading')) {
+    // 保留内容，让 render 函数处理
+  }
+}
+
 function showError(msg) {
   var el = document.getElementById('rptContent');
   if (el) el.innerHTML = '<div class="empty"><p>' + msg + '</p></div>';
@@ -221,10 +229,29 @@ async function loadDataFile(key) {
     var response = await fetch(url, { signal: AbortSignal.timeout(30000) });
     if (!response.ok) throw new Error('HTTP ' + response.status);
     var data = await response.json();
+    // localStorage 限制约5MB，超过3MB不缓存
     try {
-      localStorage.setItem(cacheKey, JSON.stringify(data));
-      localStorage.setItem(cacheKey + '_ver', fileVer);
-    } catch (e) {}
+      var dataSize = JSON.stringify(data).length;
+      if (dataSize < 3 * 1024 * 1024) { // 3MB以下才缓存
+        localStorage.setItem(cacheKey, JSON.stringify(data));
+        localStorage.setItem(cacheKey + '_ver', fileVer);
+      }
+    } catch (e) {
+      // localStorage满了，清理旧缓存后重试
+      for (var k in DATA_FILES) {
+        if (k !== key) {
+          localStorage.removeItem('xlq_' + k);
+          localStorage.removeItem('xlq_' + k + '_ver');
+        }
+      }
+      try {
+        var dataSize2 = JSON.stringify(data).length;
+        if (dataSize2 < 3 * 1024 * 1024) {
+          localStorage.setItem(cacheKey, JSON.stringify(data));
+          localStorage.setItem(cacheKey + '_ver', fileVer);
+        }
+      } catch (e2) { /* 仍然失败，不影响流程 */ }
+    }
     applyDataToGlobals(key, data);
     return true;
   } catch (e) {
@@ -286,21 +313,25 @@ function applyDataToGlobals(key, data) {
 
 async function initData() {
   showLoading('正在加载数据...');
+  // 首屏并行加载所有关键数据
   await Promise.all([
     loadDataFile('data_report'),
     loadDataFile('data_coef'),
-    loadDataFile('data_extra')
+    loadDataFile('data_extra'),
+    loadDataFile('data_customer'),
+    loadDataFile('data_commission')
   ]);
-  if (dataLoaded.data_customer || customersData.length > 0) {
-    applyCustomerTier();
-  }
+  // 数据加载完后应用系数覆盖
+  applyCustomerTier();
+  applyFixedDataMaps();
   updateDataStatus();
   renderReport();
+  // 后台预加载产品数据
   setTimeout(function() {
-    loadDataFile('data_product');
-    loadDataFile('data_customer').then(function() { applyCustomerTier(); });
+    loadDataFile('data_product').then(function() {
+      applyFixedDataMaps();
+    });
     loadDataFile('data_recs');
-    loadDataFile('data_commission');
   }, 500);
 }
 
@@ -475,9 +506,38 @@ document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
 document.querySelectorAll('.nav>div').forEach(n=>n.classList.remove('on'));
 document.getElementById('pg'+tab).classList.add('on');
 document.getElementById('nav'+tab).classList.add('on');
-if(tab==='Report')renderReport();
-if(tab==='Product')renderProduct();
-if(tab==='Customer')loadCustomerList();
+if(tab==='Report'){
+  if(!dataLoaded.data_report){
+    showLoading('加载日报数据...');
+    loadDataFile('data_report').then(function(){renderReport();hideLoading();});
+  }else{
+    renderReport();
+  }
+}
+if(tab==='Product'){
+  if(!dataLoaded.data_product){
+    showLoading('加载产品数据...');
+    loadDataFile('data_product').then(function(){
+      applyFixedDataMaps();
+      renderProduct();
+      hideLoading();
+    });
+  }else{
+    renderProduct();
+  }
+}
+if(tab==='Customer'){
+  if(!dataLoaded.data_customer){
+    showLoading('加载客户数据...');
+    loadDataFile('data_customer').then(function(){
+      applyCustomerTier();
+      loadCustomerList();
+      hideLoading();
+    });
+  }else{
+    loadCustomerList();
+  }
+}
 }
 
 // ===== 报表数据 =====
@@ -1547,8 +1607,8 @@ function showCustomerDetail(customerId) {
 // ===== 客户页 =====
 function loadCustomerList(){
 	// 直接使用 customersData（包含4253个客户）
-	// allCustomers = customersData; // from JSON
-	// filteredCustomers = customersData; // from JSON
+	allCustomers = customersData;
+	filteredCustomers = customersData;
 	document.getElementById('custStat').textContent='共'+customersData.length+'个客户';
 	renderCustomerFilters();
 	renderCustomerList();
