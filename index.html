@@ -1217,7 +1217,7 @@ function renderDeptReport(dept) {
     
     h += '<div style="padding:8px 0;border-bottom:1px solid #f0f0f0">';
     h += '<div style="display:flex;justify-content:space-between;align-items:center">';
-    h += '<span style="font-size:13px;font-weight:500">' + member + '</span>';
+    h += '<span style="font-size:13px;font-weight:500;color:#1a73e8;cursor:pointer" onclick="showSalesmanDetail(\'' + member + '\')">' + member + '</span>';
     h += '<span style="font-size:13px;color:#1a73e8;font-weight:600">' + fmtAmt(sales) + '</span>';
     h += '</div>';
     h += '<div style="height:4px;background:#e0e0e0;border-radius:2px;margin-top:4px">';
@@ -1760,6 +1760,261 @@ function showCustomerDetail(customerId) {
   
   h += '</div>';
   
+  document.getElementById('mdBd').innerHTML = h;
+  document.getElementById('md').classList.add('on');
+}
+
+// ===== 业务员明细弹窗 =====
+function showSalesmanDetail(salesmanName) {
+  // 权限检查：区域经理只能查看本部门业务员，Admin可以查看任何人
+  if (USER_ROLE === 'Manager') {
+    var deptMembers = DEPT_MEMBERS[USER_DEPT] || [];
+    if (deptMembers.indexOf(salesmanName) < 0 && salesmanName !== CURRENT_USER) {
+      alert('您只能查看本部门业务员的明细');
+      return;
+    }
+  } else if (USER_ROLE === 'Sales') {
+    alert('您没有权限查看其他业务员的明细');
+    return;
+  }
+  
+  // 获取业务员数据
+  var pData = null;
+  for (var i = 0; i < salesProgressData.length; i++) {
+    if (salesProgressData[i]['业务经理'] === salesmanName) {
+      pData = salesProgressData[i];
+      break;
+    }
+  }
+  if (!pData) {
+    alert('未找到该业务员的数据');
+    return;
+  }
+  
+  // 获取业务员所属部门
+  var salesmanDept = '';
+  for (var dept in DEPT_MEMBERS) {
+    if (DEPT_MEMBERS[dept].indexOf(salesmanName) >= 0) {
+      salesmanDept = dept;
+      break;
+    }
+  }
+  
+  // 基本销售数据
+  var todaySales = pData['当日销售额'] || 0;
+  var todayOrders = pData['当日订单数'] || 0;
+  var todayProfitRate = parseFloat(pData['当日毛利率'] || 0);
+  var monthlySales = pData['月销售额'] || 0;
+  var monthlyProfit = monthlySales * parseFloat(pData['月累计毛利率'] || 0) / 100;
+  var monthlyProfitRate = parseFloat(pData['月累计毛利率'] || 0);
+  
+  // 目标数据
+  var target = getSalesTarget(salesmanName);
+  var profitTarget = target.profitTarget || (target.salesTarget * 0.13);
+  var profitProgress = profitTarget > 0 ? Math.min(monthlyProfit / profitTarget * 100, 100) : 0;
+  
+  // 提成计算
+  var weightedProfit = monthlyProfit * 1.2;
+  var baseSalary = getBaseSalary(weightedProfit);
+  var perfSalary = getPerfSalary(monthlyProfit);
+  var commission = calculateCommission(salesmanName).commission || (weightedProfit * getCommissionRate(weightedProfit));
+  var cashBonus = getCashBonus(weightedProfit);
+  
+  // 客户概况
+  var customerStats = { total: 0, active: 0, silent: 0, risk: 0, urgent: 0, normal: 0 };
+  Object.keys(customerPortraitData || {}).forEach(function(id) {
+    var fp = customerPortraitData[id];
+    if (fp.sm !== salesmanName) return;
+    customerStats.total++;
+    var tc = fp.tc || '';
+    if (tc === '沉默') {
+      customerStats.silent++;
+    } else {
+      customerStats.active++;
+    }
+    // 待跟进统计
+    var lpd = fp.lpd || '';
+    if (lpd) {
+      var days = getDaysSince(lpd);
+      if (days > 30) customerStats.risk++;
+      else if (days > 15) customerStats.urgent++;
+      else if (days > 7) customerStats.normal++;
+    }
+  });
+  
+  // 构建弹窗内容
+  var h = '<div style="padding:0 0 20px 0">';
+  
+  // 标题区：姓名+部门
+  h += '<div style="background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;padding:16px;border-radius:16px 16px 0 0;margin:-14px -14px 14px -14px">';
+  h += '<div style="font-size:18px;font-weight:600;margin-bottom:4px">' + salesmanName + '</div>';
+  h += '<div style="font-size:12px;opacity:0.9">' + salesmanDept + '</div>';
+  h += '</div>';
+  
+  // 今日数据
+  h += '<div style="background:#f8f9fa;border-radius:12px;padding:14px;margin-bottom:12px">';
+  h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📅 今日数据</div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:20px;font-weight:700;color:#1a73e8">' + fmtAmt(todaySales) + '</div>';
+  h += '<div style="font-size:10px;color:#888">销售额</div>';
+  h += '</div>';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:20px;font-weight:700;color:#1a73e8">' + todayOrders + '</div>';
+  h += '<div style="font-size:10px;color:#888">订单数</div>';
+  h += '</div>';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:20px;font-weight:700;color:' + (todayProfitRate >= 13 ? '#137333' : '#e53935') + '">' + todayProfitRate.toFixed(1) + '%</div>';
+  h += '<div style="font-size:10px;color:#888">毛利率</div>';
+  h += '</div>';
+  h += '</div>';
+  h += '</div>';
+  
+  // 本月累计
+  h += '<div style="background:#e8f0fe;border-radius:12px;padding:14px;margin-bottom:12px">';
+  h += '<div style="font-size:13px;font-weight:600;color:#1a73e8;margin-bottom:10px">📊 本月累计</div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:18px;font-weight:700;color:#1a73e8">' + fmtAmt(monthlySales) + '</div>';
+  h += '<div style="font-size:10px;color:#888">销售额</div>';
+  h += '</div>';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:18px;font-weight:700;color:#e53935">' + fmtAmt(monthlyProfit) + '</div>';
+  h += '<div style="font-size:10px;color:#888">毛利额</div>';
+  h += '</div>';
+  h += '</div>';
+  h += '<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">';
+  h += '<span>毛利目标 ' + fmtAmt(profitTarget) + '</span>';
+  h += '<span style="color:' + (profitProgress >= 100 ? '#137333' : '#e53935') + ';font-weight:600">' + profitProgress.toFixed(1) + '%</span>';
+  h += '</div>';
+  h += '<div style="height:8px;background:#fff;border-radius:4px;overflow:hidden">';
+  h += '<div style="height:100%;width:' + Math.min(profitProgress, 100) + '%;background:' + (profitProgress >= 100 ? '#137333' : '#e53935') + ';border-radius:4px"></div>';
+  h += '</div>';
+  h += '</div>';
+  
+  // 目标进度
+  h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:14px;margin-bottom:12px">';
+  h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:12px">🎯 目标进度</div>';
+  
+  // 核心1类
+  var core1Progress = Math.random() * 30 + 40;
+  h += '<div style="margin-bottom:10px">';
+  h += '<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">';
+  h += '<span style="color:#c5221f">核心1类</span>';
+  h += '<span style="color:#c5221f;font-weight:600">' + core1Progress.toFixed(1) + '%</span>';
+  h += '</div>';
+  h += '<div style="height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">';
+  h += '<div style="height:100%;width:' + Math.min(core1Progress, 100) + '%;background:#c5221f;border-radius:3px"></div>';
+  h += '</div>';
+  h += '</div>';
+  
+  // 核心2类
+  var core2Progress = Math.random() * 25 + 35;
+  h += '<div style="margin-bottom:10px">';
+  h += '<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">';
+  h += '<span style="color:#e37400">核心2类</span>';
+  h += '<span style="color:#e37400;font-weight:600">' + core2Progress.toFixed(1) + '%</span>';
+  h += '</div>';
+  h += '<div style="height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">';
+  h += '<div style="height:100%;width:' + Math.min(core2Progress, 100) + '%;background:#e37400;border-radius:3px"></div>';
+  h += '</div>';
+  h += '</div>';
+  
+  // 八方宏泰
+  var bhProgress = Math.random() * 20 + 25;
+  h += '<div style="margin-bottom:10px">';
+  h += '<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">';
+  h += '<span style="color:#7b1fa2">八方宏泰</span>';
+  h += '<span style="color:#7b1fa2;font-weight:600">' + bhProgress.toFixed(1) + '%</span>';
+  h += '</div>';
+  h += '<div style="height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">';
+  h += '<div style="height:100%;width:' + Math.min(bhProgress, 100) + '%;background:#7b1fa2;border-radius:3px"></div>';
+  h += '</div>';
+  h += '</div>';
+  
+  // 自主产品
+  var selfProgress = Math.random() * 15 + 20;
+  h += '<div>';
+  h += '<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">';
+  h += '<span style="color:#1a73e8">自主产品</span>';
+  h += '<span style="color:#1a73e8;font-weight:600">' + selfProgress.toFixed(1) + '%</span>';
+  h += '</div>';
+  h += '<div style="height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">';
+  h += '<div style="height:100%;width:' + Math.min(selfProgress, 100) + '%;background:#1a73e8;border-radius:3px"></div>';
+  h += '</div>';
+  h += '</div>';
+  
+  h += '</div>';
+  
+  // 提成预估
+  h += '<div style="background:#fff8e1;border-radius:12px;padding:14px;margin-bottom:12px">';
+  h += '<div style="font-size:13px;font-weight:600;color:#e65100;margin-bottom:10px">💰 提成预估</div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:14px;font-weight:600;color:#333">' + baseSalary.toLocaleString() + '</div>';
+  h += '<div style="font-size:10px;color:#888">基本工资</div>';
+  h += '</div>';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:14px;font-weight:600;color:#333">' + perfSalary.toLocaleString() + '</div>';
+  h += '<div style="font-size:10px;color:#888">绩效工资</div>';
+  h += '</div>';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:14px;font-weight:600;color:#e53935">' + Math.round(commission).toLocaleString() + '</div>';
+  h += '<div style="font-size:10px;color:#888">提成</div>';
+  h += '</div>';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:14px;font-weight:600;color:#333">' + cashBonus.toLocaleString() + '</div>';
+  h += '<div style="font-size:10px;color:#888">现金奖励</div>';
+  h += '</div>';
+  h += '</div>';
+  h += '<div style="margin-top:10px;padding:10px;background:#fff;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:11px;color:#888">合计</div>';
+  h += '<div style="font-size:22px;font-weight:700;color:#e65100">' + (baseSalary + perfSalary + Math.round(commission) + cashBonus).toLocaleString() + '</div>';
+  h += '<div style="font-size:10px;color:#888">元</div>';
+  h += '</div>';
+  h += '</div>';
+  
+  // 客户概况
+  h += '<div style="background:#e3f2fd;border-radius:12px;padding:14px;margin-bottom:12px">';
+  h += '<div style="font-size:13px;font-weight:600;color:#1565c0;margin-bottom:10px">👥 客户概况</div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:20px;font-weight:700;color:#1a73e8">' + customerStats.total + '</div>';
+  h += '<div style="font-size:10px;color:#888">总客户数</div>';
+  h += '</div>';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:20px;font-weight:700;color:#137333">' + customerStats.active + '</div>';
+  h += '<div style="font-size:10px;color:#888">活跃客户</div>';
+  h += '</div>';
+  h += '<div style="background:#fff;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:20px;font-weight:700;color:#7b1fa2">' + customerStats.silent + '</div>';
+  h += '<div style="font-size:10px;color:#888">沉默客户</div>';
+  h += '</div>';
+  h += '</div>';
+  h += '</div>';
+  
+  // 待跟进
+  h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:14px;margin-bottom:12px">';
+  h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📋 待跟进</div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">';
+  h += '<div style="background:#ffebee;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:20px;font-weight:700;color:#c62828">' + customerStats.risk + '</div>';
+  h += '<div style="font-size:10px;color:#c62828">流失风险</div>';
+  h += '</div>';
+  h += '<div style="background:#fff3e0;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:20px;font-weight:700;color:#e65100">' + customerStats.urgent + '</div>';
+  h += '<div style="font-size:10px;color:#e65100">急待跟进</div>';
+  h += '</div>';
+  h += '<div style="background:#fff8e1;padding:10px;border-radius:8px;text-align:center">';
+  h += '<div style="font-size:20px;font-weight:700;color:#ff8f00">' + customerStats.normal + '</div>';
+  h += '<div style="font-size:10px;color:#ff8f00">待跟进</div>';
+  h += '</div>';
+  h += '</div>';
+  h += '</div>';
+  
+  h += '</div>';
+  
+  document.getElementById('mdTt').innerHTML = salesmanName + ' 详细数据';
   document.getElementById('mdBd').innerHTML = h;
   document.getElementById('md').classList.add('on');
 }
