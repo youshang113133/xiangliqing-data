@@ -627,7 +627,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <div class="top-bar-r">
 <div class="user-info">
 <span class="username" id="currentUsername">-</span>
-<span class="role-tag" id="currentRoleTag">-</span>
+<select id="roleSwitcher" style="display:none;font-size:10px;padding:2px 6px;border:1px solid #ccc;border-radius:4px;margin-left:6px;background:#fff" onchange="switchRole(this.value)"><option value="">切换角色</option><option value="admin">Admin</option><option value="刘文">刘文(省外经理)</option><option value="彭菊华">彭菊华(长株潭经理)</option><option value="陆美英">陆美英(大客户经理)</option><option value="周斌">周斌(业务员)</option><option value="熊雄">熊雄(业务员)</option><option value="李志强">李志强(业务员)</option></select><span class="role-tag" id="currentRoleTag">-</span>
 </div>
 <button class="logout-btn" onclick="doLogout()">退出</button>
 </div>
@@ -997,11 +997,27 @@ function doLogin() {
   showMainInterface();
 }
 
+function switchRole(username) {
+  if (!username) return;
+  var account = USER_ACCOUNTS[username];
+  if (!account) return;
+  CURRENT_USER = username;
+  USER_ROLE = account.role;
+  USER_DEPT = account.dept;
+  localStorage.setItem('xlq_current_user', JSON.stringify({username: username, role: account.role, dept: account.dept}));
+  // 重新初始化
+  dataLoaded = { data_report: false, data_product: false, data_customer: false, data_coef: false, data_extra: false, data_recs: false, data_commission: false, data_terminal: false };
+  showMainInterface();
+}
+
 function doLogout() {
   CURRENT_USER = null; USER_ROLE = null; USER_DEPT = null;
   localStorage.removeItem('xlq_current_user');
-  // 开发阶段：退出后自动重新admin登录
-  setTimeout(function() { init(); }, 100);
+  localStorage.removeItem('wecom_user');
+  document.getElementById('loginPage').classList.remove('hidden');
+  document.getElementById('topBar').style.display = 'none';
+  document.getElementById('mainNav').style.display = 'none';
+  document.getElementById('refreshBtn').style.display = 'none';
   location.reload();
 }
 
@@ -1012,6 +1028,12 @@ function showMainInterface() {
   document.getElementById('currentUsername').textContent = CURRENT_USER;
   var roleTag = document.getElementById('currentRoleTag');
   roleTag.textContent = USER_ROLE === 'Admin' ? 'Admin' : (USER_ROLE === 'Manager' ? '区域经理' : '业务员');
+  // Admin角色：显示角色切换按钮
+  var roleSwitcher = document.getElementById('roleSwitcher');
+  if (roleSwitcher) {
+    if (USER_ROLE === 'Admin') { roleSwitcher.style.display = 'inline-block'; }
+    else { roleSwitcher.style.display = 'none'; }
+  }
   roleTag.className = 'role-tag role-' + (USER_ROLE === 'Admin' ? 'admin' : (USER_ROLE === 'Manager' ? 'manager' : 'sales'));
   initNav();
   initData();
@@ -2316,11 +2338,11 @@ function renderFullReport() {
     h += '<div style="font-weight:600;font-size:13px;color:#1a73e8;margin-bottom:8px">' + r + ' (' + memberCount + '人)</div>';
     deptMemberSales.forEach(function(item) {
       var target = salesTargetMap[item.name];
-      var targetAmt = target ? (target.monthlyAmount || target.amount || 0) : 0;
+      var targetAmt = target ? (target.salesTarget || target.monthlyAmount || target.amount || 0) : 0;
       var pct = targetAmt > 0 ? Math.min(100, Math.round(item.amount / targetAmt * 100)) : 0;
       var color = pct >= 100 ? '#137333' : (pct >= 70 ? '#1a73e8' : '#e53935');
-      h += '<div style="margin-bottom:8px;padding:8px;background:#f8f9fa;border-radius:6px">';
-      h += '<div style="font-size:12px;font-weight:600;display:flex;justify-content:space-between"><span>' + item.name + '</span><span style="font-size:11px;color:#888">' + fmtAmt(item.amount) + (targetAmt > 0 ? ' / ' + fmtAmt(targetAmt) : '') + '</span></div>';
+      h += '<div style="margin-bottom:8px;padding:8px;background:#f8f9fa;border-radius:6px;cursor:pointer" onclick="showSalesmanDetail(\'' + item.name + '\')">';
+      h += '<div style="font-size:12px;font-weight:600;display:flex;justify-content:space-between"><span style="color:#1a73e8">' + item.name + ' ▸</span><span style="font-size:11px;color:#888">' + fmtAmt(item.amount) + (targetAmt > 0 ? ' / ' + fmtAmt(targetAmt) : '') + '</span></div>';
       if (targetAmt > 0) {
         h += '<div style="height:5px;background:#ddd;border-radius:3px;overflow:hidden;margin-top:4px"><div style="height:100%;width:' + pct + '%;background:' + color + ';border-radius:3px"></div></div>';
         h += '<div style="text-align:right;font-size:10px;color:' + color + '">' + pct + '%</div>';
@@ -3346,11 +3368,13 @@ function applyWecomUser(userData) {
 })();
 
 function init() {
-  // 自动admin登录
-  localStorage.setItem("xlq_current_user", JSON.stringify({username: "admin"}));
-  // 优先检查企微OAuth2登录
-  // if (checkWecomLogin()) return; // 开发阶段跳过企微跳转
-  // 否则检查本地登录
+  // 开发阶段：如果没有登录信息，自动admin登录
+  if (!localStorage.getItem("xlq_current_user")) {
+    localStorage.setItem("xlq_current_user", JSON.stringify({username: "admin"}));
+  }
+  // 企微OAuth2登录（正式环境启用）
+  // if (checkWecomLogin()) return;
+  // 本地登录
   if (checkLoginStatus()) showMainInterface();
 }
 
