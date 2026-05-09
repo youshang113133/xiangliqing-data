@@ -3348,8 +3348,12 @@ function applyWecomUser(userData) {
 })();
 
 function init() {
+  // 自动admin登录（开发阶段）
+  if (!localStorage.getItem("xlq_current_user")) {
+    localStorage.setItem("xlq_current_user", JSON.stringify({username: "admin"}));
+  }
   // 优先检查企微OAuth2登录
-  if (checkWecomLogin()) return;
+  // if (checkWecomLogin()) return; // 开发阶段跳过企微跳转
   // 否则检查本地登录
   if (checkLoginStatus()) showMainInterface();
 }
