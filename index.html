@@ -841,6 +841,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <script>
 // ===== 数据配置 =====
 var DATA_BASE = './';
+var DATA_BASE_RAW = 'https://raw.githubusercontent.com/xiangliqing888/xiangliqing-data/main/';
 var DATA_FILES = {
   data_report: { file: 'data_report.json', required: true },
   data_product: { file: 'data_product.json', required: false },
@@ -1102,7 +1103,17 @@ async function loadDataFile(key) {
     console.log('加载数据:', url);
     var response = await fetch(url);
     if (!response.ok) throw new Error('HTTP ' + response.status);
-    var data = await response.json();
+    var text = await response.text();
+    try { var data = JSON.parse(text); }
+    catch(e1) {
+      console.warn('CDN数据截断,尝试GitHub Raw:', info.file);
+      try {
+        var r2 = await fetch(DATA_BASE_RAW + info.file);
+        if (!r2.ok) throw new Error('Raw HTTP ' + r2.status);
+        text = await r2.text();
+        data = JSON.parse(text);
+      } catch(e2) { throw new Error('数据解析失败: ' + e1.message); }
+    }
     console.log('数据加载成功:', key, '数据项:', Object.keys(data).length);
     applyDataToGlobals(key, data);
     // 数据加载成功后重新渲染日报页
