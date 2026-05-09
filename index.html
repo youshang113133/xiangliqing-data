@@ -94,8 +94,8 @@ body{font-size:14px;line-height:1.6}
 .tag-b{background:#e8f0fe;color:#1a73e8}
 .tag-p{background:#f3e5f5;color:#7b1fa2}
 /* 底部导航栏样式 - 用ID选择器，不用class */
-#mainNav{position:fixed;bottom:0;left:0;right:0;width:100%;max-width:480px;margin:0 auto;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,0.1);z-index:9999;border-top:1px solid #f0f0f0;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));display:none}
-#mainNav.show{display:block}
+#mainNav{position:fixed;bottom:0;left:0;right:0;width:100%;max-width:480px;margin:0 auto;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,0.1);z-index:9999;border-top:1px solid #f0f0f0;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));visibility:hidden}
+#mainNav.show{visibility:visible}
 #mainNav td{padding:8px 4px!important;font-size:11px!important;color:#666!important;cursor:pointer!important;vertical-align:middle!important;text-align:center!important}
 #mainNav td.on{color:#1a73e8!important;font-weight:600!important}
 .stat-row{display:flex;padding:12px 0;border-bottom:1px solid #eee;background:#fff}
@@ -1062,6 +1062,7 @@ function initNav() {
   html += '</tr></table>';
   nav.innerHTML = html;
   nav.className = 'show';
+  nav.style.visibility = 'visible';
   nav.style.display = 'block';
   document.body.style.paddingBottom = '60px';
   console.log('initNav done, tabs:', tabs.length, 'display:', nav.style.display);
