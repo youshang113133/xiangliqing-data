@@ -2242,106 +2242,92 @@ function renderDeptReport(dept) {
 }
 
 function renderFullReport() {
-  var h = '<div class="card"><div class="card-tit">总 结</div>';
+  var kpi = dailyReportData['核心经营指标'] || {};
+  var sAmt = (kpi['销售额'] || {})['当日'] || 0;
+  var sAmtM = (kpi['销售额'] || {})['月累计'] || 0;
+  var pAmt = (kpi['毛利额'] || {})['当日'] || 0;
+  var pAmtM = (kpi['毛利额'] || {})['月累计'] || 0;
+  var rRate = (kpi['毛利率'] || {})['当日'] || 0;
+  var rRateM = (kpi['毛利率'] || {})['月累计'] || 0;
+  var rTarget = (kpi['毛利率'] || {})['目标'] || 13;
+  var orderCnt = (kpi['订单数'] || {})['当日'] || 0;
+  var orderCntM = (kpi['订单数'] || {})['月累计'] || 0;
+  var lossCnt = (kpi['亏损订单数'] || {})['当日'] || 0;
+  var lossAmt = (kpi['亏损金额'] || {})['当日'] || 0;
+
+  // ===== 核心经营指标 =====
+  var h = '<div class="card"><div class="card-tit">核心经营指标</div>';
   h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
-  h += '<div style="background:#f8f9fa;padding:10px;border-radius:8px"><div style="font-size:11px;color:#888">当日销售</div><div style="font-size:18px;font-weight:700;color:#1a73e8">' + fmtAmt(dailyReportData['sales'] ? dailyReportData['sales']['amount'] : 0) + '</div></div>';
-  h += '<div style="background:#f8f9fa;padding:10px;border-radius:8px"><div style="font-size:11px;color:#888">当日毛利</div><div style="font-size:18px;font-weight:700;color:#e53935">' + fmtAmt(dailyReportData['profit'] ? dailyReportData['profit']['amount'] : 0) + '</div></div>';
+  h += '<div style="background:#e8f0fe;padding:10px;border-radius:8px;text-align:center"><div style="font-size:11px;color:#888">当日销售额</div><div style="font-size:18px;font-weight:700;color:#1a73e8">' + fmtAmt(sAmt) + '</div></div>';
+  h += '<div style="background:#e8f0fe;padding:10px;border-radius:8px;text-align:center"><div style="font-size:11px;color:#888">月累计销售额</div><div style="font-size:18px;font-weight:700;color:#1a73e8">' + fmtAmt(sAmtM) + '</div></div>';
+  h += '<div style="background:#fce8e6;padding:10px;border-radius:8px;text-align:center"><div style="font-size:11px;color:#888">当日毛利额</div><div style="font-size:18px;font-weight:700;color:#e53935">' + fmtAmt(pAmt) + '</div></div>';
+  h += '<div style="background:#fce8e6;padding:10px;border-radius:8px;text-align:center"><div style="font-size:11px;color:#888">月累计毛利额</div><div style="font-size:18px;font-weight:700;color:#e53935">' + fmtAmt(pAmtM) + '</div></div>';
+  h += '<div style="background:' + (rRate >= rTarget ? '#e8f5e9' : '#fff3e0') + ';padding:10px;border-radius:8px;text-align:center"><div style="font-size:11px;color:#888">当日毛利率</div><div style="font-size:18px;font-weight:700;color:' + (rRate >= rTarget ? '#137333' : '#e65100') + '">' + rRate.toFixed(1) + '%</div></div>';
+  h += '<div style="background:' + (rRateM >= rTarget ? '#e8f5e9' : '#fff3e0') + ';padding:10px;border-radius:8px;text-align:center"><div style="font-size:11px;color:#888">月累计毛利率</div><div style="font-size:18px;font-weight:700;color:' + (rRateM >= rTarget ? '#137333' : '#e65100') + '">' + rRateM.toFixed(1) + '%</div><div style="font-size:10px;color:#888">目标' + rTarget + '%</div></div>';
+  h += '</div>';
+  // 订单 & 亏损
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px">';
+  h += '<div style="text-align:center;padding:6px;background:#f8f9fa;border-radius:6px"><div style="font-size:10px;color:#888">当日订单</div><div style="font-size:14px;font-weight:600">' + orderCnt + '</div></div>';
+  h += '<div style="text-align:center;padding:6px;background:#f8f9fa;border-radius:6px"><div style="font-size:10px;color:#888">亏损订单</div><div style="font-size:14px;font-weight:600;color:#e53935">' + lossCnt + '</div></div>';
+  h += '<div style="text-align:center;padding:6px;background:#f8f9fa;border-radius:6px"><div style="font-size:10px;color:#888">亏损金额</div><div style="font-size:14px;font-weight:600;color:#e53935">' + fmtAmt(lossAmt) + '</div></div>';
   h += '</div></div>';
-  
+
+  // ===== 毛利区间分析 =====
+  var marginZones = dailyReportData['毛利区间'] || {};
+  var todayZones = marginZones['当日'] || [];
+  var monthZones = marginZones['月累计'] || [];
+  if (todayZones.length > 0) {
+    h += '<div class="card"><div class="card-tit">毛利区间分析（当日）</div>';
+    todayZones.forEach(function(z) {
+      var pct = (z['占比'] || 0) * 100;
+      var tgt = (z['目标占比'] || 0) * 100;
+      var color = z['预警'] === '🟢正常' ? '#34a853' : '#e53935';
+      h += '<div style="margin-bottom:8px"><div style="display:flex;justify-content:space-between;font-size:11px"><span>' + z['区间'] + '</span><span style="color:' + color + '">' + pct.toFixed(1) + '% (目标' + tgt.toFixed(0) + '%) ' + (z['预警'] || '') + '</span></div>';
+      h += '<div style="height:6px;background:#eee;border-radius:3px;overflow:hidden"><div style="height:100%;width:' + Math.min(100, pct) + '%;background:' + color + ';border-radius:3px"></div></div>';
+      h += '<div style="font-size:10px;color:#888">销售额: ' + fmtAmt(z['销售额'] || 0) + '</div></div>';
+    });
+    h += '</div>';
+  }
+
   // ===== 业务员任务完成进度 =====
   h += '<div class="card"><div class="card-tit">业务员任务完成进度</div>';
-  
   var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
-  
   regions.forEach(function(r) {
     var members = DEPT_MEMBERS[r] || [];
     var deptActualAmount = 0;
     var deptActualCount = 0;
     var deptMemberSales = [];
-    
-    // 计算部门汇总和收集每个业务员数据
     members.forEach(function(m) {
       if (EXCLUDE_SALESMAN.indexOf(m) >= 0) return;
       var p = salesProgressData.find(function(x) { return x['业务经理'] === m; });
       if (!p) return;
-      
       var salesAmt = p['月销售额'] || 0;
       var taskCount = parseFloat(p['完成任务数'] || p['完成任务'] || 0);
-      
       deptActualAmount += salesAmt;
       deptActualCount += taskCount;
       deptMemberSales.push({name: m, amount: salesAmt, tasks: taskCount});
     });
-    
-    // 部门平均完成率
     var memberCount = deptMemberSales.length;
-    var avgTaskPct = memberCount > 0 ? Math.round(deptActualCount / memberCount) : 0;
-    var avgAmountPct = memberCount > 0 ? Math.round(deptActualAmount / memberCount / 1000) : 0;
-    
-    h += '<div style="margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #eee">';
-    h += '<div style="font-weight:600;font-size:13px;color:#1a73e8;margin-bottom:12px;display:flex;align-items:center;gap:6px">';
-    h += '<span>' + r + '</span><span style="font-size:11px;color:#666;font-weight:400">(' + memberCount + '人)</span>';
-    h += '</div>';
-    
-    // 汇总数据卡片
-    h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">';
-    h += '<div style="background:#e8f0fe;padding:8px;border-radius:6px;text-align:center">';
-    h += '<div style="font-size:11px;color:#888">完成任务数</div>';
-    h += '<div style="font-size:16px;font-weight:700;color:#1a73e8">' + deptActualCount + '</div>';
-    h += '</div>';
-    h += '<div style="background:#fce8e6;padding:8px;border-radius:6px;text-align:center">';
-    h += '<div style="font-size:11px;color:#888">销售金额</div>';
-    h += '<div style="font-size:16px;font-weight:700;color:#e53935">¥' + fmtAmt(deptActualAmount) + '</div>';
-    h += '</div>';
-    h += '</div>';
-    
-    // 每个业务员明细进度
+    h += '<div style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid #eee">';
+    h += '<div style="font-weight:600;font-size:13px;color:#1a73e8;margin-bottom:8px">' + r + ' (' + memberCount + '人)</div>';
     deptMemberSales.forEach(function(item) {
-      var taskPct = item.tasks > 0 ? Math.min(100, Math.round(item.tasks * 10)) : 0;
-      var taskColor = taskPct >= 100 ? '#137333' : (taskPct >= 70 ? '#1a73e8' : '#e53935');
-      var amountPct = item.amount > 0 ? Math.min(100, Math.round(item.amount / 1000)) : 0;
-      var amountColor = amountPct >= 100 ? '#137333' : (amountPct >= 70 ? '#1a73e8' : '#e53935');
-      
-      h += '<div style="margin-bottom:12px;padding:10px;background:#f8f9fa;border-radius:8px">';
-      h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:8px;display:flex;justify-content:space-between">';
-      h += '<span>' + item.name + '</span>';
-      h += '<span style="font-size:11px;color:#888">¥' + fmtAmt(item.amount) + ' | ' + item.tasks + '件</span>';
-      h += '</div>';
-      
-      // 任务件数进度条
-      h += '<div style="margin-bottom:6px">';
-      h += '<div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px"><span style="color:#666">任务件数</span><span style="color:' + taskColor + '">' + item.tasks + '件 (' + taskPct + '%)</span></div>';
-      h += '<div style="height:6px;background:#ddd;border-radius:3px;overflow:hidden">';
-      h += '<div style="height:100%;width:' + taskPct + '%;background:' + taskColor + ';border-radius:3px"></div>';
-      h += '</div></div>';
-      
-      // 金额完成进度条
-      h += '<div>';
-      h += '<div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px"><span style="color:#666">金额完成</span><span style="color:' + amountColor + '">¥' + fmtAmt(item.amount) + ' (' + amountPct + '%)</span></div>';
-      h += '<div style="height:6px;background:#ddd;border-radius:3px;overflow:hidden">';
-      h += '<div style="height:100%;width:' + amountPct + '%;background:' + amountColor + ';border-radius:3px"></div>';
-      h += '</div></div>';
-      
+      var target = salesTargetMap[item.name];
+      var targetAmt = target ? (target.monthlyAmount || target.amount || 0) : 0;
+      var pct = targetAmt > 0 ? Math.min(100, Math.round(item.amount / targetAmt * 100)) : 0;
+      var color = pct >= 100 ? '#137333' : (pct >= 70 ? '#1a73e8' : '#e53935');
+      h += '<div style="margin-bottom:8px;padding:8px;background:#f8f9fa;border-radius:6px">';
+      h += '<div style="font-size:12px;font-weight:600;display:flex;justify-content:space-between"><span>' + item.name + '</span><span style="font-size:11px;color:#888">' + fmtAmt(item.amount) + (targetAmt > 0 ? ' / ' + fmtAmt(targetAmt) : '') + '</span></div>';
+      if (targetAmt > 0) {
+        h += '<div style="height:5px;background:#ddd;border-radius:3px;overflow:hidden;margin-top:4px"><div style="height:100%;width:' + pct + '%;background:' + color + ';border-radius:3px"></div></div>';
+        h += '<div style="text-align:right;font-size:10px;color:' + color + '">' + pct + '%</div>';
+      }
       h += '</div>';
     });
-    
     h += '</div>';
   });
   h += '</div>';
-  
-  // 原有的区域链接过渡
-  h += '<div class="card"><div class="card-tit">区域链接过渡</div>';
-  regions.forEach(function(r) {
-    h += '<div class="card"><div class="card-tit">' + r + '</div>';
-    var members = DEPT_MEMBERS[r] || [];
-    members.forEach(function(m) {
-      if (EXCLUDE_SALESMAN.indexOf(m) >= 0) return;
-      var p = salesProgressData.find(function(x) { return x['业务经理'] === m; });
-      if (!p) return;
-      h += '<div style="padding:6px 0;font-size:12px;display:flex;justify-content:space-between;border-bottom:1px solid #f5f5f5"><span>' + m + '</span><span>' + fmtAmt(p['月销售额'] || 0) + '</span></div>';
-    });
-    h += '</div>';
-  });
+
+  return h;
 }
 
 function filterProductCategory(cat) {
