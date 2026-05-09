@@ -94,10 +94,6 @@ body{font-size:14px;line-height:1.6}
 .tag-b{background:#e8f0fe;color:#1a73e8}
 .tag-p{background:#f3e5f5;color:#7b1fa2}
 /* 底部导航栏样式 - 用ID选择器，不用class */
-#mainNav{position:fixed;bottom:0;left:0;right:0;width:100%;max-width:480px;margin:0 auto;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,0.1);z-index:9999;border-top:1px solid #f0f0f0;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));visibility:hidden}
-#mainNav.show{visibility:visible}
-#mainNav td{padding:8px 4px!important;font-size:11px!important;color:#666!important;cursor:pointer!important;vertical-align:middle!important;text-align:center!important}
-#mainNav td.on{color:#1a73e8!important;font-weight:600!important}
 .stat-row{display:flex;padding:12px 0;border-bottom:1px solid #eee;background:#fff}
 .stat-item{text-align:center;flex:1}
 .stat-num{font-size:20px;font-weight:700;color:#1a73e8;font-variant-numeric:tabular-nums}
@@ -1062,8 +1058,7 @@ function initNav() {
   html += '</tr></table>';
   nav.innerHTML = html;
   nav.className = 'show';
-  nav.style.visibility = 'visible';
-  nav.style.display = 'block';
+  // nav already visible from HTML inline style
   document.body.style.paddingBottom = '60px';
   console.log('initNav done, tabs:', tabs.length, 'display:', nav.style.display);
 }
@@ -3676,8 +3671,8 @@ function updateReturnStats() {
 
 
 
-<!-- 底部导航 -->
-<div id="mainNav">
+<!-- 底部导航 - 纯内联样式，不依赖任何CSS class -->
+<div id="mainNav" style="position:fixed;bottom:0;left:0;width:100%;max-width:480px;margin:0 auto;background:#fff;z-index:9999;border-top:1px solid #e0e0e0;box-shadow:0 -2px 8px rgba(0,0,0,0.1);padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom))">
   <table style="width:100%;border-collapse:collapse;table-layout:fixed"><tr>
   <td id="navReport" onclick="switchTab('Report')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">📊</div><div style="font-size:10px;margin-top:2px">日报</div></td>
   <td id="navProduct" onclick="switchTab('Product')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">📦</div><div style="font-size:10px;margin-top:2px">产品</div></td>
