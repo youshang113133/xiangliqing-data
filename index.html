@@ -90,7 +90,7 @@ body{font-size:14px;line-height:1.6}
 .tag-r{background:#fce8e6;color:#c5221f}
 .tag-b{background:#e8f0fe;color:#1a73e8}
 .tag-p{background:#f3e5f5;color:#7b1fa2}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;display:flex;box-shadow:0 -2px 12px rgba(0,0,0,0.1);z-index:999;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));border-top:1px solid #f0f0f0}
+.nav{position:fixed;bottom:0;left:0;right:0;width:100%;background:#fff!important;display:flex!important;box-shadow:0 -2px 12px rgba(0,0,0,0.1)!important;z-index:9999!important;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));border-top:1px solid #f0f0f0!important;height:auto!important;visibility:visible!important;max-height:none!important;overflow:visible!important}
 .nav>div{flex:1;padding:8px;text-align:center;font-size:11px;color:#666;cursor:pointer;user-select:none}
 .nav .on{color:#1a73e8;font-weight:600}
 .nav .on::before{content:'';display:block;width:24px;height:3px;background:#1a73e8;border-radius:2px;margin:0 auto 6px}
@@ -2235,12 +2235,95 @@ function renderDeptReport(dept) {
 }
 
 function renderFullReport() {
-  var h = '<div class="card"><div class="card-tit">📊 核心指标</div>';
+  var h = '<div class="card"><div class="card-tit">总 结</div>';
   h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
-  h += '<div style="background:#f8f9fa;padding:10px;border-radius:8px"><div style="font-size:11px;color:#888">销售额</div><div style="font-size:18px;font-weight:700;color:#1a73e8">' + fmtAmt(dailyReportData['核心经营指标'] ? dailyReportData['核心经营指标']['销售额']['月累计'] : 0) + '</div></div>';
-  h += '<div style="background:#f8f9fa;padding:10px;border-radius:8px"><div style="font-size:11px;color:#888">毛利额</div><div style="font-size:18px;font-weight:700;color:#e53935">' + fmtAmt(dailyReportData['核心经营指标'] ? dailyReportData['核心经营指标']['毛利额']['月累计'] : 0) + '</div></div>';
+  h += '<div style="background:#f8f9fa;padding:10px;border-radius:8px"><div style="font-size:11px;color:#888">当日销售</div><div style="font-size:18px;font-weight:700;color:#1a73e8">' + fmtAmt(dailyReportData['sales'] ? dailyReportData['sales']['amount'] : 0) + '</div></div>';
+  h += '<div style="background:#f8f9fa;padding:10px;border-radius:8px"><div style="font-size:11px;color:#888">当日毛利</div><div style="font-size:18px;font-weight:700;color:#e53935">' + fmtAmt(dailyReportData['profit'] ? dailyReportData['profit']['amount'] : 0) + '</div></div>';
   h += '</div></div>';
+  
+  // ===== 业务员任务完成进度 =====
+  h += '<div class="card"><div class="card-tit">业务员任务完成进度</div>';
+  
   var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
+  
+  regions.forEach(function(r) {
+    var members = DEPT_MEMBERS[r] || [];
+    var deptActualAmount = 0;
+    var deptActualCount = 0;
+    var deptMemberSales = [];
+    
+    // 计算部门汇总和收集每个业务员数据
+    members.forEach(function(m) {
+      if (EXCLUDE_SALESMAN.indexOf(m) >= 0) return;
+      var p = salesProgressData.find(function(x) { return x['业务经理'] === m; });
+      if (!p) return;
+      
+      var salesAmt = p['月销售额'] || 0;
+      var taskCount = parseFloat(p['完成任务数'] || p['完成任务'] || 0);
+      
+      deptActualAmount += salesAmt;
+      deptActualCount += taskCount;
+      deptMemberSales.push({name: m, amount: salesAmt, tasks: taskCount});
+    });
+    
+    // 部门平均完成率
+    var memberCount = deptMemberSales.length;
+    var avgTaskPct = memberCount > 0 ? Math.round(deptActualCount / memberCount) : 0;
+    var avgAmountPct = memberCount > 0 ? Math.round(deptActualAmount / memberCount / 1000) : 0;
+    
+    h += '<div style="margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid #eee">';
+    h += '<div style="font-weight:600;font-size:13px;color:#1a73e8;margin-bottom:12px;display:flex;align-items:center;gap:6px">';
+    h += '<span>' + r + '</span><span style="font-size:11px;color:#666;font-weight:400">(' + memberCount + '人)</span>';
+    h += '</div>';
+    
+    // 汇总数据卡片
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">';
+    h += '<div style="background:#e8f0fe;padding:8px;border-radius:6px;text-align:center">';
+    h += '<div style="font-size:11px;color:#888">完成任务数</div>';
+    h += '<div style="font-size:16px;font-weight:700;color:#1a73e8">' + deptActualCount + '</div>';
+    h += '</div>';
+    h += '<div style="background:#fce8e6;padding:8px;border-radius:6px;text-align:center">';
+    h += '<div style="font-size:11px;color:#888">销售金额</div>';
+    h += '<div style="font-size:16px;font-weight:700;color:#e53935">¥' + fmtAmt(deptActualAmount) + '</div>';
+    h += '</div>';
+    h += '</div>';
+    
+    // 每个业务员明细进度
+    deptMemberSales.forEach(function(item) {
+      var taskPct = item.tasks > 0 ? Math.min(100, Math.round(item.tasks * 10)) : 0;
+      var taskColor = taskPct >= 100 ? '#137333' : (taskPct >= 70 ? '#1a73e8' : '#e53935');
+      var amountPct = item.amount > 0 ? Math.min(100, Math.round(item.amount / 1000)) : 0;
+      var amountColor = amountPct >= 100 ? '#137333' : (amountPct >= 70 ? '#1a73e8' : '#e53935');
+      
+      h += '<div style="margin-bottom:12px;padding:10px;background:#f8f9fa;border-radius:8px">';
+      h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:8px;display:flex;justify-content:space-between">';
+      h += '<span>' + item.name + '</span>';
+      h += '<span style="font-size:11px;color:#888">¥' + fmtAmt(item.amount) + ' | ' + item.tasks + '件</span>';
+      h += '</div>';
+      
+      // 任务件数进度条
+      h += '<div style="margin-bottom:6px">';
+      h += '<div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px"><span style="color:#666">任务件数</span><span style="color:' + taskColor + '">' + item.tasks + '件 (' + taskPct + '%)</span></div>';
+      h += '<div style="height:6px;background:#ddd;border-radius:3px;overflow:hidden">';
+      h += '<div style="height:100%;width:' + taskPct + '%;background:' + taskColor + ';border-radius:3px"></div>';
+      h += '</div></div>';
+      
+      // 金额完成进度条
+      h += '<div>';
+      h += '<div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px"><span style="color:#666">金额完成</span><span style="color:' + amountColor + '">¥' + fmtAmt(item.amount) + ' (' + amountPct + '%)</span></div>';
+      h += '<div style="height:6px;background:#ddd;border-radius:3px;overflow:hidden">';
+      h += '<div style="height:100%;width:' + amountPct + '%;background:' + amountColor + ';border-radius:3px"></div>';
+      h += '</div></div>';
+      
+      h += '</div>';
+    });
+    
+    h += '</div>';
+  });
+  h += '</div>';
+  
+  // 原有的区域链接过渡
+  h += '<div class="card"><div class="card-tit">区域链接过渡</div>';
   regions.forEach(function(r) {
     h += '<div class="card"><div class="card-tit">' + r + '</div>';
     var members = DEPT_MEMBERS[r] || [];
@@ -2252,12 +2335,7 @@ function renderFullReport() {
     });
     h += '</div>';
   });
-  return h;
 }
-
-// ===== 产品页 =====
-var currentProductCategory = '核心1类';
-var currentSort = 'sales_desc';
 
 function filterProductCategory(cat) {
   currentProductCategory = cat;
