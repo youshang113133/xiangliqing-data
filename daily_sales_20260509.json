@@ -1,0 +1,11 @@
+{
+  "date": "2026-05-09",
+  "summary": {
+    "total_records": 0,
+    "total_amount": 0,
+    "total_tax": 0,
+    "total_quantity": 0,
+    "salesmen": []
+  },
+  "records": []
+}
