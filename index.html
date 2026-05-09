@@ -1037,7 +1037,7 @@ function switchTab(tab) {
   else if (tab === 'Workbench') { renderWorkbench(); }
   else if (tab === 'Product') { if (!dataLoaded.data_product) { showLoading(); loadDataFile('data_product').then(function() { applyFixedDataMaps(); renderProduct(); hideLoading(); }); } else { renderProduct(); } }
   else if (tab === 'Customer') { if (!dataLoaded.data_customer) { showLoading(); loadDataFile('data_customer').then(function() { applyCustomerTier(); loadCustomerList(); hideLoading(); }); } else { loadCustomerList(); } }
-  else if (tab === 'Target') { renderTargetPage(); }
+  else if (tab === 'Target') { if (!dataLoaded.data_terminal) { showLoading(); loadDataFile('data_terminal').then(function() { renderTargetPage(); hideLoading(); }); } else { renderTargetPage(); } }
 }
 
 // ===== 数据加载 =====
@@ -1081,11 +1081,16 @@ function applyDataToGlobals(key, data) {
 }
 
 async function initData() {
-  await Promise.all([loadDataFile('data_report'), loadDataFile('data_coef'), loadDataFile('data_extra'), loadDataFile('data_customer'), loadDataFile('data_commission'), loadDataFile('data_terminal')]);
+  // 只加载必要的小文件，大文件懒加载
+  await Promise.all([loadDataFile('data_report'), loadDataFile('data_coef'), loadDataFile('data_customer'), loadDataFile('data_commission')]);
   applyFixedDataMaps();
   applyCustomerTier();
   if (USER_ROLE === 'Admin' || USER_ROLE === 'Manager') { switchTab('Report'); } else { switchTab('Workbench'); }
-  setTimeout(function() { loadDataFile('data_product'); }, 500);
+  // 延迟加载产品数据
+  setTimeout(function() { loadDataFile('data_product'); }, 300);
+  // 延迟加载画像数据(5MB)
+  setTimeout(function() { loadDataFile('data_extra').then(function() { applyFixedDataMaps(); applyCustomerTier(); }); }, 800);
+  // 终端数据9.7MB，仅点击目标页时加载
 }
 
 // ===== 工作台（功能23增强）=====
