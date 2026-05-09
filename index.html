@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>湘里情智营v15.2·客户决策</title>
+<title>湘里情智营v15.3·客户决策</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f5f5f5;font-size:14px;line-height:1.6;color:#333;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1);padding-bottom:60px}
@@ -624,7 +624,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <div class="top-bar-r">
 <div class="user-info">
 <span class="username" id="currentUsername">-</span>
-<select id="roleSwitcher" style="display:none;font-size:10px;padding:2px 6px;border:1px solid #ccc;border-radius:4px;margin-left:6px;background:#fff" onchange="switchRole(this.value)"><option value="">切换角色</option><option value="admin">★ Admin</option><option value="湘里情">★ 湘里情(总经理)</option><optgroup label="省外业务部"><option value="刘文">刘文(经理)</option><option value="宋杨杰">宋杨杰</option><option value="袁正军">袁正军</option><option value="罗策">罗策</option><option value="李志强">李志强</option><option value="鄢鸿友">鄢鸿友</option></optgroup><optgroup label="省内业务部"><option value="谢荣星">谢荣星(经理)</option><option value="张文胜">张文胜</option><option value="张纯英">张纯英</option><option value="尹建林">尹建林</option><option value="江廉政">江廉政</option><option value="胡珍">胡珍</option><option value="蔡磊">蔡磊</option><option value="陈龙">陈龙</option></optgroup><optgroup label="长株潭业务部"><option value="彭菊华">彭菊华(经理)</option><option value="周斌">周斌</option><option value="熊雄">熊雄</option><option value="张金伟">张金伟</option><option value="彭建华">彭建华</option><option value="杨青青">杨青青</option><option value="王纯">王纯</option></optgroup><optgroup label="大客户部"><option value="陆美英">陆美英(经理)</option></optgroup></select><span class="role-tag" id="currentRoleTag">-</span>
+<select id="roleSwitcher" style="display:none;font-size:10px;padding:2px 6px;border:1px solid #ccc;border-radius:4px;margin-left:6px;background:#fff" onchange="switchRole(this.value)"><option value="">切换角色</option><option value="admin">★ Admin</option><option value="湘里情">★ 湘里情(总经理)</option><optgroup label="省外业务部"><option value="刘文">刘文(区总)</option><option value="宋杨杰">宋杨杰</option><option value="袁正军">袁正军</option><option value="罗策">罗策</option><option value="李志强">李志强</option><option value="鄢鸿友">鄢鸿友</option></optgroup><optgroup label="省内业务部"><option value="谢荣星">谢荣星(区总)</option><option value="张文胜">张文胜</option><option value="张纯英">张纯英</option><option value="尹建林">尹建林</option><option value="江廉政">江廉政</option><option value="胡珍">胡珍</option><option value="蔡磊">蔡磊</option><option value="陈龙">陈龙</option></optgroup><optgroup label="长株潭业务部"><option value="彭菊华">彭菊华(区总)</option><option value="周斌">周斌</option><option value="熊雄">熊雄</option><option value="张金伟">张金伟</option><option value="彭建华">彭建华</option><option value="杨青青">杨青青</option><option value="王纯">王纯</option></optgroup><optgroup label="大客户部"><option value="陆美英">陆美英(区总)</option></optgroup></select><span class="role-tag" id="currentRoleTag">-</span>
 </div>
 <button class="logout-btn" onclick="doLogout()">退出</button>
 </div>
@@ -647,7 +647,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 </div>
 
 <!-- 产品页 -->
-<div id="pgProduct" class="pg">
+<div id="pgProduct" class="pg" style="max-width:480px;margin:0 auto">
 <div class="pg-hd"><h1>📦 产品中心</h1><p>高毛利产品推荐</p></div>
 <div id="nearExpireBanner" class="near-expire-banner" onclick="showNearExpireProducts()">
 <div class="near-expire-tit">⚠️ 临期特惠</div>
@@ -690,7 +690,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 </div>
 <div class="fl">
 <select id="cLevel" onchange="resetCustomerPage()"><option value="">全部分层</option><option value="终端A">终端A×1.5</option><option value="终端B">终端B×1.35</option><option value="终端C">终端C×1.2</option><option value="沉默">沉默×1.5</option></select>
-<select id="cSales" onchange="resetCustomerPage()"><option value="">全部业务员</option></select>
+<select id="cSales" onchange="resetCustomerPage()"><option value="">全部业务经理</option></select>
 </div>
 <div id="custContent"></div>
 </div>
@@ -1030,7 +1030,7 @@ function showMainInterface() {
   document.getElementById('refreshBtn').style.display = 'block';
   document.getElementById('currentUsername').textContent = CURRENT_USER;
   var roleTag = document.getElementById('currentRoleTag');
-  roleTag.textContent = USER_ROLE === 'Admin' ? 'Admin' : (USER_ROLE === 'Manager' ? '区域经理' : '业务员');
+  roleTag.textContent = USER_ROLE === 'Admin' ? 'Admin' : (USER_ROLE === 'Manager' ? '区总' : '业务经理');
   // Admin角色：显示角色切换按钮
   var roleSwitcher = document.getElementById('roleSwitcher');
   if (roleSwitcher) {
@@ -1651,6 +1651,51 @@ function renderTargetRank() {
   h += '</div>';
   
   container.innerHTML = h;
+  
+  var listH = '<div style="margin-top:16px"><div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📋 个人目标进度</div>';
+  listH += '<div style="background:#fff;border-radius:8px;overflow:hidden">';
+  listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;background:#f5f5f5;font-size:10px;color:#666;text-align:center"><div>业务经理</div><div>目标</div><div>完成</div><div>进度</div></div>';
+  
+  var totalTarget = 0, totalActual = 0, salesmanList = [];
+  salesmanNames.forEach(function(name) {
+    var t = salesTargetMap[name] || {};
+    var profitTarget = t.profitTarget || 0;
+    var p = salesProgressData.find(function(x) { return x['业务经理'] === name; });
+    var actualProfit = p ? (p['月销售额'] || 0) * parseFloat(p['月累计毛利率'] || 0) / 100 : 0;
+    var rate = profitTarget > 0 ? Math.min((actualProfit / profitTarget) * 100, 100) : 0;
+    totalTarget += profitTarget; totalActual += actualProfit;
+    salesmanList.push({ name: name, target: profitTarget, actual: actualProfit, rate: rate });
+  });
+  
+  salesmanList.sort(function(a, b) { return b.rate - a.rate; });
+  salesmanList.forEach(function(s) {
+    var color = s.rate >= 100 ? '#137333' : (s.rate >= 50 ? '#1a73e8' : '#e53935');
+    listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;font-size:11px;text-align:center;border-bottom:1px solid #f0f0f0;align-items:center">';
+    listH += '<div style="text-align:left;font-weight:500">' + s.name + '</div>';
+    listH += '<div style="color:#666">' + (s.target > 0 ? (s.target/10000).toFixed(1) + '万' : '-') + '</div>';
+    listH += '<div style="color:' + color + ';font-weight:600">' + (s.actual > 0 ? (s.actual/10000).toFixed(1) + '万' : '-') + '</div>';
+    listH += '<div><span style="background:' + (s.rate >= 100 ? '#e8f5e9' : '#fff3e0') + ';color:' + color + ';padding:2px 6px;border-radius:4px;font-size:10px">' + (s.target > 0 ? s.rate.toFixed(0) + '%' : '-') + '</span></div></div>';
+  });
+  
+  var totalRate = totalTarget > 0 ? Math.min((totalActual / totalTarget) * 100, 100) : 0;
+  listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;background:#e8f0fe;font-size:11px;font-weight:600;text-align:center;border-top:2px solid #1a73e8">';
+  listH += '<div>合计</div><div>' + (totalTarget > 0 ? (totalTarget/10000).toFixed(1) + '万' : '-') + '</div>';
+  listH += '<div style="color:#1a73e8">' + (totalActual > 0 ? (totalActual/10000).toFixed(1) + '万' : '-') + '</div>';
+  listH += '<div><span style="background:#e8f0fe;color:#1a73e8;padding:2px 6px;border-radius:4px">' + (totalTarget > 0 ? totalRate.toFixed(0) + '%' : '-') + '</span></div></div></div></div>';
+  container.innerHTML += listH;
+  
+  var followCustomers = getFollowCustomers();
+  if (followCustomers.length > 0) {
+    var followH = '<div style="margin-top:16px"><div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📌 待跟进客户 <span style="color:#e53935;font-size:11px">' + followCustomers.length + '家</span></div><div style="background:#fff;border-radius:8px;overflow:hidden">';
+    followCustomers.slice(0, 10).forEach(function(c) {
+      followH += '<div class="follow-item" onclick="showCustomerDetail(\'' + c.id + '\')" style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #f0f0f0">';
+      followH += '<div><div style="font-size:13px;font-weight:500">' + c.name + '</div><div style="font-size:10px;color:#888">' + c.salesman + ' · ' + (c.fp.st || 0) + '天未采购</div></div>';
+      followH += '<div style="font-size:10px;color:#e53935">▶</div></div>';
+    });
+    if (followCustomers.length > 10) followH += '<div style="text-align:center;padding:8px;font-size:11px;color:#888">还有' + (followCustomers.length - 10) + '家...</div>';
+    followH += '</div></div>';
+    container.innerHTML += followH;
+  }
 }
 
 // ===== 跟进日历渲染 =====
@@ -1739,6 +1784,51 @@ function renderTargetCalendar() {
   h += '</div>';
   
   container.innerHTML = h;
+  
+  var listH = '<div style="margin-top:16px"><div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📋 个人目标进度</div>';
+  listH += '<div style="background:#fff;border-radius:8px;overflow:hidden">';
+  listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;background:#f5f5f5;font-size:10px;color:#666;text-align:center"><div>业务经理</div><div>目标</div><div>完成</div><div>进度</div></div>';
+  
+  var totalTarget = 0, totalActual = 0, salesmanList = [];
+  salesmanNames.forEach(function(name) {
+    var t = salesTargetMap[name] || {};
+    var profitTarget = t.profitTarget || 0;
+    var p = salesProgressData.find(function(x) { return x['业务经理'] === name; });
+    var actualProfit = p ? (p['月销售额'] || 0) * parseFloat(p['月累计毛利率'] || 0) / 100 : 0;
+    var rate = profitTarget > 0 ? Math.min((actualProfit / profitTarget) * 100, 100) : 0;
+    totalTarget += profitTarget; totalActual += actualProfit;
+    salesmanList.push({ name: name, target: profitTarget, actual: actualProfit, rate: rate });
+  });
+  
+  salesmanList.sort(function(a, b) { return b.rate - a.rate; });
+  salesmanList.forEach(function(s) {
+    var color = s.rate >= 100 ? '#137333' : (s.rate >= 50 ? '#1a73e8' : '#e53935');
+    listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;font-size:11px;text-align:center;border-bottom:1px solid #f0f0f0;align-items:center">';
+    listH += '<div style="text-align:left;font-weight:500">' + s.name + '</div>';
+    listH += '<div style="color:#666">' + (s.target > 0 ? (s.target/10000).toFixed(1) + '万' : '-') + '</div>';
+    listH += '<div style="color:' + color + ';font-weight:600">' + (s.actual > 0 ? (s.actual/10000).toFixed(1) + '万' : '-') + '</div>';
+    listH += '<div><span style="background:' + (s.rate >= 100 ? '#e8f5e9' : '#fff3e0') + ';color:' + color + ';padding:2px 6px;border-radius:4px;font-size:10px">' + (s.target > 0 ? s.rate.toFixed(0) + '%' : '-') + '</span></div></div>';
+  });
+  
+  var totalRate = totalTarget > 0 ? Math.min((totalActual / totalTarget) * 100, 100) : 0;
+  listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;background:#e8f0fe;font-size:11px;font-weight:600;text-align:center;border-top:2px solid #1a73e8">';
+  listH += '<div>合计</div><div>' + (totalTarget > 0 ? (totalTarget/10000).toFixed(1) + '万' : '-') + '</div>';
+  listH += '<div style="color:#1a73e8">' + (totalActual > 0 ? (totalActual/10000).toFixed(1) + '万' : '-') + '</div>';
+  listH += '<div><span style="background:#e8f0fe;color:#1a73e8;padding:2px 6px;border-radius:4px">' + (totalTarget > 0 ? totalRate.toFixed(0) + '%' : '-') + '</span></div></div></div></div>';
+  container.innerHTML += listH;
+  
+  var followCustomers = getFollowCustomers();
+  if (followCustomers.length > 0) {
+    var followH = '<div style="margin-top:16px"><div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📌 待跟进客户 <span style="color:#e53935;font-size:11px">' + followCustomers.length + '家</span></div><div style="background:#fff;border-radius:8px;overflow:hidden">';
+    followCustomers.slice(0, 10).forEach(function(c) {
+      followH += '<div class="follow-item" onclick="showCustomerDetail(\'' + c.id + '\')" style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #f0f0f0">';
+      followH += '<div><div style="font-size:13px;font-weight:500">' + c.name + '</div><div style="font-size:10px;color:#888">' + c.salesman + ' · ' + (c.fp.st || 0) + '天未采购</div></div>';
+      followH += '<div style="font-size:10px;color:#e53935">▶</div></div>';
+    });
+    if (followCustomers.length > 10) followH += '<div style="text-align:center;padding:8px;font-size:11px;color:#888">还有' + (followCustomers.length - 10) + '家...</div>';
+    followH += '</div></div>';
+    container.innerHTML += followH;
+  }
 }
 
 function buildCalendarEvents() {
@@ -1845,7 +1935,7 @@ function renderReturnRateBoard() {
   
   // 排名列表
   h += '<div style="background:#fff;border-radius:8px;padding:12px;box-shadow:var(--shadow)">';
-  h += '<div style="font-size:12px;color:#666;margin-bottom:8px">📋 业务员退货率排名</div>';
+  h += '<div style="font-size:12px;color:#666;margin-bottom:8px">📋 业务经理退货率排名</div>';
   
   data.salesmen.sort(function(a, b) { return b.rate - a.rate; });
   data.salesmen.forEach(function(item, idx) {
@@ -1860,6 +1950,51 @@ function renderReturnRateBoard() {
   
   h += '</div>';
   container.innerHTML = h;
+  
+  var listH = '<div style="margin-top:16px"><div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📋 个人目标进度</div>';
+  listH += '<div style="background:#fff;border-radius:8px;overflow:hidden">';
+  listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;background:#f5f5f5;font-size:10px;color:#666;text-align:center"><div>业务经理</div><div>目标</div><div>完成</div><div>进度</div></div>';
+  
+  var totalTarget = 0, totalActual = 0, salesmanList = [];
+  salesmanNames.forEach(function(name) {
+    var t = salesTargetMap[name] || {};
+    var profitTarget = t.profitTarget || 0;
+    var p = salesProgressData.find(function(x) { return x['业务经理'] === name; });
+    var actualProfit = p ? (p['月销售额'] || 0) * parseFloat(p['月累计毛利率'] || 0) / 100 : 0;
+    var rate = profitTarget > 0 ? Math.min((actualProfit / profitTarget) * 100, 100) : 0;
+    totalTarget += profitTarget; totalActual += actualProfit;
+    salesmanList.push({ name: name, target: profitTarget, actual: actualProfit, rate: rate });
+  });
+  
+  salesmanList.sort(function(a, b) { return b.rate - a.rate; });
+  salesmanList.forEach(function(s) {
+    var color = s.rate >= 100 ? '#137333' : (s.rate >= 50 ? '#1a73e8' : '#e53935');
+    listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;font-size:11px;text-align:center;border-bottom:1px solid #f0f0f0;align-items:center">';
+    listH += '<div style="text-align:left;font-weight:500">' + s.name + '</div>';
+    listH += '<div style="color:#666">' + (s.target > 0 ? (s.target/10000).toFixed(1) + '万' : '-') + '</div>';
+    listH += '<div style="color:' + color + ';font-weight:600">' + (s.actual > 0 ? (s.actual/10000).toFixed(1) + '万' : '-') + '</div>';
+    listH += '<div><span style="background:' + (s.rate >= 100 ? '#e8f5e9' : '#fff3e0') + ';color:' + color + ';padding:2px 6px;border-radius:4px;font-size:10px">' + (s.target > 0 ? s.rate.toFixed(0) + '%' : '-') + '</span></div></div>';
+  });
+  
+  var totalRate = totalTarget > 0 ? Math.min((totalActual / totalTarget) * 100, 100) : 0;
+  listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;background:#e8f0fe;font-size:11px;font-weight:600;text-align:center;border-top:2px solid #1a73e8">';
+  listH += '<div>合计</div><div>' + (totalTarget > 0 ? (totalTarget/10000).toFixed(1) + '万' : '-') + '</div>';
+  listH += '<div style="color:#1a73e8">' + (totalActual > 0 ? (totalActual/10000).toFixed(1) + '万' : '-') + '</div>';
+  listH += '<div><span style="background:#e8f0fe;color:#1a73e8;padding:2px 6px;border-radius:4px">' + (totalTarget > 0 ? totalRate.toFixed(0) + '%' : '-') + '</span></div></div></div></div>';
+  container.innerHTML += listH;
+  
+  var followCustomers = getFollowCustomers();
+  if (followCustomers.length > 0) {
+    var followH = '<div style="margin-top:16px"><div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📌 待跟进客户 <span style="color:#e53935;font-size:11px">' + followCustomers.length + '家</span></div><div style="background:#fff;border-radius:8px;overflow:hidden">';
+    followCustomers.slice(0, 10).forEach(function(c) {
+      followH += '<div class="follow-item" onclick="showCustomerDetail(\'' + c.id + '\')" style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #f0f0f0">';
+      followH += '<div><div style="font-size:13px;font-weight:500">' + c.name + '</div><div style="font-size:10px;color:#888">' + c.salesman + ' · ' + (c.fp.st || 0) + '天未采购</div></div>';
+      followH += '<div style="font-size:10px;color:#e53935">▶</div></div>';
+    });
+    if (followCustomers.length > 10) followH += '<div style="text-align:center;padding:8px;font-size:11px;color:#888">还有' + (followCustomers.length - 10) + '家...</div>';
+    followH += '</div></div>';
+    container.innerHTML += followH;
+  }
 }
 
 function getReturnRateClass(rate) {
@@ -1877,21 +2012,26 @@ function getReturnRateLabel(rate) {
 }
 
 function generateReturnRateData() {
-  var salesmen = ['王纯', '周斌', '熊雄', '张文胜', '张纯英', '尹建林', '江廉政', '胡珍', '蔡磊', '陈龙', '宋杨杰', '袁正军', '罗策', '郁进军', '张金伟', '彭建华', '杨青青'];
-  var data = {
-    avgRate: 0.95,
-    totalAmount: 156000,
-    totalOrders: 124,
-    salesmen: []
-  };
-  
-  salesmen.forEach(function(name) {
-    data.salesmen.push({ name: name, rate: 0, amount: 0, orders: 0 });
+  var data = { avgRate: 0, totalAmount: 0, totalOrders: 0, salesmen: [] };
+  var allSalesmen = [];
+  Object.keys(DEPT_MEMBERS).forEach(function(d) {
+    DEPT_MEMBERS[d].forEach(function(n) {
+      if (EXCLUDE_SALESMAN.indexOf(n) === -1 && allSalesmen.indexOf(n) === -1) allSalesmen.push(n);
+    });
   });
-  
-  var totalRate = data.salesmen.reduce(function(s, d) { return s + d.rate; }, 0) / data.salesmen.length;
-  data.avgRate = totalRate;
-  
+  allSalesmen.forEach(function(name) {
+    var totalReturnRate = 0, returnCustomers = 0;
+    customersData.forEach(function(c) {
+      if (c.salesman === name) {
+        var fp = customerPortraitData[c.id] || {};
+        if (fp.op && fp.op > 0) { totalReturnRate += parseFloat(fp.op); returnCustomers++; }
+      }
+    });
+    var rate = returnCustomers > 0 ? (totalReturnRate / returnCustomers * 100) : 0;
+    data.salesmen.push({ name: name, rate: Math.min(rate, 5), amount: 0, orders: returnCustomers });
+  });
+  var validData = data.salesmen.filter(function(d) { return d.rate > 0; });
+  data.avgRate = validData.length > 0 ? validData.reduce(function(s, d) { return s + d.rate; }, 0) / validData.length : 0.85;
   return data;
 }
 
@@ -1947,6 +2087,51 @@ function renderScripts(keyword) {
   
   if (!h) h = '<div class="empty"><p>未找到匹配的话术</p></div>';
   container.innerHTML = h;
+  
+  var listH = '<div style="margin-top:16px"><div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📋 个人目标进度</div>';
+  listH += '<div style="background:#fff;border-radius:8px;overflow:hidden">';
+  listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;background:#f5f5f5;font-size:10px;color:#666;text-align:center"><div>业务经理</div><div>目标</div><div>完成</div><div>进度</div></div>';
+  
+  var totalTarget = 0, totalActual = 0, salesmanList = [];
+  salesmanNames.forEach(function(name) {
+    var t = salesTargetMap[name] || {};
+    var profitTarget = t.profitTarget || 0;
+    var p = salesProgressData.find(function(x) { return x['业务经理'] === name; });
+    var actualProfit = p ? (p['月销售额'] || 0) * parseFloat(p['月累计毛利率'] || 0) / 100 : 0;
+    var rate = profitTarget > 0 ? Math.min((actualProfit / profitTarget) * 100, 100) : 0;
+    totalTarget += profitTarget; totalActual += actualProfit;
+    salesmanList.push({ name: name, target: profitTarget, actual: actualProfit, rate: rate });
+  });
+  
+  salesmanList.sort(function(a, b) { return b.rate - a.rate; });
+  salesmanList.forEach(function(s) {
+    var color = s.rate >= 100 ? '#137333' : (s.rate >= 50 ? '#1a73e8' : '#e53935');
+    listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;font-size:11px;text-align:center;border-bottom:1px solid #f0f0f0;align-items:center">';
+    listH += '<div style="text-align:left;font-weight:500">' + s.name + '</div>';
+    listH += '<div style="color:#666">' + (s.target > 0 ? (s.target/10000).toFixed(1) + '万' : '-') + '</div>';
+    listH += '<div style="color:' + color + ';font-weight:600">' + (s.actual > 0 ? (s.actual/10000).toFixed(1) + '万' : '-') + '</div>';
+    listH += '<div><span style="background:' + (s.rate >= 100 ? '#e8f5e9' : '#fff3e0') + ';color:' + color + ';padding:2px 6px;border-radius:4px;font-size:10px">' + (s.target > 0 ? s.rate.toFixed(0) + '%' : '-') + '</span></div></div>';
+  });
+  
+  var totalRate = totalTarget > 0 ? Math.min((totalActual / totalTarget) * 100, 100) : 0;
+  listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;background:#e8f0fe;font-size:11px;font-weight:600;text-align:center;border-top:2px solid #1a73e8">';
+  listH += '<div>合计</div><div>' + (totalTarget > 0 ? (totalTarget/10000).toFixed(1) + '万' : '-') + '</div>';
+  listH += '<div style="color:#1a73e8">' + (totalActual > 0 ? (totalActual/10000).toFixed(1) + '万' : '-') + '</div>';
+  listH += '<div><span style="background:#e8f0fe;color:#1a73e8;padding:2px 6px;border-radius:4px">' + (totalTarget > 0 ? totalRate.toFixed(0) + '%' : '-') + '</span></div></div></div></div>';
+  container.innerHTML += listH;
+  
+  var followCustomers = getFollowCustomers();
+  if (followCustomers.length > 0) {
+    var followH = '<div style="margin-top:16px"><div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📌 待跟进客户 <span style="color:#e53935;font-size:11px">' + followCustomers.length + '家</span></div><div style="background:#fff;border-radius:8px;overflow:hidden">';
+    followCustomers.slice(0, 10).forEach(function(c) {
+      followH += '<div class="follow-item" onclick="showCustomerDetail(\'' + c.id + '\')" style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #f0f0f0">';
+      followH += '<div><div style="font-size:13px;font-weight:500">' + c.name + '</div><div style="font-size:10px;color:#888">' + c.salesman + ' · ' + (c.fp.st || 0) + '天未采购</div></div>';
+      followH += '<div style="font-size:10px;color:#e53935">▶</div></div>';
+    });
+    if (followCustomers.length > 10) followH += '<div style="text-align:center;padding:8px;font-size:11px;color:#888">还有' + (followCustomers.length - 10) + '家...</div>';
+    followH += '</div></div>';
+    container.innerHTML += followH;
+  }
 }
 
 function getCategoryIcon(cat) {
@@ -2363,8 +2548,8 @@ function renderFullReport() {
     h += '</div>';
   }
 
-  // ===== 业务员任务完成进度 =====
-  h += '<div class="card"><div class="card-tit">业务员任务完成进度</div>';
+  // ===== 业务经理任务完成进度 =====
+  h += '<div class="card"><div class="card-tit">业务经理任务完成进度</div>';
   var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
   regions.forEach(function(r) {
     var members = DEPT_MEMBERS[r] || [];
@@ -2440,6 +2625,12 @@ function renderProduct() {
   else if (profitFilter === 'mid') sorted = sorted.filter(function(p) { var r = p.realProfitRate || p.profit || 0; return r >= 10 && r < 15; });
   else if (profitFilter === 'low') sorted = sorted.filter(function(p) { return (p.realProfitRate || p.profit || 0) < 10; });
   
+  var coefFilter = document.getElementById('pCoefRange').value;
+  if (coefFilter === 'core1') sorted = sorted.filter(function(p) { return p.coefCat === '核心1类'; });
+  else if (coefFilter === 'core2') sorted = sorted.filter(function(p) { return p.coefCat === '核心2类'; });
+  else if (coefFilter === 'self') sorted = sorted.filter(function(p) { return p.coefCat === '自主产品'; });
+  else if (coefFilter === 'normal') sorted = sorted.filter(function(p) { return p.coefCat === '常规'; });
+  
   var h = '<div style="font-size:11px;color:#888;margin-bottom:10px">共' + sorted.length + '个产品</div><div class="prd-grid">';
   sorted.forEach(function(p) {
     var profit = p.realProfitRate || p.profit || 0;
@@ -2452,11 +2643,11 @@ function renderProduct() {
     h += '<div style="font-size:10px;color:#888;margin-bottom:4px">' + p.code + '</div>';
     h += '<div style="font-size:12px;font-weight:500;color:#333;margin-bottom:6px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + p.name + '</div>';
     h += '<div style="margin-bottom:8px">' + gradeTag + '</div>';
-    h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">';
-    h += '<div style="text-align:center"><div style="font-size:10px;color:#888">一批价</div><div style="font-size:14px;font-weight:700;color:#e53935">' + (p.price1B > 0 ? p.price1B.toFixed(1) : '-') + '</div></div>';
-    h += '<div style="text-align:center"><div style="font-size:10px;color:#888">毛利率</div><div style="font-size:14px;font-weight:700;color:' + profitColor + '">' + profit.toFixed(1) + '%</div></div>';
-    h += '<div style="text-align:center"><div style="font-size:10px;color:#888">库存</div><div style="font-size:14px;font-weight:700;color:#666">' + (p.stock > 0 ? p.stock.toFixed(0) : '-') + '</div></div>';
-    h += '<div style="text-align:center"><div style="font-size:10px;color:#888">采购家数</div><div style="font-size:14px;font-weight:700;color:#1a73e8">' + (p.sellerCount > 0 ? p.sellerCount : '-') + '</div></div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px">';
+    h += '<div style="text-align:center;padding:4px 2px"><div style="font-size:9px;color:#888">一批价</div><div style="font-size:12px;font-weight:700;color:#e53935">' + (p.price1B > 0 ? p.price1B.toFixed(1) : '-') + '</div></div>';
+    h += '<div style="text-align:center;padding:4px 2px"><div style="font-size:9px;color:#888">毛利率</div><div style="font-size:12px;font-weight:700;color:' + profitColor + '">' + profit.toFixed(1) + '%</div></div>';
+    h += '<div style="text-align:center;padding:4px 2px"><div style="font-size:9px;color:#888">库存</div><div style="font-size:12px;font-weight:700;color:#666">' + (p.stock > 0 ? p.stock.toFixed(0) : '-') + '</div></div>';
+    h += '<div style="text-align:center;padding:4px 2px"><div style="font-size:9px;color:#888">采购</div><div style="font-size:12px;font-weight:700;color:#1a73e8">' + (p.sellerCount > 0 ? p.sellerCount : '-') + '</div></div>';
     h += '</div>';
     h += '<div style="margin-top:8px;text-align:center"><button onclick="event.stopPropagation();openCalcFromProduct(\'' + p.code + '\',\'' + p.name + '\',' + (p.price1B > 0 ? p.price1B : 0) + ',' + (p.retailPrice || 0) + ')" style="padding:4px 12px;background:#fff8e1;border:1px solid #e0e0e0;border-radius:12px;font-size:11px;cursor:pointer">计算利润</button></div>';
     h += '</div>';
@@ -2763,7 +2954,7 @@ function loadCustomerList() {
 function renderCustomerFilters() {
   var salesMap = {};
   filteredCustomers.forEach(function(c) { if (c.salesman) salesMap[c.salesman] = (salesMap[c.salesman] || 0) + 1; });
-  var opts = '<option value="">全部业务员</option>';
+  var opts = '<option value="">全部业务经理</option><option value="coef_A">终端A×1.5</option><option value="coef_B">终端B×1.35</option><option value="coef_C">终端C×1.2</option><option value="coef_D">终端D×1.1</option><option value="coef_other">其他</option>';
   if (USER_ROLE === 'Admin') {
     Object.keys(DEPT_MEMBERS).forEach(function(dept) {
       DEPT_MEMBERS[dept].forEach(function(name) {
@@ -2893,7 +3084,7 @@ function showCustomerDetail(customerId) {
   h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:10px">📋 基本信息</div>';
   h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px">';
   h += '<div><span style="color:#888">所属区域：</span>' + String(fp.r || cust.region || '-') + '</div>';
-  h += '<div><span style="color:#888">业务员：</span>' + String(fp.sm || cust.salesman || '-') + '</div>';
+  h += '<div><span style="color:#888">业务经理：</span>' + String(fp.sm || cust.salesman || '-') + '</div>';
   h += '<div><span style="color:#888">客户分层：</span>' + String(tierInfo.c || fp.tc || '-') + '</div>';
   h += '<div><span style="color:#888">渠道类型：</span>' + String(chType || '-') + '</div>';
   h += '<div><span style="color:#888">仓库：</span>' + String(fp.wh || '-') + '</div>';
@@ -3097,8 +3288,84 @@ function getDaysSince(dateStr) {
 }
 
 // ===== 业务员详情 =====
+
+// 业务经理毛利进度弹窗
+function showSalesmanProfitProgress() {
+  var salesmanNames = [];
+  if (USER_ROLE === 'Admin') Object.keys(DEPT_MEMBERS).forEach(function(d) { DEPT_MEMBERS[d].forEach(function(n) { if (EXCLUDE_SALESMAN.indexOf(n) === -1) salesmanNames.push(n); }); });
+  else if (USER_ROLE === 'Manager') salesmanNames = (DEPT_MEMBERS[USER_DEPT] || []).filter(function(n) { return EXCLUDE_SALESMAN.indexOf(n) === -1; });
+  else salesmanNames = [CURRENT_USER];
+  
+  document.getElementById('mdTt').innerHTML = '<span style="color:#1a73e8">业务经理毛利进度</span>';
+  var h = '<div style="padding:12px 0">';
+  h += '<div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:4px;padding:8px;background:#f5f5f5;font-size:10px;color:#666;text-align:center">';
+  h += '<div>业务经理</div><div>毛利目标</div><div>毛利完成</div><div>毛利进度</div><div>销售进度</div></div>';
+  
+  var totalProfitTarget = 0, totalProfitActual = 0, totalSalesTarget = 0, totalSalesActual = 0;
+  var salesmanData = [];
+  salesmanNames.forEach(function(name) {
+    var t = salesTargetMap[name] || {};
+    var profitTarget = t.profitTarget || 0, salesTarget = t.salesTarget || 0;
+    var p = salesProgressData.find(function(x) { return x['业务经理'] === name; });
+    var actualProfit = p ? (p['月销售额'] || 0) * parseFloat(p['月累计毛利率'] || 0) / 100 : 0;
+    var actualSales = p ? (p['月销售额'] || 0) : 0;
+    var profitRate = profitTarget > 0 ? Math.min((actualProfit / profitTarget) * 100, 100) : 0;
+    var salesRate = salesTarget > 0 ? Math.min((actualSales / salesTarget) * 100, 100) : 0;
+    totalProfitTarget += profitTarget; totalProfitActual += actualProfit;
+    totalSalesTarget += salesTarget; totalSalesActual += actualSales;
+    salesmanData.push({ name: name, profitTarget: profitTarget, profitActual: actualProfit, profitRate: profitRate, salesTarget: salesTarget, salesActual: actualSales, salesRate: salesRate });
+  });
+  
+  salesmanData.sort(function(a, b) { return b.profitRate - a.profitRate; });
+  salesmanData.forEach(function(s) {
+    var pColor = s.profitRate >= 100 ? '#137333' : (s.profitRate >= 50 ? '#1a73e8' : '#e53935');
+    h += '<div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:4px;padding:10px 8px;font-size:11px;text-align:center;border-bottom:1px solid #f0f0f0;align-items:center">';
+    h += '<div style="text-align:left;font-weight:500">' + s.name + '</div>';
+    h += '<div style="color:#666">' + (s.profitTarget > 0 ? (s.profitTarget/10000).toFixed(1) + '万' : '-') + '</div>';
+    h += '<div style="color:' + pColor + ';font-weight:600">' + (s.profitActual > 0 ? (s.profitActual/10000).toFixed(1) + '万' : '-') + '</div>';
+    h += '<div><span style="background:' + (s.profitRate >= 100 ? '#e8f5e9' : '#fff3e0') + ';color:' + pColor + ';padding:2px 6px;border-radius:4px;font-size:10px">' + (s.profitTarget > 0 ? s.profitRate.toFixed(0) + '%' : '-') + '</span></div>';
+    h += '<div style="font-size:10px;color:#888">' + (s.salesTarget > 0 ? s.salesRate.toFixed(0) + '%' : '-') + '</div></div>';
+  });
+  
+  var totalProfitRate = totalProfitTarget > 0 ? Math.min((totalProfitActual / totalProfitTarget) * 100, 100) : 0;
+  var totalSalesRate = totalSalesTarget > 0 ? Math.min((totalSalesActual / totalSalesTarget) * 100, 100) : 0;
+  h += '<div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:4px;padding:10px 8px;background:#e8f0fe;font-size:11px;font-weight:600;text-align:center;border-top:2px solid #1a73e8">';
+  h += '<div>合计</div><div>' + (totalProfitTarget > 0 ? (totalProfitTarget/10000).toFixed(1) + '万' : '-') + '</div>';
+  h += '<div style="color:#1a73e8">' + (totalProfitActual > 0 ? (totalProfitActual/10000).toFixed(1) + '万' : '-') + '</div>';
+  h += '<div><span style="background:#e8f0fe;color:#1a73e8;padding:2px 6px;border-radius:4px">' + (totalProfitTarget > 0 ? totalProfitRate.toFixed(0) + '%' : '-') + '</span></div>';
+  h += '<div style="font-size:10px">' + (totalSalesTarget > 0 ? totalSalesRate.toFixed(0) + '%' : '-') + '</div></div></div>';
+  document.getElementById('mdBd').innerHTML = h;
+  document.getElementById('md').classList.add('on');
+}
 function showSalesmanDetail(salesmanName) {
   if (USER_ROLE === 'Sales' && salesmanName !== CURRENT_USER) { alert('无权查看'); return; }
+  
+  var cd = commissionData && commissionData[salesmanName] ? commissionData[salesmanName] : null;
+  var pb = cd ? (cd.productBreakdown || {}) : {};
+  var core1Profit = pb['核心1类'] ? (pb['核心1类'].weightedProfit || pb['核心1类'].profit || 0) : 0;
+  var core2Profit = pb['核心2类'] ? (pb['核心2类'].weightedProfit || pb['核心2类'].profit || 0) : 0;
+  var selfProfit = pb['自主'] ? (pb['自主'].weightedProfit || pb['自主'].profit || 0) : 0;
+  var t = salesTargetMap[salesmanName] || {};
+  var profitTarget = t.profitTarget || 0;
+  var core1Target = profitTarget * 0.35, core2Target = profitTarget * 0.25, selfTarget = profitTarget * 0.15;
+  
+  h += '<div style="background:#f8f9fa;border-radius:8px;padding:12px;margin-top:12px">';
+  h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:8px">📊 分类完成情况</div>';
+  var catData = [
+    { name: '核心1类', actual: core1Profit, target: core1Target, color: '#c5221f' },
+    { name: '核心2类', actual: core2Profit, target: core2Target, color: '#e37400' },
+    { name: '自主产品', actual: selfProfit, target: selfTarget, color: '#1a73e8' }
+  ];
+  catData.forEach(function(cat) {
+    var rate = cat.target > 0 ? Math.min((cat.actual / cat.target) * 100, 100) : 0;
+    h += '<div style="margin-bottom:10px">';
+    h += '<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">';
+    h += '<span style="color:' + cat.color + '">' + cat.name + '</span>';
+    h += '<span>' + (cat.actual/10000).toFixed(1) + '万 / ' + (cat.target/10000).toFixed(1) + '万</span></div>';
+    h += '<div style="height:6px;background:#fff;border-radius:3px;overflow:hidden">';
+    h += '<div style="height:100%;width:' + rate + '%;background:' + cat.color + ';border-radius:3px"></div></div></div>';
+  });
+  h += '</div>';
   if (USER_ROLE === 'Manager') { var members = DEPT_MEMBERS[USER_DEPT] || []; if (members.indexOf(salesmanName) < 0 && salesmanName !== CURRENT_USER) { alert('无权查看'); return; } }
   var p = null;
   for (var i = 0; i < salesProgressData.length; i++) { if (salesProgressData[i]['业务经理'] === salesmanName) { p = salesProgressData[i]; break; } }
@@ -3131,7 +3398,7 @@ function renderTargetPage() {
 function initTargetSalesmanFilter() {
   var select = document.getElementById('targetSalesman');
   if (!select) return;
-  var opts = '<option value="">全部业务员</option>';
+  var opts = '<option value="">全部业务经理</option><option value="coef_A">终端A×1.5</option><option value="coef_B">终端B×1.35</option><option value="coef_C">终端C×1.2</option><option value="coef_D">终端D×1.1</option><option value="coef_other">其他</option>';
   if (USER_ROLE === 'Admin') {
     Object.keys(DEPT_MEMBERS).forEach(function(dept) { DEPT_MEMBERS[dept].forEach(function(name) { if (EXCLUDE_SALESMAN.indexOf(name) === -1) opts += '<option value="' + name + '">' + name + '</option>'; }); });
   } else if (USER_ROLE === 'Manager') {
@@ -3227,8 +3494,355 @@ function renderTargetProgress() {
   h += '</div>';
   
   container.innerHTML = h;
+  
+  var listH = '<div style="margin-top:16px"><div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📋 个人目标进度</div>';
+  listH += '<div style="background:#fff;border-radius:8px;overflow:hidden">';
+  listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;background:#f5f5f5;font-size:10px;color:#666;text-align:center"><div>业务经理</div><div>目标</div><div>完成</div><div>进度</div></div>';
+  
+  var totalTarget = 0, totalActual = 0, salesmanList = [];
+  salesmanNames.forEach(function(name) {
+    var t = salesTargetMap[name] || {};
+    var profitTarget = t.profitTarget || 0;
+    var p = salesProgressData.find(function(x) { return x['业务经理'] === name; });
+    var actualProfit = p ? (p['月销售额'] || 0) * parseFloat(p['月累计毛利率'] || 0) / 100 : 0;
+    var rate = profitTarget > 0 ? Math.min((actualProfit / profitTarget) * 100, 100) : 0;
+    totalTarget += profitTarget; totalActual += actualProfit;
+    salesmanList.push({ name: name, target: profitTarget, actual: actualProfit, rate: rate });
+  });
+  
+  salesmanList.sort(function(a, b) { return b.rate - a.rate; });
+  salesmanList.forEach(function(s) {
+    var color = s.rate >= 100 ? '#137333' : (s.rate >= 50 ? '#1a73e8' : '#e53935');
+    listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;font-size:11px;text-align:center;border-bottom:1px solid #f0f0f0;align-items:center">';
+    listH += '<div style="text-align:left;font-weight:500">' + s.name + '</div>';
+    listH += '<div style="color:#666">' + (s.target > 0 ? (s.target/10000).toFixed(1) + '万' : '-') + '</div>';
+    listH += '<div style="color:' + color + ';font-weight:600">' + (s.actual > 0 ? (s.actual/10000).toFixed(1) + '万' : '-') + '</div>';
+    listH += '<div><span style="background:' + (s.rate >= 100 ? '#e8f5e9' : '#fff3e0') + ';color:' + color + ';padding:2px 6px;border-radius:4px;font-size:10px">' + (s.target > 0 ? s.rate.toFixed(0) + '%' : '-') + '</span></div></div>';
+  });
+  
+  var totalRate = totalTarget > 0 ? Math.min((totalActual / totalTarget) * 100, 100) : 0;
+  listH += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:4px;padding:8px;background:#e8f0fe;font-size:11px;font-weight:600;text-align:center;border-top:2px solid #1a73e8">';
+  listH += '<div>合计</div><div>' + (totalTarget > 0 ? (totalTarget/10000).toFixed(1) + '万' : '-') + '</div>';
+  listH += '<div style="color:#1a73e8">' + (totalActual > 0 ? (totalActual/10000).toFixed(1) + '万' : '-') + '</div>';
+  listH += '<div><span style="background:#e8f0fe;color:#1a73e8;padding:2px 6px;border-radius:4px">' + (totalTarget > 0 ? totalRate.toFixed(0) + '%' : '-') + '</span></div></div></div></div>';
+  container.innerHTML += listH;
+  
+  var followCustomers = getFollowCustomers();
+  if (followCustomers.length > 0) {
+    var followH = '<div style="margin-top:16px"><div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📌 待跟进客户 <span style="color:#e53935;font-size:11px">' + followCustomers.length + '家</span></div><div style="background:#fff;border-radius:8px;overflow:hidden">';
+    followCustomers.slice(0, 10).forEach(function(c) {
+      followH += '<div class="follow-item" onclick="showCustomerDetail(\'' + c.id + '\')" style="display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid #f0f0f0">';
+      followH += '<div><div style="font-size:13px;font-weight:500">' + c.name + '</div><div style="font-size:10px;color:#888">' + c.salesman + ' · ' + (c.fp.st || 0) + '天未采购</div></div>';
+      followH += '<div style="font-size:10px;color:#e53935">▶</div></div>';
+    });
+    if (followCustomers.length > 10) followH += '<div style="text-align:center;padding:8px;font-size:11px;color:#888">还有' + (followCustomers.length - 10) + '家...</div>';
+    followH += '</div></div>';
+    container.innerHTML += followH;
+  }
 }
 
+
+// 沉默/待跟进客户
+function getSilentCustomersBySalesman() {
+  var result = {};
+  Object.keys(DEPT_MEMBERS).forEach(function(dept) {
+    DEPT_MEMBERS[dept].forEach(function(n) { result[n] = { dept: dept, silent: [], waiting: [] }; });
+  });
+  customersData.forEach(function(c) {
+    var fp = customerPortraitData[c.id] || {};
+    var salesman = c.salesman;
+    if (!salesman || !result[salesman]) return;
+    if (fp.st && fp.st > 30) result[salesman].silent.push({ id: c.id, name: c.name, lastDate: fp.lpd || '-', days: fp.st || 0 });
+    else if (fp.st && fp.st > 7 && fp.st <= 30) result[salesman].waiting.push({ id: c.id, name: c.name, lastDate: fp.lpd || '-', days: fp.st || 0 });
+  });
+  return result;
+}
+
+function getFollowCustomers() {
+  var result = [], salesmanNames = [];
+  if (USER_ROLE === 'Admin') Object.keys(DEPT_MEMBERS).forEach(function(d) { DEPT_MEMBERS[d].forEach(function(n) { if (EXCLUDE_SALESMAN.indexOf(n) === -1) salesmanNames.push(n); }); });
+  else if (USER_ROLE === 'Manager') salesmanNames = (DEPT_MEMBERS[USER_DEPT] || []).filter(function(n) { return EXCLUDE_SALESMAN.indexOf(n) === -1; });
+  else salesmanNames = [CURRENT_USER];
+  customersData.forEach(function(c) {
+    if (salesmanNames.indexOf(c.salesman) === -1) return;
+    var fp = customerPortraitData[c.id] || {};
+    if ((fp.st && fp.st > 7) || fp.cw) result.push({ id: c.id, name: c.name, salesman: c.salesman || '-', fp: fp });
+  });
+  result.sort(function(a, b) { return (b.fp.st || 0) - (a.fp.st || 0); });
+  return result;
+}
+
+function showSilentCustomersModal() {
+  var data = getSilentCustomersBySalesman();
+  var salesmanNames = [];
+  if (USER_ROLE === 'Admin') Object.keys(DEPT_MEMBERS).forEach(function(d) { DEPT_MEMBERS[d].forEach(function(n) { if (EXCLUDE_SALESMAN.indexOf(n) === -1) salesmanNames.push(n); }); });
+  else if (USER_ROLE === 'Manager') salesmanNames = (DEPT_MEMBERS[USER_DEPT] || []).filter(function(n) { return EXCLUDE_SALESMAN.indexOf(n) === -1; });
+  else salesmanNames = [CURRENT_USER];
+  
+  document.getElementById('mdTt').innerHTML = '<span style="color:#e65100">沉默客户激活</span>';
+  var h = '<div style="padding:12px 0">';
+  var totalSilent = 0, totalWaiting = 0;
+  salesmanNames.forEach(function(name) { totalSilent += (data[name] || {silent:[],waiting:[]}).silent.length; totalWaiting += (data[name] || {silent:[],waiting:[]}).waiting.length; });
+  
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">';
+  h += '<div style="background:#fce8e6;padding:12px;border-radius:8px;text-align:center"><div style="font-size:11px;color:#c62828">沉默(>30天)</div><div style="font-size:24px;font-weight:700;color:#c62828">' + totalSilent + '</div></div>';
+  h += '<div style="background:#fff3e0;padding:12px;border-radius:8px;text-align:center"><div style="font-size:11px;color:#e65100">待激活(7-30天)</div><div style="font-size:24px;font-weight:700;color:#e65100">' + totalWaiting + '</div></div></div>';
+  
+  salesmanNames.forEach(function(name) {
+    var info = data[name] || { silent: [], waiting: [] };
+    if (info.silent.length === 0 && info.waiting.length === 0) return;
+    h += '<div style="margin-bottom:12px;background:#fff;border-radius:6px;padding:10px">';
+    h += '<div style="display:flex;justify-content:space-between;margin-bottom:8px"><div style="font-size:12px;font-weight:600">' + name + '</div>';
+    h += '<div style="font-size:10px">沉默<span style="color:#c62828;font-weight:600">' + info.silent.length + '</span>/待激活<span style="color:#e65100;font-weight:600">' + info.waiting.length + '</span></div></div>';
+    info.silent.slice(0, 3).forEach(function(c) {
+      h += '<div onclick="showCustomerDetail(\'' + c.id + '\')" style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid #f0f0f0;font-size:11px;cursor:pointer">';
+      h += '<span>' + c.name + '</span><span style="color:#c62828">' + c.days + '天</span></div>';
+    });
+    if (info.silent.length > 3) h += '<div style="font-size:10px;color:#888;text-align:center">还有' + (info.silent.length - 3) + '家...</div>';
+    h += '</div>';
+  });
+  h += '</div>';
+  document.getElementById('mdBd').innerHTML = h;
+  document.getElementById('md').classList.add('on');
+}
+
+// 确保经理数据在salesProgressData中
+function ensureManagerData() {
+  var managers = [
+    { name: '刘文', dept: '省外业务部' },
+    { name: '谢荣星', dept: '省内业务部' },
+    { name: '彭菊华', dept: '长株潭业务部' },
+    { name: '陆美英', dept: '大客户部' }
+  ];
+  
+  managers.forEach(function(mgr) {
+    var exists = salesProgressData.some(function(p) { return p['业务经理'] === mgr.name; });
+    if (!exists) {
+      var deptTotal = salesProgressData.find(function(p) { return p['业务经理'] === '小计' && p['区域'] === mgr.dept; });
+      if (deptTotal) {
+        salesProgressData.push({
+          '业务经理': mgr.name,
+          '区域': mgr.dept,
+          '月销售额': deptTotal['月销售额'] || 0,
+          '月累计毛利率': deptTotal['月累计毛利率'] || '0%',
+          '月度目标': deptTotal['月度目标'] || 0,
+          '完成进度': deptTotal['完成进度'] || '0%'
+        });
+      }
+    }
+  });
+}
+
+// 区总看板丰富版
+function renderManagerDashboard() {
+  ensureManagerData();
+  var container = document.getElementById('targetCards');
+  if (!container) return;
+  
+  var managers = [
+    { name: '刘文', dept: '省外业务部' },
+    { name: '谢荣星', dept: '省内业务部' },
+    { name: '彭菊华', dept: '长株潭业务部' },
+    { name: '陆美英', dept: '大客户部' }
+  ];
+  
+  var h = '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:12px">🏢 区域经理看板</div>';
+  
+  managers.forEach(function(mgr) {
+    var deptData = salesProgressData.find(function(p) { return p['业务经理'] === '小计' && p['区域'] === mgr.dept; }) || {};
+    var sales = deptData['月销售额'] || 0;
+    var target = deptData['月度目标'] || 0;
+    var rate = target > 0 ? Math.min((sales / target) * 100, 100) : 0;
+    var marginRate = parseFloat((deptData['月累计毛利率'] || '0%').replace('%', '')) || 0;
+    
+    var deptSalesmen = DEPT_MEMBERS[mgr.dept] || [];
+    var totalReturnRate = 0, validCount = 0;
+    deptSalesmen.forEach(function(name) {
+      var rData = data.salesmen ? data.salesmen.find(function(s) { return s.name === name; }) : null;
+      if (rData && rData.rate > 0) { totalReturnRate += rData.rate; validCount++; }
+    });
+    var returnRate = validCount > 0 ? (totalReturnRate / validCount).toFixed(2) : '0.85';
+    
+    var silentData = getSilentCustomersBySalesman();
+    var totalSilent = 0, totalWaiting = 0;
+    deptSalesmen.forEach(function(name) {
+      var d = silentData[name] || { silent: [], waiting: [] };
+      totalSilent += d.silent.length;
+      totalWaiting += d.waiting.length;
+    });
+    
+    var cd = commissionData && commissionData[mgr.name] ? commissionData[mgr.name] : null;
+    var pb = cd ? (cd.productBreakdown || {}) : {};
+    var core1 = pb['核心1类'] ? (pb['核心1类'].weightedProfit || 0) : 0;
+    var core2 = pb['核心2类'] ? (pb['核心2类'].weightedProfit || 0) : 0;
+    var self = pb['自主'] ? (pb['自主'].weightedProfit || 0) : 0;
+    
+    h += '<div class="card" style="margin-bottom:12px">';
+    h += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">';
+    h += '<div><span style="font-size:14px;font-weight:600;color:#1a73e8">' + mgr.name + '</span><span style="font-size:11px;color:#888;margin-left:8px">' + mgr.dept + '</span></div>';
+    h += '<span style="font-size:11px;color:#666">退货' + returnRate + '%</span>';
+    h += '</div>';
+    
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;margin-bottom:10px">';
+    h += '<div style="text-align:center"><div style="font-size:9px;color:#888">销售额</div><div style="font-size:13px;font-weight:700;color:#333">' + (sales/10000).toFixed(1) + '万</div></div>';
+    h += '<div style="text-align:center"><div style="font-size:9px;color:#888">毛利率</div><div style="font-size:13px;font-weight:700;color:' + (marginRate >= 13 ? '#137333' : '#e53935') + '">' + marginRate.toFixed(1) + '%</div></div>';
+    h += '<div style="text-align:center"><div style="font-size:9px;color:#888">沉默</div><div style="font-size:13px;font-weight:700;color:' + (totalSilent > 0 ? '#c62828' : '#137333') + '">' + totalSilent + '</div></div>';
+    h += '<div style="text-align:center"><div style="font-size:9px;color:#888">待激活</div><div style="font-size:13px;font-weight:700;color:#e65100">' + totalWaiting + '</div></div>';
+    h += '</div>';
+    
+    h += '<div style="margin-bottom:10px">';
+    h += '<div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:4px">';
+    h += '<span>毛利目标完成</span><span style="font-weight:600;color:' + (rate >= 100 ? '#137333' : '#1a73e8') + '">' + rate.toFixed(0) + '%</span>';
+    h += '</div>';
+    h += '<div style="height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">';
+    h += '<div style="height:100%;width:' + rate + '%;background:' + (rate >= 100 ? '#137333' : '#1a73e8') + ';border-radius:3px"></div>';
+    h += '</div></div>';
+    
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;font-size:10px">';
+    h += '<div><span style="color:#c5221f">核心1</span> ' + (core1/10000).toFixed(1) + '万</div>';
+    h += '<div><span style="color:#e37400">核心2</span> ' + (core2/10000).toFixed(1) + '万</div>';
+    h += '<div><span style="color:#1a73e8">自主</span> ' + (self/10000).toFixed(1) + '万</div>';
+    h += '</div>';
+    h += '</div>';
+  });
+  
+  container.innerHTML = h;
+}
+
+// 经理详情
+function showManagerDetail(managerName) {
+  var managerDepts = { '刘文': '省外业务部', '谢荣星': '省内业务部', '彭菊华': '长株潭业务部', '陆美英': '大客户部' };
+  var dept = managerDepts[managerName] || '';
+  
+  var deptSalesmen = DEPT_MEMBERS[dept] || [];
+  var salesmanData = [];
+  var totalSales = 0, totalTarget = 0, totalProfit = 0;
+  
+  deptSalesmen.forEach(function(name) {
+    var p = salesProgressData.find(function(x) { return x['业务经理'] === name; });
+    if (p) {
+      var sales = p['月销售额'] || 0;
+      var target = p['月度目标'] || 0;
+      var profit = sales * parseFloat((p['月累计毛利率'] || '0%').replace('%', '')) / 100;
+      totalSales += sales;
+      totalTarget += target;
+      totalProfit += profit;
+      salesmanData.push({ name: name, sales: sales, target: target, profit: profit });
+    }
+  });
+  
+  var returnData = getDeptReturnRate(dept);
+  var silentData = getSilentCustomersBySalesman();
+  var totalSilent = 0, totalWaiting = 0;
+  deptSalesmen.forEach(function(name) {
+    var d = silentData[name] || { silent: [], waiting: [] };
+    totalSilent += d.silent.length;
+    totalWaiting += d.waiting.length;
+  });
+  
+  document.getElementById('mdTt').innerHTML = '<span style="color:#1a73e8">' + managerName + ' · ' + dept + '</span>';
+  var h = '<div style="padding:12px 0">';
+  
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px">';
+  h += '<div style="background:#e8f0fe;padding:10px;border-radius:8px;text-align:center"><div style="font-size:10px;color:#666">部门销售额</div><div style="font-size:16px;font-weight:700;color:#1a73e8">' + (totalSales/10000).toFixed(1) + '万</div></div>';
+  h += '<div style="background:#e8f5e9;padding:10px;border-radius:8px;text-align:center"><div style="font-size:10px;color:#666">部门毛利额</div><div style="font-size:16px;font-weight:700;color:#137333">' + (totalProfit/10000).toFixed(1) + '万</div></div>';
+  h += '<div style="background:#fff3e0;padding:10px;border-radius:8px;text-align:center"><div style="font-size:10px;color:#666">退货率</div><div style="font-size:16px;font-weight:700;color:#e65100">' + returnData.toFixed(2) + '%</div></div>';
+  h += '</div>';
+  
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px">';
+  h += '<div style="background:#fce8e6;padding:10px;border-radius:8px;text-align:center"><div style="font-size:10px;color:#c62828">沉默客户</div><div style="font-size:18px;font-weight:700;color:#c62828">' + totalSilent + '</div></div>';
+  h += '<div style="background:#fff3e0;padding:10px;border-radius:8px;text-align:center"><div style="font-size:10px;color:#e65100">待激活</div><div style="font-size:18px;font-weight:700;color:#e65100">' + totalWaiting + '</div></div>';
+  h += '</div>';
+  
+  h += '<div style="background:#f8f9fa;border-radius:8px;padding:12px">';
+  h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:8px">📊 业务经理排名(毛利完成率)</div>';
+  salesmanData.sort(function(a, b) { var ra = a.target > 0 ? a.sales/a.target : 0; var rb = b.target > 0 ? b.sales/b.target : 0; return rb - ra; });
+  salesmanData.forEach(function(s, i) {
+    var rate = s.target > 0 ? Math.min((s.sales / s.target) * 100, 100) : 0;
+    var color = rate >= 100 ? '#137333' : (rate >= 50 ? '#1a73e8' : '#e53935');
+    h += '<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #eee;font-size:11px">';
+    h += '<div><span style="background:#f0f0f0;color:#666;padding:1px 6px;border-radius:10px;margin-right:6px">' + (i + 1) + '</span>' + s.name + '</div>';
+    h += '<span style="color:' + color + ';font-weight:600">' + rate.toFixed(0) + '%</span></div>';
+  });
+  h += '</div></div>';
+  document.getElementById('mdBd').innerHTML = h;
+  document.getElementById('md').classList.add('on');
+}
+
+function getDeptReturnRate(dept) {
+  var returnRate = 0.85;
+  var salesmen = DEPT_MEMBERS[dept] || [];
+  var validCount = 0, totalRate = 0;
+  salesmen.forEach(function(name) {
+    var rData = data.salesmen ? data.salesmen.find(function(s) { return s.name === name; }) : null;
+    if (rData && rData.rate > 0) { totalRate += rData.rate; validCount++; }
+  });
+  if (validCount > 0) returnRate = totalRate / validCount;
+  return returnRate;
+}
+
+// 系数分析看板
+function showCoefAnalysis() {
+  document.getElementById('mdTt').innerHTML = '<span style="color:#1a73e8">系数分布分析</span>';
+  var h = '<div style="padding:12px 0">';
+  
+  var customerTiers = { '终端A': 0, '终端B': 0, '终端C': 0, '终端D': 0, '批发A': 0, '批发B': 0, '其他': 0 };
+  customersData.forEach(function(c) {
+    var tc = customerCoefMap[c.id] || {};
+    var tier = tc.tier || tc.cat || '其他';
+    if (tier.indexOf('A') >= 0) customerTiers['终端A']++;
+    else if (tier.indexOf('B') >= 0) customerTiers['终端B']++;
+    else if (tier.indexOf('C') >= 0) customerTiers['终端C']++;
+    else if (tier.indexOf('D') >= 0) customerTiers['终端D']++;
+    else if (tier.indexOf('批发') >= 0) customerTiers['批发A']++;
+    else customerTiers['其他']++;
+  });
+  
+  var totalCust = customersData.length || 1;
+  h += '<div style="background:#f8f9fa;border-radius:8px;padding:12px;margin-bottom:16px">';
+  h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">📊 客户系数分布</div>';
+  Object.keys(customerTiers).forEach(function(tier) {
+    var count = customerTiers[tier];
+    var pct = ((count / totalCust) * 100).toFixed(1);
+    var color = tier.indexOf('A') >= 0 ? '#137333' : (tier.indexOf('B') >= 0 ? '#1a73e8' : (tier.indexOf('C') >= 0 ? '#e65100' : '#888'));
+    h += '<div style="margin-bottom:8px">';
+    h += '<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:2px">';
+    h += '<span style="color:' + color + '">' + tier + '</span><span>' + count + '家(' + pct + '%)</span>';
+    h += '</div>';
+    h += '<div style="height:6px;background:#fff;border-radius:3px;overflow:hidden">';
+    h += '<div style="height:100%;width:' + pct + '%;background:' + color + ';border-radius:3px"></div>';
+    h += '</div></div>';
+  });
+  h += '</div>';
+  
+  var productCoefs = { '核心1类': 0, '核心2类': 0, '自主产品': 0, '常规': 0 };
+  productsData.forEach(function(p) {
+    var cat = p.coefCat || '常规';
+    if (cat.indexOf('核心1') >= 0) productCoefs['核心1类']++;
+    else if (cat.indexOf('核心2') >= 0) productCoefs['核心2类']++;
+    else if (cat.indexOf('自主') >= 0) productCoefs['自主产品']++;
+    else productCoefs['常规']++;
+  });
+  
+  var totalProd = productsData.length || 1;
+  h += '<div style="background:#e8f5e9;border-radius:8px;padding:12px">';
+  h += '<div style="font-size:13px;font-weight:600;color:#333;margin-bottom:10px">🏭 产品系数分布</div>';
+  Object.keys(productCoefs).forEach(function(cat) {
+    var count = productCoefs[cat];
+    var pct = ((count / totalProd) * 100).toFixed(1);
+    var color = cat.indexOf('核心1') >= 0 ? '#c5221f' : (cat.indexOf('核心2') >= 0 ? '#e37400' : (cat.indexOf('自主') >= 0 ? '#1a73e8' : '#888'));
+    h += '<div style="margin-bottom:8px">';
+    h += '<div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:2px">';
+    h += '<span style="color:' + color + '">' + cat + '</span><span>' + count + '个(' + pct + '%)</span>';
+    h += '</div>';
+    h += '<div style="height:6px;background:#fff;border-radius:3px;overflow:hidden">';
+    h += '<div style="height:100%;width:' + pct + '%;background:' + color + ';border-radius:3px"></div>';
+    h += '</div></div>';
+  });
+  h += '</div></div>';
+  document.getElementById('mdBd').innerHTML = h;
+  document.getElementById('md').classList.add('on');
+}
 // 点击分类进度条，显示业务员分类明细弹窗
 function showCategoryDetail(categoryKey, categoryTitle, target, actual) {
   // 按业务员汇总该分类的毛利数据
@@ -3393,7 +4007,6 @@ function applyFixedDataMaps() {
       p.coef = coefInfo.coef;
       matchedByCode++;
     } else {
-      // code没匹配到，再按名字匹配
       var nameKey = p.name;
       if (nameKey && nameToCoef[nameKey]) {
         coefInfo = nameToCoef[nameKey];
@@ -3405,6 +4018,11 @@ function applyFixedDataMaps() {
         p.coef = 1.0;
         defaultCount++;
       }
+    }
+    var priceInfo = productPriceMap[p.code];
+    if (priceInfo) {
+      if (!p.price1B || p.price1B === 0) p.price1B = priceInfo.price1B || 0;
+      if (!p.batchPrice || p.batchPrice === 0) p.batchPrice = priceInfo.price1B || priceInfo.batchPrice || 0;
     }
   });
   console.log('applyFixedDataMaps - byCode:' + matchedByCode + ', byName:' + matchedByName + ', default:' + defaultCount);
