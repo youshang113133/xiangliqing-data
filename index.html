@@ -996,6 +996,8 @@ function doLogin() {
 function doLogout() {
   CURRENT_USER = null; USER_ROLE = null; USER_DEPT = null;
   localStorage.removeItem('xlq_current_user');
+  // 开发阶段：退出后自动重新admin登录
+  setTimeout(function() { init(); }, 100);
   location.reload();
 }
 
@@ -3348,10 +3350,8 @@ function applyWecomUser(userData) {
 })();
 
 function init() {
-  // 自动admin登录（开发阶段）
-  if (!localStorage.getItem("xlq_current_user")) {
-    localStorage.setItem("xlq_current_user", JSON.stringify({username: "admin"}));
-  }
+  // 自动admin登录
+  localStorage.setItem("xlq_current_user", JSON.stringify({username: "admin"}));
   // 优先检查企微OAuth2登录
   // if (checkWecomLogin()) return; // 开发阶段跳过企微跳转
   // 否则检查本地登录
