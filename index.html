@@ -476,6 +476,52 @@ body{font-size:14px;line-height:1.6}
 /* 数字千分位 */
 .format-num { font-variant-numeric: tabular-nums }
 
+
+.btn-secondary{background:#fff;color:#1a73e8;border:1px solid #1a73e8}.btn-secondary:active{background:#e8f0fe}
+
+.btn-danger{background:#e53935;color:#fff}.btn-danger:active{background:#c62828}
+
+/* 按钮间距统一 */
+.btn + .btn{margin-left:8px}
+
+/* 按钮组样式 */
+.btn-group{display:flex;gap:8px;flex-wrap:wrap}
+.btn-group .btn{flex:1;min-width:100px}
+/* 主要信息标签 */
+.label-primary{display:inline-block;padding:2px 6px;border-radius:4px;font-size:11px;background:#e8f0fe;color:#1a73e8}
+/* 货币显示 */
+.currency{font-weight:600;color:#e53935}
+.currency::before{content:'¥'}
+/* 百分比显示 */
+.percent{font-weight:500}
+.percent.high{color:#34a853}
+.percent.mid{color:#fbbc04}
+.percent.low{color:#e53935}
+/* 列表项激活状态 */
+.list-item:active{background:#f8f9fa}
+/* 金额右对齐 */
+.amount{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+
+/* 表单输入框统一 */
+.return-form input[type="text"],
+.return-form input[type="number"],
+.return-form select,
+.return-form textarea{background:#fff}
+/* 引用名称 */
+.quote-name{font-size:14px;font-weight:500;color:#1a1a1a}
+
+/* 进度条颜色随进度变化 */
+.progress-low .wb-progress-fill{background:#e53935}
+.progress-mid .wb-progress-fill{background:#fbbc04}
+.progress-high .wb-progress-fill{background:#1a73e8}
+.progress-excellent .wb-progress-fill{background:#34a853}
+
+/* 输入框聚焦状态 */
+input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !important}
+/* 点击状态反馈 */
+.it:active,.terminal-item:active,.quote-item:active,.script-item:active,.follow-item:active{background:#f8f9fa}
+/* 禁用状态 */
+.btn:disabled{opacity:0.6;cursor:not-allowed}
 </style>
 </head>
 <body>
@@ -2900,49 +2946,3 @@ function updateReturnStats() {
 </script>
 </body>
 </html>
-
-.btn-secondary{background:#fff;color:#1a73e8;border:1px solid #1a73e8}.btn-secondary:active{background:#e8f0fe}
-
-.btn-danger{background:#e53935;color:#fff}.btn-danger:active{background:#c62828}
-
-/* 按钮间距统一 */
-.btn + .btn{margin-left:8px}
-
-/* 按钮组样式 */
-.btn-group{display:flex;gap:8px;flex-wrap:wrap}
-.btn-group .btn{flex:1;min-width:100px}
-/* 主要信息标签 */
-.label-primary{display:inline-block;padding:2px 6px;border-radius:4px;font-size:11px;background:#e8f0fe;color:#1a73e8}
-/* 货币显示 */
-.currency{font-weight:600;color:#e53935}
-.currency::before{content:'¥'}
-/* 百分比显示 */
-.percent{font-weight:500}
-.percent.high{color:#34a853}
-.percent.mid{color:#fbbc04}
-.percent.low{color:#e53935}
-/* 列表项激活状态 */
-.list-item:active{background:#f8f9fa}
-/* 金额右对齐 */
-.amount{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
-
-/* 表单输入框统一 */
-.return-form input[type="text"],
-.return-form input[type="number"],
-.return-form select,
-.return-form textarea{background:#fff}
-/* 引用名称 */
-.quote-name{font-size:14px;font-weight:500;color:#1a1a1a}
-
-/* 进度条颜色随进度变化 */
-.progress-low .wb-progress-fill{background:#e53935}
-.progress-mid .wb-progress-fill{background:#fbbc04}
-.progress-high .wb-progress-fill{background:#1a73e8}
-.progress-excellent .wb-progress-fill{background:#34a853}
-
-/* 输入框聚焦状态 */
-input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !important}
-/* 点击状态反馈 */
-.it:active,.terminal-item:active,.quote-item:active,.script-item:active,.follow-item:active{background:#f8f9fa}
-/* 禁用状态 */
-.btn:disabled{opacity:0.6;cursor:not-allowed}
