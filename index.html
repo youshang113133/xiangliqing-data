@@ -2375,10 +2375,10 @@ function renderProduct() {
   sorted.forEach(function(p) {
     var profit = p.realProfitRate || p.profit || 0;
     var profitColor = profit >= 15 ? '#137333' : (profit >= 10 ? '#1a73e8' : '#e53935');
-    var gradeTag = '<span style="background:#f0f0f0;color:#888;padding:2px 6px;border-radius:4px;font-size:10px">常规</span>';
-    if (p.coefCat === '自主产品') gradeTag = '<span style="background:#e8f0fe;color:#1a73e8;padding:2px 6px;border-radius:4px;font-size:10px">自主</span>';
-    else if (p.coefCat === '核心1类') gradeTag = '<span style="background:#fce8e6;color:#c5221f;padding:2px 6px;border-radius:4px;font-size:10px">核心1</span>';
-    else if (p.coefCat === '核心2类') gradeTag = '<span style="background:#fff3e0;color:#e65100;padding:2px 6px;border-radius:4px;font-size:10px">核心2</span>';
+    var gradeTag = '<span style="background:#f0f0f0;color:#888;padding:2px 6px;border-radius:4px;font-size:10px">常规×1.0</span>';
+    if (p.coefCat === '自主产品') gradeTag = '<span style="background:#e8f0fe;color:#1a73e8;padding:2px 6px;border-radius:4px;font-size:10px">自主×1.2</span>';
+    else if (p.coefCat === '核心1类') gradeTag = '<span style="background:#fce8e6;color:#c5221f;padding:2px 6px;border-radius:4px;font-size:10px">核心1类×1.15</span>';
+    else if (p.coefCat === '核心2类') gradeTag = '<span style="background:#fff3e0;color:#e65100;padding:2px 6px;border-radius:4px;font-size:10px">核心2类×1.08</span>';
     h += '<div class="prd-card" onclick="showProductDetail(\'' + p.code + '\')">';
     h += '<div style="font-size:10px;color:#888;margin-bottom:4px">' + p.code + '</div>';
     h += '<div style="font-size:12px;font-weight:500;color:#333;margin-bottom:6px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + p.name + '</div>';
@@ -2386,6 +2386,8 @@ function renderProduct() {
     h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">';
     h += '<div style="text-align:center"><div style="font-size:10px;color:#888">一批价</div><div style="font-size:14px;font-weight:700;color:#e53935">' + (p.price1B > 0 ? p.price1B.toFixed(1) : '-') + '</div></div>';
     h += '<div style="text-align:center"><div style="font-size:10px;color:#888">毛利率</div><div style="font-size:14px;font-weight:700;color:' + profitColor + '">' + profit.toFixed(1) + '%</div></div>';
+    h += '<div style="text-align:center"><div style="font-size:10px;color:#888">库存</div><div style="font-size:14px;font-weight:700;color:#666">' + (p.stock > 0 ? p.stock.toFixed(0) : '-') + '</div></div>';
+    h += '<div style="text-align:center"><div style="font-size:10px;color:#888">采购家数</div><div style="font-size:14px;font-weight:700;color:#1a73e8">' + (p.sellerCount > 0 ? p.sellerCount : '-') + '</div></div>';
     h += '</div>';
     h += '<div style="margin-top:8px;text-align:center"><button onclick="event.stopPropagation();openCalcFromProduct(\'' + p.code + '\',\'' + p.name + '\',' + (p.price1B > 0 ? p.price1B : 0) + ',' + (p.retailPrice || 0) + ')" style="padding:4px 12px;background:#fff8e1;border:1px solid #e0e0e0;border-radius:12px;font-size:11px;cursor:pointer">计算利润</button></div>';
     h += '</div>';
@@ -2778,8 +2780,9 @@ function renderCustomerList() {
     var tc = customerCoefMap[c.id] || {};
     var tierTag = '';
     if (tc.cat) {
+      var coefVal = tc.coef || 1.0;
       var style = tc.cat.indexOf('A') >= 0 ? 'background:#e8f5e9;color:#137333' : (tc.cat.indexOf('B') >= 0 ? 'background:#e8f0fe;color:#1a73e8' : 'background:#fce4ec;color:#c62828');
-      tierTag = '<span style="' + style + ';padding:1px 5px;border-radius:6px;font-size:10px;margin-left:4px">' + tc.cat + '</span>';
+      tierTag = '<span style="' + style + ';padding:1px 5px;border-radius:6px;font-size:10px;margin-left:4px">' + tc.cat + '×' + coefVal.toFixed(2) + '</span>';
     }
     h += '<div class="it" onclick="showCustomerDetail(\'' + c.id + '\')">';
     h += '<div style="display:flex;justify-content:space-between;align-items:center"><span style="font-size:14px;font-weight:500">' + (c.name || '-') + tierTag + '</span>';
@@ -3226,14 +3229,42 @@ function fmtAmt(amt) {
 }
 
 function applyFixedDataMaps() {
+  // 构建名字到系数的反向索引
+  var nameToCoef = {};
+  Object.keys(productCoefMap).forEach(function(key) {
+    var item = productCoefMap[key];
+    if (item && item.name) {
+      nameToCoef[item.name] = item;
+    }
+  });
+  
+  var matchedByCode = 0, matchedByName = 0, defaultCount = 0;
   productsData.forEach(function(p) {
     var margin = productMarginMap[p.code];
     if (margin === undefined) margin = productMarginNameMap[p.name];
     if (margin !== undefined) { p.realProfitRate = margin; p.profit = margin; }
+    // 先按code匹配
     var coefInfo = productCoefMap[p.code];
-    if (coefInfo) { p.coefCat = coefInfo.cat; p.coef = coefInfo.coef; }
-    else { p.coefCat = '常规'; p.coef = 1.0; }
+    if (coefInfo) { 
+      p.coefCat = coefInfo.cat; 
+      p.coef = coefInfo.coef;
+      matchedByCode++;
+    } else {
+      // code没匹配到，再按名字匹配
+      var nameKey = p.name;
+      if (nameKey && nameToCoef[nameKey]) {
+        coefInfo = nameToCoef[nameKey];
+        p.coefCat = coefInfo.cat;
+        p.coef = coefInfo.coef;
+        matchedByName++;
+      } else {
+        p.coefCat = '常规';
+        p.coef = 1.0;
+        defaultCount++;
+      }
+    }
   });
+  console.log('applyFixedDataMaps - byCode:' + matchedByCode + ', byName:' + matchedByName + ', default:' + defaultCount);
 }
 
 function applyCustomerTier() {
