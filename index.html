@@ -90,7 +90,7 @@ body{font-size:14px;line-height:1.6}
 .tag-r{background:#fce8e6;color:#c5221f}
 .tag-b{background:#e8f0fe;color:#1a73e8}
 .tag-p{background:#f3e5f5;color:#7b1fa2}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;display:flex;box-shadow:0 -2px 12px rgba(0,0,0,0.1);z-index:100;padding:6px 0;border-top:1px solid #f0f0f0}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;display:flex;box-shadow:0 -2px 12px rgba(0,0,0,0.1);z-index:999;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));border-top:1px solid #f0f0f0}
 .nav>div{flex:1;padding:8px;text-align:center;font-size:11px;color:#666;cursor:pointer;user-select:none}
 .nav .on{color:#1a73e8;font-weight:600}
 .nav .on::before{content:'';display:block;width:24px;height:3px;background:#1a73e8;border-radius:2px;margin:0 auto 6px}
@@ -948,8 +948,8 @@ var USER_ACCOUNTS = {
 var DEPT_MEMBERS = {
   '省外业务部': ['宋杨杰', '刘文', '袁正军', '罗策', '郁进军'],
   '省内业务部': ['张文胜', '张纯英', '尹建林', '江廉政', '胡珍', '蔡磊', '陈龙'],
-  '长株潭业务部': ['周斌', '熊雄', '张金伟', '彭建华', '杨青青'],
-  '大客户部': ['彭菊华', '陆美英']
+  '长株潭业务部': ['周斌', '熊雄', '张金伟', '彭建华', '杨青青', '彭菊华'],
+  '大客户部': ['陆美英']
 };
 
 var DUAL_ROLE_MANAGERS = ['刘文', '彭菊华', '陆美英'];
