@@ -656,10 +656,10 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <button class="quote-btn" onclick="openQuoteModal()">💰 快速报价</button>
 <input type="search" class="search" id="pSk" placeholder="搜索产品名称..." oninput="renderProduct()">
 <div class="category-filter" id="categoryFilter">
-<button class="cat-btn" data-cat="全部" onclick="filterProductCategory('全部')">全部</button>
-<button class="cat-btn active" data-cat="核心1类" onclick="filterProductCategory('核心1类')">核心1类</button>
+<button class="cat-btn active" data-cat="全部" onclick="filterProductCategory('全部')">全部</button>
+<button class="cat-btn" data-cat="核心1类" onclick="filterProductCategory('核心1类')">核心1类</button>
 <button class="cat-btn" data-cat="核心2类" onclick="filterProductCategory('核心2类')">核心2类</button>
-<button class="cat-btn" data-cat="八方宏泰" onclick="filterProductCategory('八方宏泰')">八方宏泰</button>
+<button class="cat-btn" data-cat="常规" onclick="filterProductCategory('常规')>/button>
 <button class="cat-btn" data-cat="自主产品" onclick="filterProductCategory('自主产品')">自主产品</button>
 </div>
 <div class="fl" style="margin-top:0">
@@ -1182,7 +1182,7 @@ function renderSalesPersonalView() {
   h += '<div class="wb-progress-bar"><div class="wb-progress-fill" style="width:' + Math.min(progress.core1Rate, 100) + '%;background:#c5221f"></div></div></div>';
   h += '<div class="wb-progress-item"><div class="wb-progress-label"><span>核心2类</span><span style="color:#e37400">' + progress.core2Rate.toFixed(1) + '%</span></div>';
   h += '<div class="wb-progress-bar"><div class="wb-progress-fill" style="width:' + Math.min(progress.core2Rate, 100) + '%;background:#e37400"></div></div></div>';
-  h += '<div class="wb-progress-item"><div class="wb-progress-label"><span>八方宏泰</span><span style="color:#7b1fa2">' + progress.bf8Rate.toFixed(1) + '%</span></div>';
+  h += '<div class="wb-progress-item"><div class="wb-progress-label"><span>常规</span><span style="color:#7b1fa2">' + progress.bf8Rate.toFixed(1) + '%</span></div>';
   h += '<div class="wb-progress-bar"><div class="wb-progress-fill" style="width:' + Math.min(progress.bf8Rate, 100) + '%;background:#7b1fa2"></div></div></div>';
   
   // 提成预估
@@ -2607,7 +2607,8 @@ function renderProduct() {
   }
   if (currentProductCategory && currentProductCategory !== '全部') {
     sorted = sorted.filter(function(p) {
-      if (currentProductCategory === '八方宏泰') {
+      // 八方宏泰归入常规
+    if (currentProductCategory === '常规') {
         var name = String(p.name || '');
         return name.indexOf('八方') >= 0 || name.indexOf('宏泰') >= 0 || name.indexOf('栩泰') >= 0;
       }
