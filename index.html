@@ -3168,12 +3168,91 @@ function fmtNum(num) {
 }
 
 // ===== 初始化 =====
+// ===== 企微OAuth2免密登录 =====
+function checkWecomLogin() {
+  // 1. 检查localStorage是否有企微登录信息
+  var wecomUser = localStorage.getItem('wecom_user');
+  if (wecomUser) {
+    try {
+      var userData = JSON.parse(wecomUser);
+      var wecomUserTime = parseInt(localStorage.getItem('wecom_user_time') || '0');
+      // 企微登录信息有效期7天
+      if (Date.now() - wecomUserTime < 7 * 24 * 60 * 60 * 1000) {
+        applyWecomUser(userData);
+        return true;
+      }
+    } catch(e) {}
+  }
+  
+  // 2. 检查URL是否有code参数（OAuth2回调）
+  var urlParams = new URLSearchParams(window.location.search);
+  var code = urlParams.get('code');
+  if (code) {
+    // 清除URL中的code参数
+    var cleanUrl = window.location.pathname + window.location.hash;
+    window.history.replaceState({}, '', cleanUrl);
+    // 用code换取用户信息
+    fetch('https://api.xiangliqing.com/wecom/auth/?code=' + code)
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (data.errcode === 0) {
+          localStorage.setItem('wecom_user', JSON.stringify(data));
+          localStorage.setItem('wecom_user_time', Date.now().toString());
+          applyWecomUser(data);
+          if (typeof onLoginSuccess === 'function') onLoginSuccess(data);
+        } else {
+          console.error('企微登录失败:', data);
+        }
+      })
+      .catch(function(err) {
+        console.error('企微登录请求失败:', err);
+      });
+    return true;
+  }
+  
+  // 3. 检查是否在企微环境
+  var ua = navigator.userAgent.toLowerCase();
+  if (ua.indexOf('wxwork') > -1 || ua.indexOf('micromessenger') > -1) {
+    // 在企微中，跳转OAuth2
+    var appId = 'ww95ba771f32ae8eef';
+    var redirectUri = encodeURIComponent(window.location.origin + window.location.pathname);
+    var authUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appId + 
+      '&redirect_uri=' + redirectUri + 
+      '&response_type=code&scope=snsapi_base&agentid=1000024&state=login#wechat_redirect';
+    window.location.href = authUrl;
+    return true;
+  }
+  
+  return false;
+}
+
+function applyWecomUser(userData) {
+  CURRENT_USER = userData.name;
+  USER_DEPT = userData.department || '';
+  
+  // 根据role设置USER_ROLE
+  if (userData.role === 'admin') {
+    USER_ROLE = 'Admin';
+  } else if (userData.role === 'manager') {
+    USER_ROLE = 'Manager';
+  } else {
+    USER_ROLE = 'Sales';
+  }
+  
+  // 清除旧登录信息
+  localStorage.removeItem('xlq_current_user');
+  showMainInterface();
+}
+
 (function() {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
 
 function init() {
+  // 优先检查企微OAuth2登录
+  if (checkWecomLogin()) return;
+  // 否则检查本地登录
   if (checkLoginStatus()) showMainInterface();
 }
 
