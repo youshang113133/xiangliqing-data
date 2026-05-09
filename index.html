@@ -93,7 +93,7 @@ body{font-size:14px;line-height:1.6}
 .tag-r{background:#fce8e6;color:#c5221f}
 .tag-b{background:#e8f0fe;color:#1a73e8}
 .tag-p{background:#f3e5f5;color:#7b1fa2}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff!important;display:flex!important;box-shadow:0 -2px 12px rgba(0,0,0,0.1)!important;z-index:9999!important;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));border-top:1px solid #f0f0f0!important;height:auto!important;visibility:visible!important;max-height:none!important;overflow:visible!important}
+.nav{position:fixed;bottom:0;left:0;right:0;width:100%;background:#fff!important;display:flex!important;box-shadow:0 -2px 12px rgba(0,0,0,0.1)!important;z-index:9999!important;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));border-top:1px solid #f0f0f0!important;height:auto!important}
 .nav>div{flex:1;padding:8px;text-align:center;font-size:11px;color:#666;cursor:pointer;user-select:none}
 .nav .on{color:#1a73e8;font-weight:600}
 .nav .on::before{content:'';display:block;width:24px;height:3px;background:#1a73e8;border-radius:2px;margin:0 auto 6px}
@@ -1036,6 +1036,7 @@ function showMainInterface() {
   }
   roleTag.className = 'role-tag role-' + (USER_ROLE === 'Admin' ? 'admin' : (USER_ROLE === 'Manager' ? 'manager' : 'sales'));
   initNav();
+  document.getElementById('mainNav').style.display = 'flex';
   initData();
 }
 
@@ -3369,14 +3370,18 @@ function applyWecomUser(userData) {
 })();
 
 function init() {
-  // 开发阶段：如果没有登录信息，自动admin登录
-  if (!localStorage.getItem("xlq_current_user")) {
-    localStorage.setItem("xlq_current_user", JSON.stringify({username: "admin"}));
+  try {
+    if (!localStorage.getItem("xlq_current_user")) {
+      localStorage.setItem("xlq_current_user", JSON.stringify({username: "admin"}));
+    }
+    // 企微OAuth2登录（正式环境启用）
+    // if (checkWecomLogin()) return;
+    if (checkLoginStatus()) showMainInterface();
+  } catch(e) {
+    console.error('init error:', e);
+    // 即使出错也尝试显示主界面
+    try { showMainInterface(); } catch(e2) {}
   }
-  // 企微OAuth2登录（正式环境启用）
-  // if (checkWecomLogin()) return;
-  // 本地登录
-  if (checkLoginStatus()) showMainInterface();
 }
 
 // ===== 功能：退货申请 =====
