@@ -581,7 +581,33 @@ body{font-size:14px;line-height:1.6}
     </div>
     <div id="targetCards"></div>
   </div>
-  <div id="targetReturn" style="display:none"></div>
+  <div id="targetReturn" style="display:none">
+    <div id="returnStatsPanel" style="background:#fff;border-radius:12px;padding:14px;margin:14px;box-shadow:0 2px 8px rgba(0,0,0,0.08)">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div style="font-size:13px;font-weight:600;color:#333">📊 退货率看板</div>
+        <span id="returnWarningBadge" style="font-size:11px;padding:2px 8px;border-radius:10px">正常</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="text-align:center">
+          <div style="font-size:11px;color:#888">本月退货率</div>
+          <div id="returnRateVal" style="font-size:24px;font-weight:700;color:#1a73e8">0.0%</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:11px;color:#888">额度使用率</div>
+          <div id="returnQuotaVal" style="font-size:24px;font-weight:700;color:#1a73e8">0%</div>
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">
+          <span>退货额度</span>
+          <span><span id="returnUsedAmt">0</span> / <span id="returnTotalAmt">0</span>元</span>
+        </div>
+        <div style="height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">
+          <div id="returnQuotaBar" style="height:100%;width:0%;background:#1a73e8;border-radius:3px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 
@@ -735,6 +761,8 @@ var salesTargetMap = {};
 var commissionData = {};
 var productPortraitData = {};
 var customerPortraitData = {};
+var customerTierMap = {};
+var productPriceMap = {};
 var terminalData = [];
 var dataLoaded = { data_report: false, data_product: false, data_customer: false, data_coef: false, data_extra: false, data_recs: false, data_commission: false, data_terminal: false };
 var currentTab = 'Report';
@@ -791,11 +819,10 @@ var EXCLUDE_SALESMAN = ["马政","陈长林","谢荣星","孙其云","郑昌华"
 
 var USER_ACCOUNTS = {
   'admin': { password: 'admin123', role: 'Admin', dept: null },
-  '刘文': { password: 'liuwen123', role: 'Manager', dept: '大客户部' },
+  '刘文': { password: 'liuwen123', role: 'Manager', dept: '省外业务部' },
   '谢荣星': { password: 'xierongxing123', role: 'Manager', dept: '省内业务部' },
   '彭菊华': { password: 'pengjuhua123', role: 'Manager', dept: '长株潭业务部' },
   '陆美英': { password: 'lumeiying123', role: 'Manager', dept: '大客户部' },
-  '王纯': { password: 'wangchun123', role: 'Sales', dept: '长株潭业务部' },
   '周斌': { password: 'zhoubin123', role: 'Sales', dept: '长株潭业务部' },
   '熊雄': { password: 'xiongxiong123', role: 'Sales', dept: '长株潭业务部' },
   '张文胜': { password: 'zhangwensheng123', role: 'Sales', dept: '省内业务部' },
@@ -816,10 +843,10 @@ var USER_ACCOUNTS = {
 };
 
 var DEPT_MEMBERS = {
-  '省外业务部': ['宋杨杰', '袁正军', '罗策', '郁进军'],
+  '省外业务部': ['宋杨杰', '刘文', '袁正军', '罗策', '郁进军'],
   '省内业务部': ['张文胜', '张纯英', '尹建林', '江廉政', '胡珍', '蔡磊', '陈龙'],
-  '长株潭业务部': ['周斌', '熊雄', '张金伟', '彭建华', '杨青青', '王纯'],
-  '大客户部': ['刘文', '谢荣星', '彭菊华', '陆美英']
+  '长株潭业务部': ['周斌', '熊雄', '张金伟', '彭建华', '杨青青'],
+  '大客户部': ['彭菊华', '陆美英']
 };
 
 var DUAL_ROLE_MANAGERS = ['刘文', '彭菊华', '陆美英'];
@@ -934,7 +961,7 @@ function applyDataToGlobals(key, data) {
     case 'data_product': productsData = data.productsData || []; break;
     case 'data_customer': customersData = data.customersData || []; channelTypeMap = data.channelTypeMap || {}; break;
     case 'data_coef': productCoefMap = data.productCoefMap || {}; customerCoefMap = data.customerCoefMap || {}; productMarginMap = data.productMarginMap || {}; productMarginNameMap = data.productMarginNameMap || {}; salesTargetMap = data.salesTargetMap || {}; break;
-    case 'data_extra': commissionData = data.commissionData || {}; productPortraitData = data.productPortraitData || {}; customerPortraitData = data.customerPortraitData || {}; break;
+    case 'data_extra': commissionData = data.commissionData || {}; productPortraitData = data.productPortraitData || {}; customerPortraitData = data.customerPortraitData || {}; customerTierMap = data.customerTierMap || {}; productPriceMap = data.productPriceMap || {}; break;
     case 'data_commission': commissionData = data || {}; break;
     case 'data_terminal': terminalData = data.terminals || []; break;
   }
@@ -1764,11 +1791,15 @@ function renderProduct() {
   if (currentProductCategory && currentProductCategory !== '全部') {
     sorted = sorted.filter(function(p) {
       if (currentProductCategory === '八方宏泰') {
-        var portrait = productPortraitData[p.code] || {};
-        var coreSupplier = String(portrait['核心供应商'] || '');
-        return coreSupplier.indexOf('宏泰') >= 0 || coreSupplier.indexOf('八方') >= 0;
+        return String(p.name || '').indexOf('八方宏泰') >= 0;
       }
-      return p.coefCat === currentProductCategory;
+      // 使用type字段确定分类
+      var pType = p.type || '';
+      if (currentProductCategory === '核心1类') return pType === '核心产品';
+      if (currentProductCategory === '核心2类') return pType === '核心产品'; // 暂归类为核心
+      if (currentProductCategory === '自主产品') return pType === '自主产品';
+      if (currentProductCategory === '常规') return pType === '其他' || !pType;
+      return false;
     });
   }
   var profitFilter = document.getElementById('pProfitRange').value;
@@ -1804,46 +1835,195 @@ function showProductDetail(code) {
   var p = productsData.find(function(x) { return x.code === code; });
   if (!p) return;
   var portrait = productPortraitData[code] || {};
-  var profit = p.realProfitRate || p.profit || 0;
-  var profitColor = profit >= 15 ? '#137333' : (profit >= 10 ? '#1a73e8' : '#e53935');
+  var priceInfo = productPriceMap[code] || {};
+  var profitRate = parseFloat(portrait['毛利率'] || p.profit || 0);
+  var profitColor = profitRate >= 15 ? '#137333' : (profitRate >= 10 ? '#1a73e8' : '#e53935');
+  var price1B = priceInfo.price1B || p.batchPrice || p.price1B || 0;
+  var retailPrice = priceInfo.priceT || p.retailPrice || 0;
+  var suggRetail = portrait['建议零售价(元/包)'] || 0;
+  var supplyPrice = portrait['供货价(元/包)'] || 0;
+  
   document.getElementById('mdTt').textContent = '产品详情';
-  var h = '<div style="padding:12px 0">';
-  h += '<div style="background:#f8f9fa;border-radius:12px;padding:14px;margin-bottom:14px">';
-  h += '<div style="font-size:16px;font-weight:600;margin-bottom:8px">' + p.name + '</div>';
-  h += '<div style="font-size:12px;color:#666">编码：' + (p.code || '-') + '</div>';
-  h += '<div style="font-size:12px;color:#666">规格：' + String(p.spec || '-') + '</div>';
+  var h = '<div style="padding:12px 0;max-width:480px">';
+  
+  // ===== 基础信息 =====
+  h += '<div style="background:linear-gradient(135deg,#1a73e8,#0d47a1);border-radius:12px;padding:16px;margin-bottom:14px;color:#fff">';
+  h += '<div style="font-size:17px;font-weight:600;margin-bottom:6px">' + (portrait['产品名称'] || p.name || '-') + '</div>';
+  h += '<div style="font-size:12px;opacity:0.9">编码：' + (portrait['产品编码'] || p.code || '-') + '</div>';
   h += '</div>';
-  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px">';
-  h += '<div style="text-align:center;padding:12px;background:#f8f9fa;border-radius:8px"><div style="font-size:10px;color:#888">一批价</div><div style="font-size:18px;font-weight:700;color:#e53935">' + (p.price1B > 0 ? '¥' + p.price1B.toFixed(2) : '-') + '</div></div>';
-  h += '<div style="text-align:center;padding:12px;background:#f8f9fa;border-radius:8px"><div style="font-size:10px;color:#888">毛利率</div><div style="font-size:18px;font-weight:700;color:' + profitColor + '">' + profit.toFixed(1) + '%</div></div>';
-  h += '<div style="text-align:center;padding:12px;background:#f8f9fa;border-radius:8px"><div style="font-size:10px;color:#888">覆盖</div><div style="font-size:18px;font-weight:700;color:#1a73e8">' + (p.sellerCount || '-') + '</div></div>';
+  
+  // ===== 核心数据三格 =====
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px">';
+  h += '<div style="text-align:center;padding:12px;background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08)"><div style="font-size:10px;color:#888;margin-bottom:4px">一批价</div><div style="font-size:16px;font-weight:700;color:#e53935">' + (price1B > 0 ? '¥' + price1B.toFixed(1) : '-') + '</div></div>';
+  h += '<div style="text-align:center;padding:12px;background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08)"><div style="font-size:10px;color:#888;margin-bottom:4px">毛利率</div><div style="font-size:16px;font-weight:700;color:' + profitColor + '">' + profitRate.toFixed(1) + '%</div></div>';
+  h += '<div style="text-align:center;padding:12px;background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.08)"><div style="font-size:10px;color:#888;margin-bottom:4px">覆盖客户</div><div style="font-size:16px;font-weight:700;color:#1a73e8">' + (portrait['覆盖客户数'] || p.sellerCount || 0) + '</div></div>';
   h += '</div>';
-  var cp = String(portrait['核心卖点'] || '');
-  if (cp) {
-    h += '<div style="background:#fff8e1;border-radius:10px;padding:12px;margin-bottom:12px">';
-    h += '<div style="font-size:12px;font-weight:600;color:#e65100;margin-bottom:6px">💡 核心卖点</div>';
-    h += '<div style="font-size:13px;color:#666;line-height:1.5">' + cp.substring(0, 100) + (cp.length > 100 ? '...' : '') + '</div>';
+  
+  // ===== 价格体系 =====
+  if (supplyPrice > 0 || suggRetail > 0 || price1B > 0 || retailPrice > 0) {
+    h += '<div style="background:#e3f2fd;border-radius:10px;padding:12px;margin-bottom:12px">';
+    h += '<div style="font-size:12px;font-weight:600;color:#1565c0;margin-bottom:10px">💰 价格体系</div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+    h += '<div style="background:#fff;border-radius:6px;padding:8px;text-align:center"><div style="font-size:10px;color:#888">供货价</div><div style="font-size:14px;font-weight:600">¥' + (supplyPrice > 0 ? supplyPrice.toFixed(2) : '-') + '</div></div>';
+    h += '<div style="background:#fff;border-radius:6px;padding:8px;text-align:center"><div style="font-size:10px;color:#888">建议零售</div><div style="font-size:14px;font-weight:600">¥' + (suggRetail > 0 ? suggRetail.toFixed(2) : '-') + '</div></div>';
+    h += '<div style="background:#fff;border-radius:6px;padding:8px;text-align:center"><div style="font-size:10px;color:#888">一批价</div><div style="font-size:14px;font-weight:600">¥' + (price1B > 0 ? price1B.toFixed(1) : '-') + '</div></div>';
+    h += '<div style="background:#fff;border-radius:6px;padding:8px;text-align:center"><div style="font-size:10px;color:#888">终端价</div><div style="font-size:14px;font-weight:600">¥' + (retailPrice > 0 ? retailPrice.toFixed(1) : '-') + '</div></div>';
+    h += '</div></div>';
+  }
+  
+  // ===== 基本规格 =====
+  h += '<div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)">';
+  h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:10px">📋 基本规格</div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:11px">';
+  h += '<div><span style="color:#888">品类：</span>' + String(portrait['品类标签'] || p.category || '-') + '</div>';
+  h += '<div><span style="color:#888">单包：</span>' + (portrait['单包规格(g)'] ? portrait['单包规格(g)'] + 'g' : '-') + '</div>';
+  h += '<div><span style="color:#888">整箱：</span>' + String(portrait['整箱规格'] || p.spec || '-') + '</div>';
+  h += '<div><span style="color:#888">类型：</span>' + String(p.type || '-') + '</div>';
+  h += '</div></div>';
+  
+  // ===== 生产信息 =====
+  var hasProd = portrait['存储条件'] || portrait['保质期(月)'] || portrait['核心供应商'] || portrait['核心工艺'] || portrait['原料等级'];
+  if (hasProd) {
+    h += '<div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)">';
+    h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:10px">🏭 生产信息</div>';
+    h += '<div style="font-size:11px;color:#666;margin-bottom:4px"><span style="color:#888">存储：</span>' + String(portrait['存储条件'] || '-') + '</div>';
+    h += '<div style="font-size:11px;color:#666;margin-bottom:4px"><span style="color:#888">保质期：</span>' + (portrait['保质期(月)'] ? portrait['保质期(月)'] + '个月' : '-') + '</div>';
+    h += '<div style="font-size:11px;color:#666;margin-bottom:4px"><span style="color:#888">供应商：</span>' + String(portrait['核心供应商'] || '-') + '</div>';
+    h += '<div style="font-size:11px;color:#666;margin-bottom:4px"><span style="color:#888">工艺：</span>' + String(portrait['核心工艺'] || '-') + '</div>';
+    h += '<div style="font-size:11px;color:#666"><span style="color:#888">原料：</span>' + String(portrait['原料等级'] || '-') + '</div>';
     h += '</div>';
   }
   
-  // 新增：看菜谱和质检报告按钮
-  h += '<div class="product-extra-btns">';
-  h += '<button class="product-extra-btn" onclick="showCookbook()">📖 看菜谱</button>';
-  h += '<button class="product-extra-btn" onclick="showQualityReport()">📋 质检报告</button>';
-  h += '</div>';
+  // ===== 产品特性 =====
+  var hasFeature = portrait['烹饪时间(分钟)'] || portrait['是否免洗/免切'] || portrait['成品出成率'];
+  if (hasFeature) {
+    h += '<div style="background:#fff8e1;border-radius:10px;padding:12px;margin-bottom:12px">';
+    h += '<div style="font-size:12px;font-weight:600;color:#e65100;margin-bottom:10px">✨ 产品特性</div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">';
+    h += '<div style="text-align:center;background:#fff;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">烹饪时间</div><div style="font-size:12px;font-weight:500">' + String(portrait['烹饪时间(分钟)'] || '-') + '</div></div>';
+    h += '<div style="text-align:center;background:#fff;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">免洗/免切</div><div style="font-size:12px;font-weight:500">' + String(portrait['是否免洗/免切'] || '-') + '</div></div>';
+    h += '<div style="text-align:center;background:#fff;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">出成率</div><div style="font-size:12px;font-weight:500">' + String(portrait['成品出成率'] || '-') + '</div></div>';
+    h += '</div></div>';
+  }
   
-  h += '<button onclick="openCalcFromProduct(\'' + p.code + '\',\'' + p.name + '\',' + (p.price1B > 0 ? p.price1B : 0) + ',' + (p.retailPrice || 0) + ')" style="width:100%;padding:12px;background:#1a73e8;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:12px">🧮 利润计算</button>';
+  // ===== 核心卖点 =====
+  var cp = String(portrait['核心卖点'] || '');
+  if (cp) {
+    h += '<div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)">';
+    h += '<div style="font-size:12px;font-weight:600;color:#e65100;margin-bottom:8px">💡 核心卖点</div>';
+    h += '<div style="font-size:12px;color:#666;line-height:1.6">' + cp.substring(0, 150) + (cp.length > 150 ? '...' : '') + '</div>';
+    h += '</div>';
+  }
+  
+  // ===== 适配场景 =====
+  var hasScene = portrait['适配渠道'] || portrait['适配菜系/场景'];
+  if (hasScene) {
+    h += '<div style="background:#f3e5f5;border-radius:10px;padding:12px;margin-bottom:12px">';
+    h += '<div style="font-size:12px;font-weight:600;color:#7b1fa2;margin-bottom:8px">🎯 适配场景</div>';
+    if (portrait['适配渠道']) h += '<div style="font-size:11px;color:#666;margin-bottom:4px"><span style="color:#888">渠道：</span>' + portrait['适配渠道'] + '</div>';
+    if (portrait['适配菜系/场景']) h += '<div style="font-size:11px;color:#666"><span style="color:#888">菜系：</span>' + portrait['适配菜系/场景'] + '</div>';
+    h += '</div>';
+  }
+  
+  // ===== 阻击话术 =====
+  var bt = String(portrait['标准阻击话术'] || '');
+  if (bt) {
+    h += '<div style="background:#e8f5e9;border-radius:10px;padding:12px;margin-bottom:12px">';
+    h += '<div style="font-size:12px;font-weight:600;color:#2e7d32;margin-bottom:8px">🗣️ 标准阻击话术</div>';
+    h += '<div style="font-size:12px;color:#555;line-height:1.6">' + bt.substring(0, 120) + (bt.length > 120 ? '...' : '') + '</div>';
+    h += '</div>';
+  }
+  
+  // ===== 销售数据 =====
+  var totalSale = portrait['总销售额'] || p.sales || 0;
+  var totalProfit = portrait['总毛利额'] || 0;
+  var sellCount = portrait['销售次数'] || p.salesTimes || 0;
+  var saleRank = portrait['销售额排名'] || '-';
+  var saleGrowth = portrait['销售增长率'] || 0;
+  var contrib = portrait['金额贡献度(%)'] || 0;
+  if (totalSale > 0 || sellCount > 0) {
+    h += '<div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)">';
+    h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:10px">📊 销售数据</div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">总销售额</div><div style="font-size:14px;font-weight:600">¥' + totalSale.toLocaleString('zh-CN', {maximumFractionDigits: 0}) + '</div></div>';
+    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">总毛利额</div><div style="font-size:14px;font-weight:600">¥' + totalProfit.toLocaleString('zh-CN', {maximumFractionDigits: 0}) + '</div></div>';
+    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">销售次数</div><div style="font-size:14px;font-weight:600">' + sellCount + '</div></div>';
+    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">销售额排名</div><div style="font-size:14px;font-weight:600">#' + saleRank + '</div></div>';
+    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">增长率</div><div style="font-size:14px;font-weight:600;color:' + (saleGrowth >= 0 ? '#137333' : '#e53935') + '">' + (saleGrowth > 0 ? '+' : '') + saleGrowth + '%</div></div>';
+    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">贡献度</div><div style="font-size:14px;font-weight:600">' + contrib + '%</div></div>';
+    h += '</div></div>';
+  }
+  
+  // ===== 库存数据 =====
+  var stockQty = portrait['期末库存数量'] || p.stock || 0;
+  var stockAmt = portrait['期末库存金额'] || 0;
+  var invRatio = portrait['库销比'] || 0;
+  if (stockQty > 0 || stockAmt > 0) {
+    h += '<div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)">';
+    h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:10px">📦 库存状态</div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">';
+    h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">库存量</div><div style="font-size:14px;font-weight:600">' + stockQty + '</div></div>';
+    h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">库存金额</div><div style="font-size:14px;font-weight:600">¥' + stockAmt.toLocaleString('zh-CN', {maximumFractionDigits: 0}) + '</div></div>';
+    h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">库销比</div><div style="font-size:14px;font-weight:600">' + invRatio + '</div></div>';
+    h += '</div></div>';
+  }
+  
+  // ===== 运营标签 =====
+  var gradeLevel = portrait['商品分级'] || p.grade || '';
+  var moveStatus = portrait['动销状态'] || p.status || '';
+  var riskLevel = portrait['滞销风险等级'] || p.riskLevel || '';
+  var healthLevel = portrait['综合健康度等级'] || p.healthLevel || '';
+  var salesman = portrait['主力推广业务员'] || p.salesperson || '';
+  if (gradeLevel || moveStatus || riskLevel || healthLevel || salesman) {
+    h += '<div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)">';
+    h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:10px">🏷️ 运营状态</div>';
+    h += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
+    if (gradeLevel) {
+      var gc = gradeLevel.indexOf('S') >= 0 ? '#e65100' : (gradeLevel.indexOf('A') >= 0 ? '#137333' : (gradeLevel.indexOf('B') >= 0 ? '#1a73e8' : '#888'));
+      h += '<span style="background:' + gc + ';color:#fff;padding:4px 10px;border-radius:12px;font-size:11px">' + gradeLevel + '</span>';
+    }
+    if (moveStatus) {
+      var mc = moveStatus === '活跃' ? '#137333' : (moveStatus === '呆滞' ? '#e53935' : '#888');
+      h += '<span style="background:' + mc + ';color:#fff;padding:4px 10px;border-radius:12px;font-size:11px">' + moveStatus + '</span>';
+    }
+    if (healthLevel) h += '<span style="background:#f3e5f5;color:#7b1fa2;padding:4px 10px;border-radius:12px;font-size:11px">' + healthLevel + '</span>';
+    if (riskLevel) h += '<span style="background:#e8f0fe;color:#1a73e8;padding:4px 10px;border-radius:12px;font-size:11px">' + riskLevel + '</span>';
+    if (salesman) h += '<span style="background:#fff8e1;color:#e65100;padding:4px 10px;border-radius:12px;font-size:11px">推广:' + salesman + '</span>';
+    h += '</div></div>';
+  }
+  
+  // ===== 按钮区 =====
+  h += '<div style="display:flex;gap:8px;margin-top:14px">';
+  h += '<button onclick="showCookbook()" style="flex:1;padding:10px;background:#fff;border:1px solid #ddd;border-radius:8px;font-size:12px;cursor:pointer">📖 看菜谱</button>';
+  h += '<button onclick="showQualityReport()" style="flex:1;padding:10px;background:#fff;border:1px solid #ddd;border-radius:8px;font-size:12px;cursor:pointer">📋 质检报告</button>';
+  h += '</div>';
+  h += '<button onclick="openCalcFromProduct(\'' + p.code + '\',\'' + String(p.name || '').replace(/'/g, "\\'") + '\',' + (price1B > 0 ? price1B : 0) + ',' + (retailPrice > 0 ? retailPrice : 0) + ')" style="width:100%;padding:12px;background:#1a73e8;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;margin-top:8px">🧮 利润计算</button>';
   
   document.getElementById('mdBd').innerHTML = h;
   document.getElementById('md').classList.add('on');
 }
 
 function showCookbook() {
-  alert('📖 品牌部内容筹备中，敬请期待！');
+  // TODO: 对接码上游API后替换为真实菜谱内容
+  document.getElementById('mdTt').textContent = '📖 看菜谱';
+  document.getElementById('mdBd').innerHTML = '<div style="padding:40px;text-align:center;color:#888">' +
+    '<div style="font-size:48px;margin-bottom:16px">🍳</div>' +
+    '<div style="font-size:14px;margin-bottom:8px">品牌部内容筹备中</div>' +
+    '<div style="font-size:12px;color:#aaa">码上游API对接后可用</div>' +
+    '</div>';
+  document.getElementById('md').classList.add('on');
 }
 
 function showQualityReport() {
-  window.open('https://drive.weixin.qq.com/s?k=AIwAPQfmAA0uyYFqj4', '_blank');
+  // TODO: 对接企微微盘API后替换为真实质检报告链接
+  document.getElementById('mdTt').textContent = '📋 质检报告';
+  document.getElementById('mdBd').innerHTML = '<div style="padding:40px;text-align:center;color:#888">' +
+    '<div style="font-size:48px;margin-bottom:16px">📄</div>' +
+    '<div style="font-size:14px;margin-bottom:8px">质检报告待上传</div>' +
+    '<div style="font-size:12px;color:#aaa">企微微盘API对接后可用</div>' +
+    '<div style="margin-top:16px"><a href="https://work.weixin.qq.com/wework_explorer#/" target="_blank" style="color:#1a73e8;text-decoration:none;font-size:13px">前往企微云盘查看 →</a></div>' +
+    '</div>';
+  document.getElementById('md').classList.add('on');
 }
 
 // ===== 功能18：快速报价 =====
@@ -2631,56 +2811,6 @@ function updateReturnStats() {
   }
 }
 
-// TODO: 对接码上游API后替换为真实菜谱内容
-function showRecipeHint() {
-  document.getElementById('mdTt').textContent = '📖 看菜谱';
-  document.getElementById('mdBd').innerHTML = '<div style="padding:40px;text-align:center;color:#888">' +
-    '<div style="font-size:48px;margin-bottom:16px">🍳</div>' +
-    '<div style="font-size:14px;margin-bottom:8px">品牌部内容筹备中</div>' +
-    '<div style="font-size:12px;color:#aaa">码上游API对接后可用</div>' +
-    '</div>';
-  document.getElementById('md').classList.add('on');
-}
-
-// TODO: 对接企微微盘API后替换为真实质检报告链接
-function showQCReportHint(productCode) {
-  document.getElementById('mdTt').textContent = '📋 质检报告';
-  document.getElementById('mdBd').innerHTML = '<div style="padding:40px;text-align:center;color:#888">' +
-    '<div style="font-size:48px;margin-bottom:16px">📄</div>' +
-    '<div style="font-size:14px;margin-bottom:8px">质检报告待上传</div>' +
-    '<div style="font-size:12px;color:#aaa">产品编码: ' + productCode + '</div>' +
-    '<div style="margin-top:16px"><a href="https://work.weixin.qq.com/wework_explorer#/" target="_blank" style="color:#1a73e8;text-decoration:none;font-size:13px">前往微盘查看 →</a></div>' +
-    '</div>';
-  document.getElementById('md').classList.add('on');
-}
-
 </script>
-
-<!-- 退货率看板（工作台底部） -->
-<div id="returnStatsPanel" style="background:#fff;border-radius:12px;padding:14px;margin:14px;box-shadow:0 2px 8px rgba(0,0,0,0.08)">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-    <div style="font-size:13px;font-weight:600;color:#333">📊 退货率看板</div>
-    <span id="returnWarningBadge" style="font-size:11px;padding:2px 8px;border-radius:10px">正常</span>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-    <div style="text-align:center">
-      <div style="font-size:11px;color:#888">本月退货率</div>
-      <div id="returnRateVal" style="font-size:24px;font-weight:700;color:#1a73e8">0.0%</div>
-    </div>
-    <div style="text-align:center">
-      <div style="font-size:11px;color:#888">额度使用率</div>
-      <div id="returnQuotaVal" style="font-size:24px;font-weight:700;color:#1a73e8">0%</div>
-    </div>
-  </div>
-  <div style="margin-top:10px">
-    <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">
-      <span>退货额度</span>
-      <span><span id="returnUsedAmt">0</span> / <span id="returnTotalAmt">0</span>元</span>
-    </div>
-    <div style="height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">
-      <div id="returnQuotaBar" style="height:100%;width:0%;background:#1a73e8;border-radius:3px"></div>
-    </div>
-  </div>
-</div>
 </body>
 </html>
