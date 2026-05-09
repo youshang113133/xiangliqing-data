@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>湘里情智营v13.0·客户决策</title>
+<title>湘里情智营v15.1·客户决策</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f5f5f5;font-size:14px;line-height:1.6;color:#333;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1);padding-bottom:60px}
@@ -115,7 +115,7 @@ body{font-size:14px;line-height:1.6}
 .more::before{content:'⬇️ ';margin-right:6px}
 
 /* 弹窗 */
-.md{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:200}
+.md{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:10000000}
 .md.on{display:flex;align-items:flex-end}
 .md-ct{background:#fff;width:100%;max-height:90vh;border-radius:16px 16px 0 0;overflow-y:auto;pointer-events:auto}
 .md-hd{padding:16px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#fff;z-index:1}
@@ -930,7 +930,7 @@ var CURRENT_USER = null;
 var USER_ROLE = null;
 var USER_DEPT = null;
 
-var EXCLUDE_SALESMAN = ["马政","陈长林","孙其云","郑昌华","龙仙美","李春岚","郁进军","杨启发"];
+var EXCLUDE_SALESMAN = ["孙其云","郑昌华","龙仙美","李春岚","谢荣星"];
 
 var USER_ACCOUNTS = {
   'admin': { password: 'admin123', role: 'Admin', dept: null },
@@ -1423,7 +1423,7 @@ function generateMockTerminals(region, count) {
       name: region + names[i % names.length],
       type: types[i % types.length],
       address: region + '市XX区XX路XX号',
-      phone: '13' + Math.floor(Math.random() * 900000000 + 100000000),
+      phone: '13' + String(i + 1).padStart(10, '0'),
       status: '未联系'
     });
   }
@@ -1660,8 +1660,8 @@ function renderTargetCalendar() {
     calendarEventCache = buildCalendarEvents();
   }
   
-  var monthKey = year + '-' + String(month + 1).padStart(2, '0');
-  var monthEvents = calendarEventCache[monthKey] || {};
+  // 直接从calendarEventCache按日期字符串匹配
+  var monthPrefix = year + '-' + String(month + 1).padStart(2, '0');
   
   var firstDay = new Date(year, month, 1);
   var lastDay = new Date(year, month + 1, 0);
@@ -1691,7 +1691,7 @@ function renderTargetCalendar() {
     } else {
       var dayNum = dayCount;
       var dateStr = year + '-' + String(month + 1).padStart(2, '0') + '-' + String(dayNum).padStart(2, '0');
-      var events = monthEvents[dateStr] || [];
+      var events = calendarEventCache[dateStr] || [];
       var dayClasses = ['calendar-day'];
       
       if (isCurrentMonth && dayNum === today.getDate()) dayClasses.push('today');
