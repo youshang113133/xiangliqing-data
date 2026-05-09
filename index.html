@@ -9,7 +9,7 @@
 <title>湘里情智营v13.0·客户决策</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f5f5f5;font-size:14px;line-height:1.6;color:#333;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1)}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f5f5f5;font-size:14px;line-height:1.6;color:#333;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1);padding-bottom:60px}
 
 /* ===== 全局字体规范 ===== */
 body{font-size:14px;line-height:1.6}
@@ -773,7 +773,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
   </div>
 </div>
 <!-- 底部导航 -->
-<div class="nav" id="mainNav" style="display:none"></div>
+<div class="nav" id="mainNav" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,0.1);border-top:1px solid #f0f0f0;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom))"></div>
 
 <!-- 刷新按钮 -->
 <div style="position:fixed;top:60px;right:12px;z-index:99;display:none" id="refreshBtn">
@@ -922,7 +922,9 @@ var CURRENT_USER = null;
 var USER_ROLE = null;
 var USER_DEPT = null;
 
-var EXCLUDE_SALESMAN = ["马政","陈长林","谢荣星","孙其云","郑昌华","龙仙美","李春岚"];
+var REMOVED_SALESMAN = ["马政","陈长林"];
+var EXEMPT_SALESMAN = ["谢荣星","孙其云","郑昌华","龙仙美","李春岚"];
+var EXCLUDE_SALESMAN = REMOVED_SALESMAN; // 仅排除已离职人员，免考核人员仍显示但标注"免考核"
 
 var USER_ACCOUNTS = {
   'admin': { password: 'admin123', role: 'Admin', dept: null },
@@ -950,10 +952,10 @@ var USER_ACCOUNTS = {
 };
 
 var DEPT_MEMBERS = {
-  '省外业务部': ['宋杨杰', '刘文', '袁正军', '罗策', '郁进军'],
-  '省内业务部': ['张文胜', '张纯英', '尹建林', '江廉政', '胡珍', '蔡磊', '陈龙'],
-  '长株潭业务部': ['周斌', '熊雄', '张金伟', '彭建华', '杨青青', '彭菊华'],
-  '大客户部': ['陆美英']
+  '省外业务部': ['刘文', '宋杨杰', '袁正军', '罗策', '郁进军'],
+  '省内业务部': ['谢荣星', '张文胜', '张纯英', '尹建林', '江廉政', '胡珍', '蔡磊', '陈龙'],
+  '长株潭业务部': ['彭菊华', '周斌', '熊雄', '张金伟', '彭建华', '杨青青'],
+  '大客户部': ['陆美英', '孙其云', '郑昌华']
 };
 
 var DUAL_ROLE_MANAGERS = ['刘文', '彭菊华', '陆美英'];
@@ -1038,7 +1040,7 @@ function showMainInterface() {
   initNav();
   var nav = document.getElementById('mainNav');
   nav.style.display = 'flex';
-  nav.style.cssText = 'display:flex!important;position:fixed!important;bottom:0!important;left:0!important;right:0!important;width:100%!important;z-index:9999!important;background:#fff!important;padding:6px 0!important;box-shadow:0 -2px 12px rgba(0,0,0,0.1)!important;border-top:1px solid #f0f0f0!important';
+  nav.style.cssText = 'display:flex!important;position:fixed!important;bottom:0!important;left:0!important;right:0!important;width:100%!important;max-width:480px!important;z-index:9999!important;background:#fff!important;padding:6px 0!important;padding-bottom:calc(6px + env(safe-area-inset-bottom))!important;box-shadow:0 -2px 12px rgba(0,0,0,0.1)!important;border-top:1px solid #f0f0f0!important;margin:0 auto!important';
   initData();
 }
 
@@ -1271,14 +1273,14 @@ function getReplenishReminders() {
 function renderTerminal开拓() {
   var myRegion = getMyRegion();
   var myTerminals = terminalData.filter(function(t) {
-    return t.department === USER_DEPT && t.status !== '已联系';
+    return (t.dp || t.department) === USER_DEPT && (t.s || t.status) !== '已联系';
   });
 
   // 如果数据量太大，限制显示
   var displayTerminals = myTerminals.length > 100 ? myTerminals.slice(0, 100) : myTerminals;
 
   var total = myTerminals.length;
-  var covered = terminalData.filter(function(t) { return t.department === USER_DEPT && t.status === '已联系'; }).length;
+  var covered = terminalData.filter(function(t) { return (t.dp || t.department) === USER_DEPT && (t.s || t.status) === '已联系'; }).length;
   var rate = (total + covered) > 0 ? Math.round((covered / (total + covered)) * 100) : 0;
   
   var h = '<div class="fold-card">';
@@ -1307,16 +1309,20 @@ function renderTerminal开拓() {
   // 终端列表
   h += '<div id="terminalList">';
   displayTerminals.slice(0, 50).forEach(function(t) {
-    var typeClass = getTerminalTypeClass(t.type);
+    var tName = t.n || t.name || '';
+    var tType = t.t || t.type || '餐饮';
+    var tAddr = (t.c || '') + (t.d ? ' ' + t.d : '') + (t.a ? ' ' + t.a : '');
+    var tStatus = t.s || t.status || '未联系';
+    var typeClass = getTerminalTypeClass(tType);
     h += '<div class="terminal-item" onclick="toggleTerminalDetail(this)">';
     h += '<div class="terminal-item-hd">';
-    h += '<span class="terminal-name">' + t.name + '</span>';
-    h += '<span class="terminal-type ' + typeClass + '">' + t.type + '</span>';
+    h += '<span class="terminal-name">' + tName + '</span>';
+    h += '<span class="terminal-type ' + typeClass + '">' + tType + '</span>';
     h += '</div>';
-    h += '<div class="terminal-addr" style="display:none">' + t.address + '</div>';
-    h += '<div class="terminal-contact" style="display:none">' + (t.phone || '暂无') + '</div>';
+    h += '<div class="terminal-addr" style="display:none">' + tAddr + '</div>';
+    h += '<div class="terminal-contact" style="display:none">暂无</div>';
     h += '<div class="terminal-actions">';
-    h += '<button class="terminal-btn ' + (t.status === '已联系' ? 'contacted' : '') + '" onclick="event.stopPropagation();markTerminalContacted(this, \'' + t.name + '\')">' + (t.status === '已联系' ? '✓已联系' : '📞联系') + '</button>';
+    h += '<button class="terminal-btn ' + (tStatus === '已联系' ? 'contacted' : '') + '" onclick="event.stopPropagation();markTerminalContacted(this, \'' + tName + '\')">' + (tStatus === '已联系' ? '✓已联系' : '📞联系') + '</button>';
     h += '</div>';
     h += '</div>';
   });
@@ -1332,9 +1338,11 @@ function renderTerminalCoverageRank() {
   
   var depts = Object.keys(DEPT_MEMBERS);
   var ranks = depts.map(function(dept) {
-    var total = 25 + Math.floor(Math.random() * 15);
-    var covered = Math.floor(total * (0.4 + Math.random() * 0.4));
-    return { dept: dept, rate: Math.round((covered / total) * 100), total: total, covered: covered };
+    var deptTerminals = terminalData.filter(function(t) { return t.dp === dept || t.department === dept; });
+    var total = deptTerminals.length;
+    var covered = deptTerminals.filter(function(t) { return t.s === '已联系' || t.status === '已联系'; }).length;
+    var rate = total > 0 ? Math.round((covered / total) * 100) : 0;
+    return { dept: dept, rate: rate, total: total, covered: covered };
   });
   ranks.sort(function(a, b) { return b.rate - a.rate; });
   
@@ -1737,10 +1745,7 @@ function buildCalendarEvents() {
   
   customersData.forEach(function(c) {
     if (c.warning && c.warning.indexOf('预警') >= 0) {
-      var days = Math.floor(Math.random() * 7);
-      var warnDate = new Date(today);
-      warnDate.setDate(warnDate.getDate() + days);
-      var dateKey = warnDate.getFullYear() + '-' + String(warnDate.getMonth() + 1).padStart(2, '0') + '-' + String(warnDate.getDate()).padStart(2, '0');
+      var dateKey = c.nextDate || todayStr;
       if (!cache[dateKey]) cache[dateKey] = [];
       cache[dateKey].push({ type: 'warning', name: '客户预警', desc: c.name });
     }
@@ -1859,10 +1864,7 @@ function generateReturnRateData() {
   };
   
   salesmen.forEach(function(name) {
-    var rate = 0.4 + Math.random() * 1.8;
-    var amount = Math.floor(rate * 5000 + Math.random() * 3000);
-    var orders = Math.floor(3 + Math.random() * 10);
-    data.salesmen.push({ name: name, rate: rate, amount: amount, orders: orders });
+    data.salesmen.push({ name: name, rate: 0, amount: 0, orders: 0 });
   });
   
   var totalRate = data.salesmen.reduce(function(s, d) { return s + d.rate; }, 0) / data.salesmen.length;
@@ -2120,12 +2122,22 @@ function toggleFold(id) {
 function getTodayData(username) {
   var result = { todaySales: 0, todayOrders: 0, todayNewCust: 0, yesterdaySales: 0 };
   if (!salesProgressData) return result;
+  // 从日报数据获取公司当日总销售额和订单数
+  var companyTodaySales = 0, companyTodayOrders = 0, companyMonthSales = 0;
+  if (dailyReportData && dailyReportData['核心经营指标']) {
+    var kpi = dailyReportData['核心经营指标'];
+    companyTodaySales = (kpi['销售额'] || {})['当日'] || 0;
+    companyTodayOrders = (kpi['订单数'] || {})['当日'] || 0;
+    companyMonthSales = (kpi['销售额'] || {})['月累计'] || 0;
+  }
+  // 按业务员月销售额占比推算当日销售额
   for (var i = 0; i < salesProgressData.length; i++) {
     var p = salesProgressData[i];
     if (p['业务经理'] === username) {
-      result.todaySales = p['当日销售额'] || 0;
-      result.yesterdaySales = p['昨日销售额'] || result.todaySales * 0.9;
-      result.todayOrders = p['当日订单数'] || 0;
+      var monthSales = p['月销售额'] || 0;
+      if (companyMonthSales > 0 && monthSales > 0) {
+        result.todaySales = Math.round(companyTodaySales * (monthSales / companyMonthSales));
+      }
       break;
     }
   }
@@ -2151,11 +2163,20 @@ function getMyProgress(username) {
   var profitTarget = target.profitTarget || (target.salesTarget * 0.13);
   var actualProfit = sales * parseFloat(myData['月累计毛利率'] || 0) / 100;
   result.totalRate = profitTarget > 0 ? Math.min(actualProfit / profitTarget * 100, 100) : 0;
-  result.core1Rate = Math.min(Math.random() * 40 + 30, 100);
-  result.core2Rate = Math.min(Math.random() * 35 + 25, 100);
-  result.bf8Rate = Math.min(Math.random() * 30 + 20, 100);
-  result.selfRate = Math.min(Math.random() * 20 + 15, 100);
-  var weightedProfit = actualProfit * 1.2;
+  // 从 commissionData 的 productBreakdown 读取真实分类毛利
+  var myCommission = commissionData && commissionData[username] ? commissionData[username] : null;
+  var myBreakdown = myCommission ? (myCommission.productBreakdown || {}) : {};
+  var core1Profit = myBreakdown['核心1类'] ? (myBreakdown['核心1类'].weightedProfit || myBreakdown['核心1类'].profit || 0) : 0;
+  var selfProfit = myBreakdown['自主'] ? (myBreakdown['自主'].weightedProfit || myBreakdown['自主'].profit || 0) : 0;
+  var normalProfit = myBreakdown['常规'] ? (myBreakdown['常规'].weightedProfit || myBreakdown['常规'].profit || 0) : 0;
+  var core1Target = (target.salesTarget || 0) * 0.3 * 0.13;
+  var selfTarget = (target.salesTarget || 0) * 0.15 * 0.13;
+  result.core1Rate = core1Target > 0 ? Math.min(core1Profit / core1Target * 100, 100) : (core1Profit > 0 ? 100 : 0);
+  result.core2Rate = profitTarget > 0 ? Math.min((actualProfit - core1Profit - selfProfit - normalProfit) / (profitTarget * 0.25) * 100, 100) : 0;
+  result.bf8Rate = 0;
+  result.selfRate = selfTarget > 0 ? Math.min(selfProfit / selfTarget * 100, 100) : (selfProfit > 0 ? 100 : 0);
+  // 从 commissionData 读取真实加权毛利
+  var weightedProfit = myCommission ? (myCommission.weightedProfit || actualProfit) : actualProfit;
   result.commission = weightedProfit * getCommissionRate(weightedProfit);
   result.perfSalary = getPerfSalary(actualProfit);
   result.cashBonus = getCashBonus(weightedProfit);
@@ -3095,31 +3116,56 @@ function initTargetSalesmanFilter() {
   select.innerHTML = opts;
 }
 
-// TODO: 对接T+销售数据API后替换为真实进度数据
 function renderTargetProgress() {
   var container = document.getElementById('targetCards');
   if (!container) return;
   
-  // TODO: 从 salesTargetMap 读取真实目标数据
-  // var salesTargetMap = {}; // 预留数据接口
+  // 从真实数据计算各分类目标与完成
+  var totalSalesTarget = 0, totalProfitTarget = 0;
+  var totalActualSales = 0, totalActualProfit = 0;
+  var salesmanNames = [];
+  if (USER_ROLE === 'Admin') {
+    Object.keys(DEPT_MEMBERS).forEach(function(d) { DEPT_MEMBERS[d].forEach(function(n) { if (EXCLUDE_SALESMAN.indexOf(n) === -1) salesmanNames.push(n); }); });
+  } else if (USER_ROLE === 'Manager') {
+    salesmanNames = (DEPT_MEMBERS[USER_DEPT] || []).filter(function(n) { return EXCLUDE_SALESMAN.indexOf(n) === -1; });
+  } else {
+    salesmanNames = [CURRENT_USER];
+  }
+  salesmanNames.forEach(function(name) {
+    var t = salesTargetMap[name] || {};
+    totalSalesTarget += (t.salesTarget || 0);
+    totalProfitTarget += (t.profitTarget || 0);
+    var p = salesProgressData.find(function(x) { return x['业务经理'] === name; });
+    if (p) { totalActualSales += (p['月销售额'] || 0); totalActualProfit += (p['月销售额'] || 0) * parseFloat(p['月累计毛利率'] || 0) / 100; }
+  });
   
-  var h = '';
+  // 分类毛利汇总
+  var core1Profit = 0, selfProfit = 0, normalProfit = 0;
+  salesmanNames.forEach(function(name) {
+    var cd = commissionData && commissionData[name] ? commissionData[name] : null;
+    var pb = cd ? (cd.productBreakdown || {}) : {};
+    core1Profit += pb['核心1类'] ? (pb['核心1类'].weightedProfit || pb['核心1类'].profit || 0) : 0;
+    selfProfit += pb['自主'] ? (pb['自主'].weightedProfit || pb['自主'].profit || 0) : 0;
+    normalProfit += pb['常规'] ? (pb['常规'].weightedProfit || pb['常规'].profit || 0) : 0;
+  });
+  var core2Profit = Math.max(0, totalActualProfit - core1Profit - selfProfit - normalProfit);
+  
+  var core1Target = totalProfitTarget * 0.35;
+  var core2Target = totalProfitTarget * 0.25;
+  var bf8Target = totalProfitTarget * 0.15;
+  var selfTarget = totalProfitTarget * 0.15;
+  
   var types = [
-    { key: 'core1', title: '🏆 核心1类', color: '#c5221f', bg: '#fce8e6', target: 1500000 },
-    { key: 'core2', title: '🌟 核心2类', color: '#e37400', bg: '#fff3e0', target: 2000000 },
-    { key: 'bf8', title: '🦐 八方宏泰', color: '#7b1fa2', bg: '#f3e5f5', target: 1500000 },
-    { key: 'self', title: '🚀 自主产品', color: '#1a73e8', bg: '#e8f0fe', target: 500000 }
+    { key: 'core1', title: '🏆 核心1类', color: '#c5221f', bg: '#fce8e6', target: core1Target, actual: core1Profit },
+    { key: 'core2', title: '🌟 核心2类', color: '#e37400', bg: '#fff3e0', target: core2Target, actual: core2Profit },
+    { key: 'bf8', title: '🦐 八方宏泰', color: '#7b1fa2', bg: '#f3e5f5', target: bf8Target, actual: 0 },
+    { key: 'self', title: '🚀 自主产品', color: '#1a73e8', bg: '#e8f0fe', target: selfTarget, actual: selfProfit }
   ];
   
+  var h = '';
   types.forEach(function(t) {
-    // TODO: 替换为真实数据计算
-    // var target = salesTargetMap[t.key] || t.target;
-    // var actual = getActualSalesByCategory(t.key);
-    var actual = Math.random() * t.target * 0.6;
-    var rate = Math.min((actual / t.target) * 100, 100);
-    
-    // 点击弹出二级明细弹窗
-    h += '<div class="card" style="background:' + t.bg + ';cursor:pointer" onclick="showCategoryDetail(\'' + t.key + '\',\'' + t.title + '\', ' + t.target + ', ' + actual + ')">';
+    var rate = t.target > 0 ? Math.min((t.actual / t.target) * 100, 100) : (t.actual > 0 ? 100 : 0);
+    h += '<div class="card" style="background:' + t.bg + ';cursor:pointer" onclick="showCategoryDetail(\'' + t.key + '\',\'' + t.title + '\', ' + t.target + ', ' + t.actual + ')">';
     h += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">';
     h += '<div style="font-size:14px;font-weight:600;color:' + t.color + '">' + t.title + ' <span style="font-size:10px;color:#888">▼</span></div>';
     h += '<div style="font-size:18px;font-weight:700;color:' + t.color + '">' + rate.toFixed(1) + '%</div>';
@@ -3129,15 +3175,15 @@ function renderTargetProgress() {
     h += '</div>';
     h += '<div style="display:flex;justify-content:space-between;font-size:12px">';
     h += '<span>目标: <b>' + (t.target / 10000).toFixed(0) + '万</b></span>';
-    h += '<span>完成: <b style="color:' + t.color + '">' + (actual / 10000).toFixed(1) + '万</b></span>';
+    h += '<span>完成: <b style="color:' + t.color + '">' + (t.actual / 10000).toFixed(1) + '万</b></span>';
     h += '</div>';
     h += '</div>';
   });
   
   // 总目标进度
-  var totalTarget = types.reduce(function(sum, t) { return sum + t.target; }, 0);
-  var totalActual = types.reduce(function(sum, t) { return sum + Math.random() * t.target * 0.6; }, 0);
-  var totalRate = Math.min((totalActual / totalTarget) * 100, 100);
+  var totalTarget = totalProfitTarget;
+  var totalActual = totalActualProfit;
+  var totalRate = totalTarget > 0 ? Math.min((totalActual / totalTarget) * 100, 100) : 0;
   
   h += '<div class="card" style="background:linear-gradient(135deg,#1a73e8,#0d47a1);color:#fff;cursor:pointer" onclick="showTotalDetail()">';
   h += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">';
@@ -3156,19 +3202,39 @@ function renderTargetProgress() {
   container.innerHTML = h;
 }
 
-// TODO: 对接T+供应商数据API后替换为真实供应商明细
-// 点击分类进度条，显示供应商明细弹窗
+// 点击分类进度条，显示业务员分类明细弹窗
 function showCategoryDetail(categoryKey, categoryTitle, target, actual) {
-  // TODO: 从核心供应商数据源读取真实供应商目标数据
-  // var supplierData = getSupplierDataByCategory(categoryKey);
-  
-  // 模拟供应商数据（实际对接时替换）
-  var suppliers = [
-    { name: '长沙宏兴', target: target * 0.3, actual: actual * 0.35 },
-    { name: '株洲旺角', target: target * 0.25, actual: actual * 0.28 },
-    { name: '湘潭福源', target: target * 0.2, actual: actual * 0.18 },
-    { name: '其他供应商', target: target * 0.25, actual: actual * 0.19 }
-  ];
+  // 按业务员汇总该分类的毛利数据
+  var salesmanNames = [];
+  if (USER_ROLE === 'Admin') {
+    Object.keys(DEPT_MEMBERS).forEach(function(d) { DEPT_MEMBERS[d].forEach(function(n) { if (EXCLUDE_SALESMAN.indexOf(n) === -1) salesmanNames.push(n); }); });
+  } else if (USER_ROLE === 'Manager') {
+    salesmanNames = (DEPT_MEMBERS[USER_DEPT] || []).filter(function(n) { return EXCLUDE_SALESMAN.indexOf(n) === -1; });
+  } else {
+    salesmanNames = [CURRENT_USER];
+  }
+  var salesmen = [];
+  salesmanNames.forEach(function(name) {
+    var cd = commissionData && commissionData[name] ? commissionData[name] : null;
+    var pb = cd ? (cd.productBreakdown || {}) : {};
+    var sTarget = salesTargetMap[name] || {};
+    var profitTarget = sTarget.profitTarget || 0;
+    var catProfit = 0;
+    if (categoryKey === 'core1') catProfit = pb['核心1类'] ? (pb['核心1类'].weightedProfit || pb['核心1类'].profit || 0) : 0;
+    else if (categoryKey === 'self') catProfit = pb['自主'] ? (pb['自主'].weightedProfit || pb['自主'].profit || 0) : 0;
+    else if (categoryKey === 'core2') {
+      var total = 0, c1 = 0, self = 0, normal = 0;
+      var p = salesProgressData.find(function(x) { return x['业务经理'] === name; });
+      if (p) total = (p['月销售额'] || 0) * parseFloat(p['月累计毛利率'] || 0) / 100;
+      c1 = pb['核心1类'] ? (pb['核心1类'].weightedProfit || pb['核心1类'].profit || 0) : 0;
+      self = pb['自主'] ? (pb['自主'].weightedProfit || pb['自主'].profit || 0) : 0;
+      normal = pb['常规'] ? (pb['常规'].weightedProfit || pb['常规'].profit || 0) : 0;
+      catProfit = Math.max(0, total - c1 - self - normal);
+    }
+    var catTarget = profitTarget > 0 ? (categoryKey === 'core1' ? profitTarget * 0.35 : (categoryKey === 'core2' ? profitTarget * 0.25 : (categoryKey === 'self' ? profitTarget * 0.15 : profitTarget * 0.15))) : 0;
+    if (catProfit > 0 || catTarget > 0) salesmen.push({ name: name, target: catTarget, actual: catProfit });
+  });
+  salesmen.sort(function(a, b) { return b.actual - a.actual; });
   
   var rate = Math.min((actual / target) * 100, 100);
   var color = categoryKey === 'core1' ? '#c5221f' : (categoryKey === 'core2' ? '#e37400' : (categoryKey === 'bf8' ? '#7b1fa2' : '#1a73e8'));
@@ -3185,7 +3251,7 @@ function showCategoryDetail(categoryKey, categoryTitle, target, actual) {
   h += '<div>供应商</div><div>目标</div><div>完成</div><div>完成率</div>';
   h += '</div>';
   
-  suppliers.forEach(function(s) {
+  salesmen.forEach(function(s) {
     var sRate = Math.min((s.actual / s.target) * 100, 100);
     h += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:8px;font-size:12px;padding:8px 0;border-bottom:1px solid #eee;text-align:center;align-items:center">';
     h += '<div style="text-align:left;font-weight:500">' + s.name + '</div>';
@@ -3196,7 +3262,7 @@ function showCategoryDetail(categoryKey, categoryTitle, target, actual) {
   });
   h += '</div>';
   
-  h += '<div style="text-align:center;font-size:11px;color:#aaa;margin-top:8px">📌 数据来自核心供应商Excel文件（T+联通后自动更新）</div>';
+  h += '<div style="text-align:center;font-size:11px;color:#aaa;margin-top:8px">📌 数据来自T+系统实时计算</div>';
   h += '</div>';
   
   document.getElementById('mdTt').innerHTML = '<span style="color:' + color + '">' + categoryTitle + '</span> 明细';
@@ -3212,15 +3278,35 @@ function showTotalDetail() {
   h += '<div style="font-size:28px;font-weight:700;color:#1a73e8">总进度</div>';
   h += '</div>';
   
+  // 从renderTargetProgress的数据逻辑获取真实值
+  var totalProfitTarget = 0;
+  var core1Profit = 0, core2Profit = 0, bf8Profit = 0, selfProfit = 0;
+  var salesmanNames = [];
+  if (USER_ROLE === 'Admin') {
+    Object.keys(DEPT_MEMBERS).forEach(function(d) { DEPT_MEMBERS[d].forEach(function(n) { if (EXCLUDE_SALESMAN.indexOf(n) === -1) salesmanNames.push(n); }); });
+  } else if (USER_ROLE === 'Manager') {
+    salesmanNames = (DEPT_MEMBERS[USER_DEPT] || []).filter(function(n) { return EXCLUDE_SALESMAN.indexOf(n) === -1; });
+  } else { salesmanNames = [CURRENT_USER]; }
+  salesmanNames.forEach(function(name) {
+    var t = salesTargetMap[name] || {}; totalProfitTarget += (t.profitTarget || 0);
+    var cd = commissionData && commissionData[name] ? commissionData[name] : null;
+    var pb = cd ? (cd.productBreakdown || {}) : {};
+    core1Profit += pb['核心1类'] ? (pb['核心1类'].weightedProfit || pb['核心1类'].profit || 0) : 0;
+    selfProfit += pb['自主'] ? (pb['自主'].weightedProfit || pb['自主'].profit || 0) : 0;
+    var normalProfit = pb['常规'] ? (pb['常规'].weightedProfit || pb['常规'].profit || 0) : 0;
+    var p = salesProgressData.find(function(x) { return x['业务经理'] === name; });
+    var totalP = p ? (p['月销售额'] || 0) * parseFloat(p['月累计毛利率'] || 0) / 100 : 0;
+    core2Profit += Math.max(0, totalP - (pb['核心1类'] ? (pb['核心1类'].weightedProfit || pb['核心1类'].profit || 0) : 0) - (pb['自主'] ? (pb['自主'].weightedProfit || pb['自主'].profit || 0) : 0) - normalProfit);
+  });
   var categories = [
-    { name: '🏆 核心1类', target: 1500000, color: '#c5221f' },
-    { name: '🌟 核心2类', target: 2000000, color: '#e37400' },
-    { name: '🦐 八方宏泰', target: 1500000, color: '#7b1fa2' },
-    { name: '🚀 自主产品', target: 500000, color: '#1a73e8' }
+    { name: '🏆 核心1类', target: totalProfitTarget * 0.35, actual: core1Profit, color: '#c5221f' },
+    { name: '🌟 核心2类', target: totalProfitTarget * 0.25, actual: core2Profit, color: '#e37400' },
+    { name: '🦐 八方宏泰', target: totalProfitTarget * 0.15, actual: bf8Profit, color: '#7b1fa2' },
+    { name: '🚀 自主产品', target: totalProfitTarget * 0.15, actual: selfProfit, color: '#1a73e8' }
   ];
   
   categories.forEach(function(c) {
-    var actual = Math.random() * c.target * 0.6;
+    var actual = c.actual;
     var rate = Math.min((actual / c.target) * 100, 100);
     h += '<div style="margin-bottom:12px">';
     h += '<div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px">';
@@ -3538,7 +3624,7 @@ function updateReturnStats() {
   else if (customerTier.tier === 'D') returnLimit = 0.015;
   
   var returnQuota = monthlySales * returnLimit;
-  monthlyReturns = returnQuota * Math.random() * 0.6; // 模拟使用60%左右
+  monthlyReturns = 0; // 待T+对接后替换真实退货数据
   
   var returnRate = monthlySales > 0 ? (monthlyReturns / monthlySales * 100) : 0;
   var quotaUsage = returnQuota > 0 ? (monthlyReturns / returnQuota * 100) : 0;
