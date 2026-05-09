@@ -1,0 +1,602 @@
+[
+  {
+    "Code": "ZGQ0005",
+    "Name": "如意三煲黑椒牛仔骨",
+    "Specification": "360克/20包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "S110073",
+    "Name": "风干开边鲫鱼",
+    "Specification": "斤（0.3~0.7两）",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0060",
+    "Name": "农耕田园三樟黄贡椒整枝",
+    "Specification": "10公斤*1",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "S110075",
+    "Name": "风干翘白",
+    "Specification": "斤（0.7~0.9）",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "G420124",
+    "Name": "土菜娃高山野笋",
+    "Specification": "500*20包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "L630011",
+    "Name": "风干大白刁（1斤左右）",
+    "Specification": "1*50条",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0105",
+    "Name": "四采杂粮",
+    "Specification": "包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "R220083",
+    "Name": "脖肉（R）（地利）",
+    "Specification": "公斤抄码",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "R220084",
+    "Name": "大黄瓜条（R）(地利）",
+    "Specification": "公斤抄码",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "R220085",
+    "Name": "腹肉（R）(地利）",
+    "Specification": "公斤抄码",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800229",
+    "Name": "皓月儿童牛排/100",
+    "Specification": "100g*100包/件",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "800231",
+    "Name": "皓月孜然风味牛肉串",
+    "Specification": "300g*20包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0109",
+    "Name": "鲜豆皮",
+    "Specification": "1000克",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "R220087",
+    "Name": "牛后腿c(HB)",
+    "Specification": "公斤抄码",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "R220091",
+    "Name": "牛胸（R）(地利）",
+    "Specification": "公斤抄码",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "R220092",
+    "Name": "通脊（HD）(地利）",
+    "Specification": "公斤抄码",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800250",
+    "Name": "捞佬一级墨鱼翅120/160",
+    "Specification": "500g*20包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "R220090",
+    "Name": "牛上脑盖（R）(地利）",
+    "Specification": "公斤抄码",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "R220093",
+    "Name": "小黄瓜条（R）(地利）",
+    "Specification": "公斤抄码",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "R220094",
+    "Name": "米龙（R）(地利）",
+    "Specification": "公斤抄码",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0111",
+    "Name": "酸萝卜",
+    "Specification": "包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "110317",
+    "Name": "普通腊肠",
+    "Specification": "斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "430060",
+    "Name": "包装箱",
+    "Specification": "个",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "430065",
+    "Name": "香虾底盒",
+    "Specification": "248*168*55",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0012",
+    "Name": "老一品浏阳太平桥豆豉",
+    "Specification": "200克/40包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0035",
+    "Name": "本湘本色爆辣王",
+    "Specification": "1*11.18公斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800184",
+    "Name": "锡盟羊油腰AA",
+    "Specification": "15KG/件",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0062",
+    "Name": "养生芝麻饼",
+    "Specification": "36*10个",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800191",
+    "Name": "云涮7肋法式羊排AA",
+    "Specification": "15公斤/件",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0068",
+    "Name": "生鲜花生仁",
+    "Specification": "309克*30包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZHX0006",
+    "Name": "金华火腿",
+    "Specification": "500G",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800198",
+    "Name": "拾味芬享优质黄牛肉",
+    "Specification": "2.5kg*6卷",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0043",
+    "Name": "金汤羊杂",
+    "Specification": "500克20包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZHX0007",
+    "Name": "鹌鹑蛋",
+    "Specification": "2.7KG*6包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800227",
+    "Name": "皓月筋道肥牛",
+    "Specification": "3.572KG/板 25KG/件",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "800083",
+    "Name": "皓月法派牛排（黑椒）",
+    "Specification": "150G*26盒",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "800094",
+    "Name": "皓月儿童牛排（番茄）",
+    "Specification": "100G*36盒",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "800103",
+    "Name": "恒都牛筋",
+    "Specification": "500G*35包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0016",
+    "Name": "散装浏阳豆豉",
+    "Specification": "10斤/包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZHX0009",
+    "Name": "广羽紫薯碗粉",
+    "Specification": "375G*30包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800108",
+    "Name": "皓月牛脊髓",
+    "Specification": "240g*50包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0014",
+    "Name": "湘美悦深海鲜鱿",
+    "Specification": "500克/25包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800121",
+    "Name": "亲热巴掌毛肚",
+    "Specification": "1kg*15包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0097",
+    "Name": "玉兰片",
+    "Specification": "件",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0099",
+    "Name": "散装腊猪肺",
+    "Specification": "斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800131",
+    "Name": "皓月牛脊骨段",
+    "Specification": "1*15KG",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "800149",
+    "Name": "云涮羊前腱AA",
+    "Specification": "10公斤/件",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0107",
+    "Name": "腊八豆",
+    "Specification": "150克",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800162",
+    "Name": "皓月精制牛肚",
+    "Specification": "5KG",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "800164",
+    "Name": "皓月山珍云花腱",
+    "Specification": "100G/包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0104",
+    "Name": "腊兔子",
+    "Specification": "斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800172",
+    "Name": "锡盟羊宝",
+    "Specification": "15KG",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0106",
+    "Name": "散装梅干菜",
+    "Specification": "斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800177",
+    "Name": "云涮羊菲力",
+    "Specification": "1KG*15包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "G420008",
+    "Name": "拾味芬享精制剁辣椒",
+    "Specification": "248g*24瓶",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "635062",
+    "Name": "绿润真空板粟仁",
+    "Specification": "200克*30包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "635090",
+    "Name": "恒都黑胡椒牛排",
+    "Specification": "1KG*21包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "635091",
+    "Name": "老铁腊猪脸",
+    "Specification": "150G*100包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "Q320036",
+    "Name": "白包血鸭原料",
+    "Specification": "1000g/包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0120",
+    "Name": "扣肉王",
+    "Specification": "480克",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "8000083",
+    "Name": "皓月牛筋皮串200g",
+    "Specification": "10串/包，18包/件",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0017",
+    "Name": "桃油",
+    "Specification": "斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "R220086",
+    "Name": "肩肉（R）(地利）",
+    "Specification": "公斤抄码",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "800032",
+    "Name": "恒都黄喉2.5kg",
+    "Specification": "2.5kg*10包/件",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "430054",
+    "Name": "1334泰国香虾外箱（800G）",
+    "Specification": "800G",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0015",
+    "Name": "一把勺莲花血鸭",
+    "Specification": "包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "560003",
+    "Name": "新品卓消毒液（瓶装）",
+    "Specification": "500g*24瓶",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "560004",
+    "Name": "新品卓消毒液（桶）",
+    "Specification": "1*50斤",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "R220152",
+    "Name": "湘上厨雪花原切小炒牛肉",
+    "Specification": "225g*30包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "635032",
+    "Name": "都恒散装腊牛肉（皓月）",
+    "Specification": "斤",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "420121",
+    "Name": "臭桂鱼亮银标 大",
+    "Specification": "5CM*8.5CM",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0102",
+    "Name": "散装包菜丝",
+    "Specification": "斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "R220095",
+    "Name": "庖丁家冻带肉牛肋排",
+    "Specification": "1*25kg",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0110",
+    "Name": "带肉牛肋排",
+    "Specification": "斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0113",
+    "Name": "寒菌",
+    "Specification": "斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0112",
+    "Name": "花石香干",
+    "Specification": "980克/包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "520458",
+    "Name": "上佳毛巾",
+    "Specification": "条",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0021",
+    "Name": "津山口福剁辣椒",
+    "Specification": "1*20斤/桶",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0039",
+    "Name": "豆荪",
+    "Specification": "斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "520588",
+    "Name": "云涮7肋法式羊排AA",
+    "Specification": "15公斤",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0101",
+    "Name": "散装腊猪脸",
+    "Specification": "斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0023",
+    "Name": "庆乐坊深海小八爪",
+    "Specification": "250克/40包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0100",
+    "Name": "散装辣椒粉",
+    "Specification": "斤",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0018",
+    "Name": "味博士腊八豆",
+    "Specification": "2000克/6瓶",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "230156",
+    "Name": "吉尔木纯冬耳",
+    "Specification": "2500G*5包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "G420244",
+    "Name": "湘上厨传统手工切碎卜辣椒",
+    "Specification": "200g*100包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "M510037",
+    "Name": "湘上厨鲜手工红薯粉条（冷冻储存）",
+    "Specification": "250g*50",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0095",
+    "Name": "五香蒸肉粉",
+    "Specification": "200克40包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "230661",
+    "Name": "旭婷姚窖坛芋荷",
+    "Specification": "200g*70包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "230770",
+    "Name": "拾味芬享酸菜小笋",
+    "Specification": "300克*25包",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "230799",
+    "Name": "湘里情乡里剁辣椒（猛辣型朝天椒）",
+    "Specification": "5000克",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "230800",
+    "Name": "道吾山农家腊八豆",
+    "Specification": "1.88kg*6瓶",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0096",
+    "Name": "唐人神火腿肠",
+    "Specification": "件",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "ZGQ0103",
+    "Name": "柴火豆腐",
+    "Specification": "980克",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "T720010",
+    "Name": "冯味金汁渔油200g",
+    "Specification": "瓶",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "160182",
+    "Name": "集翠芡实",
+    "Specification": "1件*130包*50克",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "160190",
+    "Name": "散装风吹干五花（jz）",
+    "Specification": "1*50斤",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "ZGQ0116",
+    "Name": "天宇寿桃包",
+    "Specification": "包",
+    "DefaultBarCode": ""
+  },
+  {
+    "Code": "166286",
+    "Name": "鸡肾（大号）",
+    "Specification": "250g",
+    "DefaultBarCode": null
+  },
+  {
+    "Code": "110792",
+    "Name": "恒都小肠",
+    "Specification": "20公斤/件",
+    "DefaultBarCode": null
+  }
+]

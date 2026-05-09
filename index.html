@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>湘里情智营v12.4·客户决策</title>
+<title>湘里情智营v13.0·客户决策</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f5f5f5;font-size:14px;line-height:1.6;color:#333;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1)}
@@ -340,7 +340,84 @@ body{font-size:14px;line-height:1.6}
 .coverage-dept{font-size:13px;color:#1a1a1a;flex:1}
 .coverage-percent{font-size:14px;font-weight:600;color:#1a73e8;font-variant-numeric:tabular-nums}
 
-/* ===== 退货申请样式 ===== */
+/* ===== 排行榜样式 ===== */
+.rank-card{background:#fff;border-radius:12px;padding:14px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.rank-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.rank-title{font-size:14px;font-weight:600;color:#1a1a1a}
+.rank-item{display:flex;align-items:center;padding:10px 0;border-bottom:1px solid #eee}
+.rank-item:last-child{border-bottom:none}
+.rank-num{width:24px;font-size:14px;font-weight:700;text-align:center}
+.rank-num.gold{color:#f57c00}
+.rank-num.silver{color:#9e9e9e}
+.rank-num.bronze{color:#8d6e63}
+.rank-name{flex:1;font-size:13px;color:#333;margin-left:8px}
+.rank-value{font-size:14px;font-weight:600;color:#1a73e8;font-variant-numeric:tabular-nums}
+.rank-change{font-size:11px;margin-left:6px}
+.rank-change.up{color:#137333}
+.rank-change.down{color:#e53935}
+
+/* ===== 跟进日历样式 ===== */
+.calendar-container{background:#fff;border-radius:12px;padding:14px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.calendar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.calendar-title{font-size:14px;font-weight:600;color:#1a1a1a}
+.calendar-nav{display:flex;gap:8px}
+.calendar-nav-btn{width:28px;height:28px;border-radius:50%;background:#f5f5f5;border:none;font-size:14px;cursor:pointer;color:#666}
+.calendar-nav-btn:active{background:#e0e0e0}
+.calendar-month{font-size:13px;color:#333;font-weight:500}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}
+.calendar-weekday{font-size:11px;color:#999;padding:6px 0}
+.calendar-day{position:relative;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:50%;font-size:12px;cursor:pointer}
+.calendar-day:active{background:#f0f0f0}
+.calendar-day.other-month{color:#ccc}
+.calendar-day.today{border:2px solid #1a73e8}
+.calendar-day.has-task::after{content:'';position:absolute;bottom:2px;width:4px;height:4px;border-radius:50%;background:#1a73e8}
+.calendar-day.has-risk::after{background:#e53935}
+.calendar-day.has-urgent::after{background:#ff9800}
+.calendar-day.has-warning::after{background:#fbc02d}
+.calendar-legend{display:flex;gap:12px;margin-top:12px;font-size:11px;color:#666}
+.calendar-legend-item{display:flex;align-items:center;gap:4px}
+.calendar-legend-dot{width:8px;height:8px;border-radius:50%}
+
+/* ===== 沉默客户激活样式 ===== */
+.silent-card{background:#fff;border-radius:12px;padding:14px;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.silent-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.silent-title{font-size:14px;font-weight:600;color:#1a1a1a}
+.silent-bonus{background:#fce8e6;color:#c5221f;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:500}
+.silent-item{display:flex;align-items:center;padding:12px 0;border-bottom:1px solid #eee}
+.silent-item:last-child{border-bottom:none}
+.silent-value-badge{padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-right:8px}
+.silent-value-high{background:#fce8e6;color:#c5221f}
+.silent-value-mid{background:#fff3e0;color:#e65100}
+.silent-value-normal{background:#f5f5f5;color:#666}
+.silent-name{flex:1;font-size:13px;color:#333}
+.silent-meta{font-size:11px;color:#999;margin-top:2px}
+.silent-action{background:#c5221f;color:#fff;padding:6px 12px;border-radius:6px;font-size:12px;border:none;cursor:pointer}
+.silent-action:active{background:#b71c1c}
+
+/* ===== 日期选择器样式 ===== */
+.date-selector{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#fff;border-radius:8px;margin-bottom:12px}
+.date-btn{width:32px;height:32px;border-radius:50%;background:#1a73e8;border:none;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.date-btn:active{background:#1557b0}
+.date-display{flex:1;text-align:center;font-size:14px;font-weight:500;color:#333}
+.date-today{color:#1a73e8;font-size:11px;background:#e8f0fe;padding:2px 8px;border-radius:10px;margin-left:8px}
+
+/* ===== 数据表格规范 ===== */
+.data-table{width:100%;font-size:9pt;border-collapse:collapse}
+.data-table th{background:#f5f5f5;padding:8px 6px;text-align:left;font-size:10pt;color:#666;font-weight:500;border-bottom:1px solid #e0e0e0}
+.data-table td{padding:8px 6px;border-bottom:1px solid #eee;font-size:9pt;color:#333}
+.data-table .num{font-variant-numeric:tabular-nums;text-align:right}
+.data-table .positive{color:#137333}
+.data-table .negative{color:#e53935}
+
+/* 表格字体9-10pt，标题14-16pt */
+.card-tit{font-size:15px;font-weight:600;margin-bottom:12px;color:#1a1a1a}
+.section-header{font-size:16px;font-weight:600;color:#1a1a1a;margin-bottom:10px}
+
+/* ===== 数字规范 ===== */
+.num-value{font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+.num-positive{color:#137333}
+.num-negative{color:#e53935}
+.num-large{font-size:22px;font-weight:700}
 .return-modal {
   display: none;
   position: fixed;
@@ -624,45 +701,18 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <div class="sub-tabs">
 <div class="sub-tab on" data-tab="progress" onclick="switchTargetTab('progress')">目标进度</div>
 <div class="sub-tab" data-tab="return" onclick="switchTargetTab('return')">退货率</div>
+<div class="sub-tab" data-tab="rank" onclick="switchTargetTab('rank')">🏆 排行榜</div>
+<div class="sub-tab" data-tab="calendar" onclick="switchTargetTab('calendar')">📅 跟进日历</div>
+<div class="sub-tab" data-tab="silent" onclick="switchTargetTab('silent')">⚡ 激活</div>
 </div>
 <div id="targetContent">
-  <div id="targetProgress">
-    <div class="fl" style="padding:10px 14px;background:#f8f9fa;">
-      <select id="targetSalesman" onchange="renderTargetProgress()" style="flex:1">
-        <option value="">全部业务员</option>
-      </select>
-    </div>
-    <div id="targetCards"></div>
-  </div>
-  <div id="targetReturn" style="display:none">
-    <div id="returnStatsPanel" style="background:#fff;border-radius:12px;padding:16px;margin:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08)">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-        <div style="font-size:13px;font-weight:600;color:#333">📊 退货率看板</div>
-        <span id="returnWarningBadge" style="font-size:11px;padding:2px 8px;border-radius:10px">正常</span>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <div style="text-align:center">
-          <div style="font-size:11px;color:#888">本月退货率</div>
-          <div id="returnRateVal" style="font-size:24px;font-weight:700;color:#1a73e8">0.0%</div>
-        </div>
-        <div style="text-align:center">
-          <div style="font-size:11px;color:#888">额度使用率</div>
-          <div id="returnQuotaVal" style="font-size:24px;font-weight:700;color:#1a73e8">0%</div>
-        </div>
-      </div>
-      <div style="margin-top:10px">
-        <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px">
-          <span>退货额度</span>
-          <span><span id="returnUsedAmt">0</span> / <span id="returnTotalAmt">0</span>元</span>
-        </div>
-        <div style="height:6px;background:#f0f0f0;border-radius:3px;overflow:hidden">
-          <div id="returnQuotaBar" style="height:100%;width:0%;background:#1a73e8;border-radius:3px"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div id="targetProgress"></div>
+  <div id="targetReturn" style="display:none"></div>
+  <div id="targetRank" style="display:none"></div>
+  <div id="targetCalendar" style="display:none"></div>
+  <div id="targetSilent" style="display:none"></div>
 </div>
-</div>
+
 
 <!-- 详情弹窗 -->
 <div id="md" class="md" onclick="closeMd()">
@@ -1311,12 +1361,380 @@ function generateMockTerminals(region, count) {
   return result;
 }
 
-// ===== 模块2：退货率看板 =====
+// ===== 模块2：目标页面Tab切换 =====
+var currentCalendarMonth = new Date();
+var calendarEventCache = null;
+
 function switchTargetTab(tab) {
   document.querySelectorAll('.sub-tab').forEach(function(t) { t.classList.toggle('on', t.dataset.tab === tab); });
   document.getElementById('targetProgress').style.display = tab === 'progress' ? 'block' : 'none';
   document.getElementById('targetReturn').style.display = tab === 'return' ? 'block' : 'none';
+  document.getElementById('targetRank').style.display = tab === 'rank' ? 'block' : 'none';
+  document.getElementById('targetCalendar').style.display = tab === 'calendar' ? 'block' : 'none';
+  document.getElementById('targetSilent').style.display = tab === 'silent' ? 'block' : 'none';
   if (tab === 'return') renderReturnRateBoard();
+  if (tab === 'rank') renderTargetRank();
+  if (tab === 'calendar') {
+    currentCalendarMonth = new Date();
+    renderTargetCalendar();
+  }
+  if (tab === 'silent') renderTargetSilent();
+}
+
+
+// ===== 沉默客户激活模块 =====
+var activatedCustomers = {};
+
+function renderTargetSilent() {
+  var container = document.getElementById('targetSilent');
+  var today = new Date();
+  var silentCustomers = [];
+  
+  customersData.forEach(function(c) {
+    var lastDate = c.lastDate ? new Date(c.lastDate) : null;
+    var silentDays = 0;
+    if (lastDate) {
+      silentDays = Math.floor((today - lastDate) / (1000 * 60 * 60 * 24));
+    }
+    if (silentDays >= 30) {
+      var valueLevel = 'normal';
+      var valueTagClass = 'silent-value-normal';
+      if (c.level && (c.level.indexOf('A类') >= 0 || c.level.indexOf('重要') >= 0)) {
+        valueLevel = 'high';
+        valueTagClass = 'silent-value-high';
+      } else if (c.level && c.level.indexOf('B类') >= 0) {
+        valueLevel = 'mid';
+        valueTagClass = 'silent-value-mid';
+      }
+      var avgMonthly = c.monthlySales || 0;
+      var isActivated = activatedCustomers[c.id] === today.toDateString();
+      silentCustomers.push({
+        id: c.id,
+        name: c.name,
+        salesman: c.salesman || '未知',
+        silentDays: silentDays,
+        valueLevel: valueLevel,
+        valueTagClass: valueTagClass,
+        valueLabel: valueLevel === 'high' ? '高价值' : (valueLevel === 'mid' ? '中价值' : '普通'),
+        avgMonthly: avgMonthly,
+        lastDate: c.lastDate || '-',
+        isActivated: isActivated,
+        warning: c.warning || ''
+      });
+    }
+  });
+  
+  silentCustomers.sort(function(a, b) {
+    if (a.valueLevel !== b.valueLevel) {
+      var levelOrder = { high: 0, mid: 1, normal: 2 };
+      return levelOrder[a.valueLevel] - levelOrder[b.valueLevel];
+    }
+    return b.silentDays - a.silentDays;
+  });
+  
+  var h = '';
+  var highCount = silentCustomers.filter(function(c) { return c.valueLevel === 'high'; }).length;
+  var midCount = silentCustomers.filter(function(c) { return c.valueLevel === 'mid'; }).length;
+  var normalCount = silentCustomers.filter(function(c) { return c.valueLevel === 'normal'; }).length;
+  
+  h += '<div class="silent-card"><div class="silent-header"><div class="silent-title">⚡ 沉默客户激活</div><div class="silent-bonus">激活奖励×1.5</div></div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">';
+  h += '<div style="text-align:center;padding:10px;background:#fce8e6;border-radius:8px"><div style="font-size:18px;font-weight:700;color:#c5221f">' + highCount + '</div><div style="font-size:10px;color:#888">高价值</div></div>';
+  h += '<div style="text-align:center;padding:10px;background:#fff3e0;border-radius:8px"><div style="font-size:18px;font-weight:700;color:#e65100">' + midCount + '</div><div style="font-size:10px;color:#888">中价值</div></div>';
+  h += '<div style="text-align:center;padding:10px;background:#f5f5f5;border-radius:8px"><div style="font-size:18px;font-weight:700;color:#666">' + normalCount + '</div><div style="font-size:10px;color:#888">普通</div></div>';
+  h += '</div><div style="font-size:11px;color:#888;text-align:center">共 ' + silentCustomers.length + ' 个沉默客户（30天+未下单）</div></div>';
+  
+  h += '<div class="category-filter">';
+  h += '<button class="cat-btn active" data-filter="all" onclick="filterSilentCustomers(\'all\')">全部</button>';
+  h += '<button class="cat-btn" data-filter="high" onclick="filterSilentCustomers(\'high\')">高价值</button>';
+  h += '<button class="cat-btn" data-filter="mid" onclick="filterSilentCustomers(\'mid\')">中价值</button>';
+  h += '<button class="cat-btn" data-filter="normal" onclick="filterSilentCustomers(\'normal\')">普通</button>';
+  h += '</div>';
+  
+  h += '<div id="silentCustomerList">';
+  silentCustomers.forEach(function(c) {
+    h += '<div class="silent-item" data-value="' + c.valueLevel + '">';
+    h += '<span class="silent-value-badge ' + c.valueTagClass + '">' + c.valueLabel + '</span>';
+    h += '<div class="silent-name">' + c.name + '<div class="silent-meta">沉默 ' + c.silentDays + ' 天 | 最后 ' + c.lastDate;
+    if (c.avgMonthly > 0) h += ' | 月均 ' + fmtAmt(c.avgMonthly);
+    h += '</div>';
+    if (c.warning) h += '<div class="silent-meta" style="color:#e53935">' + c.warning + '</div>';
+    h += '</div>';
+    if (c.isActivated) {
+      h += '<button class="silent-action" style="background:#4caf50" disabled>已跟进</button>';
+    } else {
+      h += '<button class="silent-action" onclick="activateCustomer(\'' + c.id + '\')">激活</button>';
+    }
+    h += '</div>';
+  });
+  
+  if (silentCustomers.length === 0) {
+    h += '<div class="empty">暂无沉默客户，继续保持！</div>';
+  }
+  h += '</div>';
+  
+  container.innerHTML = h;
+  window.currentSilentCustomers = silentCustomers;
+}
+
+function filterSilentCustomers(filter) {
+  document.querySelectorAll('.category-filter .cat-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.filter === filter);
+  });
+  var items = document.querySelectorAll('#silentCustomerList .silent-item');
+  items.forEach(function(item) {
+    if (filter === 'all' || item.dataset.value === filter) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+function activateCustomer(customerId) {
+  activatedCustomers[customerId] = new Date().toDateString();
+  renderTargetSilent();
+  alert('已标记为已跟进！\n请记得实际联系客户并记录跟进结果。');
+}
+
+// ===== 排行榜渲染 =====
+function renderTargetRank() {
+  var container = document.getElementById('targetRank');
+  var salesData = salesProgressData || [];
+  
+  var salesmen = salesData.filter(function(p) {
+    return p['业务经理'] !== '小计' && p['业务经理'] !== '公司合计' && p['业务经理'] !== '总计';
+  });
+  
+  var salesRank = salesmen.slice().sort(function(a, b) {
+    return (b['月销售额'] || 0) - (a['月销售额'] || 0);
+  }).slice(0, 10);
+  
+  var progressRank = salesmen.slice().sort(function(a, b) {
+    var pa = parseFloat((a['完成进度'] || '0%').replace('%', '')) || 0;
+    var pb = parseFloat((b['完成进度'] || '0%').replace('%', '')) || 0;
+    return pb - pa;
+  }).slice(0, 10);
+  
+  var profitRank = salesmen.slice().sort(function(a, b) {
+    var pa = parseFloat((a['月累计毛利率'] || '0%').replace('%', '')) || 0;
+    var pb = parseFloat((b['月累计毛利率'] || '0%').replace('%', '')) || 0;
+    return pb - pa;
+  }).slice(0, 10);
+  
+  var depts = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
+  var deptStats = {};
+  salesData.forEach(function(p) {
+    if (p['业务经理'] === '小计') {
+      var dept = p['区域'];
+      deptStats[dept] = { sales: p['月销售额'] || 0, target: p['月度目标'] || 0, progress: parseFloat((p['完成进度'] || '0%').replace('%', '')) || 0 };
+    }
+  });
+  
+  var h = '';
+  
+  h += '<div class="rank-card"><div class="rank-header"><div class="rank-title">🏢 部门对比</div></div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">';
+  depts.forEach(function(dept) {
+    var stat = deptStats[dept] || { sales: 0, target: 0, progress: 0 };
+    var deptName = dept.replace('业务部', '');
+    h += '<div style="background:#f8f9fa;padding:12px;border-radius:8px;text-align:center">';
+    h += '<div style="font-size:12px;color:#666">' + deptName + '</div>';
+    h += '<div style="font-size:18px;font-weight:700;color:#1a73e8;margin-top:4px">' + fmtAmt(stat.sales) + '</div>';
+    h += '<div style="font-size:10px;color:#888;margin-top:2px">目标 ' + fmtAmt(stat.target) + '</div>';
+    h += '<div style="font-size:11px;color:' + (stat.progress >= 10 ? '#137333' : '#e53935') + ';margin-top:2px">完成 ' + stat.progress.toFixed(1) + '%</div>';
+    h += '</div>';
+  });
+  h += '</div></div>';
+  
+  h += '<div class="rank-card"><div class="rank-header"><div class="rank-title">🔥 销售额排行 TOP10</div></div>';
+  salesRank.forEach(function(item, idx) {
+    var numClass = idx === 0 ? 'gold' : (idx === 1 ? 'silver' : (idx === 2 ? 'bronze' : ''));
+    h += '<div class="rank-item"><div class="rank-num ' + numClass + '">' + (idx + 1) + '</div>';
+    h += '<div class="rank-name">' + item['业务经理'] + '<br><span style="font-size:10px;color:#888">' + item['区域'] + '</span></div>';
+    h += '<div class="rank-value">' + fmtAmt(item['月销售额']) + '</div></div>';
+  });
+  h += '</div>';
+  
+  h += '<div class="rank-card"><div class="rank-header"><div class="rank-title">🎯 目标达成排行 TOP10</div></div>';
+  progressRank.forEach(function(item, idx) {
+    var numClass = idx === 0 ? 'gold' : (idx === 1 ? 'silver' : (idx === 2 ? 'bronze' : ''));
+    var progress = parseFloat((item['完成进度'] || '0%').replace('%', '')) || 0;
+    var progressColor = progress >= 20 ? '#137333' : (progress >= 10 ? '#1a73e8' : '#e53935');
+    h += '<div class="rank-item"><div class="rank-num ' + numClass + '">' + (idx + 1) + '</div>';
+    h += '<div class="rank-name">' + item['业务经理'] + '<br><span style="font-size:10px;color:#888">' + item['区域'] + '</span></div>';
+    h += '<div class="rank-value" style="color:' + progressColor + '">' + item['完成进度'] + '</div></div>';
+  });
+  h += '</div>';
+  
+  h += '<div class="rank-card"><div class="rank-header"><div class="rank-title">💰 毛利率排行 TOP10</div></div>';
+  profitRank.forEach(function(item, idx) {
+    var numClass = idx === 0 ? 'gold' : (idx === 1 ? 'silver' : (idx === 2 ? 'bronze' : ''));
+    var profit = parseFloat((item['月累计毛利率'] || '0%').replace('%', '')) || 0;
+    var profitColor = profit >= 20 ? '#137333' : (profit >= 13 ? '#1a73e8' : '#e53935');
+    h += '<div class="rank-item"><div class="rank-num ' + numClass + '">' + (idx + 1) + '</div>';
+    h += '<div class="rank-name">' + item['业务经理'] + '<br><span style="font-size:10px;color:#888">' + item['区域'] + '</span></div>';
+    h += '<div class="rank-value" style="color:' + profitColor + '">' + item['月累计毛利率'] + '</div></div>';
+  });
+  h += '</div>';
+  
+  container.innerHTML = h;
+}
+
+// ===== 跟进日历渲染 =====
+function renderTargetCalendar() {
+  var container = document.getElementById('targetCalendar');
+  var year = currentCalendarMonth.getFullYear();
+  var month = currentCalendarMonth.getMonth();
+  
+  if (!calendarEventCache) {
+    calendarEventCache = buildCalendarEvents();
+  }
+  
+  var monthKey = year + '-' + String(month + 1).padStart(2, '0');
+  var monthEvents = calendarEventCache[monthKey] || {};
+  
+  var firstDay = new Date(year, month, 1);
+  var lastDay = new Date(year, month + 1, 0);
+  var startDay = firstDay.getDay();
+  var today = new Date();
+  var isCurrentMonth = today.getFullYear() === year && today.getMonth() === month;
+  
+  var monthNames = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+  
+  var h = '';
+  h += '<div class="calendar-container"><div class="calendar-header"><div class="calendar-nav">';
+  h += '<button class="calendar-nav-btn" onclick="prevCalendarMonth()">‹</button>';
+  h += '<button class="calendar-nav-btn" onclick="nextCalendarMonth()">›</button>';
+  h += '</div><div class="calendar-month">' + year + '年' + monthNames[month] + '</div>';
+  h += '<button class="btn btn-primary" style="padding:4px 10px;font-size:11px" onclick="goToToday()">今天</button></div>';
+  
+  h += '<div class="calendar-grid">';
+  var weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+  weekdays.forEach(function(d) { h += '<div class="calendar-weekday">' + d + '</div>'; });
+  
+  var dayCount = 1;
+  var totalCells = Math.ceil((startDay + lastDay.getDate()) / 7) * 7;
+  
+  for (var i = 0; i < totalCells; i++) {
+    if (i < startDay || dayCount > lastDay.getDate()) {
+      h += '<div class="calendar-day other-month"></div>';
+    } else {
+      var dayNum = dayCount;
+      var dateStr = year + '-' + String(month + 1).padStart(2, '0') + '-' + String(dayNum).padStart(2, '0');
+      var events = monthEvents[dateStr] || [];
+      var dayClasses = ['calendar-day'];
+      
+      if (isCurrentMonth && dayNum === today.getDate()) dayClasses.push('today');
+      
+      var hasRisk = events.some(function(e) { return e.type === 'risk'; });
+      var hasUrgent = events.some(function(e) { return e.type === 'urgent'; });
+      var hasWarning = events.some(function(e) { return e.type === 'warning'; });
+      var hasTask = events.some(function(e) { return e.type === 'task'; });
+      
+      if (hasRisk) dayClasses.push('has-risk');
+      else if (hasUrgent) dayClasses.push('has-urgent');
+      else if (hasWarning) dayClasses.push('has-warning');
+      else if (hasTask) dayClasses.push('has-task');
+      
+      h += '<div class="' + dayClasses.join(' ') + '" onclick="showDayDetail(\'' + dateStr + '\')">' + dayNum + '</div>';
+      dayCount++;
+    }
+  }
+  h += '</div>';
+  
+  h += '<div class="calendar-legend">';
+  h += '<div class="calendar-legend-item"><div class="calendar-legend-dot" style="background:#1a73e8"></div>跟进任务</div>';
+  h += '<div class="calendar-legend-item"><div class="calendar-legend-dot" style="background:#e53935"></div>风险客户</div>';
+  h += '<div class="calendar-legend-item"><div class="calendar-legend-dot" style="background:#ff9800"></div>紧急事项</div>';
+  h += '<div class="calendar-legend-item"><div class="calendar-legend-dot" style="background:#fbc02d"></div>预警</div>';
+  h += '</div></div>';
+  
+  var todayKey = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+  var todayEvents = calendarEventCache[todayKey] || [];
+  
+  h += '<div class="silent-card" style="margin-top:12px"><div class="silent-header"><div class="silent-title">📋 今日事项</div></div>';
+  
+  if (todayEvents.length === 0) {
+    h += '<div style="text-align:center;padding:20px;color:#888;font-size:13px">暂无待办事项</div>';
+  } else {
+    todayEvents.forEach(function(evt) {
+      var typeColor = evt.type === 'risk' ? '#e53935' : (evt.type === 'urgent' ? '#ff9800' : (evt.type === 'warning' ? '#fbc02d' : '#1a73e8'));
+      h += '<div class="silent-item"><div style="width:8px;height:8px;border-radius:50%;background:' + typeColor + ';margin-right:10px"></div>';
+      h += '<div class="silent-name">' + evt.name + '<br><span class="silent-meta">' + evt.desc + '</span></div></div>';
+    });
+  }
+  h += '</div>';
+  
+  container.innerHTML = h;
+}
+
+function buildCalendarEvents() {
+  var cache = {};
+  var today = new Date();
+  var todayStr = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0') + '-' + String(today.getDate()).padStart(2, '0');
+  
+  var followPlanData = window.followPlanData || [];
+  followPlanData.forEach(function(fp) {
+    if (fp.nd) {
+      var dateKey = fp.nd;
+      if (!cache[dateKey]) cache[dateKey] = [];
+      cache[dateKey].push({ type: 'task', name: '跟进任务', desc: fp.n || '待跟进' });
+    }
+  });
+  
+  customersData.forEach(function(c) {
+    if (c.isOverdue) {
+      var dateKey = c.nextDate || todayStr;
+      if (!cache[dateKey]) cache[dateKey] = [];
+      cache[dateKey].push({ type: 'risk', name: '风险客户', desc: c.name });
+    }
+  });
+  
+  customersData.forEach(function(c) {
+    if (c.warning && c.warning.indexOf('预警') >= 0) {
+      var days = Math.floor(Math.random() * 7);
+      var warnDate = new Date(today);
+      warnDate.setDate(warnDate.getDate() + days);
+      var dateKey = warnDate.getFullYear() + '-' + String(warnDate.getMonth() + 1).padStart(2, '0') + '-' + String(warnDate.getDate()).padStart(2, '0');
+      if (!cache[dateKey]) cache[dateKey] = [];
+      cache[dateKey].push({ type: 'warning', name: '客户预警', desc: c.name });
+    }
+  });
+  
+  return cache;
+}
+
+function prevCalendarMonth() {
+  currentCalendarMonth.setMonth(currentCalendarMonth.getMonth() - 1);
+  renderTargetCalendar();
+}
+
+function nextCalendarMonth() {
+  currentCalendarMonth.setMonth(currentCalendarMonth.getMonth() + 1);
+  renderTargetCalendar();
+}
+
+function goToToday() {
+  currentCalendarMonth = new Date();
+  renderTargetCalendar();
+}
+
+function showDayDetail(dateStr) {
+  var events = calendarEventCache[dateStr] || [];
+  
+  if (events.length === 0) {
+    alert(dateStr + '\n暂无待办事项');
+    return;
+  }
+  
+  var msg = dateStr + '\n━━━━━━━━━━━━━━━━\n';
+  events.forEach(function(evt) {
+    var typeLabel = evt.type === 'risk' ? '🔴' : (evt.type === 'urgent' ? '🟠' : (evt.type === 'warning' ? '🟡' : '🔵'));
+    msg += typeLabel + ' ' + evt.name + '\n   ' + evt.desc + '\n';
+  });
+  
+  alert(msg);
 }
 
 function renderReturnRateBoard() {
