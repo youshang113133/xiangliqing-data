@@ -94,9 +94,10 @@ body{font-size:14px;line-height:1.6}
 .tag-b{background:#e8f0fe;color:#1a73e8}
 .tag-p{background:#f3e5f5;color:#7b1fa2}
 /* 底部导航栏样式 - 用ID选择器，不用class */
-#mainNav{position:fixed;bottom:0;left:0;right:0;width:100%;max-width:480px;margin:0 auto;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,0.1);z-index:9999;border-top:1px solid #f0f0f0;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));height:auto;text-align:center}
-#mainNav>div{display:inline-block;text-align:center;font-size:11px;color:#666;cursor:pointer;vertical-align:top;padding:8px 4px}
-#mainNav>div.on{color:#1a73e8;font-weight:600}
+#mainNav{position:fixed!important;bottom:0!important;left:0!important;right:0!important;width:100%!important;max-width:480px;margin:0 auto!important;background:#fff!important;box-shadow:0 -2px 12px rgba(0,0,0,0.1)!important;z-index:9999!important;border-top:1px solid #f0f0f0!important;padding:6px 0!important;padding-bottom:calc(6px + env(safe-area-inset-bottom))!important;display:none!important}
+#mainNav.show{display:block!important}
+#mainNav td{padding:8px 4px!important;font-size:11px!important;color:#666!important;cursor:pointer!important;vertical-align:middle!important;text-align:center!important}
+#mainNav td.on{color:#1a73e8!important;font-weight:600!important}
 .stat-row{display:flex;padding:12px 0;border-bottom:1px solid #eee;background:#fff}
 .stat-item{text-align:center;flex:1}
 .stat-num{font-size:20px;font-weight:700;color:#1a73e8;font-variant-numeric:tabular-nums}
@@ -773,7 +774,14 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
   </div>
 </div>
 <!-- 底部导航 -->
-<div id="mainNav" style="display:none"></div>
+<div id="mainNav">
+  <table style="width:100%;border-collapse:collapse;table-layout:fixed"><tr>
+  <td id="navReport" onclick="switchTab('Report')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">📊</div><div style="font-size:10px;margin-top:2px">日报</div></td>
+  <td id="navProduct" onclick="switchTab('Product')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">📦</div><div style="font-size:10px;margin-top:2px">产品</div></td>
+  <td id="navCustomer" onclick="switchTab('Customer')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">👥</div><div style="font-size:10px;margin-top:2px">客户</div></td>
+  <td id="navTarget" onclick="switchTab('Target')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">🎯</div><div style="font-size:10px;margin-top:2px">目标</div></td>
+  </tr></table>
+</div>
 
 <!-- 刷新按钮 -->
 <div style="position:fixed;top:60px;right:12px;z-index:99;display:none" id="refreshBtn">
@@ -1020,7 +1028,7 @@ function doLogout() {
   localStorage.removeItem('wecom_user');
   document.getElementById('loginPage').classList.remove('hidden');
   document.getElementById('topBar').style.display = 'none';
-  document.getElementById('mainNav').style.display = 'none';
+  document.getElementById('mainNav').className = '';
   document.getElementById('refreshBtn').style.display = 'none';
   location.reload();
 }
@@ -1061,9 +1069,10 @@ function initNav() {
   }
   html += '</tr></table>';
   nav.innerHTML = html;
-  nav.style.cssText = 'position:fixed;bottom:0;left:0;right:0;width:100%;max-width:480px;margin:0 auto;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,0.1);z-index:9999;border-top:1px solid #f0f0f0;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));display:block';
-  console.log('initNav done, tabs:', tabs.length);
+  nav.className = 'show';
+  console.log('initNav done, tabs:', tabs.length, 'class:', nav.className);
 }
+
 
 function switchTab(tab) {
   document.querySelectorAll('.pg').forEach(function(p) { p.classList.remove('on'); });
