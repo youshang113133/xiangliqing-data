@@ -1791,7 +1791,8 @@ function renderProduct() {
   if (currentProductCategory && currentProductCategory !== '全部') {
     sorted = sorted.filter(function(p) {
       if (currentProductCategory === '八方宏泰') {
-        return String(p.name || '').indexOf('八方宏泰') >= 0;
+        var name = String(p.name || '');
+        return name.indexOf('八方') >= 0 || name.indexOf('宏泰') >= 0 || name.indexOf('栩泰') >= 0;
       }
       // 使用type字段确定分类
       var pType = p.type || '';
@@ -2234,25 +2235,103 @@ function showCustomerDetail(customerId) {
   var cust = customersData.find(function(c) { return c.id === customerId; }) || {};
   var fp = customerPortraitData[customerId] || {};
   var tc = customerCoefMap[customerId] || {};
-  document.getElementById('mdTt').innerHTML = (cust.name || '-');
-  var h = '<div style="padding:12px 0">';
-  h += '<div style="background:#f8f9fa;border-radius:12px;padding:14px;margin-bottom:14px">';
-  h += '<div style="font-size:12px;color:#666;margin-bottom:6px">所属区域: ' + String(cust.region || '-') + '</div>';
-  h += '<div style="font-size:12px;color:#666;margin-bottom:6px">业务员: ' + String(cust.salesman || '-') + '</div>';
-  h += '<div style="font-size:12px;color:#666">客户分类: ' + String(tc.cat || '-') + '</div>';
-  h += '</div>';
-  h += '<div style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:14px;margin-bottom:14px">';
-  h += '<div style="font-size:12px;color:#666;margin-bottom:8px">最近采购: ' + String(fp.lpd || '-') + '</div>';
-  h += '<div style="font-size:12px;color:#666">采购次数: ' + (fp.pc || 0) + '</div>';
-  h += '</div>';
+  var tierInfo = customerTierMap[customerId] || {};
+  var chType = channelTypeMap[customerId] || fp.ch || '';
   
-  // 功能21：同区域对比话术
-  var regionCompare = getRegionCompare(customerId, cust.region);
+  document.getElementById('mdTt').innerHTML = '<span style="color:#1a73e8">' + String(cust.name || '-') + '</span>';
+  var h = '<div style="padding:12px 0;max-width:480px">';
+  
+  // ===== 基础信息 =====
+  h += '<div style="background:linear-gradient(135deg,#1a73e8,#0d47a1);border-radius:12px;padding:16px;margin-bottom:14px;color:#fff">';
+  h += '<div style="font-size:17px;font-weight:600;margin-bottom:8px">' + (fp.n || cust.name || '-') + '</div>';
+  h += '<div style="display:flex;gap:8px;flex-wrap:wrap">';
+  if (tierInfo.c) {
+    var tc = tierInfo.c.indexOf('A') >= 0 ? '#4caf50' : (tierInfo.c.indexOf('B') >= 0 ? '#2196f3' : '#ff9800');
+    h += '<span style="background:' + tc + ';color:#fff;padding:3px 10px;border-radius:12px;font-size:11px">' + tierInfo.c + '</span>';
+  }
+  if (chType) h += '<span style="background:rgba(255,255,255,0.2);padding:3px 10px;border-radius:12px;font-size:11px">' + chType + '</span>';
+  if (fp.ht) h += '<span style="background:rgba(255,255,255,0.2);padding:3px 10px;border-radius:12px;font-size:11px">' + fp.ht + '</span>';
+  h += '</div></div>';
+  
+  // ===== 基本信息 =====
+  h += '<div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)">';
+  h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:10px">📋 基本信息</div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px">';
+  h += '<div><span style="color:#888">所属区域：</span>' + String(fp.r || cust.region || '-') + '</div>';
+  h += '<div><span style="color:#888">业务员：</span>' + String(fp.sm || cust.salesman || '-') + '</div>';
+  h += '<div><span style="color:#888">客户分层：</span>' + String(tierInfo.c || fp.tc || '-') + '</div>';
+  h += '<div><span style="color:#888">渠道类型：</span>' + String(chType || '-') + '</div>';
+  h += '<div><span style="color:#888">仓库：</span>' + String(fp.wh || '-') + '</div>';
+  h += '<div><span style="color:#888">采购习惯：</span>' + String(fp.ht || '-') + '</div>';
+  h += '</div></div>';
+  
+  // ===== 采购数据 =====
+  h += '<div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)">';
+  h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:10px">📊 采购数据</div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">';
+  h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:10px"><div style="font-size:10px;color:#888">最近采购</div><div style="font-size:13px;font-weight:600">' + String(fp.lpd || '-') + '</div></div>';
+  h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:10px"><div style="font-size:10px;color:#888">采购次数</div><div style="font-size:13px;font-weight:600">' + (fp.pc || 0) + '</div></div>';
+  h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:10px"><div style="font-size:10px;color:#888">采购SKU</div><div style="font-size:13px;font-weight:600">' + (fp.sku || 0) + '</div></div>';
+  h += '</div>';
+  h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px">';
+  h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:10px"><div style="font-size:10px;color:#888">月均采购</div><div style="font-size:13px;font-weight:600">¥' + ((fp.ma || 0) > 0 ? (fp.ma).toFixed(0) : '-') + '</div></div>';
+  h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:10px"><div style="font-size:10px;color:#888">月频次</div><div style="font-size:13px;font-weight:600">' + ((fp.mf || 0) > 0 ? (fp.mf).toFixed(1) : '-') + '</div></div>';
+  h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:10px"><div style="font-size:10px;color:#888">均单金额</div><div style="font-size:13px;font-weight:600">¥' + ((fp.ao || 0) > 0 ? (fp.ao).toFixed(0) : '-') + '</div></div>';
+  h += '</div></div>';
+  
+  // ===== 25财年财务 =====
+  var s25 = fp.s25 || tierInfo.s || 0;
+  var p25 = fp.p25 || tierInfo.p || 0;
+  var r25 = fp.r25 || tierInfo.r || 0;
+  if (s25 > 0 || p25 > 0) {
+    h += '<div style="background:#e8f5e9;border-radius:10px;padding:12px;margin-bottom:12px">';
+    h += '<div style="font-size:12px;font-weight:600;color:#2e7d32;margin-bottom:10px">💰 25财年财务</div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">';
+    h += '<div style="text-align:center;background:#fff;border-radius:6px;padding:10px"><div style="font-size:10px;color:#888">销售额</div><div style="font-size:14px;font-weight:700">¥' + s25.toLocaleString('zh-CN', {maximumFractionDigits: 0}) + '</div></div>';
+    h += '<div style="text-align:center;background:#fff;border-radius:6px;padding:10px"><div style="font-size:10px;color:#888">毛利额</div><div style="font-size:14px;font-weight:700">¥' + p25.toLocaleString('zh-CN', {maximumFractionDigits: 0}) + '</div></div>';
+    h += '<div style="text-align:center;background:#fff;border-radius:6px;padding:10px"><div style="font-size:10px;color:#888">毛利率</div><div style="font-size:14px;font-weight:700;color:' + (r25 >= 15 ? '#137333' : '#1a73e8') + '">' + (r25 > 0 ? r25.toFixed(1) + '%' : '-') + '</div></div>';
+    h += '</div></div>';
+  }
+  
+  // ===== 客户特征 =====
+  var hasFeature = fp.pa || fp.ts || fp.op || fp.score || fp.level;
+  if (hasFeature) {
+    h += '<div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)">';
+    h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:10px">👤 客户特征</div>';
+    h += '<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:11px">';
+    if (fp.pa) h += '<div><span style="color:#888">价格敏感度：</span>' + fp.pa + '</div>';
+    if (fp.score) h += '<div><span style="color:#888">综合评分：</span>' + fp.score + '</div>';
+    if (fp.level) h += '<div><span style="color:#888">分层级别：</span>' + fp.level + '</div>';
+    if (fp.ct) h += '<div><span style="color:#888">客户类型：</span>' + fp.ct + '</div>';
+    if (fp.ts) h += '<div><span style="color:#888">退货次数：</span>' + fp.ts + '</div>';
+    if (fp.op) h += '<div><span style="color:#888">退货率：</span>' + ((fp.op || 0) * 100).toFixed(1) + '%</div>';
+    h += '</div></div>';
+  }
+  
+  // ===== 常购产品 =====
+  if (fp.cp1 || fp.cpr) {
+    h += '<div style="background:#fff8e1;border-radius:10px;padding:12px;margin-bottom:12px">';
+    h += '<div style="font-size:12px;font-weight:600;color:#e65100;margin-bottom:8px">🛒 常购产品</div>';
+    if (fp.cp1) h += '<div style="font-size:12px;color:#666"><span style="color:#888">Top1：</span>' + fp.cp1 + ' <span style="color:#888">占比</span>' + ((fp.cpr || 0) * 100).toFixed(0) + '%</div>';
+    h += '</div>';
+  }
+  
+  // ===== 预警信息 =====
+  if (fp.cw || fp.st) {
+    h += '<div style="background:#fce8e6;border-radius:10px;padding:12px;margin-bottom:12px">';
+    h += '<div style="font-size:12px;font-weight:600;color:#c62828;margin-bottom:8px">⚠️ 预警</div>';
+    if (fp.cw) h += '<div style="font-size:11px;color:#666">' + fp.cw + '</div>';
+    if (fp.st && fp.st > 0) h += '<div style="font-size:11px;color:#666;margin-top:4px">沉默天数：' + fp.st + '天</div>';
+    h += '</div>';
+  }
+  
+  // ===== 谈判弹药 =====
+  var regionCompare = getRegionCompare(customerId, fp.r || cust.region);
   if (regionCompare.length > 0) {
-    h += '<div class="compare-section">';
-    h += '<div class="compare-tit">💬 谈判弹药 <span style="font-size:10px;color:#888;font-weight:normal">（同区域参考）</span></div>';
+    h += '<div style="background:#e3f2fd;border-radius:10px;padding:12px;margin-bottom:12px">';
+    h += '<div style="font-size:12px;font-weight:600;color:#1565c0;margin-bottom:10px">💬 谈判弹药 <span style="font-size:10px;color:#888;font-weight:normal">（同区域参考）</span></div>';
     regionCompare.forEach(function(item) {
-      h += '<div class="compare-item"><div class="compare-text">' + item + '</div></div>';
+      h += '<div style="font-size:12px;color:#555;margin-bottom:8px;padding:8px;background:#fff;border-radius:6px">' + item + '</div>';
     });
     h += '</div>';
   }
