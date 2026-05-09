@@ -3676,5 +3676,29 @@ function updateReturnStats() {
 }
 
 </script>
+
+<!-- 导航栏 -->
+<style>#xlqNav{display:none;position:fixed;bottom:0;left:0;width:100%;height:56px;background:#fff;z-index:999999;border-top:1px solid #e0e0e0;box-shadow:0 -2px 8px rgba(0,0,0,0.1)}#xlqNav table{width:100%;height:100%;border-collapse:collapse}#xlqNav td{text-align:center;vertical-align:middle;font-size:12px;color:#555;cursor:pointer;padding:4px 0}#xlqNav td .i{font-size:20px;line-height:1.2}#xlqNav td .l{font-size:10px;margin-top:1px}#xlqNav td.a{color:#1a73e8}</style>
+<div id="xlqNav"><table><tr>
+<td id="xr" onclick="switchTab('Report')"><div class="i">📊</div><div class="l">日报</div></td>
+<td id="xp" onclick="switchTab('Product')"><div class="i">📦</div><div class="l">产品</div></td>
+<td id="xc" onclick="switchTab('Customer')"><div class="i">👥</div><div class="l">客户</div></td>
+<td id="xt" onclick="switchTab('Target')"><div class="i">🎯</div><div class="l">目标</div></td>
+</tr></table></div>
+<script>
+(function(){
+var sMI=showMainInterface;
+showMainInterface=function(){sMI();setTimeout(function(){
+var n=document.getElementById('xlqNav');if(!n)return;
+var t=[];
+if(USER_ROLE==='Admin')t=[{id:'Report',i:'📊',l:'日报'},{id:'Product',i:'📦',l:'产品'},{id:'Customer',i:'👥',l:'客户'},{id:'Target',i:'🎯',l:'目标'}];
+else if(USER_ROLE==='Manager')t=[{id:'Report',i:'📊',l:'区域日报'},{id:'Workbench',i:'💼',l:'工作台'},{id:'Product',i:'📦',l:'产品'},{id:'Customer',i:'👥',l:'客户'},{id:'Target',i:'🎯',l:'目标'}];
+else t=[{id:'Workbench',i:'💼',l:'工作台'},{id:'Product',i:'📦',l:'产品'},{id:'Customer',i:'👥',l:'客户'},{id:'Target',i:'🎯',l:'目标'}];
+var h='<table><tr>';for(var j=0;j<t.length;j++){var ti=t[j];h+='<td id="xn'+ti.id+'" onclick="switchTab(String.fromCharCode(39)+ti.id+String.fromCharCode(39))"><div class="i">'+ti.i+'</div><div class="l">'+ti.l+'</div></td>';};h+='</tr></table>';n.innerHTML=h;n.style.display='block';document.body.style.paddingBottom='60px';
+},200);};
+var sT=switchTab;
+switchTab=function(tab){sT(tab);document.querySelectorAll('#xlqNav td').forEach(function(c){c.className='';});var a=document.getElementById('xn'+tab);if(a)a.className='a';};
+})();
+</script>
 </body>
 </html>
