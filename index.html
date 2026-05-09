@@ -93,10 +93,10 @@ body{font-size:14px;line-height:1.6}
 .tag-r{background:#fce8e6;color:#c5221f}
 .tag-b{background:#e8f0fe;color:#1a73e8}
 .tag-p{background:#f3e5f5;color:#7b1fa2}
-.nav{position:fixed;bottom:0;left:0;right:0;width:100%;background:#fff!important;display:flex!important;box-shadow:0 -2px 12px rgba(0,0,0,0.1)!important;z-index:9999!important;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));border-top:1px solid #f0f0f0!important;height:auto!important}
-.nav>div{flex:1;padding:8px;text-align:center;font-size:11px;color:#666;cursor:pointer;user-select:none}
-.nav .on{color:#1a73e8;font-weight:600}
-.nav .on::before{content:'';display:block;width:24px;height:3px;background:#1a73e8;border-radius:2px;margin:0 auto 6px}
+/* 底部导航栏样式 - 用ID选择器，不用class */
+#mainNav{position:fixed;bottom:0;left:0;right:0;width:100%;max-width:480px;margin:0 auto;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,0.1);z-index:9999;border-top:1px solid #f0f0f0;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));height:auto;text-align:center}
+#mainNav>div{display:inline-block;text-align:center;font-size:11px;color:#666;cursor:pointer;vertical-align:top;padding:8px 4px}
+#mainNav>div.on{color:#1a73e8;font-weight:600}
 .stat-row{display:flex;padding:12px 0;border-bottom:1px solid #eee;background:#fff}
 .stat-item{text-align:center;flex:1}
 .stat-num{font-size:20px;font-weight:700;color:#1a73e8;font-variant-numeric:tabular-nums}
@@ -773,12 +773,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
   </div>
 </div>
 <!-- 底部导航 -->
-<div id="mainNav" style="display:none;position:fixed;bottom:0;left:0;right:0;width:100%;max-width:480px;margin:0 auto;z-index:9999;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,0.1);border-top:1px solid #f0f0f0;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom))">
-  <div id="navReport" onclick="switchTab('Report')" style="flex:1;padding:8px 4px;text-align:center;font-size:11px;color:#666;cursor:pointer;display:inline-block;width:25%"><span style="font-size:16px">📊</span><br><span style="font-size:10px">日报</span></div>
-  <div id="navProduct" onclick="switchTab('Product')" style="flex:1;padding:8px 4px;text-align:center;font-size:11px;color:#666;cursor:pointer;display:inline-block;width:25%"><span style="font-size:16px">📦</span><br><span style="font-size:10px">产品</span></div>
-  <div id="navCustomer" onclick="switchTab('Customer')" style="flex:1;padding:8px 4px;text-align:center;font-size:11px;color:#666;cursor:pointer;display:inline-block;width:25%"><span style="font-size:16px">👥</span><br><span style="font-size:10px">客户</span></div>
-  <div id="navTarget" onclick="switchTab('Target')" style="flex:1;padding:8px 4px;text-align:center;font-size:11px;color:#666;cursor:pointer;display:inline-block;width:25%"><span style="font-size:16px">🎯</span><br><span style="font-size:10px">目标</span></div>
-</div>
+<div id="mainNav" style="display:none"></div>
 
 <!-- 刷新按钮 -->
 <div style="position:fixed;top:60px;right:12px;z-index:99;display:none" id="refreshBtn">
@@ -1050,6 +1045,7 @@ function showMainInterface() {
 
 function initNav() {
   var nav = document.getElementById('mainNav');
+  if (!nav) { console.error('mainNav not found'); return; }
   var tabs = [];
   if (USER_ROLE === 'Admin') {
     tabs = [{ id: 'Report', label: '日报', icon: '📊' }, { id: 'Product', label: '产品', icon: '📦' }, { id: 'Customer', label: '客户', icon: '👥' }, { id: 'Target', label: '目标', icon: '🎯' }];
@@ -1058,16 +1054,20 @@ function initNav() {
   } else {
     tabs = [{ id: 'Workbench', label: '工作台', icon: '💼' }, { id: 'Product', label: '产品', icon: '📦' }, { id: 'Customer', label: '客户', icon: '👥' }, { id: 'Target', label: '目标', icon: '🎯' }];
   }
-  var w = Math.floor(100 / tabs.length);
-  nav.innerHTML = tabs.map(function(t) {
-    return '<div id="nav' + t.id + '" onclick="switchTab(\'' + t.id + '\')" style="display:inline-block;width:' + w + '%;padding:8px 4px;text-align:center;font-size:11px;color:#666;cursor:pointer;vertical-align:top"><span style="font-size:16px">' + t.icon + '</span><br><span style="font-size:10px">' + t.label + '</span></div>';
-  }).join('');
-  nav.style.display = 'block';
+  var html = '<table style="width:100%;border-collapse:collapse;table-layout:fixed"><tr>';
+  for (var i = 0; i < tabs.length; i++) {
+    var t = tabs[i];
+    html += '<td id="nav' + t.id + '" onclick="switchTab(\'' + t.id + '\')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">' + t.icon + '</div><div style="font-size:10px;margin-top:2px">' + t.label + '</div></td>';
+  }
+  html += '</tr></table>';
+  nav.innerHTML = html;
+  nav.style.cssText = 'position:fixed;bottom:0;left:0;right:0;width:100%;max-width:480px;margin:0 auto;background:#fff;box-shadow:0 -2px 12px rgba(0,0,0,0.1);z-index:9999;border-top:1px solid #f0f0f0;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));display:block';
+  console.log('initNav done, tabs:', tabs.length);
 }
 
 function switchTab(tab) {
   document.querySelectorAll('.pg').forEach(function(p) { p.classList.remove('on'); });
-  document.querySelectorAll('.nav>div').forEach(function(n) { n.classList.remove('on'); });
+  document.querySelectorAll('#mainNav td').forEach(function(n) { n.classList.remove('on'); });
   document.getElementById('pg' + tab).classList.add('on');
   var navEl = document.getElementById('nav' + tab);
   if (navEl) navEl.classList.add('on');
