@@ -927,11 +927,12 @@ var CURRENT_USER = null;
 var USER_ROLE = null;
 var USER_DEPT = null;
 
-var EXCLUDE_SALESMAN = ["马政","陈长林","谢荣星","孙其云","郑昌华","龙仙美","李春岚","郁进军","杨启发"];
+var EXCLUDE_SALESMAN = ["马政","陈长林","孙其云","郑昌华","龙仙美","李春岚","郁进军","杨启发"];
 
 var USER_ACCOUNTS = {
   'admin': { password: 'admin123', role: 'Admin', dept: null },
   '刘文': { password: 'liuwen123', role: 'Manager', dept: '省外业务部' },
+  '谢荣星': { password: 'xierongxing123', role: 'Manager', dept: '省内业务部' },
 
   '彭菊华': { password: 'pengjuhua123', role: 'Manager', dept: '长株潭业务部' },
   '陆美英': { password: 'lumeiying123', role: 'Manager', dept: '大客户部' },
@@ -959,7 +960,7 @@ var USER_ACCOUNTS = {
 
 var DEPT_MEMBERS = {
   '省外业务部': ['刘文', '宋杨杰', '袁正军', '罗策', '李志强', '鄢鸿友'],
-  '省内业务部': ['张文胜', '张纯英', '尹建林', '江廉政', '胡珍', '蔡磊', '陈龙', '王纯'],
+  '省内业务部': ['谢荣星', '张文胜', '张纯英', '尹建林', '江廉政', '胡珍', '蔡磊', '陈龙', '王纯'],
   '长株潭业务部': ['彭菊华', '周斌', '熊雄', '张金伟', '彭建华', '杨青青'],
   '大客户部': ['陆美英']
 };
