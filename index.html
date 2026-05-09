@@ -1047,13 +1047,20 @@ async function loadDataFile(key) {
   if (!info || dataLoaded[key]) return true;
   try {
     var url = DATA_BASE + info.file + '?v=' + Date.now();
+    console.log('加载数据:', url);
     var response = await fetch(url);
     if (!response.ok) throw new Error('HTTP ' + response.status);
     var data = await response.json();
+    console.log('数据加载成功:', key, '数据项:', Object.keys(data).length);
     applyDataToGlobals(key, data);
+    // 数据加载成功后重新渲染日报页
+    if (key === 'data_report' && document.getElementById('pgReport').classList.contains('on')) {
+      renderReport();
+    }
     return true;
   } catch(e) {
-    if (info.required) { var el = document.getElementById('rptContent'); if (el) el.innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }
+    console.error('数据加载失败:', key, e);
+    if (info.required) { var el = document.getElementById('rptContent'); if (el) el.innerHTML = '<div class="empty"><p>数据加载失败</p><p style="font-size:12px;color:#999;margin-top:8px">' + e.message + '</p></div>'; }
     return false;
   }
 }
@@ -2172,9 +2179,16 @@ if (reportDateOffset !== 0) {
 }
 document.getElementById('rptDate').textContent = dateStr;
   var h = '';
-  if (USER_ROLE === 'Sales') { h += renderPersonalReport(CURRENT_USER); }
-  else if (USER_ROLE === 'Manager') { h += renderDeptReport(USER_DEPT); if (DUAL_ROLE_MANAGERS.indexOf(CURRENT_USER) >= 0) { h += renderPersonalReport(CURRENT_USER); } }
-  else { h += renderFullReport(); }
+  // 检查数据是否已加载
+  if (!dataLoaded.data_report) {
+    h = '<div class="loading">数据加载中...</div>';
+  } else if (!dailyReportData || !salesProgressData || salesProgressData.length === 0) {
+    h = '<div class="empty"><p>日报数据暂未生成</p><p style="font-size:12px;color:#999;margin-top:8px">请稍后再试或联系管理员</p></div>';
+  } else {
+    if (USER_ROLE === 'Sales') { h += renderPersonalReport(CURRENT_USER); }
+    else if (USER_ROLE === 'Manager') { h += renderDeptReport(USER_DEPT); if (DUAL_ROLE_MANAGERS.indexOf(CURRENT_USER) >= 0) { h += renderPersonalReport(CURRENT_USER); } }
+    else { h += renderFullReport(); }
+  }
   document.getElementById('rptContent').innerHTML = h;
 }
 
