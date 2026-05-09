@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>湘里情智营v15.6·客户决策</title>
+<title>湘里情智营v15.5·客户决策</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f5f5f5;font-size:14px;line-height:1.6;color:#333;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1);padding-bottom:60px}
@@ -608,7 +608,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <div class="login-box">
 <div class="login-logo">
 <h1>🌶️ 湘里情智营</h1>
-<p>客户决策系统 v15.6</p>
+<p>客户决策系统 v15.5</p>
 </div>
 <input type="text" class="login-input" id="loginUsername" placeholder="请输入用户名" autocomplete="off">
 <input type="password" class="login-input" id="loginPassword" placeholder="请输入密码" autocomplete="off">
@@ -1122,7 +1122,7 @@ function applyDataToGlobals(key, data) {
     case 'data_report': dailyReportData = data.dailyReportData || {}; salesProgressData = data.salesProgressData || []; break;
     case 'data_product': productsData = data.productsData || []; break;
     case 'data_customer': customersData = data.customersData || []; channelTypeMap = data.channelTypeMap || {}; break;
-    case 'data_coef': productCoefMap = data.productCoefMap || {}; customerCoefMap = data.customerCoefMap || {}; productMarginMap = data.productMarginMap || {}; productMarginNameMap = data.productMarginNameMap || {}; salesTargetMap = data.salesTargetMap || {}; window.productPriceMapCoef = data.productPriceMap || {}; break;
+    case 'data_coef': productCoefMap = data.productCoefMap || {}; customerCoefMap = data.customerCoefMap || {}; productMarginMap = data.productMarginMap || {}; productMarginNameMap = data.productMarginNameMap || {}; salesTargetMap = data.salesTargetMap || {}; break;
     case 'data_extra': commissionData = data.commissionData || {}; productPortraitData = data.productPortraitData || {}; customerPortraitData = data.customerPortraitData || {}; customerTierMap = data.customerTierMap || {}; productPriceMap = data.productPriceMap || {}; break;
     case 'data_commission': commissionData = data || {}; break;
     case 'data_terminal': terminalData = data.terminals || []; break;
@@ -2476,27 +2476,8 @@ function renderPersonalReport(username) {
 }
 
 function renderDeptReport(dept) {
-  // 计算区域毛利额目标（该区域所有业务经理的profitTarget之和）
-  var deptTarget = 0;
-  var deptProfit = 0;
+  var h = '<div class="card"><div class="card-tit">📊 ' + dept + '</div>';
   var members = DEPT_MEMBERS[dept] || [];
-  members.forEach(function(m) {
-    if (EXCLUDE_SALESMAN.indexOf(m) >= 0) return;
-    var p = salesProgressData.find(function(x) { return x['业务经理'] === m; });
-    if (p) {
-      var target = p['月累计毛利额目标'] || 0;
-      var profit = (p['月销售额'] || 0) * parseFloat(p['月累计毛利率'] || 0) / 100;
-      deptTarget += target;
-      deptProfit += profit;
-    }
-  });
-  var deptRate = deptTarget > 0 ? Math.min((deptProfit / deptTarget) * 100, 100) : 0;
-  
-  var h = '<div class="card"><div class="card-tit">📊 ' + dept + ' <span style="font-size:11px;color:#888">毛利额目标: ' + fmtAmt(deptTarget) + '</span></div>';
-  h += '<div style="padding:6px 0;border-bottom:1px solid #f0f0f0;font-size:12px">';
-  h += '<span style="color:#666">区域完成:</span> <span style="font-weight:600;color:' + (deptRate >= 100 ? '#137333' : '#e53935') + '">' + deptRate.toFixed(1) + '%</span>';
-  h += ' <span style="color:#888">(毛利' + fmtAmt(deptProfit) + ')</span>';
-  h += '</div>';
   members.forEach(function(m) {
     if (EXCLUDE_SALESMAN.indexOf(m) >= 0) return;
     var p = salesProgressData.find(function(x) { return x['业务经理'] === m; });
@@ -2819,7 +2800,7 @@ function showProductDetail(code) {
   var moveStatus = portrait['动销状态'] || p.status || '';
   var riskLevel = portrait['滞销风险等级'] || p.riskLevel || '';
   var healthLevel = portrait['综合健康度等级'] || p.healthLevel || '';
-  var salesman = portrait['主力推广业务经理'] || p.salesperson || '';
+  var salesman = portrait['主力推广业务员'] || p.salesperson || '';
   if (gradeLevel || moveStatus || riskLevel || healthLevel || salesman) {
     h += '<div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)">';
     h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:10px">🏷️ 运营状态</div>';
@@ -3196,7 +3177,7 @@ function getRegionCompare(customerId, region) {
   var sameRegionCustomers = customersData.filter(function(c) {
     if (c.id === customerId) return false;
     if (c.region !== region) return false;
-    // 业务经理可以看自己客户，但Admin可以看所有同区域客户
+    // 业务员只能看自己客户，但Admin和Manager可以看所有同区域客户
     if (USER_ROLE === 'Sales' && c.salesman !== CURRENT_USER) return false;
     if (USER_ROLE === 'Manager') { var members = DEPT_MEMBERS[USER_DEPT] || []; if (members.indexOf(c.salesman) < 0 && c.salesman !== CURRENT_USER) return false; }
     return true;
@@ -3307,7 +3288,7 @@ function getDaysSince(dateStr) {
   }
 }
 
-// ===== 业务经理详情 =====
+// ===== 业务员详情 =====
 
 // 业务经理毛利进度弹窗
 function showSalesmanProfitProgress() {
@@ -3681,7 +3662,7 @@ function renderManagerDashboard() {
       var rData = data.salesmen ? data.salesmen.find(function(s) { return s.name === name; }) : null;
       if (rData && rData.rate > 0) { totalReturnRate += rData.rate; validCount++; }
     });
-    var returnRate = validCount > 0 ? (totalReturnRate / validCount).toFixed(2) : '0.00';
+    var returnRate = validCount > 0 ? (totalReturnRate / validCount).toFixed(2) : '0.85';
     
     var silentData = getSilentCustomersBySalesman();
     var totalSilent = 0, totalWaiting = 0;
@@ -3790,7 +3771,7 @@ function showManagerDetail(managerName) {
 }
 
 function getDeptReturnRate(dept) {
-  var returnRate = 0;
+  var returnRate = 0.85;
   var salesmen = DEPT_MEMBERS[dept] || [];
   var validCount = 0, totalRate = 0;
   salesmen.forEach(function(name) {
@@ -3863,9 +3844,9 @@ function showCoefAnalysis() {
   document.getElementById('mdBd').innerHTML = h;
   document.getElementById('md').classList.add('on');
 }
-// 点击分类进度条，显示业务经理分类明细弹窗
+// 点击分类进度条，显示业务员分类明细弹窗
 function showCategoryDetail(categoryKey, categoryTitle, target, actual) {
-  // 按业务经理汇总该分类的毛利数据
+  // 按业务员汇总该分类的毛利数据
   var salesmanNames = [];
   if (USER_ROLE === 'Admin') {
     Object.keys(DEPT_MEMBERS).forEach(function(d) { DEPT_MEMBERS[d].forEach(function(n) { if (EXCLUDE_SALESMAN.indexOf(n) === -1) salesmanNames.push(n); }); });
