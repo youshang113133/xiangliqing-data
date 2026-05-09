@@ -922,14 +922,12 @@ var CURRENT_USER = null;
 var USER_ROLE = null;
 var USER_DEPT = null;
 
-var REMOVED_SALESMAN = ["马政","陈长林"];
-var EXEMPT_SALESMAN = ["谢荣星","孙其云","郑昌华","龙仙美","李春岚"];
-var EXCLUDE_SALESMAN = REMOVED_SALESMAN; // 仅排除已离职人员，免考核人员仍显示但标注"免考核"
+var EXCLUDE_SALESMAN = ["马政","陈长林","谢荣星","孙其云","郑昌华","龙仙美","李春岚","郁进军","杨启发"];
 
 var USER_ACCOUNTS = {
   'admin': { password: 'admin123', role: 'Admin', dept: null },
   '刘文': { password: 'liuwen123', role: 'Manager', dept: '省外业务部' },
-  '谢荣星': { password: 'xierongxing123', role: 'Manager', dept: '省内业务部' },
+
   '彭菊华': { password: 'pengjuhua123', role: 'Manager', dept: '长株潭业务部' },
   '陆美英': { password: 'lumeiying123', role: 'Manager', dept: '大客户部' },
   '周斌': { password: 'zhoubin123', role: 'Sales', dept: '长株潭业务部' },
@@ -938,24 +936,27 @@ var USER_ACCOUNTS = {
   '张纯英': { password: 'zhangchunying123', role: 'Sales', dept: '省内业务部' },
   '尹建林': { password: 'yinjianlin123', role: 'Sales', dept: '省内业务部' },
   '江廉政': { password: 'jianglianzheng123', role: 'Sales', dept: '省内业务部' },
-  '杨启发': { password: 'jianglianzheng123', role: 'Sales', dept: '省内业务部', alias: '江廉政' },
+
   '胡珍': { password: 'huzhen123', role: 'Sales', dept: '省内业务部' },
+  '王纯': { password: 'wangchun123', role: 'Sales', dept: '省内业务部' },
   '蔡磊': { password: 'cailei123', role: 'Sales', dept: '省内业务部' },
   '陈龙': { password: 'chenlong123', role: 'Sales', dept: '省内业务部' },
   '宋杨杰': { password: 'songyangjie123', role: 'Sales', dept: '省外业务部' },
   '袁正军': { password: 'yuanzhengjun123', role: 'Sales', dept: '省外业务部' },
   '罗策': { password: 'luoce123', role: 'Sales', dept: '省外业务部' },
-  '郁进军': { password: 'yujinjun123', role: 'Sales', dept: '省外业务部' },
+  '李志强': { password: 'lizhiqiang123', role: 'Sales', dept: '省外业务部' },
+
   '张金伟': { password: 'zhangjinwei123', role: 'Sales', dept: '长株潭业务部' },
   '彭建华': { password: 'pengjianhua123', role: 'Sales', dept: '长株潭业务部' },
-  '杨青青': { password: 'yangqingqing123', role: 'Sales', dept: '长株潭业务部' }
+  '杨青青': { password: 'yangqingqing123', role: 'Sales', dept: '长株潭业务部' },
+  '鄢鸿友': { password: 'yanhongyou123', role: 'Sales', dept: '省外业务部' }
 };
 
 var DEPT_MEMBERS = {
-  '省外业务部': ['刘文', '宋杨杰', '袁正军', '罗策', '郁进军'],
-  '省内业务部': ['谢荣星', '张文胜', '张纯英', '尹建林', '江廉政', '胡珍', '蔡磊', '陈龙'],
+  '省外业务部': ['刘文', '宋杨杰', '袁正军', '罗策', '李志强', '鄢鸿友'],
+  '省内业务部': ['张文胜', '张纯英', '尹建林', '江廉政', '胡珍', '蔡磊', '陈龙', '王纯'],
   '长株潭业务部': ['彭菊华', '周斌', '熊雄', '张金伟', '彭建华', '杨青青'],
-  '大客户部': ['陆美英', '孙其云', '郑昌华']
+  '大客户部': ['陆美英']
 };
 
 var DUAL_ROLE_MANAGERS = ['刘文', '彭菊华', '陆美英'];
