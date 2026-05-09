@@ -93,7 +93,7 @@ body{font-size:14px;line-height:1.6}
 .tag-r{background:#fce8e6;color:#c5221f}
 .tag-b{background:#e8f0fe;color:#1a73e8}
 .tag-p{background:#f3e5f5;color:#7b1fa2}
-.nav{position:fixed;bottom:0;left:0;right:0;width:100%;background:#fff!important;display:flex!important;box-shadow:0 -2px 12px rgba(0,0,0,0.1)!important;z-index:9999!important;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));border-top:1px solid #f0f0f0!important;height:auto!important;visibility:visible!important;max-height:none!important;overflow:visible!important}
+.nav{position:fixed;bottom:0;left:0;right:0;width:100%;max-width:480px;background:#fff!important;display:flex!important;box-shadow:0 -2px 12px rgba(0,0,0,0.1)!important;z-index:9999!important;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));border-top:1px solid #f0f0f0!important;height:auto!important;visibility:visible!important;max-height:none!important;overflow:visible!important;margin:0 auto}
 .nav>div{flex:1;padding:8px;text-align:center;font-size:11px;color:#666;cursor:pointer;user-select:none}
 .nav .on{color:#1a73e8;font-weight:600}
 .nav .on::before{content:'';display:block;width:24px;height:3px;background:#1a73e8;border-radius:2px;margin:0 auto 6px}
@@ -857,6 +857,7 @@ var DATA_FILES = {
 var dailyReportData = null;
 var salesProgressData = [];
 var productsData = [];
+var currentProductCategory = "全部";
 var customersData = [];
 var channelTypeMap = {};
 var productCoefMap = {};
@@ -2340,6 +2341,7 @@ function filterProductCategory(cat) {
 }
 
 function renderProduct() {
+  if (typeof currentProductCategory === "undefined") currentProductCategory = "全部";
   var sorted = productsData.slice();
   var k = document.getElementById('pSk').value.toLowerCase().trim();
   if (k) {
