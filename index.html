@@ -93,7 +93,7 @@ body{font-size:14px;line-height:1.6}
 .tag-r{background:#fce8e6;color:#c5221f}
 .tag-b{background:#e8f0fe;color:#1a73e8}
 .tag-p{background:#f3e5f5;color:#7b1fa2}
-.nav{position:fixed;bottom:0;left:0;right:0;width:100%;max-width:480px;background:#fff!important;display:flex!important;box-shadow:0 -2px 12px rgba(0,0,0,0.1)!important;z-index:9999!important;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));border-top:1px solid #f0f0f0!important;height:auto!important;visibility:visible!important;max-height:none!important;overflow:visible!important;margin:0 auto}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff!important;display:flex!important;box-shadow:0 -2px 12px rgba(0,0,0,0.1)!important;z-index:9999!important;padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom));border-top:1px solid #f0f0f0!important;height:auto!important;visibility:visible!important;max-height:none!important;overflow:visible!important}
 .nav>div{flex:1;padding:8px;text-align:center;font-size:11px;color:#666;cursor:pointer;user-select:none}
 .nav .on{color:#1a73e8;font-weight:600}
 .nav .on::before{content:'';display:block;width:24px;height:3px;background:#1a73e8;border-radius:2px;margin:0 auto 6px}
@@ -1107,16 +1107,17 @@ function applyDataToGlobals(key, data) {
 }
 
 async function initData() {
-  // 只加载必要的小文件，大文件懒加载
-  await Promise.all([loadDataFile('data_report'), loadDataFile('data_coef'), loadDataFile('data_customer'), loadDataFile('data_commission')]);
-  applyFixedDataMaps();
-  applyCustomerTier();
+  try {
+    // 只加载必要的小文件
+    await Promise.all([loadDataFile('data_report'), loadDataFile('data_coef'), loadDataFile('data_customer'), loadDataFile('data_commission')].map(function(p) { return p.catch(function(e) { console.warn('数据加载失败:', e); }); }));
+    applyFixedDataMaps();
+    applyCustomerTier();
+  } catch(e) { console.error('initData error:', e); }
   if (USER_ROLE === 'Admin' || USER_ROLE === 'Manager') { switchTab('Report'); } else { switchTab('Workbench'); }
   // 延迟加载产品数据
-  setTimeout(function() { loadDataFile('data_product'); }, 300);
-  // 延迟加载画像数据(5MB)
-  setTimeout(function() { loadDataFile('data_extra').then(function() { applyFixedDataMaps(); applyCustomerTier(); }); }, 800);
-  // 终端数据9.7MB，仅点击目标页时加载
+  setTimeout(function() { loadDataFile('data_product').catch(function() {}); }, 300);
+  // 延迟加载画像数据
+  setTimeout(function() { loadDataFile('data_extra').then(function() { applyFixedDataMaps(); applyCustomerTier(); }).catch(function() {}); }, 800);
 }
 
 // ===== 工作台（功能23增强）=====
