@@ -624,7 +624,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <div class="top-bar-r">
 <div class="user-info">
 <span class="username" id="currentUsername">-</span>
-<select id="roleSwitcher" style="display:none;font-size:10px;padding:2px 6px;border:1px solid #ccc;border-radius:4px;margin-left:6px;background:#fff" onchange="switchRole(this.value)"><option value="">切换角色</option><option value="admin">Admin</option><option value="刘文">刘文(省外经理)</option><option value="谢荣星">谢荣星(省内经理)</option><option value="彭菊华">彭菊华(长株潭经理)</option><option value="陆美英">陆美英(大客户经理)</option><option value="周斌">周斌(业务员)</option><option value="熊雄">熊雄(业务员)</option><option value="李志强">李志强(业务员)</option></select><span class="role-tag" id="currentRoleTag">-</span>
+<select id="roleSwitcher" style="display:none;font-size:10px;padding:2px 6px;border:1px solid #ccc;border-radius:4px;margin-left:6px;background:#fff" onchange="switchRole(this.value)"><option value="">切换角色</option><option value="admin">★ Admin</option><optgroup label="省外业务部"><option value="刘文">刘文(经理)</option><option value="宋杨杰">宋杨杰</option><option value="袁正军">袁正军</option><option value="罗策">罗策</option><option value="李志强">李志强</option><option value="鄢鸿友">鄢鸿友</option></optgroup><optgroup label="省内业务部"><option value="谢荣星">谢荣星(经理)</option><option value="张文胜">张文胜</option><option value="张纯英">张纯英</option><option value="尹建林">尹建林</option><option value="江廉政">江廉政</option><option value="胡珍">胡珍</option><option value="蔡磊">蔡磊</option><option value="陈龙">陈龙</option></optgroup><optgroup label="长株潭业务部"><option value="彭菊华">彭菊华(经理)</option><option value="周斌">周斌</option><option value="熊雄">熊雄</option><option value="张金伟">张金伟</option><option value="彭建华">彭建华</option><option value="杨青青">杨青青</option><option value="王纯">王纯</option></optgroup><optgroup label="大客户部"><option value="陆美英">陆美英(经理)</option></optgroup></select><span class="role-tag" id="currentRoleTag">-</span>
 </div>
 <button class="logout-btn" onclick="doLogout()">退出</button>
 </div>
@@ -714,8 +714,6 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 </div>
 
 
-</div>
-</div>
 
 <!-- 详情弹窗 -->
 <div id="md" class="md" onclick="closeMd()">
@@ -1766,11 +1764,13 @@ function buildCalendarEvents() {
 
 function prevCalendarMonth() {
   currentCalendarMonth.setMonth(currentCalendarMonth.getMonth() - 1);
+  calendarEventCache = null;  // 清空缓存，强制重建
   renderTargetCalendar();
 }
 
 function nextCalendarMonth() {
   currentCalendarMonth.setMonth(currentCalendarMonth.getMonth() + 1);
+  calendarEventCache = null;  // 清空缓存，强制重建
   renderTargetCalendar();
 }
 
@@ -3351,7 +3351,16 @@ function applyFixedDataMaps() {
   productsData.forEach(function(p) {
     var margin = productMarginMap[p.code];
     if (margin === undefined) margin = productMarginNameMap[p.name];
-    if (margin !== undefined) { p.realProfitRate = margin; p.profit = margin; }
+    // 确保margin是百分比形式(0-100)，不是小数(0-1)
+    if (margin !== undefined) {
+      if (margin > 1) {  // 如果大于1，说明已经是百分比形式
+        p.realProfitRate = margin;
+        p.profit = margin;
+      } else {  // 如果<=1，说明是小数形式，转换为百分比
+        p.realProfitRate = margin * 100;
+        p.profit = margin * 100;
+      }
+    }
     var coefInfo = productCoefMap[p.code];
     if (coefInfo) { p.coefCat = coefInfo.cat; p.coef = coefInfo.coef; }
     else { p.coefCat = '常规'; p.coef = 1.0; }
@@ -3675,7 +3684,7 @@ function updateReturnStats() {
 
 
 <!-- 底部导航 - 纯内联样式，不依赖任何CSS class -->
-<div id="mainNav" style="position:fixed;bottom:0;left:0;width:100%;max-width:480px;margin:0 auto;background:#fff;z-index:9999;border-top:1px solid #e0e0e0;box-shadow:0 -2px 8px rgba(0,0,0,0.1);padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom))">
+<div id="mainNav" style="position:fixed;bottom:0;left:0;width:100%;background:#fff;z-index:9999;border-top:1px solid #e0e0e0;box-shadow:0 -2px 8px rgba(0,0,0,0.1);padding:6px 0;padding-bottom:calc(6px + env(safe-area-inset-bottom))">
   <table style="width:100%;border-collapse:collapse;table-layout:fixed"><tr>
   <td id="navReport" onclick="switchTab('Report')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">📊</div><div style="font-size:10px;margin-top:2px">日报</div></td>
   <td id="navProduct" onclick="switchTab('Product')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">📦</div><div style="font-size:10px;margin-top:2px">产品</div></td>
