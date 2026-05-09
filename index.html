@@ -611,7 +611,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <div class="login-box">
 <div class="login-logo">
 <h1>🌶️ 湘里情智营</h1>
-<p>客户决策系统 v12.4</p>
+<p>客户决策系统 v15.1</p>
 </div>
 <input type="text" class="login-input" id="loginUsername" placeholder="请输入用户名" autocomplete="off">
 <input type="password" class="login-input" id="loginPassword" placeholder="请输入密码" autocomplete="off">
@@ -627,7 +627,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <div class="top-bar-r">
 <div class="user-info">
 <span class="username" id="currentUsername">-</span>
-<select id="roleSwitcher" style="display:none;font-size:10px;padding:2px 6px;border:1px solid #ccc;border-radius:4px;margin-left:6px;background:#fff" onchange="switchRole(this.value)"><option value="">切换角色</option><option value="admin">Admin</option><option value="刘文">刘文(省外经理)</option><option value="彭菊华">彭菊华(长株潭经理)</option><option value="陆美英">陆美英(大客户经理)</option><option value="周斌">周斌(业务员)</option><option value="熊雄">熊雄(业务员)</option><option value="李志强">李志强(业务员)</option></select><span class="role-tag" id="currentRoleTag">-</span>
+<select id="roleSwitcher" style="display:none;font-size:10px;padding:2px 6px;border:1px solid #ccc;border-radius:4px;margin-left:6px;background:#fff" onchange="switchRole(this.value)"><option value="">切换角色</option><option value="admin">Admin</option><option value="刘文">刘文(省外经理)</option><option value="谢荣星">谢荣星(省内经理)</option><option value="彭菊华">彭菊华(长株潭经理)</option><option value="陆美英">陆美英(大客户经理)</option><option value="周斌">周斌(业务员)</option><option value="熊雄">熊雄(业务员)</option><option value="李志强">李志强(业务员)</option></select><span class="role-tag" id="currentRoleTag">-</span>
 </div>
 <button class="logout-btn" onclick="doLogout()">退出</button>
 </div>
@@ -1140,6 +1140,7 @@ function renderWorkbench() {
   var h = '';
   if (USER_ROLE === 'Sales') { h += renderSalesPersonalView(); }
   else if (USER_ROLE === 'Manager' && DUAL_ROLE_MANAGERS.indexOf(CURRENT_USER) >= 0) { h += renderManagerPersonalView(); }
+  else if (USER_ROLE === 'Manager' && CURRENT_USER === '谢荣星') { h += renderDeptReport(USER_DEPT); }
   document.getElementById('wbContent').innerHTML = h;
 }
 
@@ -1154,7 +1155,7 @@ function renderSalesPersonalView() {
   h += '<div class="wb-today-grid">';
   var comp = todayData.todaySales > 0 ? ((todayData.todaySales / Math.max(todayData.yesterdaySales, 1) - 1) * 100).toFixed(0) : 0;
   var compHtml = todayData.todaySales > 0 ? '<span class="wb-today-comp" style="color:' + (comp >= 0 ? '#137333' : '#e53935') + '">' + (comp >= 0 ? '↑' : '↓') + Math.abs(comp) + '%</span>' : '';
-  h += '<div class="wb-today-item"><div class="wb-today-num">' + fmtAmt(todayData.todaySales) + '</div><div class="wb-today-lbl">销售额</div>' + compHtml + '</div>';
+  h += '<div class="wb-today-item"><div class="wb-today-num">' + (todayData.todaySales === -1 ? '-' : fmtAmt(todayData.todaySales)) + '</div><div class="wb-today-lbl">销售额</div>' + compHtml + '</div>';
   h += '<div class="wb-today-item"><div class="wb-today-num">' + todayData.todayOrders + '</div><div class="wb-today-lbl">订单数</div></div>';
   h += '<div class="wb-today-item"><div class="wb-today-num">' + todayData.todayNewCust + '</div><div class="wb-today-lbl">新增客户</div></div>';
   h += '</div></div>';
@@ -1207,7 +1208,7 @@ function renderManagerPersonalView() {
   h += '<div class="workbench-card">';
   h += '<div class="wb-section-tit">👤 我的个人业绩</div>';
   h += '<div class="wb-today-grid">';
-  h += '<div class="wb-today-item"><div class="wb-today-num">' + fmtAmt(todayData.todaySales) + '</div><div class="wb-today-lbl">今日销售额</div></div>';
+  h += '<div class="wb-today-item"><div class="wb-today-num">' + (todayData.todaySales === -1 ? '-' : fmtAmt(todayData.todaySales)) + '</div><div class="wb-today-lbl">今日销售额</div></div>';
   h += '<div class="wb-today-item"><div class="wb-today-num">' + todayData.todayOrders + '</div><div class="wb-today-lbl">订单数</div></div>';
   h += '<div class="wb-today-item"><div class="wb-today-num">' + todayData.todayNewCust + '</div><div class="wb-today-lbl">新增客户</div></div>';
   h += '</div></div>';
@@ -2130,20 +2131,21 @@ function getTodayData(username) {
   var result = { todaySales: 0, todayOrders: 0, todayNewCust: 0, yesterdaySales: 0 };
   if (!salesProgressData) return result;
   // 从日报数据获取公司当日总销售额和订单数
-  var companyTodaySales = 0, companyTodayOrders = 0, companyMonthSales = 0;
+  var companyTodaySales = 0, companyTodayOrders = 0;
   if (dailyReportData && dailyReportData['核心经营指标']) {
     var kpi = dailyReportData['核心经营指标'];
     companyTodaySales = (kpi['销售额'] || {})['当日'] || 0;
     companyTodayOrders = (kpi['订单数'] || {})['当日'] || 0;
-    companyMonthSales = (kpi['销售额'] || {})['月累计'] || 0;
   }
-  // 按业务员月销售额占比推算当日销售额
+  // 从salesProgressData读取"当日销售额"字段
   for (var i = 0; i < salesProgressData.length; i++) {
     var p = salesProgressData[i];
     if (p['业务经理'] === username) {
-      var monthSales = p['月销售额'] || 0;
-      if (companyMonthSales > 0 && monthSales > 0) {
-        result.todaySales = Math.round(companyTodaySales * (monthSales / companyMonthSales));
+      // 优先使用"当日销售额"字段，如果没有则显示"-"（用特殊值-1表示）
+      if (p['当日销售额'] !== undefined) {
+        result.todaySales = p['当日销售额'];
+      } else {
+        result.todaySales = -1; // 表示无数据，显示"-"
       }
       break;
     }
