@@ -773,15 +773,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
     <button onclick="submitReturn()" class="return-submit-btn">提交申请</button>
   </div>
 </div>
-<!-- 底部导航 -->
-<div id="mainNav">
-  <table style="width:100%;border-collapse:collapse;table-layout:fixed"><tr>
-  <td id="navReport" onclick="switchTab('Report')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">📊</div><div style="font-size:10px;margin-top:2px">日报</div></td>
-  <td id="navProduct" onclick="switchTab('Product')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">📦</div><div style="font-size:10px;margin-top:2px">产品</div></td>
-  <td id="navCustomer" onclick="switchTab('Customer')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">👥</div><div style="font-size:10px;margin-top:2px">客户</div></td>
-  <td id="navTarget" onclick="switchTab('Target')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">🎯</div><div style="font-size:10px;margin-top:2px">目标</div></td>
-  </tr></table>
-</div>
+
 
 <!-- 刷新按钮 -->
 <div style="position:fixed;top:60px;right:12px;z-index:99;display:none" id="refreshBtn">
@@ -3682,5 +3674,14 @@ function updateReturnStats() {
 
 
 
+<!-- 底部导航 -->
+<div id="mainNav">
+  <table style="width:100%;border-collapse:collapse;table-layout:fixed"><tr>
+  <td id="navReport" onclick="switchTab('Report')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">📊</div><div style="font-size:10px;margin-top:2px">日报</div></td>
+  <td id="navProduct" onclick="switchTab('Product')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">📦</div><div style="font-size:10px;margin-top:2px">产品</div></td>
+  <td id="navCustomer" onclick="switchTab('Customer')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">👥</div><div style="font-size:10px;margin-top:2px">客户</div></td>
+  <td id="navTarget" onclick="switchTab('Target')" style="text-align:center;padding:8px 4px;font-size:11px;color:#666;cursor:pointer;vertical-align:middle"><div style="font-size:18px;line-height:1.2">🎯</div><div style="font-size:10px;margin-top:2px">目标</div></td>
+  </tr></table>
+</div>
 </body>
 </html>
