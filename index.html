@@ -2031,7 +2031,7 @@ function generateReturnRateData() {
     data.salesmen.push({ name: name, rate: Math.min(rate, 5), amount: 0, orders: returnCustomers });
   });
   var validData = data.salesmen.filter(function(d) { return d.rate > 0; });
-  data.avgRate = validData.length > 0 ? validData.reduce(function(s, d) { return s + d.rate; }, 0) / validData.length : 0.85;
+  data.avgRate = validData.length > 0 ? validData.reduce(function(s, d) { return s + d.rate; }, 0) / validData.length : 0;
   return data;
 }
 
