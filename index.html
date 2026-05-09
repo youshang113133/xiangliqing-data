@@ -3191,7 +3191,7 @@ function checkWecomLogin() {
     // 清除URL中的code参数
     var cleanUrl = window.location.pathname + window.location.hash;
     window.history.replaceState({}, '', cleanUrl);
-    // 用code换取用户信息
+    // 用code换取用户信息（异步操作，页面在回调中处理）
     fetch('https://api.xiangliqing.com/wecom/auth/?code=' + code)
       .then(function(r) { return r.json(); })
       .then(function(data) {
@@ -3202,12 +3202,18 @@ function checkWecomLogin() {
           if (typeof onLoginSuccess === 'function') onLoginSuccess(data);
         } else {
           console.error('企微登录失败:', data);
+          // auth失败，隐藏登录页让用户手动登录
+          document.getElementById('loginPage').classList.add('hidden');
         }
       })
       .catch(function(err) {
         console.error('企微登录请求失败:', err);
+        // fetch失败，隐藏登录页让用户手动登录
+        document.getElementById('loginPage').classList.add('hidden');
       });
-    return true;
+    // 注意：这里返回true表示正在处理企微登录，但不阻止后续流程
+    // init()会等待，但为了用户体验，我们让登录页显示
+    return false; // 改为false，让init()继续检查本地登录状态
   }
   
   // 3. 检查是否在企微环境
