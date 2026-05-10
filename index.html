@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>湘里情智营v15.7·客户决策</title>
+<title>湘里情智营v15.8·客户决策</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f5f5f5;font-size:14px;line-height:1.6;color:#333;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1);padding-bottom:60px}
@@ -608,7 +608,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <div class="login-box">
 <div class="login-logo">
 <h1>🌶️ 湘里情智营</h1>
-<p>客户决策系统 v15.7</p>
+<p>客户决策系统 v15.8</p>
 </div>
 <input type="text" class="login-input" id="loginUsername" placeholder="请输入用户名" autocomplete="off">
 <input type="password" class="login-input" id="loginPassword" placeholder="请输入密码" autocomplete="off">
@@ -659,7 +659,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <button class="cat-btn active" data-cat="全部" onclick="filterProductCategory('全部')">全部</button>
 <button class="cat-btn" data-cat="核心1类" onclick="filterProductCategory('核心1类')">核心1类</button>
 <button class="cat-btn" data-cat="核心2类" onclick="filterProductCategory('核心2类')">核心2类</button>
-<button class="cat-btn" data-cat="常规" onclick="filterProductCategory('常规')>/button>
+<button class="cat-btn" data-cat="常规" onclick="filterProductCategory('常规')">常规</button>
 <button class="cat-btn" data-cat="自主产品" onclick="filterProductCategory('自主产品')">自主产品</button>
 </div>
 <div class="fl" style="margin-top:0">
@@ -975,14 +975,33 @@ function checkLoginStatus() {
   if (savedUser) {
     try {
       var userData = JSON.parse(savedUser);
-      var account = USER_ACCOUNTS[userData.username];
+      var username = userData.username || userData.name || userData.user || '';
+      var account = USER_ACCOUNTS[username];
       if (account) {
-        CURRENT_USER = userData.username;
+        CURRENT_USER = username;
         USER_ROLE = account.role;
-        USER_DEPT = account.dept;
+        USER_DEPT = account.dept || '';
         return true;
+      } else {
+        localStorage.removeItem('xlq_current_user');
       }
-    } catch(e) {}
+    } catch(e) { localStorage.removeItem('xlq_current_user'); }
+  } else {
+    var oldUser = localStorage.getItem('xlq_user') || localStorage.getItem('user');
+    if (oldUser) {
+      try {
+        var uname = typeof oldUser === 'string' && oldUser.indexOf('{') < 0 ? oldUser : JSON.parse(oldUser).username;
+        var account = USER_ACCOUNTS[uname];
+        if (account) {
+          CURRENT_USER = uname;
+          USER_ROLE = account.role;
+          USER_DEPT = account.dept || '';
+          localStorage.setItem('xlq_current_user', JSON.stringify({username: uname, role: account.role, dept: account.dept}));
+          localStorage.removeItem('xlq_user');
+          return true;
+        }
+      } catch(e2) { localStorage.removeItem('xlq_user'); localStorage.removeItem('user'); }
+    }
   }
   return false;
 }
@@ -1084,22 +1103,26 @@ function switchTab(tab) {
   document.getElementById('pg' + tab).classList.add('on');
   var navEl = document.getElementById('nav' + tab);
   if (navEl) navEl.classList.add('on');
-  if (tab === 'Report') { if (!dataLoaded.data_report) { showLoading(); loadDataFile('data_report').then(function() { renderReport(); hideLoading(); }); } else { renderReport(); } }
-  else if (tab === 'Workbench') { renderWorkbench(); }
-  else if (tab === 'Product') { if (!dataLoaded.data_product) { showLoading(); loadDataFile('data_product').then(function() { applyFixedDataMaps(); renderProduct(); hideLoading(); }); } else { renderProduct(); } }
-  else if (tab === 'Customer') { if (!dataLoaded.data_customer) { showLoading(); loadDataFile('data_customer').then(function() { applyCustomerTier(); loadCustomerList(); hideLoading(); }); } else { loadCustomerList(); } }
-  else if (tab === 'Target') { if (!dataLoaded.data_terminal) { showLoading(); loadDataFile('data_terminal').then(function() { renderTargetPage(); hideLoading(); }); } else { renderTargetPage(); } }
+  if (tab === 'Report') { if (!dataLoaded.data_report) { showLoading('rptContent'); loadDataFile('data_report').then(function() { renderReport(); hideLoading(); }).catch(function() { document.getElementById('rptContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderReport(); } }
+  else if (tab === 'Workbench') { if (!dataLoaded.data_report) { showLoading('wbContent'); loadDataFile('data_report').then(function() { renderWorkbench(); hideLoading(); }).catch(function() { document.getElementById('wbContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderWorkbench(); } }
+  else if (tab === 'Product') { if (!dataLoaded.data_product) { showLoading('prdContent'); loadDataFile('data_product').then(function() { applyFixedDataMaps(); renderProduct(); hideLoading(); }).catch(function() { document.getElementById('prdContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderProduct(); } }
+  else if (tab === 'Customer') { if (!dataLoaded.data_customer) { showLoading('custList'); loadDataFile('data_customer').then(function() { applyCustomerTier(); loadCustomerList(); hideLoading(); }).catch(function() { document.getElementById('custList').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { loadCustomerList(); } }
+  else if (tab === 'Target') { if (!dataLoaded.data_terminal) { showLoading('targetCards'); loadDataFile('data_terminal').then(function() { renderTargetPage(); hideLoading(); }).catch(function() { document.getElementById('targetCards').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderTargetPage(); } }
 }
 
 // ===== 数据加载 =====
-function showLoading() { var el = document.getElementById('rptContent'); if (el) el.innerHTML = '<div class="loading">加载中...</div>'; }
+function showLoading(containerId) {
+  var el = document.getElementById(containerId || 'rptContent');
+  if (el) el.innerHTML = '<div class="loading" style="text-align:center;padding:40px;color:#888">加载中...</div>';
+}
 function hideLoading() {}
 
 async function loadDataFile(key) {
   var info = DATA_FILES[key];
   if (!info || dataLoaded[key]) return true;
   try {
-    var url = DATA_BASE + info.file + '?v=' + Date.now();
+    var isFileProtocol = location.protocol === 'file:';
+    var url = isFileProtocol ? (info.file + '?v=' + Date.now()) : (DATA_BASE + info.file + '?v=' + Date.now());
     console.log('加载数据:', url);
     var response = await fetch(url);
     if (!response.ok) throw new Error('HTTP ' + response.status);
@@ -1164,6 +1187,8 @@ function renderWorkbench() {
   if (USER_ROLE === 'Sales') { h += renderSalesPersonalView(); }
   else if (USER_ROLE === 'Manager' && DUAL_ROLE_MANAGERS.indexOf(CURRENT_USER) >= 0) { h += renderManagerPersonalView(); }
   else if (USER_ROLE === 'Manager' && CURRENT_USER === '谢荣星') { h += renderDeptReport(USER_DEPT); }
+  else if (USER_ROLE === 'Manager') { h += renderDeptReport(USER_DEPT); }
+  else if (USER_ROLE === 'Admin') { h += renderFullReport(); }
   document.getElementById('wbContent').innerHTML = h;
 }
 
