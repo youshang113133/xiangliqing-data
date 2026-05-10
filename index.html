@@ -6,7 +6,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>湘里情智营v15.6·客户决策</title>
+<title>湘里情智营v15.7·客户决策</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;background:#f5f5f5;font-size:14px;line-height:1.6;color:#333;max-width:480px;margin:0 auto;min-height:100vh;box-shadow:0 0 20px rgba(0,0,0,.1);padding-bottom:60px}
@@ -608,7 +608,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <div class="login-box">
 <div class="login-logo">
 <h1>🌶️ 湘里情智营</h1>
-<p>客户决策系统 v15.6</p>
+<p>客户决策系统 v15.7</p>
 </div>
 <input type="text" class="login-input" id="loginUsername" placeholder="请输入用户名" autocomplete="off">
 <input type="password" class="login-input" id="loginPassword" placeholder="请输入密码" autocomplete="off">
@@ -1590,12 +1590,12 @@ function renderTargetRank() {
   });
   
   var salesRank = salesmen.slice().sort(function(a, b) {
-    return (b['月销售额'] || 0) - (a['月销售额'] || 0);
+    return (b['月累计毛利额'] || 0) - (a['月累计毛利额'] || 0);
   }).slice(0, 10);
   
   var progressRank = salesmen.slice().sort(function(a, b) {
-    var pa = parseFloat((a['完成进度'] || '0%').replace('%', '')) || 0;
-    var pb = parseFloat((b['完成进度'] || '0%').replace('%', '')) || 0;
+    var pa = parseFloat((a['毛利额完成进度'] || '0%').replace('%', '')) || 0;
+    var pb = parseFloat((b['毛利额完成进度'] || '0%').replace('%', '')) || 0;
     return pb - pa;
   }).slice(0, 10);
   
@@ -1610,7 +1610,7 @@ function renderTargetRank() {
   salesData.forEach(function(p) {
     if (p['业务经理'] === '小计') {
       var dept = p['区域'];
-      deptStats[dept] = { sales: p['月销售额'] || 0, target: p['月度目标'] || 0, progress: parseFloat((p['完成进度'] || '0%').replace('%', '')) || 0 };
+      deptStats[dept] = { profit: p['月累计毛利额'] || 0, target: p['月累计毛利额目标'] || 0, progress: parseFloat((p['毛利额完成进度'] || '0%').replace('%', '')) || 0 };
     }
   });
   
@@ -1623,19 +1623,19 @@ function renderTargetRank() {
     var deptName = dept.replace('业务部', '');
     h += '<div style="background:#f8f9fa;padding:12px;border-radius:8px;text-align:center">';
     h += '<div style="font-size:12px;color:#666">' + deptName + '</div>';
-    h += '<div style="font-size:18px;font-weight:700;color:#1a73e8;margin-top:4px">' + fmtAmt(stat.sales) + '</div>';
+    h += '<div style="font-size:18px;font-weight:700;color:#1a73e8;margin-top:4px">' + fmtAmt(stat.profit) + '</div>';
     h += '<div style="font-size:10px;color:#888;margin-top:2px">目标 ' + fmtAmt(stat.target) + '</div>';
     h += '<div style="font-size:11px;color:' + (stat.progress >= 10 ? '#137333' : '#e53935') + ';margin-top:2px">完成 ' + stat.progress.toFixed(1) + '%</div>';
     h += '</div>';
   });
   h += '</div></div>';
   
-  h += '<div class="rank-card"><div class="rank-header"><div class="rank-title">🔥 销售额排行 TOP10</div></div>';
+  h += '<div class="rank-card"><div class="rank-header"><div class="rank-title">🔥 毛利额排行 TOP10</div></div>';
   salesRank.forEach(function(item, idx) {
     var numClass = idx === 0 ? 'gold' : (idx === 1 ? 'silver' : (idx === 2 ? 'bronze' : ''));
     h += '<div class="rank-item"><div class="rank-num ' + numClass + '">' + (idx + 1) + '</div>';
     h += '<div class="rank-name">' + item['业务经理'] + '<br><span style="font-size:10px;color:#888">' + item['区域'] + '</span></div>';
-    h += '<div class="rank-value">' + fmtAmt(item['月销售额']) + '</div></div>';
+    h += '<div class="rank-value">' + fmtAmt(item['月累计毛利额']) + '</div></div>';
   });
   h += '</div>';
   
