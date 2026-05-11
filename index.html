@@ -849,8 +849,7 @@ var DATA_FILES = {
   data_coef: { file: 'data_coef.json', required: true },
   data_extra: { file: 'data_extra.json', required: false },
   data_recs: { file: 'data_recs.json', required: false },
-  data_commission: { file: 'data_commission.json', required: false },
-  data_terminal: { file: 'data_terminal.json', required: false }
+  data_commission: { file: 'data_commission.json', required: false }
 };
 
 var dailyReportData = null;
@@ -1107,7 +1106,7 @@ function switchTab(tab) {
   else if (tab === 'Workbench') { if (!dataLoaded.data_report) { showLoading('wbContent'); loadDataFile('data_report').then(function() { renderWorkbench(); hideLoading(); }).catch(function() { document.getElementById('wbContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderWorkbench(); } }
   else if (tab === 'Product') { if (!dataLoaded.data_product) { showLoading('prdContent'); loadDataFile('data_product').then(function() { applyFixedDataMaps(); renderProduct(); hideLoading(); }).catch(function() { document.getElementById('prdContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderProduct(); } }
   else if (tab === 'Customer') { if (!dataLoaded.data_customer) { showLoading('custList'); loadDataFile('data_customer').then(function() { applyCustomerTier(); loadCustomerList(); hideLoading(); }).catch(function() { document.getElementById('custList').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { loadCustomerList(); } }
-  else if (tab === 'Target') { if (!dataLoaded.data_terminal) { showLoading('targetCards'); loadDataFile('data_terminal').then(function() { renderTargetPage(); hideLoading(); }).catch(function() { document.getElementById('targetCards').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderTargetPage(); } }
+  else if (tab === 'Target') { if (!dataLoaded.data_report) { showLoading('targetCards'); loadDataFile('data_report').then(function() { loadDataFile('data_coef'); renderTargetPage(); hideLoading(); }).catch(function() { document.getElementById('targetCards').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderTargetPage(); } }
 }
 
 // ===== 数据加载 =====
@@ -1131,7 +1130,7 @@ async function loadDataFile(key) {
     catch(e1) {
       console.warn('CDN数据截断,尝试GitHub Raw:', info.file);
       try {
-        var r2 = await fetch(DATA_BASE_RAW + info.file);
+        var r2 = await fetch(DATA_BASE_RAW + info.file, {headers:{'Accept-Encoding':'identity'}});
         if (!r2.ok) throw new Error('Raw HTTP ' + r2.status);
         text = await r2.text();
         data = JSON.parse(text);
@@ -1327,6 +1326,9 @@ function getReplenishReminders() {
 
 // ===== 模块1：终端开拓 =====
 function renderTerminal开拓() {
+  if (!terminalData || terminalData.length === 0) {
+    return '<div class="workbench-card"><div class="wb-section-tit">🗺 终端开拓</div><div style="font-size:12px;color:#888;padding:8px">终端数据加载中...</div></div>';
+  }
   var myRegion = getMyRegion();
   var myTerminals = terminalData.filter(function(t) {
     return (t.dp || t.department) === USER_DEPT && (t.s || t.status) !== '已联系';
