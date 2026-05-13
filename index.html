@@ -1106,7 +1106,7 @@ function switchTab(tab) {
   else if (tab === 'Workbench') { if (!dataLoaded.data_report) { showLoading('wbContent'); loadDataFile('data_report').then(function() { renderWorkbench(); hideLoading(); }).catch(function() { document.getElementById('wbContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderWorkbench(); } }
   else if (tab === 'Product') { if (!dataLoaded.data_product) { showLoading('prdContent'); loadDataFile('data_product').then(function() { applyFixedDataMaps(); renderProduct(); hideLoading(); }).catch(function() { document.getElementById('prdContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderProduct(); } }
   else if (tab === 'Customer') { if (!dataLoaded.data_customer) { showLoading('custList'); loadDataFile('data_customer').then(function() { applyCustomerTier(); loadCustomerList(); hideLoading(); }).catch(function() { document.getElementById('custList').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { loadCustomerList(); } }
-  else if (tab === 'Target') { if (!dataLoaded.data_report) { showLoading('targetCards'); loadDataFile('data_report').then(function() { return loadDataFile('data_coef'); }).then(function() { return loadDataFile('data_commission'); }).then(function() { renderTargetPage(); hideLoading(); }).catch(function() { document.getElementById('targetCards').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderTargetPage(); } }
+  else if (tab === 'Target') { if (!dataLoaded.data_report) { showLoading('targetProgress'); loadDataFile('data_report').then(function() { return loadDataFile('data_coef'); }).then(function() { return loadDataFile('data_commission'); }).then(function() { renderTargetPage(); hideLoading(); }).catch(function() { document.getElementById('targetProgress').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderTargetPage(); } }
 }
 
 // ===== 数据加载 =====
@@ -3469,7 +3469,7 @@ function initTargetSalesmanFilter() {
 }
 
 function renderTargetProgress() {
-  var container = document.getElementById('targetCards');
+  var container = document.getElementById('targetProgress');
   if (!container) return;
   
   // 从真实数据计算各分类目标与完成
@@ -3694,7 +3694,7 @@ function ensureManagerData() {
 // 区总看板丰富版
 function renderManagerDashboard() {
   ensureManagerData();
-  var container = document.getElementById('targetCards');
+  var container = document.getElementById('targetProgress');
   if (!container) return;
   
   var managers = [
