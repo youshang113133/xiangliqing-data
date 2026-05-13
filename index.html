@@ -669,6 +669,13 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
   <option value="mid">中毛利10-15%</option>
   <option value="low">低毛利&lt;10%</option>
 </select>
+<select id="pCoefRange" onchange="renderProduct()" style="flex:1">
+  <option value="">全部系数</option>
+  <option value="core1">核心1类×1.5</option>
+  <option value="core2">核心2类×1.35</option>
+  <option value="normal">常规×1.0</option>
+  <option value="self">自主产品</option>
+</select>
 </div>
 <div id="prdContent"></div>
 </div>
@@ -706,8 +713,28 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <div class="sub-tab" data-tab="silent" onclick="switchTargetTab('silent')">⚡ 激活</div>
 </div>
 <div id="targetContent">
-  <div id="targetProgress"></div>
-  <div id="targetReturn" style="display:none"></div>
+  <div id="targetProgress">
+  <div class="fl" style="margin:8px 12px">
+    <select id="targetSalesman" onchange="renderTargetProgress()" style="flex:1;padding:6px 10px;border:1px solid #ddd;border-radius:6px;font-size:12px">
+      <option value="">全部业务经理</option>
+    </select>
+  </div>
+</div>
+  <div id="targetReturn" style="display:none">
+  <div style="padding:12px">
+    <div class="card" style="background:#fff3e0;margin-bottom:8px;padding:12px">
+      <div style="font-size:13px;font-weight:500">退货额度</div>
+      <div style="display:flex;justify-content:space-between;margin-top:6px">
+        <div><span style="font-size:10px;color:#888">已用</span><div id="returnUsedAmt" style="font-size:16px;font-weight:600;color:#e53935">-</div></div>
+        <div><span style="font-size:10px;color:#888">总额</span><div id="returnQuotaVal" style="font-size:16px;font-weight:600">-</div></div>
+        <div><span style="font-size:10px;color:#888">退货率</span><div id="returnRateVal" style="font-size:16px;font-weight:600">-</div></div>
+      </div>
+      <div style="background:#eee;height:6px;border-radius:3px;margin-top:8px"><div id="returnQuotaBar" style="background:#e53935;height:6px;border-radius:3px;width:0%"></div></div>
+    </div>
+    <div id="returnTotalAmt" style="display:none"></div>
+    <span id="returnWarningBadge" style="display:none"></span>
+  </div>
+</div>
   <div id="targetRank" style="display:none"></div>
   <div id="targetCalendar" style="display:none"></div>
   <div id="targetSilent" style="display:none"></div>
@@ -1103,9 +1130,9 @@ function switchTab(tab) {
   var navEl = document.getElementById('nav' + tab);
   if (navEl) navEl.classList.add('on');
   if (tab === 'Report') { if (!dataLoaded.data_report) { showLoading('rptContent'); loadDataFile('data_report').then(function() { renderReport(); hideLoading(); }).catch(function() { document.getElementById('rptContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderReport(); } }
-  else if (tab === 'Workbench') { if (!dataLoaded.data_report) { showLoading('wbContent'); loadDataFile('data_report').then(function() { renderWorkbench(); hideLoading(); }).catch(function() { document.getElementById('wbContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderWorkbench(); } }
+  else if (tab === 'Workbench') { if (!dataLoaded.data_report) { showLoading('wbContent'); loadDataFile('data_report').then(function() { return loadDataFile('data_coef'); }).then(function() { return loadDataFile('data_commission'); }).then(function() { renderWorkbench(); hideLoading(); }).catch(function() { document.getElementById('wbContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderWorkbench(); } }
   else if (tab === 'Product') { if (!dataLoaded.data_product) { showLoading('prdContent'); loadDataFile('data_product').then(function() { applyFixedDataMaps(); renderProduct(); hideLoading(); }).catch(function() { document.getElementById('prdContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderProduct(); } }
-  else if (tab === 'Customer') { if (!dataLoaded.data_customer) { showLoading('custList'); loadDataFile('data_customer').then(function() { applyCustomerTier(); loadCustomerList(); hideLoading(); }).catch(function() { document.getElementById('custList').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { loadCustomerList(); } }
+  else if (tab === 'Customer') { if (!dataLoaded.data_customer) { showLoading('custContent'); loadDataFile('data_customer').then(function() { applyCustomerTier(); loadCustomerList(); hideLoading(); }).catch(function() { document.getElementById('custContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { loadCustomerList(); } }
   else if (tab === 'Target') { if (!dataLoaded.data_report) { showLoading('targetProgress'); loadDataFile('data_report').then(function() { return loadDataFile('data_coef'); }).then(function() { return loadDataFile('data_commission'); }).then(function() { renderTargetPage(); hideLoading(); }).catch(function() { document.getElementById('targetProgress').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderTargetPage(); } }
 }
 
@@ -1165,10 +1192,9 @@ function applyDataToGlobals(key, data) {
 
 async function initData() {
   try {
-    // 只加载必要的小文件
-    await Promise.all([loadDataFile('data_report'), loadDataFile('data_coef'), loadDataFile('data_customer'), loadDataFile('data_commission')].map(function(p) { return p.catch(function(e) { console.warn('数据加载失败:', e); }); }));
+    // 只加载核心小文件，大文件按需加载
+    await Promise.all([loadDataFile('data_report'), loadDataFile('data_coef'), loadDataFile('data_commission')].map(function(p) { return p.catch(function(e) { console.warn('数据加载失败:', e); }); }));
     applyFixedDataMaps();
-    applyCustomerTier();
   } catch(e) { console.error('initData error:', e); }
   if (USER_ROLE === 'Admin' || USER_ROLE === 'Manager') { switchTab('Report'); } else { switchTab('Workbench'); }
   // 延迟加载产品数据
