@@ -1,0 +1,33 @@
+name: Deploy to ECS
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: 8.148.20.9
+        username: root
+        password: ${{ secrets.ECS_PASSWORD }}
+        script: |
+          cd /var/www/data
+          git fetch origin main
+          git reset --hard origin/main
+          echo "Deployed at $(date)"
+    - name: Verify
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: 8.148.20.9
+        username: root
+        password: ${{ secrets.ECS_PASSWORD }}
+        script: |
+          cd /var/www/data
+          python3 -c "
+          import json
+          for f in ['data_report.json','data_coef.json','data_product.json','data_customer.json','data_extra.json','data_terminal.json','data_commission.json']:
+            try: json.load(open(f)); print(f'{f}: OK')
+            except: print(f'{f}: FAIL')
+          "
