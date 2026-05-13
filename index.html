@@ -876,7 +876,8 @@ var DATA_FILES = {
   data_coef: { file: 'data_coef.json', required: true },
   data_extra: { file: 'data_extra.json', required: false, raw: true },
   data_recs: { file: 'data_recs.json', required: false },
-  data_commission: { file: 'data_commission.json', required: false }
+  data_commission: { file: 'data_commission.json', required: false },
+  data_terminal: { file: 'data_terminal.json', required: false, raw: true }
 };
 
 var dailyReportData = null;
@@ -1133,7 +1134,7 @@ function switchTab(tab) {
   else if (tab === 'Workbench') { if (!dataLoaded.data_report) { showLoading('wbContent'); loadDataFile('data_report').then(function() { return loadDataFile('data_coef'); }).then(function() { return loadDataFile('data_commission'); }).then(function() { renderWorkbench(); hideLoading(); }).catch(function() { document.getElementById('wbContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderWorkbench(); } }
   else if (tab === 'Product') { if (!dataLoaded.data_product) { showLoading('prdContent'); loadDataFile('data_product').then(function() { applyFixedDataMaps(); renderProduct(); hideLoading(); }).catch(function() { document.getElementById('prdContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderProduct(); } }
   else if (tab === 'Customer') { if (!dataLoaded.data_customer) { showLoading('custContent'); loadDataFile('data_customer').then(function() { applyCustomerTier(); loadCustomerList(); hideLoading(); }).catch(function() { document.getElementById('custContent').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { loadCustomerList(); } }
-  else if (tab === 'Target') { if (!dataLoaded.data_report) { showLoading('targetProgress'); loadDataFile('data_report').then(function() { return loadDataFile('data_coef'); }).then(function() { return loadDataFile('data_commission'); }).then(function() { renderTargetPage(); hideLoading(); }).catch(function() { document.getElementById('targetProgress').innerHTML = '<div class="empty"><p>数据加载失败</p></div>'; }); } else { renderTargetPage(); } }
+  else if (tab === 'Target') { if (!dataLoaded.data_report) { showLoading('targetProgress'); loadDataFile('data_report').then(function() { return loadDataFile('data_coef'); }).then(function() { return loadDataFile('data_commission'); }).then(function() { return loadDataFile('data_terminal'); }).then(function() { renderTargetPage(); hideLoading(); }).catch(function() { renderTargetPage(); hideLoading(); }); } else { renderTargetPage(); } }
 }
 
 // ===== 数据加载 =====
