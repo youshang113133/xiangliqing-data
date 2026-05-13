@@ -872,9 +872,9 @@ var DATA_BASE_RAW = 'https://raw.githubusercontent.com/xiangliqing888/xiangliqin
 var DATA_FILES = {
   data_report: { file: 'data_report.json', required: true },
   data_product: { file: 'data_product.json', required: false },
-  data_customer: { file: 'data_customer.json', required: false },
+  data_customer: { file: 'data_customer.json', required: false, raw: true },
   data_coef: { file: 'data_coef.json', required: true },
-  data_extra: { file: 'data_extra.json', required: false },
+  data_extra: { file: 'data_extra.json', required: false, raw: true },
   data_recs: { file: 'data_recs.json', required: false },
   data_commission: { file: 'data_commission.json', required: false }
 };
@@ -1148,20 +1148,30 @@ async function loadDataFile(key) {
   if (!info || dataLoaded[key]) return true;
   try {
     var isFileProtocol = location.protocol === 'file:';
-    var url = isFileProtocol ? (info.file + '?v=' + Date.now()) : (DATA_BASE + info.file + '?v=' + Date.now());
+    var useRaw = info.raw || false;
+    var url = isFileProtocol ? (info.file + '?v=' + Date.now()) : (useRaw ? (DATA_BASE_RAW + info.file + '?v=' + Date.now()) : (DATA_BASE + info.file + '?v=' + Date.now()));
     console.log('加载数据:', url);
     var response = await fetch(url);
     if (!response.ok) throw new Error('HTTP ' + response.status);
     var text = await response.text();
     try { var data = JSON.parse(text); }
     catch(e1) {
-      console.warn('CDN数据截断,尝试GitHub Raw:', info.file);
+      console.warn('主源数据异常,尝试备用源:', info.file);
       try {
-        var r2 = await fetch(DATA_BASE_RAW + info.file, {headers:{'Accept-Encoding':'identity'}});
-        if (!r2.ok) throw new Error('Raw HTTP ' + r2.status);
+        var backupUrl = useRaw ? (DATA_BASE + info.file + '?v=' + Date.now()) : (DATA_BASE_RAW + info.file);
+        var r2 = await fetch(backupUrl, {headers:{'Accept-Encoding':'identity'}});
+        if (!r2.ok) throw new Error('Backup HTTP ' + r2.status);
         text = await r2.text();
         data = JSON.parse(text);
-      } catch(e2) { throw new Error('数据解析失败: ' + e1.message); }
+      } catch(e2) {
+        // 最后尝试ECS本地(带identity头，防止gzip截断)
+        try {
+          var r3 = await fetch(DATA_BASE + info.file + '?v=' + Date.now(), {headers:{'Accept-Encoding':'identity'}});
+          if (!r3.ok) throw new Error('Local HTTP ' + r3.status);
+          text = await r3.text();
+          data = JSON.parse(text);
+        } catch(e3) { throw new Error('数据加载失败: ' + e1.message); }
+      }
     }
     console.log('数据加载成功:', key, '数据项:', Object.keys(data).length);
     applyDataToGlobals(key, data);
