@@ -625,7 +625,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <div class="top-bar-r">
 <div class="user-info">
 <span class="username" id="currentUsername">-</span>
-<select id="roleSwitcher" style="display:none;font-size:10px;padding:2px 6px;border:1px solid #ccc;border-radius:4px;margin-left:6px;background:#fff" onchange="switchRole(this.value)"><option value="">切换角色</option><option value="admin">★ Admin</option><option value="湘里情">★ 湘里情(总经理)</option><optgroup label="省外业务部"><option value="刘文">刘文(区总)</option><option value="宋杨杰">宋杨杰</option><option value="袁正军">袁正军</option><option value="罗策">罗策</option><option value="李志强">李志强</option><option value="鄢鸿友">鄢鸿友</option></optgroup><optgroup label="省内业务部"><option value="谢荣星">谢荣星(区总)</option><option value="张文胜">张文胜</option><option value="张纯英">张纯英</option><option value="尹建林">尹建林</option><option value="江廉政">江廉政</option><option value="胡珍">胡珍</option><option value="蔡磊">蔡磊</option><option value="陈龙">陈龙</option></optgroup><optgroup label="长株潭业务部"><option value="陆美英">陆美英(区总)</option><option value="彭菊华">彭菊华(市内)</option><option value="周斌">周斌</option><option value="熊雄">熊雄</option><option value="张金伟">张金伟</option><option value="彭建华">彭建华</option><option value="杨青青">杨青青</option><option value="王纯">王纯</option></optgroup></select><span class="role-tag" id="currentRoleTag">-</span>
+<select id="roleSwitcher" style="display:none;font-size:10px;padding:2px 6px;border:1px solid #ccc;border-radius:4px;margin-left:6px;background:#fff" onchange="switchRole(this.value)"><option value="">切换角色</option><option value="admin">★ Admin</option><option value="湘里情">★ 湘里情(总经理)</option><optgroup label="省外业务部"><option value="刘文">刘文(区总)</option><option value="宋杨杰">宋杨杰</option><option value="袁正军">袁正军</option><option value="罗策">罗策</option><option value="李志强">李志强</option><option value="鄢鸿友">鄢鸿友</option></optgroup><optgroup label="省内业务部"><option value="谢荣星">谢荣星(区总)</option><option value="张文胜">张文胜</option><option value="张纯英">张纯英</option><option value="尹建林">尹建林</option><option value="江廉政">江廉政</option><option value="胡珍">胡珍</option><option value="蔡磊">蔡磊</option><option value="陈龙">陈龙</option></optgroup><optgroup label="市内业务部"><option value="陆美英">陆美英(区总)</option><option value="彭菊华">彭菊华</option><option value="周斌">周斌</option><option value="熊雄">熊雄</option><option value="张金伟">张金伟</option><option value="彭建华">彭建华</option><option value="杨青青">杨青青</option><option value="王纯">王纯</option></optgroup></select><span class="role-tag" id="currentRoleTag">-</span>
 </div>
 <button class="logout-btn" onclick="doLogout()">退出</button>
 </div>
@@ -957,17 +957,17 @@ var USER_ACCOUNTS = {
   '刘文': { password: 'liuwen123', role: 'Manager', dept: '省外业务部' },
   '谢荣星': { password: 'xierongxing123', role: 'Manager', dept: '省内业务部' },
 
-  '彭菊华': { password: 'pengjuhua123', role: 'Sales', dept: '长株潭业务部' },
-  '陆美英': { password: 'lumeiying123', role: 'Manager', dept: '长株潭业务部' },
-  '周斌': { password: 'zhoubin123', role: 'Sales', dept: '长株潭业务部' },
-  '熊雄': { password: 'xiongxiong123', role: 'Sales', dept: '长株潭业务部' },
+  '彭菊华': { password: 'pengjuhua123', role: 'Sales', dept: '市内业务部' },
+  '陆美英': { password: 'lumeiying123', role: 'Manager', dept: '市内业务部' },
+  '周斌': { password: 'zhoubin123', role: 'Sales', dept: '市内业务部' },
+  '熊雄': { password: 'xiongxiong123', role: 'Sales', dept: '市内业务部' },
   '张文胜': { password: 'zhangwensheng123', role: 'Sales', dept: '省内业务部' },
   '张纯英': { password: 'zhangchunying123', role: 'Sales', dept: '省内业务部' },
   '尹建林': { password: 'yinjianlin123', role: 'Sales', dept: '省内业务部' },
   '江廉政': { password: 'jianglianzheng123', role: 'Sales', dept: '省内业务部' },
 
   '胡珍': { password: 'huzhen123', role: 'Sales', dept: '省内业务部' },
-  '王纯': { password: 'wangchun123', role: 'Sales', dept: '长株潭业务部' },
+  '王纯': { password: 'wangchun123', role: 'Sales', dept: '市内业务部' },
   '蔡磊': { password: 'cailei123', role: 'Sales', dept: '省内业务部' },
   '陈龙': { password: 'chenlong123', role: 'Sales', dept: '省内业务部' },
   '宋杨杰': { password: 'songyangjie123', role: 'Sales', dept: '省外业务部' },
@@ -975,16 +975,16 @@ var USER_ACCOUNTS = {
   '罗策': { password: 'luoce123', role: 'Sales', dept: '省外业务部' },
   '李志强': { password: 'lizhiqiang123', role: 'Sales', dept: '省外业务部' },
 
-  '张金伟': { password: 'zhangjinwei123', role: 'Sales', dept: '长株潭业务部' },
-  '彭建华': { password: 'pengjianhua123', role: 'Sales', dept: '长株潭业务部' },
-  '杨青青': { password: 'yangqingqing123', role: 'Sales', dept: '长株潭业务部' },
+  '张金伟': { password: 'zhangjinwei123', role: 'Sales', dept: '市内业务部' },
+  '彭建华': { password: 'pengjianhua123', role: 'Sales', dept: '市内业务部' },
+  '杨青青': { password: 'yangqingqing123', role: 'Sales', dept: '市内业务部' },
   '鄢鸿友': { password: 'yanhongyou123', role: 'Sales', dept: '省外业务部' }
 };
 
 var DEPT_MEMBERS = {
   '省外业务部': ['刘文', '宋杨杰', '袁正军', '罗策', '李志强', '鄢鸿友'],
   '省内业务部': ['谢荣星', '张文胜', '张纯英', '尹建林', '江廉政', '胡珍', '蔡磊', '陈龙'],
-  '长株潭业务部': ['陆美英', '彭菊华', '周斌', '熊雄', '张金伟', '彭建华', '杨青青', '王纯']
+  '市内业务部': ['陆美英', '彭菊华', '周斌', '熊雄', '张金伟', '彭建华', '杨青青', '王纯']
 };
 
 var DUAL_ROLE_MANAGERS = ['刘文', '陆美英'];
@@ -992,7 +992,7 @@ var DUAL_ROLE_MANAGERS = ['刘文', '陆美英'];
 // ===== 区域映射 =====
 var REGION_DEPT_MAP = {
   '湖北': '省外业务部', '江西': '省外业务部', '广东': '省外业务部', '广西': '省外业务部', '贵州': '省外业务部',
-  '长沙': '长株潭业务部', '株洲': '长株潭业务部', '湘潭': '长株潭业务部',
+  '长沙': '市内业务部', '株洲': '省内业务部', '湘潭': '省内业务部',
   '湖南': '省内业务部', '衡阳': '省内业务部', '岳阳': '省内业务部', '常德': '省内业务部', '张家界': '省内业务部',
   '益阳': '省内业务部', '郴州': '省内业务部', '永州': '省内业务部', '怀化': '省内业务部', '娄底': '省内业务部', '邵阳': '省内业务部'
 };
@@ -1456,7 +1456,7 @@ function renderTerminalCoverageRank() {
 
 function getMyRegion() {
   var region = '湖南省';
-  if (USER_DEPT === '长株潭业务部') region = '长沙';
+  if (USER_DEPT === '市内业务部') region = '长沙';
   else if (USER_DEPT === '省内业务部') region = '衡阳';
   else if (USER_DEPT === '省外业务部') region = '湖北';
   return region;
@@ -1669,7 +1669,7 @@ function renderTargetRank() {
     return pb - pa;
   }).slice(0, 10);
   
-  var depts = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
+  var depts = ['省外业务部', '省内业务部', '市内业务部', '大客户部'];
   var deptStats = {};
   salesData.forEach(function(p) {
     if (p['业务经理'] === '小计') {
@@ -2644,7 +2644,7 @@ function renderFullReport() {
 
   // ===== 业务经理任务完成进度 =====
   h += '<div class="card"><div class="card-tit">业务经理任务完成进度</div>';
-  var regions = ['省外业务部', '省内业务部', '长株潭业务部', '大客户部'];
+  var regions = ['省外业务部', '省内业务部', '市内业务部', '大客户部'];
   regions.forEach(function(r) {
     var members = DEPT_MEMBERS[r] || [];
     var deptActualAmount = 0;
@@ -3706,7 +3706,7 @@ function ensureManagerData() {
   var managers = [
     { name: '刘文', dept: '省外业务部' },
     { name: '谢荣星', dept: '省内业务部' },
-    { name: '彭菊华', dept: '长株潭业务部' },
+    { name: '彭菊华', dept: '市内业务部' },
     { name: '陆美英', dept: '大客户部' }
   ];
   
@@ -3737,7 +3737,7 @@ function renderManagerDashboard() {
   var managers = [
     { name: '刘文', dept: '省外业务部' },
     { name: '谢荣星', dept: '省内业务部' },
-    { name: '彭菊华', dept: '长株潭业务部' },
+    { name: '彭菊华', dept: '市内业务部' },
     { name: '陆美英', dept: '大客户部' }
   ];
   
@@ -3806,7 +3806,7 @@ function renderManagerDashboard() {
 
 // 经理详情
 function showManagerDetail(managerName) {
-  var managerDepts = { '刘文': '省外业务部', '谢荣星': '省内业务部', '彭菊华': '长株潭业务部', '陆美英': '大客户部' };
+  var managerDepts = { '刘文': '省外业务部', '谢荣星': '省内业务部', '彭菊华': '市内业务部', '陆美英': '大客户部' };
   var dept = managerDepts[managerName] || '';
   
   var deptSalesmen = DEPT_MEMBERS[dept] || [];
