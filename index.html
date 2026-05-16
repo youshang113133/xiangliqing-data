@@ -613,6 +613,7 @@ input:focus, select:focus, textarea:focus{outline:none;border-color:#1a73e8 !imp
 <input type="text" class="login-input" id="loginUsername" placeholder="请输入用户名" autocomplete="off">
 <input type="password" class="login-input" id="loginPassword" placeholder="请输入密码" autocomplete="off">
 <button class="login-btn" onclick="doLogin()">登 录</button>
+<button class="login-btn" onclick="wecomLogin()" style="background:#2aae67;margin-top:8px">企业微信登录</button>
 <div class="login-error" id="loginError"></div>
 </div>
 
@@ -4181,14 +4182,12 @@ function checkWecomLogin() {
           if (typeof onLoginSuccess === 'function') onLoginSuccess(data);
         } else {
           console.error('企微登录失败:', data);
-          // auth失败，隐藏登录页让用户手动登录
-          document.getElementById('loginPage').classList.add('hidden');
+          showLoginPage();
         }
       })
       .catch(function(err) {
         console.error('企微登录请求失败:', err);
-        // fetch失败，隐藏登录页让用户手动登录
-        document.getElementById('loginPage').classList.add('hidden');
+        showLoginPage();
       });
     // 注意：这里返回true表示正在处理企微登录，但不阻止后续流程
     // init()会等待，但为了用户体验，我们让登录页显示
@@ -4211,6 +4210,15 @@ function checkWecomLogin() {
   return false;
 }
 
+function wecomLogin() {
+  var appId = 'ww95ba771f32ae8eef';
+  var redirectUri = encodeURIComponent(window.location.origin + window.location.pathname);
+  var authUrl = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appId + 
+    '&redirect_uri=' + redirectUri + 
+    '&response_type=code&scope=snsapi_base&agentid=1000024&state=login#wechat_redirect';
+  window.location.href = authUrl;
+}
+
 function applyWecomUser(userData) {
   CURRENT_USER = userData.name;
   USER_DEPT = userData.department || '';
@@ -4224,8 +4232,12 @@ function applyWecomUser(userData) {
     USER_ROLE = 'Sales';
   }
   
-  // 清除旧登录信息
-  localStorage.removeItem('xlq_current_user');
+  // 同步到localStorage（和checkLoginStatus兼容）
+  localStorage.setItem('xlq_current_user', JSON.stringify({
+    username: CURRENT_USER,
+    role: USER_ROLE,
+    dept: USER_DEPT
+  }));
   showMainInterface();
 }
 
@@ -4236,17 +4248,21 @@ function applyWecomUser(userData) {
 
 function init() {
   try {
-    if (!localStorage.getItem("xlq_current_user")) {
-      localStorage.setItem("xlq_current_user", JSON.stringify({username: "admin"}));
-    }
-    // 企微OAuth2登录（正式环境启用）
-    // if (checkWecomLogin()) return;
-    if (checkLoginStatus()) showMainInterface();
+    // 1. 企微OAuth2登录（优先）
+    if (checkWecomLogin()) return;
+    // 2. 本地缓存登录
+    if (checkLoginStatus()) { showMainInterface(); return; }
+    // 3. 未登录，显示登录页
+    showLoginPage();
   } catch(e) {
     console.error('init error:', e);
-    // 即使出错也尝试显示主界面
-    try { showMainInterface(); } catch(e2) {}
+    showLoginPage();
   }
+}
+
+function showLoginPage() {
+  var loginPage = document.getElementById('loginPage');
+  if (loginPage) loginPage.classList.remove('hidden');
 }
 
 // ===== 功能：退货申请 =====
