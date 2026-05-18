@@ -1190,7 +1190,7 @@ async function loadDataFile(key) {
 
 function applyDataToGlobals(key, data) {
   switch(key) {
-    case 'data_report': dailyReportData = data.dailyReportData || {}; salesProgressData = data.salesProgressData || []; break;
+    case 'data_report': dailyReportData = data.dailyReportData || {}; salesProgressData = (data.salesProgressData || []).filter(function(s) { return s['业务经理'] !== '小计'; }); break;
     case 'data_product': productsData = data.productsData || []; break;
     case 'data_customer': customersData = data.customersData || []; channelTypeMap = data.channelTypeMap || {}; break;
     case 'data_coef': productCoefMap = data.productCoefMap || {}; customerCoefMap = data.customerCoefMap || {}; productMarginMap = data.productMarginMap || {}; productMarginNameMap = data.productMarginNameMap || {}; salesTargetMap = data.salesTargetMap || {}; window.productPriceMapCoef = data.productPriceMap || {}; break;
@@ -4126,7 +4126,15 @@ function applyFixedDataMaps() {
 function applyCustomerTier() {
   customersData.forEach(function(c) {
     var info = customerCoefMap[c.id];
-    if (info) { c.level = info.tier || c.level; c.coefCat = info.cat; c.coef = info.coef; }
+    if (info) { c.coefCat = info.cat; c.coef = info.coef; }
+    // 从level字段提取tier（A/B/C/D）
+    if (c.tier) { /* 已有 */ }
+    else if (c.level) {
+      if (c.level.indexOf('A') >= 0 || c.level.indexOf('核心') >= 0) c.tier = 'A';
+      else if (c.level.indexOf('B') >= 0) c.tier = 'B';
+      else if (c.level.indexOf('D') >= 0) c.tier = 'D';
+      else c.tier = 'C';
+    } else { c.tier = 'C'; }
   });
 }
 
