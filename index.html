@@ -2821,7 +2821,7 @@ function showProductDetail(code) {
     h += '<div style="background:#fff8e1;border-radius:10px;padding:12px;margin-bottom:12px">';
     h += '<div style="font-size:12px;font-weight:600;color:#e65100;margin-bottom:10px">✨ 产品特性</div>';
     h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px">';
-    h += '<div style="text-align:center;background:#fff;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">烹饪时间</div><div style="font-size:12px;font-weight:500">' + String(portrait['烹饪时间(分钟)'] || '-') + '</div></div>';
+    h += '<div style="text-align:center;background:#fff;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">烹饪时间</div><div style="font-size:12px;font-weight:500">' + String(portrait['烹饪时间(分钟)'] ? portrait['烹饪时间(分钟)'] + '分钟' : '-') + '</div></div>';
     h += '<div style="text-align:center;background:#fff;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">免洗/免切</div><div style="font-size:12px;font-weight:500">' + String(portrait['是否免洗/免切'] || '-') + '</div></div>';
     h += '<div style="text-align:center;background:#fff;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">出成率</div><div style="font-size:12px;font-weight:500">' + String(portrait['成品出成率'] || '-') + '</div></div>';
     h += '</div></div>';
@@ -2870,22 +2870,22 @@ function showProductDetail(code) {
     h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">总毛利额</div><div style="font-size:14px;font-weight:600">¥' + totalProfit.toLocaleString('zh-CN', {maximumFractionDigits: 0}) + '</div></div>';
     h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">销售次数</div><div style="font-size:14px;font-weight:600">' + sellCount + '</div></div>';
     h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">销售额排名</div><div style="font-size:14px;font-weight:600">#' + saleRank + '</div></div>';
-    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">增长率</div><div style="font-size:14px;font-weight:600;color:' + (saleGrowth >= 0 ? '#137333' : '#e53935') + '">' + (saleGrowth > 0 ? '+' : '') + saleGrowth + '%</div></div>';
-    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">贡献度</div><div style="font-size:14px;font-weight:600">' + contrib + '%</div></div>';
+    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">增长率</div><div style="font-size:14px;font-weight:600;color:' + (saleGrowth >= 0 ? '#137333' : '#e53935') + '">' + (saleGrowth > 0 ? '+' : '') + saleGrowth</div></div>';
+    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">贡献度</div><div style="font-size:14px;font-weight:600">' + contrib</div></div>';
     h += '</div></div>';
   }
   
   // ===== 库存数据 =====
   var stockQty = portrait['期末库存数量'] || p.stock || 0;
   var stockAmt = portrait['期末库存金额'] || 0;
-  var invRatio = portrait['库销比'] || 0;
+  var invRatio = portrait['库销比'] || 0; if (invRatio >= 999) invRatio = '暂无销售';
   if (stockQty > 0 || stockAmt > 0) {
     h += '<div style="background:#fff;border-radius:10px;padding:12px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,0.05)">';
     h += '<div style="font-size:12px;font-weight:600;color:#333;margin-bottom:10px">📦 库存状态</div>';
     h += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">';
     h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">库存量</div><div style="font-size:14px;font-weight:600">' + stockQty + '</div></div>';
     h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">库存金额</div><div style="font-size:14px;font-weight:600">¥' + stockAmt.toLocaleString('zh-CN', {maximumFractionDigits: 0}) + '</div></div>';
-    h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">库销比</div><div style="font-size:14px;font-weight:600">' + invRatio + '</div></div>';
+    h += '<div style="text-align:center;background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">库销比</div><div style="font-size:14px;font-weight:600">' + (typeof invRatio === 'number' ? invRatio.toFixed(1) : invRatio) + '</div></div>';
     h += '</div></div>';
   }
   
