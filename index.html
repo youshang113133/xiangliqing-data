@@ -2870,8 +2870,8 @@ function showProductDetail(code) {
     h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">总毛利额</div><div style="font-size:14px;font-weight:600">¥' + totalProfit.toLocaleString('zh-CN', {maximumFractionDigits: 0}) + '</div></div>';
     h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">销售次数</div><div style="font-size:14px;font-weight:600">' + sellCount + '</div></div>';
     h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">销售额排名</div><div style="font-size:14px;font-weight:600">#' + saleRank + '</div></div>';
-    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">增长率</div><div style="font-size:14px;font-weight:600;color:' + (saleGrowth >= 0 ? '#137333' : '#e53935') + '">' + (saleGrowth > 0 ? '+' : '') + saleGrowth</div></div>';
-    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">贡献度</div><div style="font-size:14px;font-weight:600">' + contrib</div></div>';
+    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">增长率</div><div style="font-size:14px;font-weight:600;color:' + (saleGrowth >= 0 ? '#137333' : '#e53935') + '">' + (saleGrowth > 0 ? '+' : '') + saleGrowth + '</div></div>';
+    h += '<div style="background:#f8f9fa;border-radius:6px;padding:8px"><div style="font-size:10px;color:#888">贡献度</div><div style="font-size:14px;font-weight:600">' + contrib + '</div></div>';
     h += '</div></div>';
   }
   
@@ -4177,7 +4177,9 @@ function checkWecomLogin() {
   }
   
   // 2. 检查URL是否有code参数（OAuth2回调）
-  var urlParams = new URLSearchParams(window.location.search);
+  var urlParams;
+  try { urlParams = new URLSearchParams(window.location.search); } 
+  catch(e) { urlParams = { get: function(k) { var m = new RegExp('[?&]' + k + '=([^&]*)').exec(window.location.search); return m ? m[1] : null; } }; }
   var code = urlParams.get('code');
   if (code) {
     // 清除URL中的code参数
