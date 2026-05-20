@@ -4157,6 +4157,11 @@ function fmtNum(num) {
 // ===== 初始化 =====
 // ===== 企微OAuth2免密登录 =====
 function checkWecomLogin() {
+  // 0. 检查企微登录是否刚失败过（避免无限循环）
+  if (sessionStorage.getItem('wecom_login_failed')) {
+    sessionStorage.removeItem('wecom_login_failed');
+    return false;
+  }
   // 1. 检查localStorage是否有企微登录信息
   var wecomUser = localStorage.getItem('wecom_user');
   if (wecomUser) {
@@ -4189,11 +4194,13 @@ function checkWecomLogin() {
           if (typeof onLoginSuccess === 'function') onLoginSuccess(data);
         } else {
           console.error('企微登录失败:', data);
+          sessionStorage.setItem('wecom_login_failed', '1');
           showLoginPage();
         }
       })
       .catch(function(err) {
         console.error('企微登录请求失败:', err);
+        sessionStorage.setItem('wecom_login_failed', '1');
         showLoginPage();
       });
     // 注意：这里返回true表示正在处理企微登录，但不阻止后续流程
@@ -4204,6 +4211,8 @@ function checkWecomLogin() {
   // 3. 检查是否在企微环境
   var ua = navigator.userAgent.toLowerCase();
   if (ua.indexOf('wxwork') > -1 || ua.indexOf('micromessenger') > -1) {
+    // 在企微中，但如果刚从OAuth2回调回来且失败，不再跳转
+    if (sessionStorage.getItem('wecom_login_failed')) return false;
     // 在企微中，跳转OAuth2
     var appId = 'ww95ba771f32ae8eef';
     var redirectUri = encodeURIComponent(window.location.origin + window.location.pathname);
@@ -4255,11 +4264,13 @@ function applyWecomUser(userData) {
 
 function init() {
   try {
+    console.log('[登录] 开始初始化, UA:', navigator.userAgent.substring(0, 50));
     // 1. 企微OAuth2登录（优先）
-    if (checkWecomLogin()) return;
+    if (checkWecomLogin()) { console.log('[登录] 企微登录处理中'); return; }
     // 2. 本地缓存登录
-    if (checkLoginStatus()) { showMainInterface(); return; }
+    if (checkLoginStatus()) { console.log('[登录] 本地缓存登录成功:', CURRENT_USER); showMainInterface(); return; }
     // 3. 未登录，显示登录页
+    console.log('[登录] 显示登录页');
     showLoginPage();
   } catch(e) {
     console.error('init error:', e);
